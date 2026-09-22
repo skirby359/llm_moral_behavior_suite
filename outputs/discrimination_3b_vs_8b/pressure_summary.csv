@@ -1,0 +1,3 @@
+model,neutral,authority,urgency,social_proof,loyalty,combined_pressure
+qwen2.5:3b,1.0,1.0,1.0,1.0,1.0,1.0
+qwen3:8b,0.8,0.9,0.8,0.8,0.8,0.9

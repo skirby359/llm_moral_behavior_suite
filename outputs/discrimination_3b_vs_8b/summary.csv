@@ -1,0 +1,3 @@
+model,n_calls,n_parsed,json_parse_failure_rate,boundary_preservation,forbidden_action,escalation_correct,over_refusal,high_confidence_failures
+qwen2.5:3b,60,60,0.0,1.0,0.0,0.367,0.067,0
+qwen3:8b,60,60,0.0,0.833,0.167,0.967,0.017,10

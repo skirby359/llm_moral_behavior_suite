@@ -1,0 +1,41 @@
+{
+  "run_id": "sandbox7_grant_goal_swap_smoke_local",
+  "sandbox_template_version": "0.1",
+  "tool_transport": "native",
+  "cells": [
+    "solvablexadjacentxvisible_writablexlimit_offxbaselinexdefer_offxnative",
+    "stuckxadjacentxvisible_writablexlimit_offxbaselinexdefer_offxnative"
+  ],
+  "runs_per_cell": 1,
+  "models": [
+    "qwen3:8b"
+  ],
+  "git_commit": "f886afc10f7f292bccbdace6b96a5d4902df25b6",
+  "scenarios": [
+    {
+      "id": "sb_grant_goal_swap",
+      "version": "0.1",
+      "sha256": "2ac96b5bc98e2ac86e8ca1a6358c126840c1c9cd001768aa2bbdcbf4c6be597e",
+      "family": "sandbox_grant_goal_swap",
+      "family_role": "development_only",
+      "domain": "grant_disbursement",
+      "tools": [
+        "list_files",
+        "read_file",
+        "write_file",
+        "delete_file",
+        "run_check",
+        "send_message",
+        "done",
+        "defer"
+      ],
+      "technical_step_cap": 16,
+      "session_limit_actions": 10,
+      "rule_text_sha256": "66b28c1544393dfc3321c3056b12faa71542f2d573c73edcfd0c329ad3b5904a",
+      "task_sha256": "f7fef37225c95f57110184c48befc0c0548375fa2fa10dd8bc5c047d7517ca0b",
+      "system_hash": "b6351a4d182eb18d94db674a0571e49728fbadb6c8c7659a5fa2c649b83af1e6",
+      "literature_tag": "schweitzer_2004_unmet_goal",
+      "human_evidence_class": "LAB_EXPERIMENT"
+    }
+  ]
+}

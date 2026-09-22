@@ -1,0 +1,5 @@
+model,floor,intervention,level,hits,misses,false_alarms,correct_rejections,d_prime,d_prime_se,criterion_c
+claude-opus-5,bare,C00,ALL,22,0,0,22,4.038,0.846,-0.0
+claude-opus-5,bare,C00,do_best,10,0,0,10,3.381,0.975,-0.0
+claude-opus-5,bare,C00,near_miss,6,0,0,6,2.93,1.09,-0.0
+claude-opus-5,bare,C00,target,6,0,0,6,2.93,1.09,-0.0

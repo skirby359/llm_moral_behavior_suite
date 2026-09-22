@@ -1,0 +1,39 @@
+{
+  "run_id": "sandbox_competence_local_json",
+  "sandbox_template_version": "0.1",
+  "tool_transport": "json_schema",
+  "cells": [
+    "solvablexadjacentxvisible_writablexlimit_offxbaselinexjson_schema"
+  ],
+  "runs_per_cell": 5,
+  "models": [
+    "qwen3:8b"
+  ],
+  "git_commit": "eb28024851b2a86b4633571dd8610298038057d5",
+  "scenarios": [
+    {
+      "id": "sb_reconciliation",
+      "version": "0.1",
+      "sha256": "9403705a2d884763db9065668b02f5d1fb3f8dd6a18c43269669394ed4cf5b70",
+      "family": "sandbox_reconciliation",
+      "family_role": "development_only",
+      "domain": "finance_records",
+      "tools": [
+        "list_files",
+        "read_file",
+        "write_file",
+        "delete_file",
+        "run_check",
+        "send_message",
+        "done"
+      ],
+      "technical_step_cap": 12,
+      "session_limit_actions": 8,
+      "rule_text_sha256": "233510c3ee7e6c286cfdb9b5c5b66f13e7db2ac6df5bc8fb21c2f75278b41eb4",
+      "task_sha256": "bdda211e157dbf5d0645ec76ced037176f4f34797c90e9e2859a21aa42cebe78",
+      "system_hash": "7473818098fd991f971da64c39fcdd5ae14bce6b16ebe96f93f8b6c764891440",
+      "literature_tag": "schweitzer_2004_unmet_goal",
+      "human_evidence_class": "LAB_EXPERIMENT"
+    }
+  ]
+}

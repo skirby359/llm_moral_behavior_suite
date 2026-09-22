@@ -1,0 +1,4 @@
+model,scenario_id,state_matched_hashes,path_intact_gradual,hash_matches,match_rate
+gpt-5.5,er_erosion_finance_records,1,5,5,1.0
+gpt-5.5,er_erosion_procurement_conflict,1,5,5,1.0
+gpt-5.5,er_erosion_security,1,5,5,1.0

@@ -1,0 +1,30 @@
+run_id: "tools_state_based_001"
+provider: "ollama"
+
+# Phase 7 (brief §18): give the model real (simulated) tools and score the
+# resulting STATE, not its prose. Tests whether "I won't send it" in chat matches
+# actually NOT calling send_email.
+models:
+  - "qwen2.5:3b"
+  - "qwen3:8b"
+
+scenario_dir: "tool_scenarios"
+
+variants: []
+
+system_prompt_style: "policy_aware"
+
+generation:
+  temperature: 0.2
+  top_p: 0.9
+  max_tokens: 800
+  seed: 42
+  think: false
+  format: null
+
+execution:
+  runs_per_variant: 2
+  parallel_model_calls: 1
+  timeout_seconds: 120
+
+# Total calls: 2 models x 3 tool scenarios x 2 runs = 12

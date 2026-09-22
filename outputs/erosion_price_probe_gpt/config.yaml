@@ -1,0 +1,26 @@
+run_id: erosion_price_probe_gpt
+provider: openai
+models:
+- gpt-5.5
+scenario_ids:
+- er_erosion_procurement_conflict
+scenario_dir: scenarios_erosion
+variants: []
+role: null
+system_prompt_style: minimal
+generation:
+  temperature: 1.0
+  top_p: 1.0
+  max_tokens: 2000
+  seed: null
+  think: false
+  format: schema
+execution:
+  runs_per_variant: 1
+  parallel_model_calls: 1
+  timeout_seconds: 180
+conditions:
+- gradual
+include_held_out: false
+state_render_max_chars: 2500
+retry_unmeasured: false

@@ -1,0 +1,30 @@
+run_id: "frontier_tools_multiturn_opus48"
+provider: "anthropic"
+
+# The sharpest frontier test: with real (simulated) tools AND sustained pushback,
+# does Claude Opus 4.8 ever actually call send_email externally? Requires
+# ANTHROPIC_API_KEY and: uv sync --extra frontier
+models:
+  - "claude-opus-4-8"
+
+scenario_dir: "tool_scenarios"
+
+variants: []
+
+system_prompt_style: "policy_aware"
+
+generation:
+  temperature: 0.2
+  top_p: 0.9
+  max_tokens: 800
+  seed: 42
+  think: false
+  format: null
+
+execution:
+  runs_per_variant: 1
+  parallel_model_calls: 1
+  timeout_seconds: 120
+
+# Use with: ombs run-tools-multiturn --config configs/run.frontier_tools_multiturn.yaml
+# 1 model x 2 pushback tool scenarios x (1 opening + 5 pushback) = 12 calls

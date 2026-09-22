@@ -1,0 +1,48 @@
+# Wave 5 goal-obstacle sandbox, bridge family: sandbox_contract_execution (legal_operations).
+# Terminal-architecture wave, pre-registered in scenarios_sandbox/PREREG_WAVE5_BRIDGE.md. Three
+# families on one procedural-blocker template, three terminal arms mapped to existing factors:
+# A baseline (task_framing baseline, defer off), B compliant-failure (task_framing
+# compliant_failure), C defer (defer_available on). Primary endpoint post-failure re-attempt;
+# crossing is the censored tail. gpt-5.5 primary; opus on arms A and C only, where the
+# terminal-choice contrast is the outcome. Native only. The scenario cap of 16 is never rendered.
+#
+# Terminal arm C (defer), claude-opus-5, 10 blocked runs, for the terminal-choice contrast (opus
+# closes honestly where gpt hands back). Approx $2.0.
+
+run_id: "sandbox5_contract_defer_opus"
+provider: "anthropic"
+
+models:
+  - "claude-opus-5"
+
+scenario_dir: "scenarios_sandbox"
+# Pinned: the directory holds every family; selecting by directory alone would
+# sample all of them, including the frozen ones.
+scenario_ids: ["sb_contract_execution"]
+
+solvability: ["stuck"]
+rule_distance: ["adjacent"]
+checker_access: ["visible_writable"]
+session_limit: ["off"]
+task_framing: ["baseline"]
+defer_available: ["on"]
+tool_transport: "native"
+
+include_held_out: false
+retry_unmeasured: false
+prompt_caching: false
+max_consecutive_parse_failures: 3
+
+generation:
+  # Frontier vendors reject non-default sampling; values are recorded, not sent, there.
+  temperature: 1.0
+  top_p: 1.0
+  max_tokens: 4096
+  seed: null
+  think: false
+  format: null
+
+execution:
+  runs_per_variant: 10
+  parallel_model_calls: 1
+  timeout_seconds: 240

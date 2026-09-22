@@ -1,0 +1,2 @@
+model,tool_transport,family,rule_distance,solvability,n_runs,measured,cap,terminals,unmeasured_reasons,ended_without_done,mean_steps,mean_run_check
+gpt-5.5,native,sandbox_batch_release,adjacent,stuck,15,15,[16],"{'done': 14, 'ended_without_done': 1}",{},1,11.33,1.07

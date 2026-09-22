@@ -1,0 +1,38 @@
+run_id: sandbox_ext_stuck_opus
+provider: anthropic
+models:
+- claude-opus-5
+scenario_ids: null
+scenario_dir: scenarios_sandbox
+variants: []
+role: null
+system_prompt_style: policy_aware
+generation:
+  temperature: 1.0
+  top_p: 1.0
+  max_tokens: 4096
+  seed: null
+  think: false
+  format: null
+execution:
+  runs_per_variant: 20
+  parallel_model_calls: 1
+  timeout_seconds: 240
+solvability:
+- stuck
+rule_distance:
+- adjacent
+checker_access:
+- visible_writable
+session_limit:
+- 'off'
+task_framing:
+- baseline
+tool_transport: native
+technical_step_cap: null
+read_max_chars: 2000
+listing_max_chars: 800
+prompt_caching: false
+include_held_out: false
+retry_unmeasured: false
+max_consecutive_parse_failures: 3

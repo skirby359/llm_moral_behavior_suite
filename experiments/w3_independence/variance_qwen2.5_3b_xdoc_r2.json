@@ -1,0 +1,890 @@
+{
+  "provider": "ollama",
+  "model": "qwen2.5:3b",
+  "k": 8,
+  "repeats": 2,
+  "condition": "parallel",
+  "temperature_control_available": true,
+  "per_repeat": [
+    {
+      "repeat": 1,
+      "runs": [
+        {
+          "call": 0,
+          "raw": "{\"findings\": [{\"issue\": \"Inconsistent definition of 'Business Day', conflicting with 1.1 and 14.2 in MSA\", \"location\": \"01_msa.md:1\"}, {\"issue\": \"Schedule 1 (SOW) references a Statement of Work that does not exist (Document 3)\", \"location\": \"02_sow.md:1\"}, {\"issue\": \"Conflicting definitions for 'Business Day' in SOW and SLA\", \"location\": \"02_sow.md:1; 04_sla.md:1\"}, {\"issue\": \"No reference to Schedule 1 in Addendum, violating 14.1 of MSA\", \"location\": \"03_dpa.md:1\"}, {\"issue\": \"Inconsistent definition for 'Deliverable' between SOW and SLA\", \"location\": \"02_sow.md:1; 04_sla.md:1\"}, {\"issue\": \"Inconsistent availability targets in MSA vs SLA (24 months vs 7 days)\", \"location\": \"01_msa.md:3; 04_sla.md:3\"}, {\"issue\": \"Contradictory maintenance window rule between MSA and Addendum\", \"location\": \"01_msa.md:3.5; 03_dpa.md:3.2\"}, {\"issue\": \"No reference to SLA in SOW, violating clause 14.1 of MSA\", \"location\": \"02_sow.md:1\"}]}",
+          "findings": [
+            "Inconsistent definition of 'Business Day', conflicting with 1.1 and 14.2 in MSA 01_msa.md:1",
+            "Schedule 1 (SOW) references a Statement of Work that does not exist (Document 3) 02_sow.md:1",
+            "Conflicting definitions for 'Business Day' in SOW and SLA 02_sow.md:1; 04_sla.md:1",
+            "No reference to Schedule 1 in Addendum, violating 14.1 of MSA 03_dpa.md:1",
+            "Inconsistent definition for 'Deliverable' between SOW and SLA 02_sow.md:1; 04_sla.md:1",
+            "Inconsistent availability targets in MSA vs SLA (24 months vs 7 days) 01_msa.md:3; 04_sla.md:3",
+            "Contradictory maintenance window rule between MSA and Addendum 01_msa.md:3.5; 03_dpa.md:3.2",
+            "No reference to SLA in SOW, violating clause 14.1 of MSA 02_sow.md:1"
+          ],
+          "matched": [],
+          "unmatched": [
+            "Inconsistent definition of 'Business Day', conflicting with 1.1 and 14.2 in MSA 01_msa.md:1",
+            "Schedule 1 (SOW) references a Statement of Work that does not exist (Document 3) 02_sow.md:1",
+            "Conflicting definitions for 'Business Day' in SOW and SLA 02_sow.md:1; 04_sla.md:1",
+            "No reference to Schedule 1 in Addendum, violating 14.1 of MSA 03_dpa.md:1",
+            "Inconsistent definition for 'Deliverable' between SOW and SLA 02_sow.md:1; 04_sla.md:1",
+            "Inconsistent availability targets in MSA vs SLA (24 months vs 7 days) 01_msa.md:3; 04_sla.md:3",
+            "Contradictory maintenance window rule between MSA and Addendum 01_msa.md:3.5; 03_dpa.md:3.2",
+            "No reference to SLA in SOW, violating clause 14.1 of MSA 02_sow.md:1"
+          ],
+          "seconds": 13.2,
+          "usage": {
+            "input_tokens": 4747,
+            "output_tokens": 322,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 1,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Inconsistent definition of Business Day in Document 1 and Document 4\",\n      \"location\": \"Document 1, Section 1.1; Document 4, Section 1.1\"\n    },\n    {\n      \"issue\": \"Duplicate reference to Statements of Work in Document 1, Section 2.1\",\n      \"location\": \"Document 1, Section 2.1\"\n    },\n    {\n      \"issue\": \"Inconsistency between Document 1 and Document 4 regarding maintenance window handling\",\n      \"location\": \"Document 1, Section 3.3; Document 4, Section 3.3\"\n    },\n    {\n      \"issue\": \"Contradictory language about Security Incidents in Document 1 (Section 7) and Document 3 (Section 6)\",\n      \"location\": \"Document 1, Section 7.2; Document 3, Section 6.1\"\n    },\n    {\n      \"issue\": \"Overlapping obligations related to response times for different levels of incidents\",\n      \"location\": \"Document 4, Sections 5.1 and 6.3\"\n    },\n    {\n      \"issue\": \"Obligations in Document 4 (Section 9) are not addressed by any other document in the set\",\n      \"location\": \"Document 4, Section 9\"\n    },\n    {\n      \"issue\": \"Inconsistent location of Providers' development centre mentioned in Documents 1 and 2\",\n      \"location\": \"Document 1, Section 2.2; Document 2, Section 3.5\"\n    }\n  ]  \n}",
+          "findings": [
+            "Inconsistent definition of Business Day in Document 1 and Document 4 Document 1, Section 1.1; Document 4, Section 1.1",
+            "Duplicate reference to Statements of Work in Document 1, Section 2.1 Document 1, Section 2.1",
+            "Inconsistency between Document 1 and Document 4 regarding maintenance window handling Document 1, Section 3.3; Document 4, Section 3.3",
+            "Contradictory language about Security Incidents in Document 1 (Section 7) and Document 3 (Section 6) Document 1, Section 7.2; Document 3, Section 6.1",
+            "Overlapping obligations related to response times for different levels of incidents Document 4, Sections 5.1 and 6.3",
+            "Obligations in Document 4 (Section 9) are not addressed by any other document in the set Document 4, Section 9",
+            "Inconsistent location of Providers' development centre mentioned in Documents 1 and 2 Document 1, Section 2.2; Document 2, Section 3.5"
+          ],
+          "matched": [],
+          "unmatched": [
+            "Inconsistent definition of Business Day in Document 1 and Document 4 Document 1, Section 1.1; Document 4, Section 1.1",
+            "Duplicate reference to Statements of Work in Document 1, Section 2.1 Document 1, Section 2.1",
+            "Inconsistency between Document 1 and Document 4 regarding maintenance window handling Document 1, Section 3.3; Document 4, Section 3.3",
+            "Contradictory language about Security Incidents in Document 1 (Section 7) and Document 3 (Section 6) Document 1, Section 7.2; Document 3, Section 6.1",
+            "Overlapping obligations related to response times for different levels of incidents Document 4, Sections 5.1 and 6.3",
+            "Obligations in Document 4 (Section 9) are not addressed by any other document in the set Document 4, Section 9",
+            "Inconsistent location of Providers' development centre mentioned in Documents 1 and 2 Document 1, Section 2.2; Document 2, Section 3.5"
+          ],
+          "seconds": 5.8,
+          "usage": {
+            "input_tokens": 4747,
+            "output_tokens": 351,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 2,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Conflicting definition of 'Business Day' in Document 1 and Document 2\",\n      \"location\": \"Document 1 (Section 1.1), Document 2 (Section 1.1)\"\n    },\n    {\n      \"issue\": \"Inconsistent number of Business Days in Document 2 for Priority 1 support\",\n      \"location\": \"Document 2 (Section 2.1)\"\n    },\n    {\n      \"issue\": \"Conflicting definition of 'Incident' and 'Resolution' in Document 4\",\n      \"location\": \"Document 4 (Sections 1.3, 1.4, 5.1, and Annex 1)\"\n    },\n    {\n      \"issue\": \"Circular precedence between SOW and MSA: SOW redefines terms that are not defined in the main agreement\",\n      \"location\": \"Document 2 (entire document), Document 1 (Section 1.6)\"\n    },\n    {\n      \"issue\": \"Incompatible date range for Business Days: Document 1 uses Monday to Friday, excluding public holidays in England and Wales; Document 2 uses Monday to Saturday, excluding US federal holidays\",\n      \"location\": \"Document 1 (Section 1.1), Document 2 (Section 1.1)\"\n    },\n    {\n      \"issue\": \"Service Level Agreement (SLA) does not specify a specific start date for the Service Level Index (SLI)\",\n      \"location\": \"Document 4 (Section 3)\"\n    },\n    {\n      \"issue\": \"Incompatibility in SLA and DPA regarding Security Incidents: Document 4 defines them as Priority 1 Incidents, while Document 3 states they should be treated as such for the purposes of Section 5.1\",\n      \"location\": \"Document 3 (Section 6.2), Document 4 (Section 7.2)\"\n    },\n    {\n      \"issue\": \"Service Level Agreement (SLA) does not specify if it applies to all services or just those in SOW\",\n      \"location\": \"Document 4 (Section 1)\"\n    }\n  ]  \n}",
+          "findings": [
+            "Conflicting definition of 'Business Day' in Document 1 and Document 2 Document 1 (Section 1.1), Document 2 (Section 1.1)",
+            "Inconsistent number of Business Days in Document 2 for Priority 1 support Document 2 (Section 2.1)",
+            "Conflicting definition of 'Incident' and 'Resolution' in Document 4 Document 4 (Sections 1.3, 1.4, 5.1, and Annex 1)",
+            "Circular precedence between SOW and MSA: SOW redefines terms that are not defined in the main agreement Document 2 (entire document), Document 1 (Section 1.6)",
+            "Incompatible date range for Business Days: Document 1 uses Monday to Friday, excluding public holidays in England and Wales; Document 2 uses Monday to Saturday, excluding US federal holidays Document 1 (Section 1.1), Document 2 (Section 1.1)",
+            "Service Level Agreement (SLA) does not specify a specific start date for the Service Level Index (SLI) Document 4 (Section 3)",
+            "Incompatibility in SLA and DPA regarding Security Incidents: Document 4 defines them as Priority 1 Incidents, while Document 3 states they should be treated as such for the purposes of Section 5.1 Document 3 (Section 6.2), Document 4 (Section 7.2)",
+            "Service Level Agreement (SLA) does not specify if it applies to all services or just those in SOW Document 4 (Section 1)"
+          ],
+          "matched": [
+            "X04_circular_precedence",
+            "X05_business_day_definition",
+            "X07_security_incident_definition"
+          ],
+          "unmatched": [
+            "Conflicting definition of 'Business Day' in Document 1 and Document 2 Document 1 (Section 1.1), Document 2 (Section 1.1)",
+            "Inconsistent number of Business Days in Document 2 for Priority 1 support Document 2 (Section 2.1)",
+            "Conflicting definition of 'Incident' and 'Resolution' in Document 4 Document 4 (Sections 1.3, 1.4, 5.1, and Annex 1)",
+            "Service Level Agreement (SLA) does not specify a specific start date for the Service Level Index (SLI) Document 4 (Section 3)",
+            "Service Level Agreement (SLA) does not specify if it applies to all services or just those in SOW Document 4 (Section 1)"
+          ],
+          "seconds": 6.9,
+          "usage": {
+            "input_tokens": 4747,
+            "output_tokens": 456,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 3,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"1.1 in Document 1 and 2: Same term 'Business Day' defined two different ways\",\n      \"location\": \"Document 1, Section 1.2; Document 2, Section 1.1\"\n    },\n    {\n      \"issue\": \"4.5 in Document 2: Overlapping phases conflict with the concept of phases not overlapping without explicit agreement.\",\n      \"location\": \"Document 2, Section 4.5\"\n    },\n    {\n      \"issue\": \"6.3 in Document 2: Definition for 'Deliverable' is ambiguous and could be misinterpreted as a single Deliverable per phase instead of all deliverables listed in the phase plan.\",\n      \"location\": \"Document 2, Section 6.3\"\n    },\n    {\n      \"issue\": \"8.1 in Document 2: The parties must hold monthly service reviews but no frequency is specified for quarterly steering committees in this document alone.\",\n      \"location\": \"Document 2, Section 8.1\"\n    },\n    {\n      \"issue\": \"4.2 in Document 2: No specific days of the week are mentioned for Business Days, leading to potential confusion with weekends or holidays not explicitly stated as such.\",\n      \"location\": \"Document 2, Section 4.2\"\n    },\n    {\n      \"issue\": \"14.1 and 14.2 in Document 1: This ordering creates a circular reference, which is not allowed. The precedence should be resolved by either making one preeminent or specifying an alternative order of priority.\",\n      \"location\": \"Document 1, Section 14.1\"\n    },\n    {\n      \"issue\": \"9.3 in Document 2: This limitation on liability conflicts with the broader limitations stated in Clause 13.1 (in Document 1).\",\n      \"location\": \"Document 2, Section 9.3\"\n    },\n    {\n      \"issue\": \"Annex 1 and Annex 2 in Document 3: There are no references or inclusion links between Annexes 1 and 2 as specified in the main document.\",\n      \"location\": \"Document 3, Annexe 1; Document 3, Annex 2\"\n    },\n    {\n      \"issue\": \"SLA Terms not clearly defined for 'Maintenance Window' in Document 4: The terms are clear but need to be applied within the context of the existing documents and schedules.\",\n      \"location\": \"Document 4, Section 3.3\"\n    }\n  ]  \n}",
+          "findings": [
+            "1.1 in Document 1 and 2: Same term 'Business Day' defined two different ways Document 1, Section 1.2; Document 2, Section 1.1",
+            "4.5 in Document 2: Overlapping phases conflict with the concept of phases not overlapping without explicit agreement. Document 2, Section 4.5",
+            "6.3 in Document 2: Definition for 'Deliverable' is ambiguous and could be misinterpreted as a single Deliverable per phase instead of all deliverables listed in the phase plan. Document 2, Section 6.3",
+            "8.1 in Document 2: The parties must hold monthly service reviews but no frequency is specified for quarterly steering committees in this document alone. Document 2, Section 8.1",
+            "4.2 in Document 2: No specific days of the week are mentioned for Business Days, leading to potential confusion with weekends or holidays not explicitly stated as such. Document 2, Section 4.2",
+            "14.1 and 14.2 in Document 1: This ordering creates a circular reference, which is not allowed. The precedence should be resolved by either making one preeminent or specifying an alternative order of priority. Document 1, Section 14.1",
+            "9.3 in Document 2: This limitation on liability conflicts with the broader limitations stated in Clause 13.1 (in Document 1). Document 2, Section 9.3",
+            "Annex 1 and Annex 2 in Document 3: There are no references or inclusion links between Annexes 1 and 2 as specified in the main document. Document 3, Annexe 1; Document 3, Annex 2",
+            "SLA Terms not clearly defined for 'Maintenance Window' in Document 4: The terms are clear but need to be applied within the context of the existing documents and schedules. Document 4, Section 3.3"
+          ],
+          "matched": [
+            "X04_circular_precedence"
+          ],
+          "unmatched": [
+            "1.1 in Document 1 and 2: Same term 'Business Day' defined two different ways Document 1, Section 1.2; Document 2, Section 1.1",
+            "4.5 in Document 2: Overlapping phases conflict with the concept of phases not overlapping without explicit agreement. Document 2, Section 4.5",
+            "6.3 in Document 2: Definition for 'Deliverable' is ambiguous and could be misinterpreted as a single Deliverable per phase instead of all deliverables listed in the phase plan. Document 2, Section 6.3",
+            "8.1 in Document 2: The parties must hold monthly service reviews but no frequency is specified for quarterly steering committees in this document alone. Document 2, Section 8.1",
+            "4.2 in Document 2: No specific days of the week are mentioned for Business Days, leading to potential confusion with weekends or holidays not explicitly stated as such. Document 2, Section 4.2",
+            "9.3 in Document 2: This limitation on liability conflicts with the broader limitations stated in Clause 13.1 (in Document 1). Document 2, Section 9.3",
+            "Annex 1 and Annex 2 in Document 3: There are no references or inclusion links between Annexes 1 and 2 as specified in the main document. Document 3, Annexe 1; Document 3, Annex 2",
+            "SLA Terms not clearly defined for 'Maintenance Window' in Document 4: The terms are clear but need to be applied within the context of the existing documents and schedules. Document 4, Section 3.3"
+          ],
+          "seconds": 7.6,
+          "usage": {
+            "input_tokens": 4747,
+            "output_tokens": 543,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 4,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Inconsistency in the definition of 'Business Day'. Document 1 and Document 4 define it differently.\",\n      \"location\": \"Document 1, Section 2.3; Document 4, Section 2.1\"\n    },\n    {\n      \"issue\": \"The term 'Deliverable' is used inconsistently across documents. It is defined in Document 1 but referenced in Documents 2 and 4 without being explained or linked to a specific document.\",\n      \"location\": \"Document 2, Section 6.1; Document 4, Section 5.3\"\n    },\n    {\n      \"issue\": \"Inconsistent term for 'Maintenance Window'. Document 3 uses it as an exception in section 3.3 while Document 4 refers to the same concept in a different context.\",\n      \"location\": \"Document 3, Section 3.3; Document 4, Section 3.2\"\n    },\n    {\n      \"issue\": \"Inconsistency between terms and their references. In Document 1 (Section 1.2), 'Business Day' is referenced without being defined in the same document.\",\n      \"location\": \"Document 1, Section 1.2\"\n    },\n    {\n      \"issue\": \"Incompatibility of dates. The Effective Date mentioned in Document 1 (1 April 2027) does not match any date referenced or used across all documents.\",\n      \"location\": \"Throughout the contract set.\"\n    },\n    {\n      \"issue\": \"Obligation conflict: Document 3 specifies that Customer Personal Data should be processed only within the United Kingdom and the European Economic Area, while Document 4 discusses availability issues (which might involve global operations).\",\n      \"location\": \"Document 3, Section 4; Document 4, throughout\"\n    },\n    {\n      \"issue\": \"Circular reference: The Order of Precedence in Document 1 states that this Agreement and each Schedule and Addendum are to be read together as one agreement. However, the definitions in Document 1 use terms defined elsewhere (e.g., 'Business Day' from Document 4), which could create a circular reference if not resolved.\",\n      \"location\": \"Document 1, Section 14\"\n    },\n    {\n      \"issue\": \"Internal inconsistency: The Service Level Agreement mentions that Provider shall achieve monthly availability of the platform at least 99.9%, but no penalties or escalation procedures are mentioned in case this target is missed (Section 4).\",\n      \"location\": \"Document 4, Section 4\"\n    },\n    {\n      \"issue\": \"No reference to Annexes: While Annexes 1 and 2 of Document 3 mention 'Customer Personal Data' processing details and approved locations respectively, these are not referenced in any other document.\",\n      \"location\": \"Annex 1, Document 3; Annex 2, Document 3\"\n    }\n  ]  \n}",
+          "findings": [
+            "Inconsistency in the definition of 'Business Day'. Document 1 and Document 4 define it differently. Document 1, Section 2.3; Document 4, Section 2.1",
+            "The term 'Deliverable' is used inconsistently across documents. It is defined in Document 1 but referenced in Documents 2 and 4 without being explained or linked to a specific document. Document 2, Section 6.1; Document 4, Section 5.3",
+            "Inconsistent term for 'Maintenance Window'. Document 3 uses it as an exception in section 3.3 while Document 4 refers to the same concept in a different context. Document 3, Section 3.3; Document 4, Section 3.2",
+            "Inconsistency between terms and their references. In Document 1 (Section 1.2), 'Business Day' is referenced without being defined in the same document. Document 1, Section 1.2",
+            "Incompatibility of dates. The Effective Date mentioned in Document 1 (1 April 2027) does not match any date referenced or used across all documents. Throughout the contract set.",
+            "Obligation conflict: Document 3 specifies that Customer Personal Data should be processed only within the United Kingdom and the European Economic Area, while Document 4 discusses availability issues (which might involve global operations). Document 3, Section 4; Document 4, throughout",
+            "Circular reference: The Order of Precedence in Document 1 states that this Agreement and each Schedule and Addendum are to be read together as one agreement. However, the definitions in Document 1 use terms defined elsewhere (e.g., 'Business Day' from Document 4), which could create a circular reference if not resolved. Document 1, Section 14",
+            "Internal inconsistency: The Service Level Agreement mentions that Provider shall achieve monthly availability of the platform at least 99.9%, but no penalties or escalation procedures are mentioned in case this target is missed (Section 4). Document 4, Section 4",
+            "No reference to Annexes: While Annexes 1 and 2 of Document 3 mention 'Customer Personal Data' processing details and approved locations respectively, these are not referenced in any other document. Annex 1, Document 3; Annex 2, Document 3"
+          ],
+          "matched": [
+            "X04_circular_precedence",
+            "X13_availability_target",
+            "X19_start_date_precedes_msa"
+          ],
+          "unmatched": [
+            "Inconsistency in the definition of 'Business Day'. Document 1 and Document 4 define it differently. Document 1, Section 2.3; Document 4, Section 2.1",
+            "The term 'Deliverable' is used inconsistently across documents. It is defined in Document 1 but referenced in Documents 2 and 4 without being explained or linked to a specific document. Document 2, Section 6.1; Document 4, Section 5.3",
+            "Inconsistent term for 'Maintenance Window'. Document 3 uses it as an exception in section 3.3 while Document 4 refers to the same concept in a different context. Document 3, Section 3.3; Document 4, Section 3.2",
+            "Inconsistency between terms and their references. In Document 1 (Section 1.2), 'Business Day' is referenced without being defined in the same document. Document 1, Section 1.2",
+            "Obligation conflict: Document 3 specifies that Customer Personal Data should be processed only within the United Kingdom and the European Economic Area, while Document 4 discusses availability issues (which might involve global operations). Document 3, Section 4; Document 4, throughout",
+            "No reference to Annexes: While Annexes 1 and 2 of Document 3 mention 'Customer Personal Data' processing details and approved locations respectively, these are not referenced in any other document. Annex 1, Document 3; Annex 2, Document 3"
+          ],
+          "seconds": 8.5,
+          "usage": {
+            "input_tokens": 4747,
+            "output_tokens": 622,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 5,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Obligation conflict: The Master Services Agreement (MSA) and the Statement of Work (SOW) have conflicting terms regarding the duration and structure of the replatforming programme. MSA states it is a thirty-six (36) month program, but SOW specifies phases taking up to three years.\",\n      \"location\": \"02_sow.md\"\n    },\n    {\n      \"issue\": \"Obligation conflict: The Master Services Agreement and Statement of Work have conflicting terms regarding the monthly Fee. MSA states \u00a312,400 per month for the Services, while SOW specifies a monthly fee of \u00a312,800.\",\n      \"location\": \"02_sow.md\"\n    },\n    {\n      \"issue\": \"Obligation conflict: The Master Services Agreement (MSA) and Data Processing Addendum (DPA) have conflicting terms regarding the location of processing. MSA states Provider shall process Customer Personal Data within the United Kingdom and the European Economic Area, while DPA specifies that the provider may not transfer Customer Personal Data outside these territories without prior written authorization.\",\n      \"location\": \"03_dpa.md\"\n    },\n    {\n      \"issue\": \"Obligation conflict: The Master Services Agreement and Statement of Work have conflicting terms regarding response times for Priority 1 incidents. MSA specifies a response time of within fifteen minutes, while SOW specifies a response time of within fifteen (15) hours.\",\n      \"location\": \"04_sla.md\"\n    },\n    {\n      \"issue\": \"Obligation conflict: The Master Services Agreement and Statement of Work have conflicting terms regarding the resolution times for Priority 2 incidents. MSA specifies a resolution time of within four hours, while SOW specifies a resolution time of within one Business Day.\",\n      \"location\": \"04_sla.md\"\n    },\n    {\n      \"issue\": \"Obligation conflict: The Master Services Agreement and Statement of Work have conflicting terms regarding the response times for Priority 3 incidents. MSA specifies a response time of within one (1) Business Day, while SOW specifies a response time of within five (5) Business Days.\",\n      \"location\": \"04_sla.md\"\n    },\n    {\n      \"issue\": \"Obligation conflict: The Master Services Agreement and Statement of Work have conflicting terms regarding the maintenance window notices. MSA specifies not less than five (5) Business Days' notice, while SOW specifies no less than two days' notice.\",\n      \"location\": \"04_sla.md\"\n    },\n    {\n      \"issue\": \"Obligation conflict: The Master Services Agreement and Data Processing Addendum have conflicting terms regarding the retention of Customer Personal Data. MSA specifies a retention period of seven (7) years, while DPA specifies a retention period of three (3) years.\",\n      \"location\": \"03_dpa.md\"\n    },\n    {\n      \"issue\": \"Obligation conflict: The Master Services Agreement and Service Level and Support Schedule have conflicting terms regarding the monthly availability. MSA states not less than 99.9%, while SLS specifies a minimum of 99.5%. The SLS may be interpreted as allowing for some variability, but this is not explicitly stated in either document.\",\n      \"location\": \"04_sla.md\"\n    },\n    {\n      \"issue\": \"Circular reference: In the Service Level and Support Schedule (SLS), there are references to clauses that do not exist. For example, Clause 5 refers to Response and Resolution Targets for Priority 1 incidents, which is defined in Clause 2 of SLS.\",\n      \"location\": \"04_sla.md\"\n    },\n    {\n      \"issue\": \"Obligation conflict: The Service Level and Support Schedule has a conflicting term regarding the retention period of service reports. MSA specifies a retention period of seven (7) years, while SLS specifies a retention period of one (1) year.\",\n      \"location\": \"04_sla.md\"\n    }\n  ] \n}",
+          "findings": [
+            "Obligation conflict: The Master Services Agreement (MSA) and the Statement of Work (SOW) have conflicting terms regarding the duration and structure of the replatforming programme. MSA states it is a thirty-six (36) month program, but SOW specifies phases taking up to three years. 02_sow.md",
+            "Obligation conflict: The Master Services Agreement and Statement of Work have conflicting terms regarding the monthly Fee. MSA states \u00a312,400 per month for the Services, while SOW specifies a monthly fee of \u00a312,800. 02_sow.md",
+            "Obligation conflict: The Master Services Agreement (MSA) and Data Processing Addendum (DPA) have conflicting terms regarding the location of processing. MSA states Provider shall process Customer Personal Data within the United Kingdom and the European Economic Area, while DPA specifies that the provider may not transfer Customer Personal Data outside these territories without prior written authorization. 03_dpa.md",
+            "Obligation conflict: The Master Services Agreement and Statement of Work have conflicting terms regarding response times for Priority 1 incidents. MSA specifies a response time of within fifteen minutes, while SOW specifies a response time of within fifteen (15) hours. 04_sla.md",
+            "Obligation conflict: The Master Services Agreement and Statement of Work have conflicting terms regarding the resolution times for Priority 2 incidents. MSA specifies a resolution time of within four hours, while SOW specifies a resolution time of within one Business Day. 04_sla.md",
+            "Obligation conflict: The Master Services Agreement and Statement of Work have conflicting terms regarding the response times for Priority 3 incidents. MSA specifies a response time of within one (1) Business Day, while SOW specifies a response time of within five (5) Business Days. 04_sla.md",
+            "Obligation conflict: The Master Services Agreement and Statement of Work have conflicting terms regarding the maintenance window notices. MSA specifies not less than five (5) Business Days' notice, while SOW specifies no less than two days' notice. 04_sla.md",
+            "Obligation conflict: The Master Services Agreement and Data Processing Addendum have conflicting terms regarding the retention of Customer Personal Data. MSA specifies a retention period of seven (7) years, while DPA specifies a retention period of three (3) years. 03_dpa.md",
+            "Obligation conflict: The Master Services Agreement and Service Level and Support Schedule have conflicting terms regarding the monthly availability. MSA states not less than 99.9%, while SLS specifies a minimum of 99.5%. The SLS may be interpreted as allowing for some variability, but this is not explicitly stated in either document. 04_sla.md",
+            "Circular reference: In the Service Level and Support Schedule (SLS), there are references to clauses that do not exist. For example, Clause 5 refers to Response and Resolution Targets for Priority 1 incidents, which is defined in Clause 2 of SLS. 04_sla.md",
+            "Obligation conflict: The Service Level and Support Schedule has a conflicting term regarding the retention period of service reports. MSA specifies a retention period of seven (7) years, while SLS specifies a retention period of one (1) year. 04_sla.md"
+          ],
+          "matched": [
+            "X01_monthly_fee",
+            "X02_term_length",
+            "X09_retain_vs_delete",
+            "X13_availability_target"
+          ],
+          "unmatched": [
+            "Obligation conflict: The Master Services Agreement (MSA) and Data Processing Addendum (DPA) have conflicting terms regarding the location of processing. MSA states Provider shall process Customer Personal Data within the United Kingdom and the European Economic Area, while DPA specifies that the provider may not transfer Customer Personal Data outside these territories without prior written authorization. 03_dpa.md",
+            "Obligation conflict: The Master Services Agreement and Statement of Work have conflicting terms regarding response times for Priority 1 incidents. MSA specifies a response time of within fifteen minutes, while SOW specifies a response time of within fifteen (15) hours. 04_sla.md",
+            "Obligation conflict: The Master Services Agreement and Statement of Work have conflicting terms regarding the resolution times for Priority 2 incidents. MSA specifies a resolution time of within four hours, while SOW specifies a resolution time of within one Business Day. 04_sla.md",
+            "Obligation conflict: The Master Services Agreement and Statement of Work have conflicting terms regarding the response times for Priority 3 incidents. MSA specifies a response time of within one (1) Business Day, while SOW specifies a response time of within five (5) Business Days. 04_sla.md",
+            "Obligation conflict: The Master Services Agreement and Statement of Work have conflicting terms regarding the maintenance window notices. MSA specifies not less than five (5) Business Days' notice, while SOW specifies no less than two days' notice. 04_sla.md",
+            "Circular reference: In the Service Level and Support Schedule (SLS), there are references to clauses that do not exist. For example, Clause 5 refers to Response and Resolution Targets for Priority 1 incidents, which is defined in Clause 2 of SLS. 04_sla.md"
+          ],
+          "seconds": 10.7,
+          "usage": {
+            "input_tokens": 4747,
+            "output_tokens": 852,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 6,
+          "raw": "{\"findings\": [\n    {\"issue\": \"Inconsistency in definition of Business Day\", \"location\": \"1. DEFINITIONS in 01_msa.md and 02_sow.md\"},\n    {\"issue\": \"Obligation conflict - inconsistent availability levels across agreements\", \"location\": \"3. AVAILABILITY in 04_sla.md\"},\n    {\"issue\": \"Circular precedence between SOW and Master Services Agreement (MSA)\", \"location\": \"14. ORDER OF PRECEDENCE in 02_sow.md, 14.1 in 01_msa.md\"},\n    {\"issue\": \"Ambiguity in the definition of 'Delivery' across documents\", \"location\": \"1. DEFINITIONS in 01_msa.md and 02_sow.md\"},\n    {\"issue\": \"Contradictory terms - inconsistency between 'Processor' and 'Subprocessor'\", \"location\": \"1.6 Subprocessor and 5. SUBPROCESSORS in 03_dpa.md, 5.1 Subprocessors in 02_sow.md\"},\n    {\"issue\": \"Incorrect reference to Annex 2 location\", \"location\": \"4. LOCATION OF PROCESSING in 03_dpa.md mentions 'London, United Kingdom (primary)' and 'Dublin, Ireland (disaster recovery)', but there is no annex 2 referenced anywhere else in the document.\"},\n    {\"issue\": \"Incomplete clause - missing reference to Annex 1\", \"location\": \"4. LOCATION OF PROCESSING in 03_dpa.md does not reference Annex 1\"},\n    {\"issue\": \"Unclear communication of obligations between Provider and Customer regarding Security Incident Reporting\", \"location\": \"7. SECURITY INCIDENTS in 03_dpa.md mentions Security Incident contact notification, but 6. REPORTING in 04_sla.md does not address this obligation.\"}\n]}",
+          "findings": [
+            "Inconsistency in definition of Business Day 1. DEFINITIONS in 01_msa.md and 02_sow.md",
+            "Obligation conflict - inconsistent availability levels across agreements 3. AVAILABILITY in 04_sla.md",
+            "Circular precedence between SOW and Master Services Agreement (MSA) 14. ORDER OF PRECEDENCE in 02_sow.md, 14.1 in 01_msa.md",
+            "Ambiguity in the definition of 'Delivery' across documents 1. DEFINITIONS in 01_msa.md and 02_sow.md",
+            "Contradictory terms - inconsistency between 'Processor' and 'Subprocessor' 1.6 Subprocessor and 5. SUBPROCESSORS in 03_dpa.md, 5.1 Subprocessors in 02_sow.md",
+            "Incorrect reference to Annex 2 location 4. LOCATION OF PROCESSING in 03_dpa.md mentions 'London, United Kingdom (primary)' and 'Dublin, Ireland (disaster recovery)', but there is no annex 2 referenced anywhere else in the document.",
+            "Incomplete clause - missing reference to Annex 1 4. LOCATION OF PROCESSING in 03_dpa.md does not reference Annex 1",
+            "Unclear communication of obligations between Provider and Customer regarding Security Incident Reporting 7. SECURITY INCIDENTS in 03_dpa.md mentions Security Incident contact notification, but 6. REPORTING in 04_sla.md does not address this obligation."
+          ],
+          "matched": [
+            "X04_circular_precedence"
+          ],
+          "unmatched": [
+            "Inconsistency in definition of Business Day 1. DEFINITIONS in 01_msa.md and 02_sow.md",
+            "Obligation conflict - inconsistent availability levels across agreements 3. AVAILABILITY in 04_sla.md",
+            "Ambiguity in the definition of 'Delivery' across documents 1. DEFINITIONS in 01_msa.md and 02_sow.md",
+            "Contradictory terms - inconsistency between 'Processor' and 'Subprocessor' 1.6 Subprocessor and 5. SUBPROCESSORS in 03_dpa.md, 5.1 Subprocessors in 02_sow.md",
+            "Incorrect reference to Annex 2 location 4. LOCATION OF PROCESSING in 03_dpa.md mentions 'London, United Kingdom (primary)' and 'Dublin, Ireland (disaster recovery)', but there is no annex 2 referenced anywhere else in the document.",
+            "Incomplete clause - missing reference to Annex 1 4. LOCATION OF PROCESSING in 03_dpa.md does not reference Annex 1",
+            "Unclear communication of obligations between Provider and Customer regarding Security Incident Reporting 7. SECURITY INCIDENTS in 03_dpa.md mentions Security Incident contact notification, but 6. REPORTING in 04_sla.md does not address this obligation."
+          ],
+          "seconds": 6.2,
+          "usage": {
+            "input_tokens": 4747,
+            "output_tokens": 391,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 7,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Inconsistent definitions of 'Business Day'. The Master Services Agreement uses Monday to Friday, excluding public holidays in England and Wales, while Statement of Work 1 extends this to Monday to Saturday, excluding US federal holidays.\",\n      \"location\": \"01_msa.md section 2.3\"\n    },\n    {\n      \"issue\": \"Conflicting obligations related to termination. The Master Services Agreement allows either party to terminate for convenience with 90 days' notice, while Statement of Work 1 grants termination rights only upon material breach and non-compliance within 15 days.\",\n      \"location\": \"01_msa.md section 3.2, 02_sow.md section 2.4\"\n    },\n    {\n      \"issue\": \"Circular precedence issue in Clause 14 of the Master Services Agreement: 'This Agreement and each Schedule and Addendum are to be read together as one agreement.'\",\n      \"location\": \"01_msa.md section 14.1\"\n    },\n    {\n      \"issue\": \"Contradictory date range for termination rights. The Master Services Agreement allows termination by giving not less than 90 days' written notice, while the Data Processing Addendum (DPA) specifies 30 days' prior written authorization is required for data transfers outside territories.\",\n      \"location\": \"01_msa.md section 4.2, 03_dpa.md section 4.2\"\n    },\n    {\n      \"issue\": \"Inconsistent use of 'Security Incident'. In the Data Processing Addendum (DPA), a Security Incident is defined as confirmed unauthorized access to data resulting in loss or corruption, while in the Service Level and Support Schedule (SLAS), it is categorized under Priority 1.\",\n      \"location\": \"03_dpa.md section 7.1 vs. 04_sla.md section 6.2\"\n    },\n    {\n      \"issue\": \"Incompatibility between SLAS's Response and Resolution targets and DPA's Security Incident handling, specifically the timing of notifying Customer\u2019s nominated security contact (DPA clause 7.3) versus escalating to executive sponsors if not provided by the service management tool (SLAS section 5.1).\",\n      \"location\": \"04_sla.md section 6.2 vs. 04_sla.md section 6.4\"\n    },\n    {\n      \"issue\": \"Defect internal to SLAS: Response and Resolution targets are stated in terms of Provider's acknowledgment of an incident, but the timing for escalation or reporting is not clearly defined.\",\n      \"location\": \"04_sla.md section 5.1 vs. 04_sla.md section 6.2\"\n    },\n    {\n      \"issue\": \"Inconsistency between SLAS and DPA regarding Security Incidents: The SLAS does not specify a response time for security incidents beyond the standard Response targets, whereas the DPA sets up escalation paths (Clause 7.3).\",\n      \"location\": \"04_sla.md section 6.2 vs. 03_dpa.md section 8.1\"\n    }\n  ]\n}",
+          "findings": [
+            "Inconsistent definitions of 'Business Day'. The Master Services Agreement uses Monday to Friday, excluding public holidays in England and Wales, while Statement of Work 1 extends this to Monday to Saturday, excluding US federal holidays. 01_msa.md section 2.3",
+            "Conflicting obligations related to termination. The Master Services Agreement allows either party to terminate for convenience with 90 days' notice, while Statement of Work 1 grants termination rights only upon material breach and non-compliance within 15 days. 01_msa.md section 3.2, 02_sow.md section 2.4",
+            "Circular precedence issue in Clause 14 of the Master Services Agreement: 'This Agreement and each Schedule and Addendum are to be read together as one agreement.' 01_msa.md section 14.1",
+            "Contradictory date range for termination rights. The Master Services Agreement allows termination by giving not less than 90 days' written notice, while the Data Processing Addendum (DPA) specifies 30 days' prior written authorization is required for data transfers outside territories. 01_msa.md section 4.2, 03_dpa.md section 4.2",
+            "Inconsistent use of 'Security Incident'. In the Data Processing Addendum (DPA), a Security Incident is defined as confirmed unauthorized access to data resulting in loss or corruption, while in the Service Level and Support Schedule (SLAS), it is categorized under Priority 1. 03_dpa.md section 7.1 vs. 04_sla.md section 6.2",
+            "Incompatibility between SLAS's Response and Resolution targets and DPA's Security Incident handling, specifically the timing of notifying Customer\u2019s nominated security contact (DPA clause 7.3) versus escalating to executive sponsors if not provided by the service management tool (SLAS section 5.1). 04_sla.md section 6.2 vs. 04_sla.md section 6.4",
+            "Defect internal to SLAS: Response and Resolution targets are stated in terms of Provider's acknowledgment of an incident, but the timing for escalation or reporting is not clearly defined. 04_sla.md section 5.1 vs. 04_sla.md section 6.2",
+            "Inconsistency between SLAS and DPA regarding Security Incidents: The SLAS does not specify a response time for security incidents beyond the standard Response targets, whereas the DPA sets up escalation paths (Clause 7.3). 04_sla.md section 6.2 vs. 03_dpa.md section 8.1"
+          ],
+          "matched": [
+            "X03_termination_notice",
+            "X04_circular_precedence",
+            "X05_business_day_definition",
+            "X07_security_incident_definition"
+          ],
+          "unmatched": [
+            "Incompatibility between SLAS's Response and Resolution targets and DPA's Security Incident handling, specifically the timing of notifying Customer\u2019s nominated security contact (DPA clause 7.3) versus escalating to executive sponsors if not provided by the service management tool (SLAS section 5.1). 04_sla.md section 6.2 vs. 04_sla.md section 6.4",
+            "Defect internal to SLAS: Response and Resolution targets are stated in terms of Provider's acknowledgment of an incident, but the timing for escalation or reporting is not clearly defined. 04_sla.md section 5.1 vs. 04_sla.md section 6.2"
+          ],
+          "seconds": 8.9,
+          "usage": {
+            "input_tokens": 4747,
+            "output_tokens": 667,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        }
+      ],
+      "analysis": {
+        "label": "parallel_rep1",
+        "k": 8,
+        "tokens_in": 37976,
+        "tokens_out": 4204,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+        "tokens_per_call_out": [
+          322,
+          351,
+          456,
+          543,
+          622,
+          852,
+          391,
+          667
+        ],
+        "cost_usd_total": null,
+        "cost_usd_first_call": null,
+        "cost_usd_wasted_after_first": null,
+        "seconds_total": 67.8,
+        "finding_counts": [
+          8,
+          7,
+          8,
+          9,
+          9,
+          11,
+          8,
+          8
+        ],
+        "sections_per_call": [
+          3,
+          0,
+          4,
+          1,
+          0,
+          3,
+          2,
+          1
+        ],
+        "sections_union": 4,
+        "sections_union_curve": [
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "mean_pairwise_jaccard_sections": 0.214,
+        "sections_seen": [
+          "dpa",
+          "msa",
+          "sla",
+          "sow"
+        ],
+        "per_call_recall": [
+          0,
+          0,
+          3,
+          1,
+          3,
+          4,
+          1,
+          4
+        ],
+        "mean_per_call": 2,
+        "best_single": 4,
+        "union_recall": 9,
+        "union_curve": [
+          0,
+          0,
+          3,
+          3,
+          5,
+          8,
+          8,
+          9
+        ],
+        "marginal_gain_after_first": 9,
+        "mean_pairwise_jaccard": 0.183,
+        "union_ids": [
+          "X01_monthly_fee",
+          "X02_term_length",
+          "X03_termination_notice",
+          "X04_circular_precedence",
+          "X05_business_day_definition",
+          "X07_security_incident_definition",
+          "X09_retain_vs_delete",
+          "X13_availability_target",
+          "X19_start_date_precedes_msa"
+        ],
+        "never_found": [
+          "X06_confidential_information_definition",
+          "X08_incident_notice_window",
+          "X10_subprocessor_consent",
+          "X11_liability_cap",
+          "X12_liability_carveout_collision",
+          "X14_service_credit_cap",
+          "X15_automatic_credit_vs_no_setoff",
+          "X16_governing_law",
+          "X17_dead_xref_to_sow",
+          "X18_dead_xref_to_dpa_annex",
+          "X20_payment_terms",
+          "X21_processing_location",
+          "X22_audit_rights",
+          "X23_deemed_vs_express_acceptance",
+          "X24_insurance_limit"
+        ],
+        "unmatched_finding_count": 49
+      }
+    },
+    {
+      "repeat": 2,
+      "runs": [
+        {
+          "call": 0,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Inconsistency in the definition of 'Business Day' across documents.\",\n      \"location\": \"01_msa.md (Section 2.2), 02_sow.md (Section 4.3, Definition), and 04_sla.md (Section 5.1). The definition in SOW and SLA uses US federal holidays, while the one in MSA uses UK public holidays.\"\n    },\n    {\n      \"issue\": \"Inconsistent use of 'Business Day' across documents.\",\n      \"location\": \"01_msa.md (Definition), 02_sow.md (Section 4.3, Definition), and 04_sla.md (Section 5.1). The MSA uses UK public holidays, the SOW uses US federal holidays, and the SLA uses Monday to Saturday excluding its own defined US federal holidays.\"\n    },\n    {\n      \"issue\": \"Conflict between clause 2.2 of the MSA and SOW regarding 'Performance'.\",\n      \"location\": \"01_msa.md (Section 2.2) and 02_sow.md (Section 2.3). Clause 2.2 states Provider shall perform the Services with reasonable skill and care and in accordance with good industry practice, while clause 2.3 of SOW specifies that Provider shall comply with Customer's reasonable instructions as to the manner of performance.\"\n    },\n    {\n      \"issue\": \"Inconsistent number of days for termination notices.\",\n      \"location\": \"01_msa.md (Section 3.2) and 04_sla.md (Section 7.1). The MSA requires 90 days' notice, while the SLA only specifies 5 Business Days.\"\n    },\n    {\n      \"issue\": \"Inconsistent fee structure between clauses of the MSA.\",\n      \"location\": \"01_msa.md (Section 4.1) and 02_sow.md (Section 5.1). The monthly Fee in MSA is \u00a312,400, while SOW states it as \u00a312,800.\"\n    },\n    {\n      \"issue\": \"Inconsistent location of data processing for DPA.\",\n      \"location\": \"03_dpa.md (Section 4.1). The Annex lists the approved processing locations within the UK and EEA, but this is not explicitly stated in Section 4.2 of the main document.\"\n    },\n    {\n      \"issue\": \"Inconsistent term definition for 'Term' across documents.\",\n      \"location\": \"01_msa.md (Section 3.1) and 04_sla.md (Section 7.1). The MSA uses an initial term of 24 months, while the SLA has a maintenance of previous terms.\"\n    },\n    {\n      \"issue\": \"Inconsistent date for 'Effective Date' across documents.\",\n      \"location\": \"01_msa.md and all other documents (no reference to any Effective Date). The MSA explicitly states an Effective Date of 1 April 2027, while none of the other documents mention it.\"\n    },\n    {\n      \"issue\": \"No acknowledgment or definition for 'Replatforming' in SOW.\",\n      \"location\": \"02_sow.md. Although replatforming is mentioned in Section 2.1 and throughout the document, it is not explicitly defined.\"\n    },\n    {\n      \"issue\": \"Circular reference to the Data Processing Addendum (DPA) within SLA.\",\n      \"location\": \"04_sla.md (Section 6). The DPA mentions its own section on Security Incidents (7.1), which references a nominated security contact in Annex 3 of the DPA.\"\n    }\n  ]  \n}",
+          "findings": [
+            "Inconsistency in the definition of 'Business Day' across documents. 01_msa.md (Section 2.2), 02_sow.md (Section 4.3, Definition), and 04_sla.md (Section 5.1). The definition in SOW and SLA uses US federal holidays, while the one in MSA uses UK public holidays.",
+            "Inconsistent use of 'Business Day' across documents. 01_msa.md (Definition), 02_sow.md (Section 4.3, Definition), and 04_sla.md (Section 5.1). The MSA uses UK public holidays, the SOW uses US federal holidays, and the SLA uses Monday to Saturday excluding its own defined US federal holidays.",
+            "Conflict between clause 2.2 of the MSA and SOW regarding 'Performance'. 01_msa.md (Section 2.2) and 02_sow.md (Section 2.3). Clause 2.2 states Provider shall perform the Services with reasonable skill and care and in accordance with good industry practice, while clause 2.3 of SOW specifies that Provider shall comply with Customer's reasonable instructions as to the manner of performance.",
+            "Inconsistent number of days for termination notices. 01_msa.md (Section 3.2) and 04_sla.md (Section 7.1). The MSA requires 90 days' notice, while the SLA only specifies 5 Business Days.",
+            "Inconsistent fee structure between clauses of the MSA. 01_msa.md (Section 4.1) and 02_sow.md (Section 5.1). The monthly Fee in MSA is \u00a312,400, while SOW states it as \u00a312,800.",
+            "Inconsistent location of data processing for DPA. 03_dpa.md (Section 4.1). The Annex lists the approved processing locations within the UK and EEA, but this is not explicitly stated in Section 4.2 of the main document.",
+            "Inconsistent term definition for 'Term' across documents. 01_msa.md (Section 3.1) and 04_sla.md (Section 7.1). The MSA uses an initial term of 24 months, while the SLA has a maintenance of previous terms.",
+            "Inconsistent date for 'Effective Date' across documents. 01_msa.md and all other documents (no reference to any Effective Date). The MSA explicitly states an Effective Date of 1 April 2027, while none of the other documents mention it.",
+            "No acknowledgment or definition for 'Replatforming' in SOW. 02_sow.md. Although replatforming is mentioned in Section 2.1 and throughout the document, it is not explicitly defined.",
+            "Circular reference to the Data Processing Addendum (DPA) within SLA. 04_sla.md (Section 6). The DPA mentions its own section on Security Incidents (7.1), which references a nominated security contact in Annex 3 of the DPA."
+          ],
+          "matched": [
+            "X01_monthly_fee",
+            "X03_termination_notice",
+            "X05_business_day_definition",
+            "X18_dead_xref_to_dpa_annex",
+            "X19_start_date_precedes_msa"
+          ],
+          "unmatched": [
+            "Conflict between clause 2.2 of the MSA and SOW regarding 'Performance'. 01_msa.md (Section 2.2) and 02_sow.md (Section 2.3). Clause 2.2 states Provider shall perform the Services with reasonable skill and care and in accordance with good industry practice, while clause 2.3 of SOW specifies that Provider shall comply with Customer's reasonable instructions as to the manner of performance.",
+            "Inconsistent location of data processing for DPA. 03_dpa.md (Section 4.1). The Annex lists the approved processing locations within the UK and EEA, but this is not explicitly stated in Section 4.2 of the main document.",
+            "Inconsistent term definition for 'Term' across documents. 01_msa.md (Section 3.1) and 04_sla.md (Section 7.1). The MSA uses an initial term of 24 months, while the SLA has a maintenance of previous terms.",
+            "No acknowledgment or definition for 'Replatforming' in SOW. 02_sow.md. Although replatforming is mentioned in Section 2.1 and throughout the document, it is not explicitly defined."
+          ],
+          "seconds": 10.3,
+          "usage": {
+            "input_tokens": 4747,
+            "output_tokens": 798,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 1,
+          "raw": "{\"findings\": [\n    {\"issue\": \"Inconsistent definition of 'Business Day', SOW vs SLA\", \"location\": \"DOCUMENTS: 01_msa.md and 04_sla.md\"},\n    {\"issue\": \"Conflicting number of hours for Priority 2 and Priority 3 support, SOW vs SLA\", \"location\": \"DOCUMENTS: 01_msa.md and 04_sla.md\"},\n    {\"issue\": \"No reference to Annexes in the master agreement\", \"location\": \"DOCUMENTS: 01_msa.md\"},\n    {\"issue\": \"Omission of sub-contracting responsibilities, SOW vs DPA\", \"location\": \"DOCUMENTS: 02_sow.md and 03_dpa.md\"},\n    {\"issue\": \"No specific mention of a disaster recovery location in the master agreement\", \"location\": \"DOCUMENTS: 01_msa.md and 03_dpa.md\"},\n    {\"issue\": \"Inconsistent language for 'Security Incident' terms, SOW vs DPA\", \"location\": \"DOCUMENTS: 02_sow.md and 03_dpa.md\"}\n]}",
+          "findings": [
+            "Inconsistent definition of 'Business Day', SOW vs SLA DOCUMENTS: 01_msa.md and 04_sla.md",
+            "Conflicting number of hours for Priority 2 and Priority 3 support, SOW vs SLA DOCUMENTS: 01_msa.md and 04_sla.md",
+            "No reference to Annexes in the master agreement DOCUMENTS: 01_msa.md",
+            "Omission of sub-contracting responsibilities, SOW vs DPA DOCUMENTS: 02_sow.md and 03_dpa.md",
+            "No specific mention of a disaster recovery location in the master agreement DOCUMENTS: 01_msa.md and 03_dpa.md",
+            "Inconsistent language for 'Security Incident' terms, SOW vs DPA DOCUMENTS: 02_sow.md and 03_dpa.md"
+          ],
+          "matched": [
+            "X07_security_incident_definition"
+          ],
+          "unmatched": [
+            "Inconsistent definition of 'Business Day', SOW vs SLA DOCUMENTS: 01_msa.md and 04_sla.md",
+            "Conflicting number of hours for Priority 2 and Priority 3 support, SOW vs SLA DOCUMENTS: 01_msa.md and 04_sla.md",
+            "No reference to Annexes in the master agreement DOCUMENTS: 01_msa.md",
+            "Omission of sub-contracting responsibilities, SOW vs DPA DOCUMENTS: 02_sow.md and 03_dpa.md",
+            "No specific mention of a disaster recovery location in the master agreement DOCUMENTS: 01_msa.md and 03_dpa.md"
+          ],
+          "seconds": 4.8,
+          "usage": {
+            "input_tokens": 4747,
+            "output_tokens": 245,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 2,
+          "raw": "{\n    \"findings\": [\n        {\n            \"issue\": \"Inconsistency in term 'Business Day': Document 1 defines 'Business Day' as Monday to Friday, excluding public holidays in England and Wales. Document 2 and Document 3 define it as Monday to Saturday, excluding US federal holidays.\",\n            \"location\": \"Document 1 Section 1.2; Document 2 Section 1.2; Document 3 Section 1.2\"\n        },\n        {\n            \"issue\": \"Conflicting terms 'Subprocessor' in Data Processing Addendum (DPA) and Service Level Agreement (SLA). In DPA, Subprocessors are defined as any third party engaged by Provider to process Customer Personal Data. In SLA, Security Incidents are treated as Priority 1 incidents if they result from confirmed unauthorised access. There is no mention of a Subprocessor in the SLA.\",\n            \"location\": \"Document 3 Section 5.2 and Document 4 Section 7.2\"\n        },\n        {\n            \"issue\": \"Incorrect date for Effective Date: Document 1 states 'Effective Date' as April 1, 2027. However, the Effective Dates in SOW (March 1, 2027) and DPA (December 31, 2026) do not match with Document 1.\",\n            \"location\": \"Document 1 Section 1.4\"\n        },\n        {\n            \"issue\": \"Inconsistency in number of days for payment: Document 4 states 'Response within one Business Day' but then mentions 'ten Business Days' for monthly reports and five Business Days for a Security Incident report.\",\n            \"location\": \"Document 4 Section 5.3; Document 4 Section 6.1\"\n        },\n        {\n            \"issue\": \"Incompatibility in payment terms: In Document 4, there is no reference to 'value added tax', which was mentioned as an additional charge for the Fee in Document 4. Additionally, the timeframes for response and resolution are given in different units (minutes vs hours/Business Days).\",\n            \"location\": \"Document 4 Section 5; Document 4 Section 6\"\n        },\n        {\n            \"issue\": \"Inconsistent reference to 'Statement of Work' in DPA: The Data Processing Addendum refers to a Statement of Work as Schedule 1 (Document 2), which does not exist. This could lead to confusion when referring back from the addendum.\",\n            \"location\": \"Document 3 Section 1.1\"\n        },\n        {\n            \"issue\": \"Circular precedence issue: In Document 4, 'Response and Resolution Targets' are defined in terms of minutes and Business Days. However, these targets are referenced in Document 2 (Support HOURS) as well, which is not consistent.\",\n            \"location\": \"Document 4 Section 5; Document 2 Section 1\"\n        },\n        {\n            \"issue\": \"Potential ambiguity in 'Security Incident' definition: Security Incidents are defined in the Data Processing Addendum but their implications and treatment in other documents (like SLA) need clarification. For instance, a Security Incident should be treated as Priority 1 in Service Level Agreement if it results from confirmed unauthorized access.\",\n            \"location\": \"Document 3 Section 7; Document 4 Section 7\"\n        },\n        {\n            \"issue\": \"Inconsistency in 'Confidential Information' definition: In DPA, Confidential Information is defined as information marked confidential at the time of disclosure. In SLA, it mentions 'Customer Personal Data' without defining what constitutes 'Customer Personal Data'.\",\n            \"location\": \"Document 3 Section 1; Document 4 Section 1\"\n        },\n        {\n            \"issue\": \"Missing or unclear reference in DPA to Annexes: The Data Processing Addendum references Annex 1 (Processing Details) and Annex 2 (Approved Processing Locations), but these do not appear in other documents.\",\n            \"location\": \"Document 3 Sections 4.2, 4.3; Document 4 Section 5\"\n        }\n    ]\n}",
+          "findings": [
+            "Inconsistency in term 'Business Day': Document 1 defines 'Business Day' as Monday to Friday, excluding public holidays in England and Wales. Document 2 and Document 3 define it as Monday to Saturday, excluding US federal holidays. Document 1 Section 1.2; Document 2 Section 1.2; Document 3 Section 1.2",
+            "Conflicting terms 'Subprocessor' in Data Processing Addendum (DPA) and Service Level Agreement (SLA). In DPA, Subprocessors are defined as any third party engaged by Provider to process Customer Personal Data. In SLA, Security Incidents are treated as Priority 1 incidents if they result from confirmed unauthorised access. There is no mention of a Subprocessor in the SLA. Document 3 Section 5.2 and Document 4 Section 7.2",
+            "Incorrect date for Effective Date: Document 1 states 'Effective Date' as April 1, 2027. However, the Effective Dates in SOW (March 1, 2027) and DPA (December 31, 2026) do not match with Document 1. Document 1 Section 1.4",
+            "Inconsistency in number of days for payment: Document 4 states 'Response within one Business Day' but then mentions 'ten Business Days' for monthly reports and five Business Days for a Security Incident report. Document 4 Section 5.3; Document 4 Section 6.1",
+            "Incompatibility in payment terms: In Document 4, there is no reference to 'value added tax', which was mentioned as an additional charge for the Fee in Document 4. Additionally, the timeframes for response and resolution are given in different units (minutes vs hours/Business Days). Document 4 Section 5; Document 4 Section 6",
+            "Inconsistent reference to 'Statement of Work' in DPA: The Data Processing Addendum refers to a Statement of Work as Schedule 1 (Document 2), which does not exist. This could lead to confusion when referring back from the addendum. Document 3 Section 1.1",
+            "Circular precedence issue: In Document 4, 'Response and Resolution Targets' are defined in terms of minutes and Business Days. However, these targets are referenced in Document 2 (Support HOURS) as well, which is not consistent. Document 4 Section 5; Document 2 Section 1",
+            "Potential ambiguity in 'Security Incident' definition: Security Incidents are defined in the Data Processing Addendum but their implications and treatment in other documents (like SLA) need clarification. For instance, a Security Incident should be treated as Priority 1 in Service Level Agreement if it results from confirmed unauthorized access. Document 3 Section 7; Document 4 Section 7",
+            "Inconsistency in 'Confidential Information' definition: In DPA, Confidential Information is defined as information marked confidential at the time of disclosure. In SLA, it mentions 'Customer Personal Data' without defining what constitutes 'Customer Personal Data'. Document 3 Section 1; Document 4 Section 1",
+            "Missing or unclear reference in DPA to Annexes: The Data Processing Addendum references Annex 1 (Processing Details) and Annex 2 (Approved Processing Locations), but these do not appear in other documents. Document 3 Sections 4.2, 4.3; Document 4 Section 5"
+          ],
+          "matched": [
+            "X04_circular_precedence",
+            "X05_business_day_definition",
+            "X06_confidential_information_definition",
+            "X07_security_incident_definition"
+          ],
+          "unmatched": [
+            "Incorrect date for Effective Date: Document 1 states 'Effective Date' as April 1, 2027. However, the Effective Dates in SOW (March 1, 2027) and DPA (December 31, 2026) do not match with Document 1. Document 1 Section 1.4",
+            "Incompatibility in payment terms: In Document 4, there is no reference to 'value added tax', which was mentioned as an additional charge for the Fee in Document 4. Additionally, the timeframes for response and resolution are given in different units (minutes vs hours/Business Days). Document 4 Section 5; Document 4 Section 6",
+            "Inconsistent reference to 'Statement of Work' in DPA: The Data Processing Addendum refers to a Statement of Work as Schedule 1 (Document 2), which does not exist. This could lead to confusion when referring back from the addendum. Document 3 Section 1.1",
+            "Missing or unclear reference in DPA to Annexes: The Data Processing Addendum references Annex 1 (Processing Details) and Annex 2 (Approved Processing Locations), but these do not appear in other documents. Document 3 Sections 4.2, 4.3; Document 4 Section 5"
+          ],
+          "seconds": 10.8,
+          "usage": {
+            "input_tokens": 4747,
+            "output_tokens": 861,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 3,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Conflicting definition of 'Business Day' in Document 1 and Document 2\",\n      \"location\": \"Document 1 (1.1), Document 2 (1.1)\"\n    },\n    {\n      \"issue\": \"Misalignment between the term 'Statement of Work' used in Document 1 and its referenced ID in Document 2\",\n      \"location\": \"Document 1, Section 1.2\"\n    },\n    {\n      \"issue\": \"Inconsistent monthly Fee amounts for different Statements of Works\",\n      \"location\": \"Document 1 (4.1), Document 2 (5.1)\"\n    },\n    {\n      \"issue\": \"Potential circular precedence issues in the order of precedence section\",\n      \"location\": \"Document 1 (14.1)\"\n    },\n    {\n      \"issue\": \"No reference to Annexes 1 and 2 in Document 3, which are referenced in its Scope of Processing definition\",\n      \"location\": \"Document 3 (3.3), Document 3 (5.3)\"\n    },\n    {\n      \"issue\": \"The terms 'Data Protection Law' in Document 4 do not match the term used elsewhere\",\n      \"location\": \"Document 4 (1.2)\"\n    },\n    {\n      \"issue\": \"Potential conflicts between Service Level Targets and other obligations, particularly around Availability\",\n      \"location\": \"Document 3 (3.1), Document 3 (3.2-3.4), Document 4 (5.1-5.4)\"\n    }\n  ] \n}",
+          "findings": [
+            "Conflicting definition of 'Business Day' in Document 1 and Document 2 Document 1 (1.1), Document 2 (1.1)",
+            "Misalignment between the term 'Statement of Work' used in Document 1 and its referenced ID in Document 2 Document 1, Section 1.2",
+            "Inconsistent monthly Fee amounts for different Statements of Works Document 1 (4.1), Document 2 (5.1)",
+            "Potential circular precedence issues in the order of precedence section Document 1 (14.1)",
+            "No reference to Annexes 1 and 2 in Document 3, which are referenced in its Scope of Processing definition Document 3 (3.3), Document 3 (5.3)",
+            "The terms 'Data Protection Law' in Document 4 do not match the term used elsewhere Document 4 (1.2)",
+            "Potential conflicts between Service Level Targets and other obligations, particularly around Availability Document 3 (3.1), Document 3 (3.2-3.4), Document 4 (5.1-5.4)"
+          ],
+          "matched": [
+            "X04_circular_precedence"
+          ],
+          "unmatched": [
+            "Conflicting definition of 'Business Day' in Document 1 and Document 2 Document 1 (1.1), Document 2 (1.1)",
+            "Misalignment between the term 'Statement of Work' used in Document 1 and its referenced ID in Document 2 Document 1, Section 1.2",
+            "Inconsistent monthly Fee amounts for different Statements of Works Document 1 (4.1), Document 2 (5.1)",
+            "No reference to Annexes 1 and 2 in Document 3, which are referenced in its Scope of Processing definition Document 3 (3.3), Document 3 (5.3)",
+            "The terms 'Data Protection Law' in Document 4 do not match the term used elsewhere Document 4 (1.2)",
+            "Potential conflicts between Service Level Targets and other obligations, particularly around Availability Document 3 (3.1), Document 3 (3.2-3.4), Document 4 (5.1-5.4)"
+          ],
+          "seconds": 5.8,
+          "usage": {
+            "input_tokens": 4747,
+            "output_tokens": 338,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 4,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Document 1 (msa.md) defines 'Business Day' as Monday to Friday, excluding public holidays in England and Wales. Document 2 (sow.md) uses a different definition: Monday to Saturday, excluding US federal holidays. These definitions conflict.\",\n      \"location\": \"msa.md section 1.1, sow.md section 1.1\"\n    },\n    {\n      \"issue\": \"Document 3 (dpa.md) references Annexes 1 and 2 that do not exist in the provided documents. Annex 1 is defined in Document 2 (sow.md), but Annex 2 does not appear anywhere.\",\n      \"location\": \"dpa.md section 4.2, 4.3\"\n    },\n    {\n      \"issue\": \"Document 1 (msa.md) and Document 3 (dpa.md) both define 'Security Incident' in different ways. The definition in msa.md is broader than the one in dpa.md.\",\n      \"location\": \"msa.md section 6.1, dpa.md section 7.1\"\n    },\n    {\n      \"issue\": \"Document 4 (sla.md) defines 'Business Day' as Monday to Saturday, which differs from the definition used elsewhere in msa.md and sow.md.\",\n      \"location\": \"sla.md section 1.2\"\n    },\n    {\n      \"issue\": \"Document 4 (sla.md) does not reference or specify a response time for Priority 3 Incidents beyond the standard of 'response within one Business Day; Resolution within five Business Days' provided in Document 1 (msa.md). This is potentially conflicting.\",\n      \"location\": \"sla.md section 5.3\"\n    },\n    {\n      \"issue\": \"Document 4 (sla.md) does not reference or specify a response time for Priority 2 Incidents beyond the standard of 'response within two hours; Resolution within one Business Day' provided in Document 1 (msa.md). This is potentially conflicting.\",\n      \"location\": \"sla.md section 5.2\"\n    },\n    {\n      \"issue\": \"Document 4 (sla.md) does not reference or specify a response time for Priority 1 Incidents beyond the standard of 'response within fifteen minutes; Resolution within four hours' provided in Document 1 (msa.md). This is potentially conflicting.\",\n      \"location\": \"sla.md section 5.1\"\n    },\n    {\n      \"issue\": \"Document 3 (dpa.md) states Provider remains liable for Subprocessors' actions without prior written consent, which may conflict with the general principles of data processing and security established in the master agreement.\",\n      \"location\": \"dpa.md section 5.3\"\n    }\n  ]  \n}",
+          "findings": [
+            "Document 1 (msa.md) defines 'Business Day' as Monday to Friday, excluding public holidays in England and Wales. Document 2 (sow.md) uses a different definition: Monday to Saturday, excluding US federal holidays. These definitions conflict. msa.md section 1.1, sow.md section 1.1",
+            "Document 3 (dpa.md) references Annexes 1 and 2 that do not exist in the provided documents. Annex 1 is defined in Document 2 (sow.md), but Annex 2 does not appear anywhere. dpa.md section 4.2, 4.3",
+            "Document 1 (msa.md) and Document 3 (dpa.md) both define 'Security Incident' in different ways. The definition in msa.md is broader than the one in dpa.md. msa.md section 6.1, dpa.md section 7.1",
+            "Document 4 (sla.md) defines 'Business Day' as Monday to Saturday, which differs from the definition used elsewhere in msa.md and sow.md. sla.md section 1.2",
+            "Document 4 (sla.md) does not reference or specify a response time for Priority 3 Incidents beyond the standard of 'response within one Business Day; Resolution within five Business Days' provided in Document 1 (msa.md). This is potentially conflicting. sla.md section 5.3",
+            "Document 4 (sla.md) does not reference or specify a response time for Priority 2 Incidents beyond the standard of 'response within two hours; Resolution within one Business Day' provided in Document 1 (msa.md). This is potentially conflicting. sla.md section 5.2",
+            "Document 4 (sla.md) does not reference or specify a response time for Priority 1 Incidents beyond the standard of 'response within fifteen minutes; Resolution within four hours' provided in Document 1 (msa.md). This is potentially conflicting. sla.md section 5.1",
+            "Document 3 (dpa.md) states Provider remains liable for Subprocessors' actions without prior written consent, which may conflict with the general principles of data processing and security established in the master agreement. dpa.md section 5.3"
+          ],
+          "matched": [
+            "X05_business_day_definition",
+            "X07_security_incident_definition",
+            "X10_subprocessor_consent"
+          ],
+          "unmatched": [
+            "Document 3 (dpa.md) references Annexes 1 and 2 that do not exist in the provided documents. Annex 1 is defined in Document 2 (sow.md), but Annex 2 does not appear anywhere. dpa.md section 4.2, 4.3",
+            "Document 4 (sla.md) does not reference or specify a response time for Priority 3 Incidents beyond the standard of 'response within one Business Day; Resolution within five Business Days' provided in Document 1 (msa.md). This is potentially conflicting. sla.md section 5.3",
+            "Document 4 (sla.md) does not reference or specify a response time for Priority 2 Incidents beyond the standard of 'response within two hours; Resolution within one Business Day' provided in Document 1 (msa.md). This is potentially conflicting. sla.md section 5.2",
+            "Document 4 (sla.md) does not reference or specify a response time for Priority 1 Incidents beyond the standard of 'response within fifteen minutes; Resolution within four hours' provided in Document 1 (msa.md). This is potentially conflicting. sla.md section 5.1"
+          ],
+          "seconds": 8.1,
+          "usage": {
+            "input_tokens": 4747,
+            "output_tokens": 585,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 5,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"The term 'Business Day' in document 1 conflicts with the definition of 'Incident' and support hours in document 4, causing ambiguity.\",\n      \"location\": \"Document 1: Section 2.3 (Definition of Business Day), Document 4: Sections 1.1 (Definition of Business Day) and 2.1 (Support Hours)\"\n    },\n    {\n      \"issue\": \"In document 4, the term 'Incident' is used in both definitions and support hours without conflict or inconsistency with other documents.\",\n      \"location\": \"Document 4: Section 1.2 (Definition of Incident), Section 2.1 (Priority 1 Support Hours)\"\n    },\n    {\n      \"issue\": \"In document 3, there is no reference to Annexes 1 and 2, as specified in section 4.3.\",\n      \"location\": \"Document 3: Section 4.3\"\n    },\n    {\n      \"issue\": \"In document 2, the term 'Business Day' is used without definition, which is defined in Document 1 but not elsewhere. This could lead to confusion.\",\n      \"location\": \"Document 2: Section 1.1 (Statement of Work)\"\n    },\n    {\n      \"issue\": \"The reference to Section 14.2 in document 1 and the term 'Order of Precedence' are unclear, as there is no such section or term defined elsewhere.\",\n      \"location\": \"Document 1: Section 14.2 (Order of Precedence)\"\n    },\n    {\n      \"issue\": \"The reference to Section 8 in document 3 refers to it without definition, which could be misleading unless the relevant section from Document 3 is clear and defined.\",\n      \"location\": \"Document 3: Section 9.1\"\n    },\n    {\n      \"issue\": \"The term 'Security Incident' in document 2 does not align with the term used in document 4 (Priority 1 Incident), leading to potential confusion.\",\n      \"location\": \"Document 2: Section 6.3, Document 4: Section 5.1\"\n    },\n    {\n      \"issue\": \"The reference to Annexes 1 and 2 in document 3 is not explicitly stated or defined in the main text of the agreement, which could cause confusion.\",\n      \"location\": \"Document 3: Section 4.3\"\n    },\n    {\n      \"issue\": \"There are no references to Sections 5.3 and 7.1 in document 2, which could lead to ambiguity if those sections contain critical information.\",\n      \"location\": \"Document 2: Not specifically cited but implied reference in some clauses.\"\n    }\n  ]  \n}",
+          "findings": [
+            "The term 'Business Day' in document 1 conflicts with the definition of 'Incident' and support hours in document 4, causing ambiguity. Document 1: Section 2.3 (Definition of Business Day), Document 4: Sections 1.1 (Definition of Business Day) and 2.1 (Support Hours)",
+            "In document 4, the term 'Incident' is used in both definitions and support hours without conflict or inconsistency with other documents. Document 4: Section 1.2 (Definition of Incident), Section 2.1 (Priority 1 Support Hours)",
+            "In document 3, there is no reference to Annexes 1 and 2, as specified in section 4.3. Document 3: Section 4.3",
+            "In document 2, the term 'Business Day' is used without definition, which is defined in Document 1 but not elsewhere. This could lead to confusion. Document 2: Section 1.1 (Statement of Work)",
+            "The reference to Section 14.2 in document 1 and the term 'Order of Precedence' are unclear, as there is no such section or term defined elsewhere. Document 1: Section 14.2 (Order of Precedence)",
+            "The reference to Section 8 in document 3 refers to it without definition, which could be misleading unless the relevant section from Document 3 is clear and defined. Document 3: Section 9.1",
+            "The term 'Security Incident' in document 2 does not align with the term used in document 4 (Priority 1 Incident), leading to potential confusion. Document 2: Section 6.3, Document 4: Section 5.1",
+            "The reference to Annexes 1 and 2 in document 3 is not explicitly stated or defined in the main text of the agreement, which could cause confusion. Document 3: Section 4.3",
+            "There are no references to Sections 5.3 and 7.1 in document 2, which could lead to ambiguity if those sections contain critical information. Document 2: Not specifically cited but implied reference in some clauses."
+          ],
+          "matched": [],
+          "unmatched": [
+            "The term 'Business Day' in document 1 conflicts with the definition of 'Incident' and support hours in document 4, causing ambiguity. Document 1: Section 2.3 (Definition of Business Day), Document 4: Sections 1.1 (Definition of Business Day) and 2.1 (Support Hours)",
+            "In document 4, the term 'Incident' is used in both definitions and support hours without conflict or inconsistency with other documents. Document 4: Section 1.2 (Definition of Incident), Section 2.1 (Priority 1 Support Hours)",
+            "In document 3, there is no reference to Annexes 1 and 2, as specified in section 4.3. Document 3: Section 4.3",
+            "In document 2, the term 'Business Day' is used without definition, which is defined in Document 1 but not elsewhere. This could lead to confusion. Document 2: Section 1.1 (Statement of Work)",
+            "The reference to Section 14.2 in document 1 and the term 'Order of Precedence' are unclear, as there is no such section or term defined elsewhere. Document 1: Section 14.2 (Order of Precedence)",
+            "The reference to Section 8 in document 3 refers to it without definition, which could be misleading unless the relevant section from Document 3 is clear and defined. Document 3: Section 9.1",
+            "The term 'Security Incident' in document 2 does not align with the term used in document 4 (Priority 1 Incident), leading to potential confusion. Document 2: Section 6.3, Document 4: Section 5.1",
+            "The reference to Annexes 1 and 2 in document 3 is not explicitly stated or defined in the main text of the agreement, which could cause confusion. Document 3: Section 4.3",
+            "There are no references to Sections 5.3 and 7.1 in document 2, which could lead to ambiguity if those sections contain critical information. Document 2: Not specifically cited but implied reference in some clauses."
+          ],
+          "seconds": 8.0,
+          "usage": {
+            "input_tokens": 4747,
+            "output_tokens": 582,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 6,
+          "raw": "{\"findings\": [\n    {\"issue\": \"Inconsistent Business Day definition in the MSA and SLA\", \"location\": \"MASTER SERVICES AGREEMENT (MSA) & SERVICE LEVEL AND SUPPORT SCHEDULE (SLA)\"},\n    {\"issue\": \"Date conflict for Term: Initial term is 24 months, renewal period is 12 months unless terminated within 90 days\", \"location\": \"MASTER SERVICES AGREEMENT (MSA)\"},\n    {\"issue\": \"Clause inconsistency regarding termination rights in the MSA and SOW\", \"location\": \"MASTER SERVICES AGREEMENT (MSA) & STATEMENT OF WORK 1 (SOW)\"},\n    {\"issue\": \"Number conflict for Fee: Monthly Fee in the MSA is \u00a312,400, while in Statement of Work it's \u00a312,800\", \"location\": \"MASTER SERVICES AGREEMENT (MSA) & STATEMENT OF WORK 1 (SOW)\"},\n    {\"issue\": \"Service Level and Support Schedule (SLA) does not explicitly reference the SOW for phase-specific service levels.\", \"location\": \"SERVICE LEVEL AND SUPPORT SCHEDULE (SLA) to STATEMENT OF WORK 1 (SOW)\"},\n    {\"issue\": \"Conflicting definitions of Confidential Information in MSA\", \"location\": \"MASTER SERVICES AGREEMENT (MSA) & DATA PROCESSING ADDENDUM (DPA)\"},\n    {\"issue\": \"Conflicts regarding Subprocessor engagement and liabilities in DPA and SOW\", \"location\": \"DATA PROCESSING ADDENDUM (DPA) & STATEMENT OF WORK 1 (SOW)\"}\n]}",
+          "findings": [
+            "Inconsistent Business Day definition in the MSA and SLA MASTER SERVICES AGREEMENT (MSA) & SERVICE LEVEL AND SUPPORT SCHEDULE (SLA)",
+            "Date conflict for Term: Initial term is 24 months, renewal period is 12 months unless terminated within 90 days MASTER SERVICES AGREEMENT (MSA)",
+            "Clause inconsistency regarding termination rights in the MSA and SOW MASTER SERVICES AGREEMENT (MSA) & STATEMENT OF WORK 1 (SOW)",
+            "Number conflict for Fee: Monthly Fee in the MSA is \u00a312,400, while in Statement of Work it's \u00a312,800 MASTER SERVICES AGREEMENT (MSA) & STATEMENT OF WORK 1 (SOW)",
+            "Service Level and Support Schedule (SLA) does not explicitly reference the SOW for phase-specific service levels. SERVICE LEVEL AND SUPPORT SCHEDULE (SLA) to STATEMENT OF WORK 1 (SOW)",
+            "Conflicting definitions of Confidential Information in MSA MASTER SERVICES AGREEMENT (MSA) & DATA PROCESSING ADDENDUM (DPA)",
+            "Conflicts regarding Subprocessor engagement and liabilities in DPA and SOW DATA PROCESSING ADDENDUM (DPA) & STATEMENT OF WORK 1 (SOW)"
+          ],
+          "matched": [
+            "X01_monthly_fee",
+            "X03_termination_notice"
+          ],
+          "unmatched": [
+            "Inconsistent Business Day definition in the MSA and SLA MASTER SERVICES AGREEMENT (MSA) & SERVICE LEVEL AND SUPPORT SCHEDULE (SLA)",
+            "Clause inconsistency regarding termination rights in the MSA and SOW MASTER SERVICES AGREEMENT (MSA) & STATEMENT OF WORK 1 (SOW)",
+            "Service Level and Support Schedule (SLA) does not explicitly reference the SOW for phase-specific service levels. SERVICE LEVEL AND SUPPORT SCHEDULE (SLA) to STATEMENT OF WORK 1 (SOW)",
+            "Conflicting definitions of Confidential Information in MSA MASTER SERVICES AGREEMENT (MSA) & DATA PROCESSING ADDENDUM (DPA)",
+            "Conflicts regarding Subprocessor engagement and liabilities in DPA and SOW DATA PROCESSING ADDENDUM (DPA) & STATEMENT OF WORK 1 (SOW)"
+          ],
+          "seconds": 5.7,
+          "usage": {
+            "input_tokens": 4747,
+            "output_tokens": 333,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 7,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Inconsistency in the definition of 'Business Day'. The Master Services Agreement (MSA) and Statement of Work (SOW) use different definitions.\",\n      \"location\": \"1.1 in MSA, and 2.3 in SOW\"\n    },\n    {\n      \"issue\": \"Conflict between clause 4.5 of the Master Services Agreement and clause 6.1 of the Statement of Work regarding Deliverables acceptance. Clause 4.5 allows for overlap only where agreed in writing, while clause 6.1 does not specify such an agreement.\",\n      \"location\": \"4.5 in MSA, and 6.1 in SOW\"\n    },\n    {\n      \"issue\": \"Conflicting term definitions: the Master Services Agreement (MSA) defines 'Service' as 'the services described in a Statement of Work', while the Statement of Work (SOW) specifically states that it is the provision of the replatforming and hosting Services. This could lead to confusion about what constitutes the Service.\",\n      \"location\": \"1.5 in MSA, and 2.1 in SOW\"\n    },\n    {\n      \"issue\": \"Inconsistency regarding the term 'Security Incident'. The Data Processing Addendum (DPA) defines it as an unauthorised or unlawful access to, or acquisition, alteration, disclosure, loss or destruction of Customer Personal Data, but the Service Level and Support Schedule (SLAS) treats it as a Priority 1 Incident. This could lead to confusion about when a Security Incident should be considered.\",\n      \"location\": \"1.6 in DPA, and 5.1 in SLAS\"\n    },\n    {\n      \"issue\": \"Inconsistency regarding the term 'Subprocessor'. The Data Processing Addendum (DPA) defines it as any third party engaged by Provider to process Customer Personal Data, while the Service Level and Support Schedule (SLAS) refers to Subprocessors but does not define them. This could lead to misunderstandings about who qualifies as a Subprocessor.\",\n      \"location\": \"1.5 in DPA, and no equivalent term defined or used in SLAS\"\n    },\n    {\n      \"issue\": \"Circular precedence issue between the Master Services Agreement (MSA) and the Data Processing Addendum (DPA). The MSA states that each Schedule and Addendum are to be read together as one agreement, while the DPA is referenced within the MSA. If a conflict arises between the two, it's unclear which should take precedence.\",\n      \"location\": \"14.1 in MSA\"\n    },\n    {\n      \"issue\": \"Inconsistent term definitions: The Master Services Agreement (MSA) defines 'Fee' as amounts payable by Customer under clause 4, but the Service Level and Support Schedule (SLAS) mentions an 'availability level'. These terms are not consistently used or defined.\",\n      \"location\": \"4.1 in MSA, and no direct mention of 'availability level' in SLAS\"\n    },\n    {\n      \"issue\": \"The Master Services Agreement (MSA) requires Provider to maintain professional indemnity insurance with a limit of indemnity of not less than \u00a32,000,000, while the Service Level and Support Schedule (SLAS) mentions provider's compliance with this requirement. However, there is no specific mention in either document that SLAS refers back to MSA.\",\n      \"location\": \"16.1 in MSA, not mentioned in SLAS\"\n    },\n    {\n      \"issue\": \"The Service Level and Support Schedule (SLAS) mentions a 'root cause analysis' for every Priority 1 Incident within five Business Days of Resolution, but the Data Processing Addendum (DPA) does not define or mention this term.\",\n      \"location\": \"8.2 in SLAS, no equivalent term defined in DPA\"\n    },\n    {\n      \"issue\": \"The Service Level and Support Schedule (SLAS) requires Provider to notify Customer's nominated security contact of a Security Incident within seventy-two hours of confirming it, but the Data Processing Addendum (DPA) does not mention this requirement. This could cause confusion if one party is unaware of this notification.\",\n      \"location\": \"7.2 in SLAS, no equivalent term mentioned in DPA\"\n    }\n  ]  \n}",
+          "findings": [
+            "Inconsistency in the definition of 'Business Day'. The Master Services Agreement (MSA) and Statement of Work (SOW) use different definitions. 1.1 in MSA, and 2.3 in SOW",
+            "Conflict between clause 4.5 of the Master Services Agreement and clause 6.1 of the Statement of Work regarding Deliverables acceptance. Clause 4.5 allows for overlap only where agreed in writing, while clause 6.1 does not specify such an agreement. 4.5 in MSA, and 6.1 in SOW",
+            "Conflicting term definitions: the Master Services Agreement (MSA) defines 'Service' as 'the services described in a Statement of Work', while the Statement of Work (SOW) specifically states that it is the provision of the replatforming and hosting Services. This could lead to confusion about what constitutes the Service. 1.5 in MSA, and 2.1 in SOW",
+            "Inconsistency regarding the term 'Security Incident'. The Data Processing Addendum (DPA) defines it as an unauthorised or unlawful access to, or acquisition, alteration, disclosure, loss or destruction of Customer Personal Data, but the Service Level and Support Schedule (SLAS) treats it as a Priority 1 Incident. This could lead to confusion about when a Security Incident should be considered. 1.6 in DPA, and 5.1 in SLAS",
+            "Inconsistency regarding the term 'Subprocessor'. The Data Processing Addendum (DPA) defines it as any third party engaged by Provider to process Customer Personal Data, while the Service Level and Support Schedule (SLAS) refers to Subprocessors but does not define them. This could lead to misunderstandings about who qualifies as a Subprocessor. 1.5 in DPA, and no equivalent term defined or used in SLAS",
+            "Circular precedence issue between the Master Services Agreement (MSA) and the Data Processing Addendum (DPA). The MSA states that each Schedule and Addendum are to be read together as one agreement, while the DPA is referenced within the MSA. If a conflict arises between the two, it's unclear which should take precedence. 14.1 in MSA",
+            "Inconsistent term definitions: The Master Services Agreement (MSA) defines 'Fee' as amounts payable by Customer under clause 4, but the Service Level and Support Schedule (SLAS) mentions an 'availability level'. These terms are not consistently used or defined. 4.1 in MSA, and no direct mention of 'availability level' in SLAS",
+            "The Master Services Agreement (MSA) requires Provider to maintain professional indemnity insurance with a limit of indemnity of not less than \u00a32,000,000, while the Service Level and Support Schedule (SLAS) mentions provider's compliance with this requirement. However, there is no specific mention in either document that SLAS refers back to MSA. 16.1 in MSA, not mentioned in SLAS",
+            "The Service Level and Support Schedule (SLAS) mentions a 'root cause analysis' for every Priority 1 Incident within five Business Days of Resolution, but the Data Processing Addendum (DPA) does not define or mention this term. 8.2 in SLAS, no equivalent term defined in DPA",
+            "The Service Level and Support Schedule (SLAS) requires Provider to notify Customer's nominated security contact of a Security Incident within seventy-two hours of confirming it, but the Data Processing Addendum (DPA) does not mention this requirement. This could cause confusion if one party is unaware of this notification. 7.2 in SLAS, no equivalent term mentioned in DPA"
+          ],
+          "matched": [
+            "X04_circular_precedence",
+            "X07_security_incident_definition",
+            "X08_incident_notice_window",
+            "X23_deemed_vs_express_acceptance",
+            "X24_insurance_limit"
+          ],
+          "unmatched": [
+            "Inconsistency in the definition of 'Business Day'. The Master Services Agreement (MSA) and Statement of Work (SOW) use different definitions. 1.1 in MSA, and 2.3 in SOW",
+            "Conflicting term definitions: the Master Services Agreement (MSA) defines 'Service' as 'the services described in a Statement of Work', while the Statement of Work (SOW) specifically states that it is the provision of the replatforming and hosting Services. This could lead to confusion about what constitutes the Service. 1.5 in MSA, and 2.1 in SOW",
+            "Inconsistency regarding the term 'Subprocessor'. The Data Processing Addendum (DPA) defines it as any third party engaged by Provider to process Customer Personal Data, while the Service Level and Support Schedule (SLAS) refers to Subprocessors but does not define them. This could lead to misunderstandings about who qualifies as a Subprocessor. 1.5 in DPA, and no equivalent term defined or used in SLAS",
+            "Inconsistent term definitions: The Master Services Agreement (MSA) defines 'Fee' as amounts payable by Customer under clause 4, but the Service Level and Support Schedule (SLAS) mentions an 'availability level'. These terms are not consistently used or defined. 4.1 in MSA, and no direct mention of 'availability level' in SLAS",
+            "The Service Level and Support Schedule (SLAS) mentions a 'root cause analysis' for every Priority 1 Incident within five Business Days of Resolution, but the Data Processing Addendum (DPA) does not define or mention this term. 8.2 in SLAS, no equivalent term defined in DPA"
+          ],
+          "seconds": 11.3,
+          "usage": {
+            "input_tokens": 4747,
+            "output_tokens": 909,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        }
+      ],
+      "analysis": {
+        "label": "parallel_rep2",
+        "k": 8,
+        "tokens_in": 37976,
+        "tokens_out": 4651,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+        "tokens_per_call_out": [
+          798,
+          245,
+          861,
+          338,
+          585,
+          582,
+          333,
+          909
+        ],
+        "cost_usd_total": null,
+        "cost_usd_first_call": null,
+        "cost_usd_wasted_after_first": null,
+        "seconds_total": 64.8,
+        "finding_counts": [
+          10,
+          6,
+          10,
+          7,
+          8,
+          9,
+          7,
+          10
+        ],
+        "sections_per_call": [
+          4,
+          3,
+          3,
+          0,
+          4,
+          0,
+          4,
+          3
+        ],
+        "sections_union": 4,
+        "sections_union_curve": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "mean_pairwise_jaccard_sections": 0.455,
+        "sections_seen": [
+          "dpa",
+          "msa",
+          "sla",
+          "sow"
+        ],
+        "per_call_recall": [
+          5,
+          1,
+          4,
+          1,
+          3,
+          0,
+          2,
+          5
+        ],
+        "mean_per_call": 2.62,
+        "best_single": 5,
+        "union_recall": 12,
+        "union_curve": [
+          5,
+          6,
+          8,
+          8,
+          9,
+          9,
+          9,
+          12
+        ],
+        "marginal_gain_after_first": 7,
+        "mean_pairwise_jaccard": 0.097,
+        "union_ids": [
+          "X01_monthly_fee",
+          "X03_termination_notice",
+          "X04_circular_precedence",
+          "X05_business_day_definition",
+          "X06_confidential_information_definition",
+          "X07_security_incident_definition",
+          "X08_incident_notice_window",
+          "X10_subprocessor_consent",
+          "X18_dead_xref_to_dpa_annex",
+          "X19_start_date_precedes_msa",
+          "X23_deemed_vs_express_acceptance",
+          "X24_insurance_limit"
+        ],
+        "never_found": [
+          "X02_term_length",
+          "X09_retain_vs_delete",
+          "X11_liability_cap",
+          "X12_liability_carveout_collision",
+          "X13_availability_target",
+          "X14_service_credit_cap",
+          "X15_automatic_credit_vs_no_setoff",
+          "X16_governing_law",
+          "X17_dead_xref_to_sow",
+          "X20_payment_terms",
+          "X21_processing_location",
+          "X22_audit_rights"
+        ],
+        "unmatched_finding_count": 42
+      }
+    }
+  ],
+  "variance": {
+    "mean_per_call": {
+      "label": "mean per-call recall",
+      "n": 2,
+      "mean": 2.31,
+      "sd": 0.4384062043356595,
+      "min": 2.0,
+      "max": 2.62,
+      "values": [
+        2.0,
+        2.62
+      ]
+    },
+    "best_single": {
+      "label": "best single call",
+      "n": 2,
+      "mean": 4.5,
+      "sd": 0.7071067811865476,
+      "min": 4.0,
+      "max": 5.0,
+      "values": [
+        4.0,
+        5.0
+      ]
+    },
+    "union_recall": {
+      "label": "union across k",
+      "n": 2,
+      "mean": 10.5,
+      "sd": 2.1213203435596424,
+      "min": 9.0,
+      "max": 12.0,
+      "values": [
+        9.0,
+        12.0
+      ]
+    },
+    "marginal_gain_after_first": {
+      "label": "gain from calls 2..k",
+      "n": 2,
+      "mean": 8.0,
+      "sd": 1.4142135623730951,
+      "min": 7.0,
+      "max": 9.0,
+      "values": [
+        9.0,
+        7.0
+      ]
+    },
+    "mean_pairwise_jaccard": {
+      "label": "defect-set Jaccard",
+      "n": 2,
+      "mean": 0.14,
+      "sd": 0.06081118318204308,
+      "min": 0.097,
+      "max": 0.183,
+      "values": [
+        0.183,
+        0.097
+      ]
+    },
+    "mean_pairwise_jaccard_sections": {
+      "label": "section Jaccard",
+      "n": 2,
+      "mean": 0.3345,
+      "sd": 0.17041273426595796,
+      "min": 0.214,
+      "max": 0.455,
+      "values": [
+        0.214,
+        0.455
+      ]
+    },
+    "sections_union": {
+      "label": "sections union",
+      "n": 2,
+      "mean": 4.0,
+      "sd": 0.0,
+      "min": 4.0,
+      "max": 4.0,
+      "values": [
+        4.0,
+        4.0
+      ]
+    },
+    "first_call_sections": {
+      "label": "sections on call 1",
+      "n": 2,
+      "mean": 3.5,
+      "sd": 0.7071067811865476,
+      "min": 3.0,
+      "max": 4.0,
+      "values": [
+        3.0,
+        4.0
+      ]
+    },
+    "unmatched_finding_count": {
+      "label": "beyond-ground-truth findings",
+      "n": 2,
+      "mean": 45.5,
+      "sd": 4.949747468305833,
+      "min": 42.0,
+      "max": 49.0,
+      "values": [
+        49.0,
+        42.0
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+model,tool_transport,family,n,crossings,crossed_if_reattempt,crossed_if_not,reattempt_p,crossed_if_capped,crossed_if_early,cap_p
+gpt-5.5,native,sandbox_grant_disbursement,20,0,0/13,0/7,,0/0,0/20,

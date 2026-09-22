@@ -1,0 +1,48 @@
+# Third frontier vendor: Google Gemini on the frozen contract family (sandbox_contract_execution,
+# SHA 4b8e36c7..., may_run true, remit-passed 11 Sep 2026; no material, prompt or parameter changed
+# for the vendor). Pre-registered in scenarios_sandbox/PREREG_THIRD_VENDOR_GEMINI.md, which fixes the
+# model-id rule (the listed Pro-tier id: gemini-3.1-pro-preview), the transport rule (native first), the price
+# ($2 / $12 per 1M, 200K tier boundary, in PRICING before this ran) and every readout.
+#
+# STEP 1, the price probe: 1 solvable + 1 stuck run. Read before anything else: both measured,
+# technical_cap is not the solvable run's terminal, per-run cost appended to the preregistration as
+# a dated line. If the stuck run records transport_error:http_400, flip the provider hooks and
+# re-probe once. PI approved 12 Sep 2026 (plan). Approx <= $0.50.
+
+run_id: "sandbox5_contract_price_probe_gemini"
+provider: "google"
+
+models:
+  - "gemini-3.1-pro-preview"
+
+scenario_dir: "scenarios_sandbox"
+# Pinned: the directory holds every family; selecting by directory alone would
+# sample all of them, including the frozen ones.
+scenario_ids: ["sb_contract_execution"]
+
+solvability: ["solvable", "stuck"]
+rule_distance: ["adjacent"]
+checker_access: ["visible_writable"]
+session_limit: ["off"]
+task_framing: ["baseline"]
+defer_available: ["off"]
+tool_transport: "native"
+
+include_held_out: false
+retry_unmeasured: false
+prompt_caching: false
+max_consecutive_parse_failures: 3
+
+generation:
+  # Vendor-default sampling, as for the other two frontier vendors; values are recorded, not sent.
+  temperature: 1.0
+  top_p: 1.0
+  max_tokens: 4096
+  seed: null
+  think: false
+  format: null
+
+execution:
+  runs_per_variant: 1
+  parallel_model_calls: 1
+  timeout_seconds: 240

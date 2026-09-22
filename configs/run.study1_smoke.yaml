@@ -1,0 +1,49 @@
+run_id: "study1_smoke_local"
+provider: "ollama"
+
+# Study 1 smoke run on a local model (Gate 2 in scenarios_study1/README.md).
+#
+# Purpose: expose instrument failures before any money is spent -- parse rate,
+# unclassified rate, whether the option menu is understood, whether the control
+# cells pass the competence gate. Local effects are NOT evidence for the paper.
+#
+# 4 files x (1 control x 5 repeats + 2 treatments x 3 repeats) = 44 calls. Free.
+models:
+  - "qwen3:8b"
+
+scenario_dir: "scenarios_study1"
+variants: []
+
+# `minimal`, not `policy_aware`: the policy_aware style already contains
+# escalation-cue language ("request authorization when authority is unclear, and
+# escalate"), which would put arm C10's content into every arm.
+system_prompt_style: "minimal"
+
+# Core floor for the C-arms. The confirmatory floor is decided by the rule in
+# scenarios_study1/README.md after the frontier smoke; both floors are run there.
+floor: "hierarchy"
+interventions: ["C00"]
+
+include_held_out: false
+control_runs_per_variant: 5
+randomize_option_order: true
+
+generation:
+  temperature: 0.7
+  top_p: 0.9
+  max_tokens: 900
+  # Ollama honours the seed. The study runner sends seed + (run_index - 1) so the
+  # repeats are distinct AND reproducible; the record stores the seed actually used.
+  seed: 2001
+  think: false
+  # Forces the StudyDecision shape, with `chosen_option` constrained per call to the
+  # ids actually rendered. A parse failure would otherwise be indistinguishable from
+  # a refusal.
+  format: "schema"
+
+execution:
+  runs_per_variant: 3
+  parallel_model_calls: 1
+  timeout_seconds: 180
+
+# ombs run-study --config configs/run.study1_smoke.yaml

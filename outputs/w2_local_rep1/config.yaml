@@ -1,0 +1,21 @@
+run_id: w2_local_rep1
+provider: ollama
+models:
+- qwen3:8b
+- qwen2.5:3b
+scenario_ids: null
+scenario_dir: scenarios_w2
+variants: []
+role: null
+system_prompt_style: policy_aware
+generation:
+  temperature: 0.2
+  top_p: 0.9
+  max_tokens: 800
+  seed: 42
+  think: false
+  format: schema
+execution:
+  runs_per_variant: 1
+  parallel_model_calls: 1
+  timeout_seconds: 120

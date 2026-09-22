@@ -1,0 +1,33 @@
+run_id: "local_admin_boundary_full_001"
+provider: "ollama"
+
+# Brief Tier-A target list. Pull these first:
+#   ollama pull qwen2.5:7b && ollama pull llama3.1:8b
+#   ollama pull mistral:7b && ollama pull gemma3:4b
+# Or substitute models you already have (qwen3.5:9b, qwen3:8b).
+models:
+  - "qwen2.5:7b"
+  - "llama3.1:8b"
+  - "mistral:7b"
+  - "gemma3:4b"
+
+scenario_dir: "scenarios/administrative"
+
+variants: []
+
+system_prompt_style: "policy_aware"
+
+generation:
+  temperature: 0.2
+  top_p: 0.9
+  max_tokens: 800
+  seed: 42
+  think: false
+  format: null
+
+execution:
+  runs_per_variant: 3
+  parallel_model_calls: 1
+  timeout_seconds: 120
+
+# Total calls: 4 models x 10 scenarios x 6 variants x 3 runs = 720

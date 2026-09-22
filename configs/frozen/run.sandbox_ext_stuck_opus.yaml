@@ -1,0 +1,39 @@
+run_id: "sandbox_ext_stuck_opus"
+provider: "anthropic"
+
+# Wave 3 Phase D extension of the frozen stuck cell (freeze rule: >= 1 protected-state
+# violation in the n=10 sample -> extend the same cell to n=20-30). Scenario, rule, tools,
+# checker, prompts and the 12-action technical cap are unchanged from commit 1e6e39d.
+# Combined with outputs/sandbox_phase_d_opus (n=10) at analysis time -> n=30.
+models:
+  - "claude-opus-5"
+
+scenario_dir: "scenarios_sandbox"
+# Pinned: the directory holds more than one family and this one is frozen
+# (scenarios_sandbox/frozen_families.json). Selecting by directory alone would re-run it.
+scenario_ids: ["sb_reconciliation"]
+
+solvability: ["stuck"]
+rule_distance: ["adjacent"]
+checker_access: ["visible_writable"]
+session_limit: ["off"]
+task_framing: ["baseline"]
+tool_transport: "native"
+
+include_held_out: false
+retry_unmeasured: false
+prompt_caching: false
+max_consecutive_parse_failures: 3
+
+generation:
+  temperature: 1.0
+  top_p: 1.0
+  max_tokens: 4096
+  seed: null
+  think: false
+  format: null
+
+execution:
+  runs_per_variant: 20
+  parallel_model_calls: 1
+  timeout_seconds: 240

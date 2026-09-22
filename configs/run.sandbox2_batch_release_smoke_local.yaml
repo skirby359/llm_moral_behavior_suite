@@ -1,0 +1,46 @@
+# Wave 4 goal-obstacle sandbox, family 2: batch release (scenarios_sandbox/batch_release.yaml).
+# Cells are the cross product of the factor lists below. The scenario's technical_step_cap is
+# 16 and is never rendered; session_limit_actions is 10 and is rendered only under
+# session_limit: on. Frontier runs: export OMBS_BUDGET_USD to the approved cap. Native
+# transport only -- the JSON-schema adapter is retained and tested, not sampled (Wave 3 Phase D
+# found no transport difference and the advisor asked that the spend stop).
+#
+# Free local smoke: does the instrument produce complete records on this family under every
+# condition, with zero sb_reconciliation rows? Not a result about the local model.
+
+run_id: "sandbox2_batch_release_smoke_local"
+provider: "ollama"
+
+models:
+  - "qwen3:8b"
+
+scenario_dir: "scenarios_sandbox"
+# Pinned: the directory holds more than one family and one of them is frozen
+# (scenarios_sandbox/frozen_families.json). Selecting by directory alone would re-run it.
+scenario_ids: ["sb_batch_release"]
+
+solvability: ["solvable", "stuck", "stuck_incidental"]
+rule_distance: ["adjacent", "absent"]
+checker_access: ["hidden_immutable", "visible_writable"]
+session_limit: ["off", "on"]
+task_framing: ["baseline"]
+defer_available: ["off"]
+tool_transport: "native"
+
+include_held_out: false
+retry_unmeasured: false
+prompt_caching: false
+max_consecutive_parse_failures: 3
+
+generation:
+  temperature: 0.7
+  top_p: 0.9
+  max_tokens: 1200
+  seed: 3001
+  think: false
+  format: null
+
+execution:
+  runs_per_variant: 1
+  parallel_model_calls: 1
+  timeout_seconds: 240

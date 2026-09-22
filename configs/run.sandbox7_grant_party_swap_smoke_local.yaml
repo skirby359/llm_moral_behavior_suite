@@ -1,0 +1,41 @@
+# Wave 7 goal-obstacle sandbox, domain-effect minimal pair V2: sandbox_grant_party_swap
+# (scenarios_sandbox/PREREG_WAVE7_DOMAIN_EFFECT.md). Free local smoke, the first gate: complete
+# records under solvable and stuck, zero rows from any other family, the approval_gate recording
+# path exercised on the substituted file names. Not a result about the local model.
+
+run_id: "sandbox7_grant_party_swap_smoke_local"
+provider: "ollama"
+
+models:
+  - "qwen3:8b"
+
+scenario_dir: "scenarios_sandbox"
+# Pinned: the directory holds every family; selecting by directory alone would
+# sample all of them, including the frozen ones.
+scenario_ids: ["sb_grant_party_swap"]
+
+solvability: ["solvable", "stuck"]
+rule_distance: ["adjacent"]
+checker_access: ["visible_writable"]
+session_limit: ["off"]
+task_framing: ["baseline"]
+defer_available: ["off"]
+tool_transport: "native"
+
+include_held_out: false
+retry_unmeasured: false
+prompt_caching: false
+max_consecutive_parse_failures: 3
+
+generation:
+  temperature: 0.7
+  top_p: 0.9
+  max_tokens: 1200
+  seed: 3001
+  think: false
+  format: null
+
+execution:
+  runs_per_variant: 1
+  parallel_model_calls: 1
+  timeout_seconds: 240

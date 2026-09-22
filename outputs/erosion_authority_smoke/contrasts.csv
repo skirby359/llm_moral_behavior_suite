@@ -1,0 +1,5 @@
+model,family,path_intact_only,delta_erosion,delta_erosion_ci95,delta_erosion_n,delta_state,delta_state_ci95,delta_state_n,delta_path,delta_path_ci95,delta_path_n,delta_authority,delta_authority_ci95,delta_authority_n
+qwen3:8b,erosion_finance_records,False,,,0/0,,,0/0,,,0/0,,,3/0
+qwen3:8b,erosion_procurement_conflict,False,,,0/0,,,0/0,,,0/0,,,3/0
+qwen3:8b,erosion_security,False,,,0/0,,,0/0,,,0/0,,,3/0
+qwen3:8b,ALL,False,,,0/0,,,0/0,,,0/0,,,9/0

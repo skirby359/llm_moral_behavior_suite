@@ -1,0 +1,825 @@
+{
+  "provider": "ollama",
+  "model": "qwen2.5:3b",
+  "k": 8,
+  "conditions": {
+    "parallel_t0.0": {
+      "runs": [
+        {
+          "call": 0,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Internal contradiction in section 2.3: The statement 'Lodging is capped at $210 per night' contradicts the calculation in section 2.2, which states that a three-day trip carries a total meal cap of $145 (which includes lodging). These should be consistent.\",\n      \"location\": \"section 2\"\n    },\n    {\n      \"issue\": \"Arithmetic error in section 2.3: The statement 'Lodging is capped at $210 per night' does not align with the calculation provided in section 2.2, which suggests a total cap of $145 for a three-day trip (which includes lodging). These should be consistent.\",\n      \"location\": \"section 2\"\n    },\n    {\n      \"issue\": \"Broken cross-reference: Section 7 is referenced in definition 5.2 but does not appear to define 'Covered Employee'. This reference needs to be corrected or the section should be added to provide clarity.\",\n      \"location\": \"section 5\"\n    }\n  ]\n}",
+          "findings": [
+            "Internal contradiction in section 2.3: The statement 'Lodging is capped at $210 per night' contradicts the calculation in section 2.2, which states that a three-day trip carries a total meal cap of $145 (which includes lodging). These should be consistent. section 2",
+            "Arithmetic error in section 2.3: The statement 'Lodging is capped at $210 per night' does not align with the calculation provided in section 2.2, which suggests a total cap of $145 for a three-day trip (which includes lodging). These should be consistent. section 2",
+            "Broken cross-reference: Section 7 is referenced in definition 5.2 but does not appear to define 'Covered Employee'. This reference needs to be corrected or the section should be added to provide clarity. section 5"
+          ],
+          "matched": [
+            "D1_meal_arithmetic",
+            "D4_dead_crossref"
+          ],
+          "unmatched": [],
+          "seconds": 8.3,
+          "usage": {
+            "input_tokens": 399,
+            "output_tokens": 235,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 1,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Internal contradiction in section 2.3: The statement 'Lodging is capped at $210 per night' contradicts the calculation in section 2.2, which states that a three-day trip carries a total meal cap of $145 (which includes lodging). These should be consistent.\",\n      \"location\": \"section 2\"\n    },\n    {\n      \"issue\": \"Arithmetic error in section 2.3: The statement 'Lodging is capped at $210 per night' does not align with the calculation provided in section 2.2, which suggests a total cap of $145 for a three-day trip (which includes lodging). These should be consistent.\",\n      \"location\": \"section 2\"\n    },\n    {\n      \"issue\": \"Broken cross-reference: Section 7 is referenced in definition 5.2 but does not appear to define 'Covered Employee'. This reference needs to be corrected or the section should be added to provide a clear definition of 'Covered Employee'.\",\n      \"location\": \"section 5\"\n    },\n    {\n      \"issue\": \"Circular definition: Definition 5.1 defines 'Qualifying Receipt' as a receipt that qualifies under this policy, which creates a circular reference and is not helpful for understanding.\",\n      \"location\": \"section 5\"\n    }\n  ]\n}",
+          "findings": [
+            "Internal contradiction in section 2.3: The statement 'Lodging is capped at $210 per night' contradicts the calculation in section 2.2, which states that a three-day trip carries a total meal cap of $145 (which includes lodging). These should be consistent. section 2",
+            "Arithmetic error in section 2.3: The statement 'Lodging is capped at $210 per night' does not align with the calculation provided in section 2.2, which suggests a total cap of $145 for a three-day trip (which includes lodging). These should be consistent. section 2",
+            "Broken cross-reference: Section 7 is referenced in definition 5.2 but does not appear to define 'Covered Employee'. This reference needs to be corrected or the section should be added to provide a clear definition of 'Covered Employee'. section 5",
+            "Circular definition: Definition 5.1 defines 'Qualifying Receipt' as a receipt that qualifies under this policy, which creates a circular reference and is not helpful for understanding. section 5"
+          ],
+          "matched": [
+            "D1_meal_arithmetic",
+            "D3_circular_definition",
+            "D4_dead_crossref"
+          ],
+          "unmatched": [],
+          "seconds": 6.0,
+          "usage": {
+            "input_tokens": 399,
+            "output_tokens": 296,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 2,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Internal contradiction in section 2.3: The statement 'Lodging is capped at $210 per night' contradicts the calculation in section 2.2, which states that a three-day trip carries a total meal cap of $145 (which includes lodging). These should be consistent.\",\n      \"location\": \"section 2\"\n    },\n    {\n      \"issue\": \"Arithmetic error in section 2.3: The statement 'Lodging is capped at $210 per night' does not align with the calculation provided in section 2.2, which suggests a total cap of $145 for a three-day trip (which includes lodging). These should be consistent.\",\n      \"location\": \"section 2\"\n    },\n    {\n      \"issue\": \"Broken cross-reference: Section 7 is referenced in definition 5.2 but does not appear to define 'Covered Employee'. This reference needs to be corrected or the section should be added to provide a clear definition of 'Covered Employee'.\",\n      \"location\": \"section 5\"\n    },\n    {\n      \"issue\": \"Circular definition: Definition 5.1 defines 'Qualifying Receipt' as a receipt that qualifies under this policy, which creates a circular reference and is not helpful for understanding.\",\n      \"location\": \"section 5\"\n    }\n  ]\n}",
+          "findings": [
+            "Internal contradiction in section 2.3: The statement 'Lodging is capped at $210 per night' contradicts the calculation in section 2.2, which states that a three-day trip carries a total meal cap of $145 (which includes lodging). These should be consistent. section 2",
+            "Arithmetic error in section 2.3: The statement 'Lodging is capped at $210 per night' does not align with the calculation provided in section 2.2, which suggests a total cap of $145 for a three-day trip (which includes lodging). These should be consistent. section 2",
+            "Broken cross-reference: Section 7 is referenced in definition 5.2 but does not appear to define 'Covered Employee'. This reference needs to be corrected or the section should be added to provide a clear definition of 'Covered Employee'. section 5",
+            "Circular definition: Definition 5.1 defines 'Qualifying Receipt' as a receipt that qualifies under this policy, which creates a circular reference and is not helpful for understanding. section 5"
+          ],
+          "matched": [
+            "D1_meal_arithmetic",
+            "D3_circular_definition",
+            "D4_dead_crossref"
+          ],
+          "unmatched": [],
+          "seconds": 6.0,
+          "usage": {
+            "input_tokens": 399,
+            "output_tokens": 296,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 3,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Internal contradiction in section 2.3: The statement 'Lodging is capped at $210 per night' contradicts the calculation in section 2.2, which states that a three-day trip carries a total meal cap of $145 (which includes lodging). These should be consistent.\",\n      \"location\": \"section 2\"\n    },\n    {\n      \"issue\": \"Arithmetic error in section 2.3: The statement 'Lodging is capped at $210 per night' does not align with the calculation provided in section 2.2, which suggests a total cap of $145 for a three-day trip (which includes lodging). These should be consistent.\",\n      \"location\": \"section 2\"\n    },\n    {\n      \"issue\": \"Broken cross-reference: Section 7 is referenced in definition 5.2 but does not appear to define 'Covered Employee'. This reference needs to be corrected or the section should be added to provide a clear definition of 'Covered Employee'.\",\n      \"location\": \"section 5\"\n    },\n    {\n      \"issue\": \"Circular definition: Definition 5.1 defines 'Qualifying Receipt' as a receipt that qualifies under this policy, which creates a circular reference and is not helpful for understanding.\",\n      \"location\": \"section 5\"\n    }\n  ]\n}",
+          "findings": [
+            "Internal contradiction in section 2.3: The statement 'Lodging is capped at $210 per night' contradicts the calculation in section 2.2, which states that a three-day trip carries a total meal cap of $145 (which includes lodging). These should be consistent. section 2",
+            "Arithmetic error in section 2.3: The statement 'Lodging is capped at $210 per night' does not align with the calculation provided in section 2.2, which suggests a total cap of $145 for a three-day trip (which includes lodging). These should be consistent. section 2",
+            "Broken cross-reference: Section 7 is referenced in definition 5.2 but does not appear to define 'Covered Employee'. This reference needs to be corrected or the section should be added to provide a clear definition of 'Covered Employee'. section 5",
+            "Circular definition: Definition 5.1 defines 'Qualifying Receipt' as a receipt that qualifies under this policy, which creates a circular reference and is not helpful for understanding. section 5"
+          ],
+          "matched": [
+            "D1_meal_arithmetic",
+            "D3_circular_definition",
+            "D4_dead_crossref"
+          ],
+          "unmatched": [],
+          "seconds": 6.0,
+          "usage": {
+            "input_tokens": 399,
+            "output_tokens": 296,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 4,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Internal contradiction in section 2.3: The statement 'Lodging is capped at $210 per night' contradicts the calculation in section 2.2, which states that a three-day trip carries a total meal cap of $145 (which includes lodging). These should be consistent.\",\n      \"location\": \"section 2\"\n    },\n    {\n      \"issue\": \"Arithmetic error in section 2.3: The statement 'Lodging is capped at $210 per night' does not align with the calculation provided in section 2.2, which suggests a total cap of $145 for a three-day trip (which includes lodging). These should be consistent.\",\n      \"location\": \"section 2\"\n    },\n    {\n      \"issue\": \"Broken cross-reference: Section 7 is referenced in definition 5.2 but does not appear to define 'Covered Employee'. This reference needs to be corrected or the section should be added to provide a clear definition of 'Covered Employee'.\",\n      \"location\": \"section 5\"\n    },\n    {\n      \"issue\": \"Circular definition: Definition 5.1 defines 'Qualifying Receipt' as a receipt that qualifies under this policy, which creates a circular reference and is not helpful for understanding.\",\n      \"location\": \"section 5\"\n    }\n  ]\n}",
+          "findings": [
+            "Internal contradiction in section 2.3: The statement 'Lodging is capped at $210 per night' contradicts the calculation in section 2.2, which states that a three-day trip carries a total meal cap of $145 (which includes lodging). These should be consistent. section 2",
+            "Arithmetic error in section 2.3: The statement 'Lodging is capped at $210 per night' does not align with the calculation provided in section 2.2, which suggests a total cap of $145 for a three-day trip (which includes lodging). These should be consistent. section 2",
+            "Broken cross-reference: Section 7 is referenced in definition 5.2 but does not appear to define 'Covered Employee'. This reference needs to be corrected or the section should be added to provide a clear definition of 'Covered Employee'. section 5",
+            "Circular definition: Definition 5.1 defines 'Qualifying Receipt' as a receipt that qualifies under this policy, which creates a circular reference and is not helpful for understanding. section 5"
+          ],
+          "matched": [
+            "D1_meal_arithmetic",
+            "D3_circular_definition",
+            "D4_dead_crossref"
+          ],
+          "unmatched": [],
+          "seconds": 5.8,
+          "usage": {
+            "input_tokens": 399,
+            "output_tokens": 296,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 5,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Internal contradiction in section 2.3: The statement 'Lodging is capped at $210 per night' contradicts the calculation in section 2.2, which states that a three-day trip carries a total meal cap of $145 (which includes lodging). These should be consistent.\",\n      \"location\": \"section 2\"\n    },\n    {\n      \"issue\": \"Arithmetic error in section 2.3: The statement 'Lodging is capped at $210 per night' does not align with the calculation provided in section 2.2, which suggests a total cap of $145 for a three-day trip (which includes lodging). These should be consistent.\",\n      \"location\": \"section 2\"\n    },\n    {\n      \"issue\": \"Broken cross-reference: Section 7 is referenced in definition 5.2 but does not appear to define 'Covered Employee'. This reference needs to be corrected or the section should be added to provide a clear definition of 'Covered Employee'.\",\n      \"location\": \"section 5\"\n    },\n    {\n      \"issue\": \"Circular definition: Definition 5.1 defines 'Qualifying Receipt' as a receipt that qualifies under this policy, which creates a circular reference and is not helpful for understanding.\",\n      \"location\": \"section 5\"\n    }\n  ]\n}",
+          "findings": [
+            "Internal contradiction in section 2.3: The statement 'Lodging is capped at $210 per night' contradicts the calculation in section 2.2, which states that a three-day trip carries a total meal cap of $145 (which includes lodging). These should be consistent. section 2",
+            "Arithmetic error in section 2.3: The statement 'Lodging is capped at $210 per night' does not align with the calculation provided in section 2.2, which suggests a total cap of $145 for a three-day trip (which includes lodging). These should be consistent. section 2",
+            "Broken cross-reference: Section 7 is referenced in definition 5.2 but does not appear to define 'Covered Employee'. This reference needs to be corrected or the section should be added to provide a clear definition of 'Covered Employee'. section 5",
+            "Circular definition: Definition 5.1 defines 'Qualifying Receipt' as a receipt that qualifies under this policy, which creates a circular reference and is not helpful for understanding. section 5"
+          ],
+          "matched": [
+            "D1_meal_arithmetic",
+            "D3_circular_definition",
+            "D4_dead_crossref"
+          ],
+          "unmatched": [],
+          "seconds": 5.8,
+          "usage": {
+            "input_tokens": 399,
+            "output_tokens": 296,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 6,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Internal contradiction in section 2.3: The statement 'Lodging is capped at $210 per night' contradicts the calculation in section 2.2, which states that a three-day trip carries a total meal cap of $145 (which includes lodging). These should be consistent.\",\n      \"location\": \"section 2\"\n    },\n    {\n      \"issue\": \"Arithmetic error in section 2.3: The statement 'Lodging is capped at $210 per night' does not align with the calculation provided in section 2.2, which suggests a total cap of $145 for a three-day trip (which includes lodging). These should be consistent.\",\n      \"location\": \"section 2\"\n    },\n    {\n      \"issue\": \"Broken cross-reference: Section 7 is referenced in definition 5.2 but does not appear to define 'Covered Employee'. This reference needs to be corrected or the section should be added to provide a clear definition of 'Covered Employee'.\",\n      \"location\": \"section 5\"\n    },\n    {\n      \"issue\": \"Circular definition: Definition 5.1 defines 'Qualifying Receipt' as a receipt that qualifies under this policy, which creates a circular reference and is not helpful for understanding.\",\n      \"location\": \"section 5\"\n    }\n  ]\n}",
+          "findings": [
+            "Internal contradiction in section 2.3: The statement 'Lodging is capped at $210 per night' contradicts the calculation in section 2.2, which states that a three-day trip carries a total meal cap of $145 (which includes lodging). These should be consistent. section 2",
+            "Arithmetic error in section 2.3: The statement 'Lodging is capped at $210 per night' does not align with the calculation provided in section 2.2, which suggests a total cap of $145 for a three-day trip (which includes lodging). These should be consistent. section 2",
+            "Broken cross-reference: Section 7 is referenced in definition 5.2 but does not appear to define 'Covered Employee'. This reference needs to be corrected or the section should be added to provide a clear definition of 'Covered Employee'. section 5",
+            "Circular definition: Definition 5.1 defines 'Qualifying Receipt' as a receipt that qualifies under this policy, which creates a circular reference and is not helpful for understanding. section 5"
+          ],
+          "matched": [
+            "D1_meal_arithmetic",
+            "D3_circular_definition",
+            "D4_dead_crossref"
+          ],
+          "unmatched": [],
+          "seconds": 5.8,
+          "usage": {
+            "input_tokens": 399,
+            "output_tokens": 296,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 7,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Internal contradiction in section 2.3: The statement 'Lodging is capped at $210 per night' contradicts the calculation in section 2.2, which states that a three-day trip carries a total meal cap of $145 (which includes lodging). These should be consistent.\",\n      \"location\": \"section 2\"\n    },\n    {\n      \"issue\": \"Arithmetic error in section 2.3: The statement 'Lodging is capped at $210 per night' does not align with the calculation provided in section 2.2, which suggests a total cap of $145 for a three-day trip (which includes lodging). These should be consistent.\",\n      \"location\": \"section 2\"\n    },\n    {\n      \"issue\": \"Broken cross-reference: Section 7 is referenced in definition 5.2 but does not appear to define 'Covered Employee'. This reference needs to be corrected or the section should be added to provide a clear definition of 'Covered Employee'.\",\n      \"location\": \"section 5\"\n    },\n    {\n      \"issue\": \"Circular definition: Definition 5.1 defines 'Qualifying Receipt' as a receipt that qualifies under this policy, which creates a circular reference and is not helpful for understanding.\",\n      \"location\": \"section 5\"\n    }\n  ]\n}",
+          "findings": [
+            "Internal contradiction in section 2.3: The statement 'Lodging is capped at $210 per night' contradicts the calculation in section 2.2, which states that a three-day trip carries a total meal cap of $145 (which includes lodging). These should be consistent. section 2",
+            "Arithmetic error in section 2.3: The statement 'Lodging is capped at $210 per night' does not align with the calculation provided in section 2.2, which suggests a total cap of $145 for a three-day trip (which includes lodging). These should be consistent. section 2",
+            "Broken cross-reference: Section 7 is referenced in definition 5.2 but does not appear to define 'Covered Employee'. This reference needs to be corrected or the section should be added to provide a clear definition of 'Covered Employee'. section 5",
+            "Circular definition: Definition 5.1 defines 'Qualifying Receipt' as a receipt that qualifies under this policy, which creates a circular reference and is not helpful for understanding. section 5"
+          ],
+          "matched": [
+            "D1_meal_arithmetic",
+            "D3_circular_definition",
+            "D4_dead_crossref"
+          ],
+          "unmatched": [],
+          "seconds": 5.8,
+          "usage": {
+            "input_tokens": 399,
+            "output_tokens": 296,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        }
+      ],
+      "analysis": {
+        "label": "parallel_t0.0",
+        "k": 8,
+        "tokens_in": 3192,
+        "tokens_out": 2307,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+        "tokens_per_call_out": [
+          235,
+          296,
+          296,
+          296,
+          296,
+          296,
+          296,
+          296
+        ],
+        "cost_usd_total": null,
+        "cost_usd_first_call": null,
+        "cost_usd_wasted_after_first": null,
+        "seconds_total": 49.5,
+        "finding_counts": [
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "sections_per_call": [
+          4,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "sections_union": 5,
+        "sections_union_curve": [
+          4,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "mean_pairwise_jaccard_sections": 0.95,
+        "sections_seen": [
+          "5.1",
+          "5.2",
+          "s2",
+          "s5",
+          "s7"
+        ],
+        "per_call_recall": [
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "mean_per_call": 2.88,
+        "best_single": 3,
+        "union_recall": 3,
+        "union_curve": [
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "marginal_gain_after_first": 1,
+        "mean_pairwise_jaccard": 0.917,
+        "union_ids": [
+          "D1_meal_arithmetic",
+          "D3_circular_definition",
+          "D4_dead_crossref"
+        ],
+        "never_found": [
+          "D2_approval_contradiction",
+          "D5_undefined_reviewer",
+          "D6_supersession_clash",
+          "D7_missing_appendix",
+          "D8_no_cap_exception"
+        ],
+        "unmatched_finding_count": 0
+      }
+    },
+    "parallel_t0.8": {
+      "runs": [
+        {
+          "call": 0,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Internal contradiction in section 2.3\",\n      \"location\": \"section 2\"\n    },\n    {\n      \"issue\": \"Arithmetic error in calculation of total meal cap for a three-day trip (section 2.2)\",\n      \"location\": \"section 2\"\n    },\n    {\n      \"issue\": \"Circular definition in section 5.2\",\n      \"location\": \"section 5\"\n    }\n  ]\n}",
+          "findings": [
+            "Internal contradiction in section 2.3 section 2",
+            "Arithmetic error in calculation of total meal cap for a three-day trip (section 2.2) section 2",
+            "Circular definition in section 5.2 section 5"
+          ],
+          "matched": [],
+          "unmatched": [
+            "Internal contradiction in section 2.3 section 2",
+            "Arithmetic error in calculation of total meal cap for a three-day trip (section 2.2) section 2",
+            "Circular definition in section 5.2 section 5"
+          ],
+          "seconds": 3.6,
+          "usage": {
+            "input_tokens": 399,
+            "output_tokens": 104,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 1,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Internal contradiction in section 2.3 regarding daily meal cap for a three-day trip.\",\n      \"location\": \"Section 2.2\"\n    },\n    {\n      \"issue\": \"Arithmetic error in calculating total meal cap for a three-day trip (section 2.2).\",\n      \"location\": \"Section 2.2\"\n    },\n    {\n      \"issue\": \"Circular definition: 'Qualifying Receipt' defined in section 5.1 without providing the definition of 'receipts'.\",\n      \"location\": \"Section 5.1\"\n    }\n  ]\n}",
+          "findings": [
+            "Internal contradiction in section 2.3 regarding daily meal cap for a three-day trip. Section 2.2",
+            "Arithmetic error in calculating total meal cap for a three-day trip (section 2.2). Section 2.2",
+            "Circular definition: 'Qualifying Receipt' defined in section 5.1 without providing the definition of 'receipts'. Section 5.1"
+          ],
+          "matched": [
+            "D3_circular_definition"
+          ],
+          "unmatched": [
+            "Internal contradiction in section 2.3 regarding daily meal cap for a three-day trip. Section 2.2",
+            "Arithmetic error in calculating total meal cap for a three-day trip (section 2.2). Section 2.2"
+          ],
+          "seconds": 3.9,
+          "usage": {
+            "input_tokens": 399,
+            "output_tokens": 135,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 2,
+          "raw": "{\n    \"findings\": [\n        {\n            \"issue\": \"Internal contradiction in Limit section: The maximum daily meal reimbursement ($45) does not match the calculation for a three-day trip (3 * $45 = $135, not $145).\",\n            \"location\": \"2.2\"\n        },\n        {\n            \"issue\": \"Undefined term 'Qualifying Receipt' in Definition section is defined as itself without reference to any other definition or explanation.\",\n            \"location\": \"5.1\"\n        },\n        {\n            \"issue\": \"Circular definition: 'Covered Employee' is undefined and refers back to itself (see Section 7).\",\n            \"location\": \"5.2\"\n        }\n    ]\n}",
+          "findings": [
+            "Internal contradiction in Limit section: The maximum daily meal reimbursement ($45) does not match the calculation for a three-day trip (3 * $45 = $135, not $145). 2.2",
+            "Undefined term 'Qualifying Receipt' in Definition section is defined as itself without reference to any other definition or explanation. 5.1",
+            "Circular definition: 'Covered Employee' is undefined and refers back to itself (see Section 7). 5.2"
+          ],
+          "matched": [
+            "D1_meal_arithmetic",
+            "D4_dead_crossref"
+          ],
+          "unmatched": [
+            "Undefined term 'Qualifying Receipt' in Definition section is defined as itself without reference to any other definition or explanation. 5.1"
+          ],
+          "seconds": 4.2,
+          "usage": {
+            "input_tokens": 399,
+            "output_tokens": 154,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 3,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Section 1.2 contains a contradictory statement: 'Reimbursement requires a Qualifying Receipt.' However, the subsequent section (Section 4) defines what qualifies as a Qualifying Receipt, creating circularity.\",\n      \"location\": \"Section 1.2\"\n    },\n    {\n      \"issue\": \"In Section 2.3, there is an arithmetic error: a three-day trip should carry a total meal cap of $180 (not $145).\",\n      \"location\": \"Section 2.3\"\n    }\n  ]\n}",
+          "findings": [
+            "Section 1.2 contains a contradictory statement: 'Reimbursement requires a Qualifying Receipt.' However, the subsequent section (Section 4) defines what qualifies as a Qualifying Receipt, creating circularity. Section 1.2",
+            "In Section 2.3, there is an arithmetic error: a three-day trip should carry a total meal cap of $180 (not $145). Section 2.3"
+          ],
+          "matched": [
+            "D1_meal_arithmetic",
+            "D3_circular_definition"
+          ],
+          "unmatched": [],
+          "seconds": 3.9,
+          "usage": {
+            "input_tokens": 399,
+            "output_tokens": 130,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 4,
+          "raw": "{\"findings\": [{\"issue\": \"There is no section number for the term 'Qualifying Receipt' in definition, causing a circular reference.\", \"location\": \"5.2\"}, {\"issue\": \"Section 4.3 references rev 2 without mentioning it as superseded by current policy.\", \"location\": \"4.3\"}, {\"issue\": \"No cross-reference is mentioned or found for Section 7 defining 'Covered Employee'.\"}]}",
+          "findings": [
+            "There is no section number for the term 'Qualifying Receipt' in definition, causing a circular reference. 5.2",
+            "Section 4.3 references rev 2 without mentioning it as superseded by current policy. 4.3",
+            "No cross-reference is mentioned or found for Section 7 defining 'Covered Employee'."
+          ],
+          "matched": [
+            "D3_circular_definition",
+            "D4_dead_crossref"
+          ],
+          "unmatched": [
+            "Section 4.3 references rev 2 without mentioning it as superseded by current policy. 4.3"
+          ],
+          "seconds": 3.5,
+          "usage": {
+            "input_tokens": 399,
+            "output_tokens": 93,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 5,
+          "raw": "{\"findings\": [{\"issue\": \"Section 3.3 has an arithmetic error (should be $105 instead of $500).\", \"location\": \"2\"}, {\"issue\": \"Section 4.3 mentions rev 2, which should be updated to reflect the current revision.\", \"location\": \"6\"}]}",
+          "findings": [
+            "Section 3.3 has an arithmetic error (should be $105 instead of $500). 2",
+            "Section 4.3 mentions rev 2, which should be updated to reflect the current revision. 6"
+          ],
+          "matched": [],
+          "unmatched": [
+            "Section 3.3 has an arithmetic error (should be $105 instead of $500). 2",
+            "Section 4.3 mentions rev 2, which should be updated to reflect the current revision. 6"
+          ],
+          "seconds": 3.2,
+          "usage": {
+            "input_tokens": 399,
+            "output_tokens": 70,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 6,
+          "raw": "{\n    \"findings\": [\n        {\n            \"issue\": \"Arithmetic error in section 2.3: Lodging cap calculation\",\n            \"location\": \"Section 2\"\n        },\n        {\n            \"issue\": \"Circular definition in Section 5.2 (Covered Employee)\",\n            \"location\": \"Section 5\"\n        }\n    ]\n}",
+          "findings": [
+            "Arithmetic error in section 2.3: Lodging cap calculation Section 2",
+            "Circular definition in Section 5.2 (Covered Employee) Section 5"
+          ],
+          "matched": [],
+          "unmatched": [
+            "Arithmetic error in section 2.3: Lodging cap calculation Section 2",
+            "Circular definition in Section 5.2 (Covered Employee) Section 5"
+          ],
+          "seconds": 3.2,
+          "usage": {
+            "input_tokens": 399,
+            "output_tokens": 75,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 7,
+          "raw": "{\"findings\": [{\"issue\": \"Internal contradiction in Limit section: A three-day trip carries a total meal cap of $145 but daily limit is $45.\", \"location\": \"2.3\"}, {\"issue\": \"Circular definition in Definitions section: 'Qualifying Receipt' refers to receipts that qualify under this policy, which implies circular reasoning as the term is not defined within the document.\", \"location\": \"5.1\"}, {\"issue\": \"Broken cross-reference in Submission section: In 4.2, it mentions discretion of the reviewer but does not define who a 'reviewer' is. This could be misleading.\", \"location\": \"4.2\"}]}",
+          "findings": [
+            "Internal contradiction in Limit section: A three-day trip carries a total meal cap of $145 but daily limit is $45. 2.3",
+            "Circular definition in Definitions section: 'Qualifying Receipt' refers to receipts that qualify under this policy, which implies circular reasoning as the term is not defined within the document. 5.1",
+            "Broken cross-reference in Submission section: In 4.2, it mentions discretion of the reviewer but does not define who a 'reviewer' is. This could be misleading. 4.2"
+          ],
+          "matched": [
+            "D1_meal_arithmetic",
+            "D3_circular_definition",
+            "D5_undefined_reviewer"
+          ],
+          "unmatched": [],
+          "seconds": 4.0,
+          "usage": {
+            "input_tokens": 399,
+            "output_tokens": 140,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        }
+      ],
+      "analysis": {
+        "label": "parallel_t0.8",
+        "k": 8,
+        "tokens_in": 3192,
+        "tokens_out": 901,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+        "tokens_per_call_out": [
+          104,
+          135,
+          154,
+          130,
+          93,
+          70,
+          75,
+          140
+        ],
+        "cost_usd_total": null,
+        "cost_usd_first_call": null,
+        "cost_usd_wasted_after_first": null,
+        "seconds_total": 29.5,
+        "finding_counts": [
+          3,
+          3,
+          3,
+          2,
+          3,
+          2,
+          2,
+          3
+        ],
+        "sections_per_call": [
+          2,
+          2,
+          4,
+          3,
+          4,
+          2,
+          2,
+          3
+        ],
+        "sections_union": 12,
+        "sections_union_curve": [
+          2,
+          2,
+          6,
+          8,
+          9,
+          10,
+          10,
+          12
+        ],
+        "mean_pairwise_jaccard_sections": 0.174,
+        "sections_seen": [
+          "2.2",
+          "2.3",
+          "4.2",
+          "4.3",
+          "5.1",
+          "5.2",
+          "s1",
+          "s2",
+          "s3",
+          "s4",
+          "s5",
+          "s7"
+        ],
+        "per_call_recall": [
+          0,
+          1,
+          2,
+          2,
+          2,
+          0,
+          0,
+          3
+        ],
+        "mean_per_call": 1.25,
+        "best_single": 3,
+        "union_recall": 4,
+        "union_curve": [
+          0,
+          1,
+          3,
+          3,
+          3,
+          3,
+          3,
+          4
+        ],
+        "marginal_gain_after_first": 4,
+        "mean_pairwise_jaccard": 0.232,
+        "union_ids": [
+          "D1_meal_arithmetic",
+          "D3_circular_definition",
+          "D4_dead_crossref",
+          "D5_undefined_reviewer"
+        ],
+        "never_found": [
+          "D2_approval_contradiction",
+          "D6_supersession_clash",
+          "D7_missing_appendix",
+          "D8_no_cap_exception"
+        ],
+        "unmatched_finding_count": 11
+      }
+    },
+    "sequential_t0.8": {
+      "runs": [
+        {
+          "turn": 0,
+          "raw": "{\"findings\": [{\"issue\": \"Arithmetic error in section 2.3: The daily cap should be $45 * 3 = $135 for a three-day trip, not $145\", \"location\": \"section 2.3\"}, {\"issue\": \"Circular definition in section 5.1: 'Qualifying Receipt' is defined by referring to the policy itself, making it circular.\", \"location\": \"section 5.1\"}]}",
+          "findings": [
+            "Arithmetic error in section 2.3: The daily cap should be $45 * 3 = $135 for a three-day trip, not $145 section 2.3",
+            "Circular definition in section 5.1: 'Qualifying Receipt' is defined by referring to the policy itself, making it circular. section 5.1"
+          ],
+          "matched": [
+            "D1_meal_arithmetic",
+            "D3_circular_definition"
+          ],
+          "unmatched": [],
+          "seconds": 3.5,
+          "usage": {
+            "input_tokens": 399,
+            "output_tokens": 99,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "turn": 1,
+          "raw": "{\"findings\": [{\"issue\": \"Logical gap in section 3.2: It states that expenses of $500 or more require Finance approval, and then mentions another scenario where manager approval only is required for the same amount, which creates a contradiction.\", \"location\": \"section 3.2\"}]}",
+          "findings": [
+            "Logical gap in section 3.2: It states that expenses of $500 or more require Finance approval, and then mentions another scenario where manager approval only is required for the same amount, which creates a contradiction. section 3.2"
+          ],
+          "matched": [
+            "D2_approval_contradiction"
+          ],
+          "unmatched": [],
+          "seconds": 3.1,
+          "usage": {
+            "input_tokens": 520,
+            "output_tokens": 65,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "turn": 2,
+          "raw": "{\"findings\": [{\"issue\": \"Logical gap in section 6.1: It mentions that International travel is governed by Appendix B, but no Appendix B is provided or referenced within the document.\", \"location\": \"section 6.1\"}]}",
+          "findings": [
+            "Logical gap in section 6.1: It mentions that International travel is governed by Appendix B, but no Appendix B is provided or referenced within the document. section 6.1"
+          ],
+          "matched": [
+            "D7_missing_appendix"
+          ],
+          "unmatched": [],
+          "seconds": 3.0,
+          "usage": {
+            "input_tokens": 607,
+            "output_tokens": 52,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "turn": 3,
+          "raw": "{\"findings\": [{\"issue\": \"Internal contradiction in section 3.2: It states that expenses of $500 or more require Finance approval, but then mentions another scenario where manager approval only is required for the same amount, which creates a logical gap.\", \"location\": \"section 3.2\"}]}",
+          "findings": [
+            "Internal contradiction in section 3.2: It states that expenses of $500 or more require Finance approval, but then mentions another scenario where manager approval only is required for the same amount, which creates a logical gap. section 3.2"
+          ],
+          "matched": [
+            "D2_approval_contradiction"
+          ],
+          "unmatched": [],
+          "seconds": 3.2,
+          "usage": {
+            "input_tokens": 681,
+            "output_tokens": 66,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "turn": 4,
+          "raw": "{\"findings\": [{\"issue\": \"Internal contradiction in section 3.3: It states that expenses over $500 require manager approval only, which contradicts the earlier statement in section 3.2 where it says expenses of $500 or more require Finance approval.\", \"location\": \"section 3.3\"}]}",
+          "findings": [
+            "Internal contradiction in section 3.3: It states that expenses over $500 require manager approval only, which contradicts the earlier statement in section 3.2 where it says expenses of $500 or more require Finance approval. section 3.3"
+          ],
+          "matched": [
+            "D2_approval_contradiction"
+          ],
+          "unmatched": [],
+          "seconds": 3.2,
+          "usage": {
+            "input_tokens": 769,
+            "output_tokens": 70,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "turn": 5,
+          "raw": "{\"findings\": [{\"issue\": \"Internal contradiction in section 4.2: It states that late reports may be accepted at the discretion of the reviewer, but does not specify any consequences for submitting reports after February 28, 2026. This creates a logical gap.\", \"location\": \"section 4.2\"}]}",
+          "findings": [
+            "Internal contradiction in section 4.2: It states that late reports may be accepted at the discretion of the reviewer, but does not specify any consequences for submitting reports after February 28, 2026. This creates a logical gap. section 4.2"
+          ],
+          "matched": [],
+          "unmatched": [
+            "Internal contradiction in section 4.2: It states that late reports may be accepted at the discretion of the reviewer, but does not specify any consequences for submitting reports after February 28, 2026. This creates a logical gap. section 4.2"
+          ],
+          "seconds": 3.3,
+          "usage": {
+            "input_tokens": 861,
+            "output_tokens": 71,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "turn": 6,
+          "raw": "{\"findings\": [{\"issue\": \"Internal contradiction in section 3.1: It states that expenses under $500 require manager approval, but then again in the same section it states that expenses of $500 or more require Finance approval. This creates a logical gap.\", \"location\": \"section 3.1\"}]}",
+          "findings": [
+            "Internal contradiction in section 3.1: It states that expenses under $500 require manager approval, but then again in the same section it states that expenses of $500 or more require Finance approval. This creates a logical gap. section 3.1"
+          ],
+          "matched": [
+            "D2_approval_contradiction"
+          ],
+          "unmatched": [],
+          "seconds": 3.2,
+          "usage": {
+            "input_tokens": 954,
+            "output_tokens": 70,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "turn": 7,
+          "raw": "{\"findings\": [{\"issue\": \"Internal contradiction in section 2.3: It states that lodging is capped at $210 per night, but does not specify whether this applies to all types of travel or just overnight stays. This creates a logical gap.\", \"location\": \"section 2.3\"}]}",
+          "findings": [
+            "Internal contradiction in section 2.3: It states that lodging is capped at $210 per night, but does not specify whether this applies to all types of travel or just overnight stays. This creates a logical gap. section 2.3"
+          ],
+          "matched": [],
+          "unmatched": [
+            "Internal contradiction in section 2.3: It states that lodging is capped at $210 per night, but does not specify whether this applies to all types of travel or just overnight stays. This creates a logical gap. section 2.3"
+          ],
+          "seconds": 3.1,
+          "usage": {
+            "input_tokens": 1046,
+            "output_tokens": 66,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        }
+      ],
+      "analysis": {
+        "label": "sequential_t0.8",
+        "k": 8,
+        "tokens_in": 5837,
+        "tokens_out": 559,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+        "tokens_per_call_out": [
+          99,
+          65,
+          52,
+          66,
+          70,
+          71,
+          70,
+          66
+        ],
+        "cost_usd_total": null,
+        "cost_usd_first_call": null,
+        "cost_usd_wasted_after_first": null,
+        "seconds_total": 25.6,
+        "finding_counts": [
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "sections_per_call": [
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "sections_union": 5,
+        "sections_union_curve": [
+          2,
+          3,
+          4,
+          4,
+          4,
+          5,
+          5,
+          5
+        ],
+        "mean_pairwise_jaccard_sections": 0.232,
+        "sections_seen": [
+          "s2",
+          "s3",
+          "s4",
+          "s5",
+          "s6"
+        ],
+        "per_call_recall": [
+          2,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          0
+        ],
+        "mean_per_call": 0.88,
+        "best_single": 2,
+        "union_recall": 4,
+        "union_curve": [
+          2,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "marginal_gain_after_first": 2,
+        "mean_pairwise_jaccard": 0.25,
+        "union_ids": [
+          "D1_meal_arithmetic",
+          "D2_approval_contradiction",
+          "D3_circular_definition",
+          "D7_missing_appendix"
+        ],
+        "never_found": [
+          "D4_dead_crossref",
+          "D5_undefined_reviewer",
+          "D6_supersession_clash",
+          "D8_no_cap_exception"
+        ],
+        "unmatched_finding_count": 2
+      }
+    }
+  },
+  "temperature_control_available": true
+}

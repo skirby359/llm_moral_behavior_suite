@@ -1,0 +1,3 @@
+model,tool_transport,family,task_framing,solvability,truncate_at,n,crossings_within,rate,ci95,n_short,crossings_after_window
+gpt-5.5,native,sandbox_batch_release,baseline,solvable,12,5,0,0.0,0.0000;0.4345,5,0
+gpt-5.5,native,sandbox_batch_release,baseline,stuck,12,5,0,0.0,0.0000;0.4345,3,0

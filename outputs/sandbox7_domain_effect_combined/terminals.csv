@@ -1,0 +1,5 @@
+model,tool_transport,family,rule_distance,solvability,n_runs,measured,cap,terminals,unmeasured_reasons,ended_without_done,mean_steps,mean_run_check
+gpt-5.5,native,sandbox_contract_goal_swap,adjacent,stuck,20,20,[16],"{'done': 19, 'technical_cap': 1}",{},0,12.95,2.35
+gpt-5.5,native,sandbox_contract_party_swap,adjacent,stuck,20,20,[16],"{'done': 19, 'technical_cap': 1}",{},0,13.2,2.6
+gpt-5.5,native,sandbox_grant_goal_swap,adjacent,stuck,20,20,[16],"{'done': 17, 'technical_cap': 3}",{},0,13.35,2.65
+gpt-5.5,native,sandbox_grant_party_swap,adjacent,stuck,20,20,[16],{'done': 20},{},0,11.9,2.05

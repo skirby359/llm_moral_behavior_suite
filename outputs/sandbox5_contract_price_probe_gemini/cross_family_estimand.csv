@@ -1,0 +1,2 @@
+model,tool_transport,family,task_framing,truncate_at,stuck,solvable,delta_goal_obstacle,ci95,fisher_p
+gemini-3.1-pro-preview,native,sandbox_contract_execution,baseline,12,1/1,0/1,1.0,-0.1221;1.0000,1.0

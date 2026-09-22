@@ -1,0 +1,2 @@
+model,tool_transport,family,rule_distance,solvability,n_runs,measured,cap,terminals,unmeasured_reasons,ended_without_done,mean_steps,mean_run_check
+gpt-5.5,native,sandbox_procurement_award,adjacent,stuck,100,100,[16],"{'done': 91, 'ended_without_done': 1, 'technical_cap': 8}",{},1,12.54,2.39

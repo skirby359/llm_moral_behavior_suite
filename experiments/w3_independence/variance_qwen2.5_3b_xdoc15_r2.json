@@ -1,0 +1,1099 @@
+{
+  "provider": "ollama",
+  "model": "qwen2.5:3b",
+  "k": 8,
+  "repeats": 2,
+  "repeats_requested": 2,
+  "repeats_completed": 2,
+  "complete": true,
+  "condition": "parallel",
+  "temperature_control_available": true,
+  "num_ctx": 32768,
+  "max_output_tokens": 64000,
+  "per_repeat": [
+    {
+      "repeat": 1,
+      "runs": [
+        {
+          "call": 0,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Definition conflict in 'Business Day' - Document 01_msa.md and Document 02_sow.md define different meanings for Business Day.\",\n      \"location\": \"Document 01_msa.md (1.1) and Document 02_sow.md (1.1)\"\n    },\n    {\n      \"issue\": \"'Schedule' is defined in both Document 01_msa.md and Document 04_sla.md, but references to 'Schedules' are not consistent.\",\n      \"location\": \"Document 01_msa.md (1.3) and Document 04_sla.md (1)\"\n    },\n    {\n      \"issue\": \"'Subprocessor' is defined in both Document 03_dpa.md and Document 12_subprocessors.md, but references to 'Subprocessors' are not consistent.\",\n      \"location\": \"Document 03_dpa.md (5.1) and Document 12_subprocessors.md (4.1)\"\n    },\n    {\n      \"issue\": \"Incompatibility of date ranges - Effective Date in Document 01_msa.md is on April 1, 2027 but Transition Period in Document 09_exit.md starts from the date notice of termination is given.\",\n      \"location\": \"Document 01_msa.md (3.4) and Document 09_exit.md\"\n    },\n    {\n      \"issue\": \"Inconsistent treatment of Service Credits - In Document 04_sla.md, they are a Customer remedy for failure to meet availability level, but in Document 12_subprocessors.md, service credits can be applied as a deduction from the next recurring invoice.\",\n      \"location\": \"Document 04_sla.md (6.3) and Document 12_subprocessors.md (4.1)\"\n    },\n    {\n      \"issue\": \"Conflicting acceptance criteria in Documents 02_sow.md and 13_exhibit_a_acceptance.md - D7's acceptance in Document 02_sow.md is for training of at least twenty (20) named staff, while the Acceptability Criteria specify a minimum of twenty.\",\n      \"location\": \"Document 02_sow.md (6.5) and Document 13_exhibit_a_acceptance.md (3.7)\"\n    },\n    {\n      \"issue\": \"Contradictory information in 'Acceptable Use Policy' - In Document 11_acceptable_use.md, it states Customer is responsible for the acts and omissions of its users, but also prohibits certain uses described in Section 2 and 3.\",\n      \"location\": \"Document 11_acceptable_use.md (1.2) and Document 11_acceptable_use.md (2.2)\"\n    },\n    {\n      \"issue\": \"Inconsistency between 'Service Level Agreement' and 'Exit and Transition Plan': Service Level Agreement specifies a Recovery Point Objective of 24 hours, but the Exit and Transition Plan does not specify an RPO.\",\n      \"location\": \"Document 04_sla.md (2.2) and Document 09_exit.md\"\n    },\n    {\n      \"issue\": \"Mismatch between roles defined in 'Personnel Rates' and those in 'Exhibit B: Key Personnel and Role Rates': The document states there are two Solution Architects, but the Exhibit specifies one.\",\n      \"location\": \"Document 14_exhibit_b_personnel.md (1.2) and Document 04_sow.md\"\n    },\n    {\n      \"issue\": \"'Transition Period' is defined in 'Exit and Transition Plan', which is not referenced or mentioned elsewhere.\",\n      \"location\": \"Document 09_exit.md\"\n    }\n  ]\n}",
+          "findings": [
+            "Definition conflict in 'Business Day' - Document 01_msa.md and Document 02_sow.md define different meanings for Business Day. Document 01_msa.md (1.1) and Document 02_sow.md (1.1)",
+            "'Schedule' is defined in both Document 01_msa.md and Document 04_sla.md, but references to 'Schedules' are not consistent. Document 01_msa.md (1.3) and Document 04_sla.md (1)",
+            "'Subprocessor' is defined in both Document 03_dpa.md and Document 12_subprocessors.md, but references to 'Subprocessors' are not consistent. Document 03_dpa.md (5.1) and Document 12_subprocessors.md (4.1)",
+            "Incompatibility of date ranges - Effective Date in Document 01_msa.md is on April 1, 2027 but Transition Period in Document 09_exit.md starts from the date notice of termination is given. Document 01_msa.md (3.4) and Document 09_exit.md",
+            "Inconsistent treatment of Service Credits - In Document 04_sla.md, they are a Customer remedy for failure to meet availability level, but in Document 12_subprocessors.md, service credits can be applied as a deduction from the next recurring invoice. Document 04_sla.md (6.3) and Document 12_subprocessors.md (4.1)",
+            "Conflicting acceptance criteria in Documents 02_sow.md and 13_exhibit_a_acceptance.md - D7's acceptance in Document 02_sow.md is for training of at least twenty (20) named staff, while the Acceptability Criteria specify a minimum of twenty. Document 02_sow.md (6.5) and Document 13_exhibit_a_acceptance.md (3.7)",
+            "Contradictory information in 'Acceptable Use Policy' - In Document 11_acceptable_use.md, it states Customer is responsible for the acts and omissions of its users, but also prohibits certain uses described in Section 2 and 3. Document 11_acceptable_use.md (1.2) and Document 11_acceptable_use.md (2.2)",
+            "Inconsistency between 'Service Level Agreement' and 'Exit and Transition Plan': Service Level Agreement specifies a Recovery Point Objective of 24 hours, but the Exit and Transition Plan does not specify an RPO. Document 04_sla.md (2.2) and Document 09_exit.md",
+            "Mismatch between roles defined in 'Personnel Rates' and those in 'Exhibit B: Key Personnel and Role Rates': The document states there are two Solution Architects, but the Exhibit specifies one. Document 14_exhibit_b_personnel.md (1.2) and Document 04_sow.md",
+            "'Transition Period' is defined in 'Exit and Transition Plan', which is not referenced or mentioned elsewhere. Document 09_exit.md"
+          ],
+          "matched": [
+            "E15_rpo_tolerates_data_loss",
+            "X15_automatic_credit_vs_no_setoff",
+            "Z06_credit_base_differs"
+          ],
+          "unmatched": [
+            "Definition conflict in 'Business Day' - Document 01_msa.md and Document 02_sow.md define different meanings for Business Day. Document 01_msa.md (1.1) and Document 02_sow.md (1.1)",
+            "'Schedule' is defined in both Document 01_msa.md and Document 04_sla.md, but references to 'Schedules' are not consistent. Document 01_msa.md (1.3) and Document 04_sla.md (1)",
+            "'Subprocessor' is defined in both Document 03_dpa.md and Document 12_subprocessors.md, but references to 'Subprocessors' are not consistent. Document 03_dpa.md (5.1) and Document 12_subprocessors.md (4.1)",
+            "Incompatibility of date ranges - Effective Date in Document 01_msa.md is on April 1, 2027 but Transition Period in Document 09_exit.md starts from the date notice of termination is given. Document 01_msa.md (3.4) and Document 09_exit.md",
+            "Conflicting acceptance criteria in Documents 02_sow.md and 13_exhibit_a_acceptance.md - D7's acceptance in Document 02_sow.md is for training of at least twenty (20) named staff, while the Acceptability Criteria specify a minimum of twenty. Document 02_sow.md (6.5) and Document 13_exhibit_a_acceptance.md (3.7)",
+            "Contradictory information in 'Acceptable Use Policy' - In Document 11_acceptable_use.md, it states Customer is responsible for the acts and omissions of its users, but also prohibits certain uses described in Section 2 and 3. Document 11_acceptable_use.md (1.2) and Document 11_acceptable_use.md (2.2)",
+            "Mismatch between roles defined in 'Personnel Rates' and those in 'Exhibit B: Key Personnel and Role Rates': The document states there are two Solution Architects, but the Exhibit specifies one. Document 14_exhibit_b_personnel.md (1.2) and Document 04_sow.md",
+            "'Transition Period' is defined in 'Exit and Transition Plan', which is not referenced or mentioned elsewhere. Document 09_exit.md"
+          ],
+          "seconds": 17.1,
+          "usage": {
+            "input_tokens": 11918,
+            "output_tokens": 786,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 1,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Document Order of Precedence inconsistencies\",\n      \"location\": \"All documents\"\n    },\n    {\n      \"issue\": \"Misuse of 'Business Day' definition in different contexts.\",\n      \"location\": \"Master Services Agreement (01_msa.md): Business Day defined, Statement of Work 1 (02_sow.md) and Service Level and Support Schedule (04_sla.md) use the same term but with a different date range.\"\n    },\n    {\n      \"issue\": \"Service levels in SLA conflict with those in SOW\",\n      \"location\": \"Statement of Work 1 (02_sow.md): The program delivery timeframe and phases do not align perfectly with the monthly availability targets specified in the Service Level and Support Schedule (04_sla.md).\"\n    },\n    {\n      \"issue\": \"No reference to Annexes\",\n      \"location\": \"Master Services Agreement (01_msa.md): While it mentions Schedules and Addenda, it does not explicitly refer to Annexes.\"\n    },\n    {\n      \"issue\": \"Excessive use of 'Prioritization' terms\",\n      \"location\": \"Service Level and Support Schedule (04_sla.md) uses the term 'Priority 1', 'Priority 2' multiple times which could cause confusion with other documents using similar or different terminologies.\"\n    },\n    {\n      \"issue\": \"Conflicting acceptance criteria in SOW and Exhibit A\",\n      \"location\": \"Statement of Work 1 (02_sow.md) and Exhibit A: Acceptance Criteria document for Deliverables. D1 and D2 have acceptance criteria that do not match between the two documents.\"\n    },\n    {\n      \"issue\": \"Missing reference to 'Subprocessor' in Data Processing Addendum\",\n      \"location\": \"Data Processing Addendum (03_dpa.md): The term 'Subprocessor' is not referenced explicitly or defined. However, this document deals with subprocessing obligations and the addition of a Subprocessor.\"\n    },\n    {\n      \"issue\": \"Inconsistent use of the word 'Subcontracting'\",\n      \"location\": \"Master Services Agreement (01_msa.md) uses 'Subcontracting', while Data Processing Addendum (03_dpa.md) uses it, but this term is not defined in either document.\"\n    },\n    {\n      \"issue\": \"Change Control Procedure mentions changes not aligned with actual practice\",\n      \"location\": \"Change Control Procedure (08_change_control.md): Specifies some conditions for change requests that are not aligned with the actual control of changes as described in other documents like Statement of Work 1 and Data Processing Addendum.\"\n    },\n    {\n      \"issue\": \"Acceptable Use Policy does not reference key clauses\",\n      \"location\": \"Acceptable Use Policy (09_acceptable_use.md): While it mentions prohibited content, there is no mention or reference to the specific acceptable use criteria in other documents like SOW and Exhibit A.\"\n    }\n  ] \n}",
+          "findings": [
+            "Document Order of Precedence inconsistencies All documents",
+            "Misuse of 'Business Day' definition in different contexts. Master Services Agreement (01_msa.md): Business Day defined, Statement of Work 1 (02_sow.md) and Service Level and Support Schedule (04_sla.md) use the same term but with a different date range.",
+            "Service levels in SLA conflict with those in SOW Statement of Work 1 (02_sow.md): The program delivery timeframe and phases do not align perfectly with the monthly availability targets specified in the Service Level and Support Schedule (04_sla.md).",
+            "No reference to Annexes Master Services Agreement (01_msa.md): While it mentions Schedules and Addenda, it does not explicitly refer to Annexes.",
+            "Excessive use of 'Prioritization' terms Service Level and Support Schedule (04_sla.md) uses the term 'Priority 1', 'Priority 2' multiple times which could cause confusion with other documents using similar or different terminologies.",
+            "Conflicting acceptance criteria in SOW and Exhibit A Statement of Work 1 (02_sow.md) and Exhibit A: Acceptance Criteria document for Deliverables. D1 and D2 have acceptance criteria that do not match between the two documents.",
+            "Missing reference to 'Subprocessor' in Data Processing Addendum Data Processing Addendum (03_dpa.md): The term 'Subprocessor' is not referenced explicitly or defined. However, this document deals with subprocessing obligations and the addition of a Subprocessor.",
+            "Inconsistent use of the word 'Subcontracting' Master Services Agreement (01_msa.md) uses 'Subcontracting', while Data Processing Addendum (03_dpa.md) uses it, but this term is not defined in either document.",
+            "Change Control Procedure mentions changes not aligned with actual practice Change Control Procedure (08_change_control.md): Specifies some conditions for change requests that are not aligned with the actual control of changes as described in other documents like Statement of Work 1 and Data Processing Addendum.",
+            "Acceptable Use Policy does not reference key clauses Acceptable Use Policy (09_acceptable_use.md): While it mentions prohibited content, there is no mention or reference to the specific acceptable use criteria in other documents like SOW and Exhibit A."
+          ],
+          "matched": [
+            "X04_circular_precedence",
+            "Z19_acceptance_criteria_location",
+            "Z35_glossary_services_includes_support"
+          ],
+          "unmatched": [
+            "Service levels in SLA conflict with those in SOW Statement of Work 1 (02_sow.md): The program delivery timeframe and phases do not align perfectly with the monthly availability targets specified in the Service Level and Support Schedule (04_sla.md).",
+            "No reference to Annexes Master Services Agreement (01_msa.md): While it mentions Schedules and Addenda, it does not explicitly refer to Annexes.",
+            "Excessive use of 'Prioritization' terms Service Level and Support Schedule (04_sla.md) uses the term 'Priority 1', 'Priority 2' multiple times which could cause confusion with other documents using similar or different terminologies.",
+            "Missing reference to 'Subprocessor' in Data Processing Addendum Data Processing Addendum (03_dpa.md): The term 'Subprocessor' is not referenced explicitly or defined. However, this document deals with subprocessing obligations and the addition of a Subprocessor.",
+            "Inconsistent use of the word 'Subcontracting' Master Services Agreement (01_msa.md) uses 'Subcontracting', while Data Processing Addendum (03_dpa.md) uses it, but this term is not defined in either document.",
+            "Change Control Procedure mentions changes not aligned with actual practice Change Control Procedure (08_change_control.md): Specifies some conditions for change requests that are not aligned with the actual control of changes as described in other documents like Statement of Work 1 and Data Processing Addendum.",
+            "Acceptable Use Policy does not reference key clauses Acceptable Use Policy (09_acceptable_use.md): While it mentions prohibited content, there is no mention or reference to the specific acceptable use criteria in other documents like SOW and Exhibit A."
+          ],
+          "seconds": 8.8,
+          "usage": {
+            "input_tokens": 11918,
+            "output_tokens": 629,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 2,
+          "raw": "{\"findings\": [{\"issue\": \"Definitions conflict in Document 01_msa.md\", \"location\": \"Document 01_msa.md, section 1.2 'Business Day'\"}, {\"issue\": \"Multiple Statements of Work identified as Schedule X exist but are referenced inconsistently\", \"location\": \"Documents 01_msa.md and 02_sow.md\"}, {\"issue\": \"Payment terms in Document 05_order_form.md conflict with those in Document 01_msa.md\", \"location\": \"Document 05_order_form.md, section 1.6 'Payment terms'\"}, {\"issue\": \"Clause 4 of Document 04_sla.md is missing in the document set\", \"location\": \"None provided but referenced in other documents\"}, {\"issue\": \"References to Annexes and Schedules not found in Documents 02_sow.md, 05_order_form.md, and 13_exhibit_a_acceptance.md\", \"location\": \"Documents 02_sow.md, 05_order_form.md, and 13_exhibit_a_acceptance.md\"}, {\"issue\": \"Change Request is defined in Document 08_change_control.md but not referenced in other documents\", \"location\": \"Document 08_change_control.md\"}, {\"issue\": \"Definitions of 'Subprocessor' and 'Subprocessor' conflict with each other in Documents 02_sow.md and 12_subprocessors.md respectively\", \"location\": \"Documents 02_sow.md, 07_bcdr.md, and 12_subprocessors.md\"}, {\"issue\": \"Exhibit B references to 'Key Personnel' not defined until Document 14_exhibit_b_personnel.md\", \"location\": \"Document 13_exhibit_a_acceptance.md\"}, {\"issue\": \"Transition Period is not clearly defined in the Glossary but referenced from other documents, including Documents 07_bcdr.md and 09_exit.md\", \"location\": \"Documents 07_bcdr.md, 09_exit.md, and Document 15_glossary.md\"}]}",
+          "findings": [
+            "Definitions conflict in Document 01_msa.md Document 01_msa.md, section 1.2 'Business Day'",
+            "Multiple Statements of Work identified as Schedule X exist but are referenced inconsistently Documents 01_msa.md and 02_sow.md",
+            "Payment terms in Document 05_order_form.md conflict with those in Document 01_msa.md Document 05_order_form.md, section 1.6 'Payment terms'",
+            "Clause 4 of Document 04_sla.md is missing in the document set None provided but referenced in other documents",
+            "References to Annexes and Schedules not found in Documents 02_sow.md, 05_order_form.md, and 13_exhibit_a_acceptance.md Documents 02_sow.md, 05_order_form.md, and 13_exhibit_a_acceptance.md",
+            "Change Request is defined in Document 08_change_control.md but not referenced in other documents Document 08_change_control.md",
+            "Definitions of 'Subprocessor' and 'Subprocessor' conflict with each other in Documents 02_sow.md and 12_subprocessors.md respectively Documents 02_sow.md, 07_bcdr.md, and 12_subprocessors.md",
+            "Exhibit B references to 'Key Personnel' not defined until Document 14_exhibit_b_personnel.md Document 13_exhibit_a_acceptance.md",
+            "Transition Period is not clearly defined in the Glossary but referenced from other documents, including Documents 07_bcdr.md and 09_exit.md Documents 07_bcdr.md, 09_exit.md, and Document 15_glossary.md"
+          ],
+          "matched": [],
+          "unmatched": [
+            "Definitions conflict in Document 01_msa.md Document 01_msa.md, section 1.2 'Business Day'",
+            "Multiple Statements of Work identified as Schedule X exist but are referenced inconsistently Documents 01_msa.md and 02_sow.md",
+            "Payment terms in Document 05_order_form.md conflict with those in Document 01_msa.md Document 05_order_form.md, section 1.6 'Payment terms'",
+            "Clause 4 of Document 04_sla.md is missing in the document set None provided but referenced in other documents",
+            "References to Annexes and Schedules not found in Documents 02_sow.md, 05_order_form.md, and 13_exhibit_a_acceptance.md Documents 02_sow.md, 05_order_form.md, and 13_exhibit_a_acceptance.md",
+            "Change Request is defined in Document 08_change_control.md but not referenced in other documents Document 08_change_control.md",
+            "Definitions of 'Subprocessor' and 'Subprocessor' conflict with each other in Documents 02_sow.md and 12_subprocessors.md respectively Documents 02_sow.md, 07_bcdr.md, and 12_subprocessors.md",
+            "Exhibit B references to 'Key Personnel' not defined until Document 14_exhibit_b_personnel.md Document 13_exhibit_a_acceptance.md",
+            "Transition Period is not clearly defined in the Glossary but referenced from other documents, including Documents 07_bcdr.md and 09_exit.md Documents 07_bcdr.md, 09_exit.md, and Document 15_glossary.md"
+          ],
+          "seconds": 6.8,
+          "usage": {
+            "input_tokens": 11918,
+            "output_tokens": 436,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 3,
+          "raw": "{\"findings\": [{\"issue\": \"The terms 'Services' and 'support services' are inconsistently defined.\", \"location\": \"Document 2 (Statement of Work 1) defines Services, while Document 4 (Service Level and Support Schedule) refers to support services.\"}, {\"issue\": \"Conflicting definitions of 'Business Day'.\", \"location\": \"Documents 1 (Master Services Agreement) and 7 (Business Continuity and Disaster Recovery Plan) use different definitions for 'Business Day'.\"}, {\"issue\": \"Inconsistent language for the term 'subprocessors' in Document 8 (Change Control Procedure).\", \"location\": \"Document 12 (Approved Subprocessor List) uses a slightly different definition of 'subprocessor'.\"}, {\"issue\": \"Definition inconsistency: 'Subprocessors' and 'Subprocessor' are used interchangeably with different meanings.\", \"location\": \"Throughout the contract set, terms like 'Key Personnel', 'Services', and 'Subprocessors' have multiple definitions across documents.\"}, {\"issue\": \"Ambiguous definition of 'Confidential Information'.\", \"location\": \"The term is defined in several places but has inconsistent descriptions (e.g., whether it needs to be marked confidentially).\"}, {\"issue\": \"Document 6 (Information Security Policy) references terms from the Master Services Agreement that are not clearly defined.\", \"location\": \"For instance, 'Restricted Data', 'Personal Data', and 'Security Incident' are referenced but not fully defined within Document 6.\"}, {\"issue\": \"There is no clear reference to a section or annex in Document 3 (Data Processing Addendum) that does not exist.\", \"location\": \"Document 7 (Business Continuity and Disaster Recovery Plan) references sections that do not appear to be part of the Data Processing Addendum.\"}, {\"issue\": \"Lack of clarity on 'Transition Period' definition across all documents, including how it should be calculated.\", \"location\": \"All documents mention a Transition Period but none define its exact start or end points or any related obligations.\"}]}",
+          "findings": [
+            "The terms 'Services' and 'support services' are inconsistently defined. Document 2 (Statement of Work 1) defines Services, while Document 4 (Service Level and Support Schedule) refers to support services.",
+            "Conflicting definitions of 'Business Day'. Documents 1 (Master Services Agreement) and 7 (Business Continuity and Disaster Recovery Plan) use different definitions for 'Business Day'.",
+            "Inconsistent language for the term 'subprocessors' in Document 8 (Change Control Procedure). Document 12 (Approved Subprocessor List) uses a slightly different definition of 'subprocessor'.",
+            "Definition inconsistency: 'Subprocessors' and 'Subprocessor' are used interchangeably with different meanings. Throughout the contract set, terms like 'Key Personnel', 'Services', and 'Subprocessors' have multiple definitions across documents.",
+            "Ambiguous definition of 'Confidential Information'. The term is defined in several places but has inconsistent descriptions (e.g., whether it needs to be marked confidentially).",
+            "Document 6 (Information Security Policy) references terms from the Master Services Agreement that are not clearly defined. For instance, 'Restricted Data', 'Personal Data', and 'Security Incident' are referenced but not fully defined within Document 6.",
+            "There is no clear reference to a section or annex in Document 3 (Data Processing Addendum) that does not exist. Document 7 (Business Continuity and Disaster Recovery Plan) references sections that do not appear to be part of the Data Processing Addendum.",
+            "Lack of clarity on 'Transition Period' definition across all documents, including how it should be calculated. All documents mention a Transition Period but none define its exact start or end points or any related obligations."
+          ],
+          "matched": [
+            "E08_restricted_data_scope",
+            "X06_confidential_information_definition",
+            "X07_security_incident_definition"
+          ],
+          "unmatched": [
+            "The terms 'Services' and 'support services' are inconsistently defined. Document 2 (Statement of Work 1) defines Services, while Document 4 (Service Level and Support Schedule) refers to support services.",
+            "Conflicting definitions of 'Business Day'. Documents 1 (Master Services Agreement) and 7 (Business Continuity and Disaster Recovery Plan) use different definitions for 'Business Day'.",
+            "Inconsistent language for the term 'subprocessors' in Document 8 (Change Control Procedure). Document 12 (Approved Subprocessor List) uses a slightly different definition of 'subprocessor'.",
+            "Definition inconsistency: 'Subprocessors' and 'Subprocessor' are used interchangeably with different meanings. Throughout the contract set, terms like 'Key Personnel', 'Services', and 'Subprocessors' have multiple definitions across documents.",
+            "There is no clear reference to a section or annex in Document 3 (Data Processing Addendum) that does not exist. Document 7 (Business Continuity and Disaster Recovery Plan) references sections that do not appear to be part of the Data Processing Addendum.",
+            "Lack of clarity on 'Transition Period' definition across all documents, including how it should be calculated. All documents mention a Transition Period but none define its exact start or end points or any related obligations."
+          ],
+          "seconds": 6.7,
+          "usage": {
+            "input_tokens": 11918,
+            "output_tokens": 423,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 4,
+          "raw": "{\"findings\": [{\"issue\": \"Definitions conflict in Document 1 (Master Services Agreement): 'Business Day' defined as Monday to Friday, including public holidays\", \"location\": \"Document 1 - Definitions Section\"}, {\"issue\": \"The Glossary of Defined Terms in Document 10 (Exhibit A) does not define the term 'Services'\", \"location\": \"Document 10 - Glossary\"}, {\"issue\": \"Clause 4.3 in Document 2 (Statement of Work 1) states that changes should be agreed before being implemented, but there is no corresponding clause in Document 1\", \"location\": \"Document 2 - Structure Section\"}, {\"issue\": \"The glossary does not define 'Personal Data' as used in the DPA and other documents\", \"location\": \"Glossary of Defined Terms in Document 10 (Exhibit A) for Master Services Agreement\"}, {\"issue\": \"Clause 8.2 in Document 4 (Service Level and Support Schedule) references Clause 5, which does not exist in any of the provided documents\", \"location\": \"Document 4 - Service Level Section\"}, {\"issue\": \"Clause 6.1 in Document 9 (Exit and Transition Plan) mentions a milestone 'parallel running complete' that is not defined anywhere\", \"location\": \"Document 9 - Exit Milestones for Master Services Agreement\"}, {\"issue\": \"The Glossary of Defined Terms does not include the term 'Transition Period'\", \"location\": \"Glossary of Defined Terms in Document 10 (Exhibit A) for Master Services Agreement\"}, {\"issue\": \"In Document 7 (Business Continuity and Disaster Recovery Plan), Clause 2.4 states that recovery objectives apply to production environments only, but there is no corresponding clause stating this applies to non-production environments\", \"location\": \"Document 7 - Business Continuity Section\"}, {\"issue\": \"In Document 8 (Change Control Procedure), the term 'Key Personnel' is not defined in any of the provided documents\", \"location\": \"Document 8 - Change Control Section\"}, {\"issue\": \"In Document 9, the Exit Milestones do not include a milestone for 'data extract delivered'\", \"location\": \"Exit Milestones section in Document 9 (Exit and Transition Plan)\"}, {\"issue\": \"Subprocessor list in Document 12 (Approved Subprocessor List) is Annex 2 to the DPA instead of being part of the Master Services Agreement as stated in the header\", \"location\": \"Document 12 - Subprocessors for Data Processing Addendum\"}, {\"issue\": \"There are no references to 'Volume Bands' in any provided documents, but they are defined in Document 10 (Pricing and Rate Card)\", \"location\": \"Document 10 - Pricing Section\"}]}",
+          "findings": [
+            "Definitions conflict in Document 1 (Master Services Agreement): 'Business Day' defined as Monday to Friday, including public holidays Document 1 - Definitions Section",
+            "The Glossary of Defined Terms in Document 10 (Exhibit A) does not define the term 'Services' Document 10 - Glossary",
+            "Clause 4.3 in Document 2 (Statement of Work 1) states that changes should be agreed before being implemented, but there is no corresponding clause in Document 1 Document 2 - Structure Section",
+            "The glossary does not define 'Personal Data' as used in the DPA and other documents Glossary of Defined Terms in Document 10 (Exhibit A) for Master Services Agreement",
+            "Clause 8.2 in Document 4 (Service Level and Support Schedule) references Clause 5, which does not exist in any of the provided documents Document 4 - Service Level Section",
+            "Clause 6.1 in Document 9 (Exit and Transition Plan) mentions a milestone 'parallel running complete' that is not defined anywhere Document 9 - Exit Milestones for Master Services Agreement",
+            "The Glossary of Defined Terms does not include the term 'Transition Period' Glossary of Defined Terms in Document 10 (Exhibit A) for Master Services Agreement",
+            "In Document 7 (Business Continuity and Disaster Recovery Plan), Clause 2.4 states that recovery objectives apply to production environments only, but there is no corresponding clause stating this applies to non-production environments Document 7 - Business Continuity Section",
+            "In Document 8 (Change Control Procedure), the term 'Key Personnel' is not defined in any of the provided documents Document 8 - Change Control Section",
+            "In Document 9, the Exit Milestones do not include a milestone for 'data extract delivered' Exit Milestones section in Document 9 (Exit and Transition Plan)",
+            "Subprocessor list in Document 12 (Approved Subprocessor List) is Annex 2 to the DPA instead of being part of the Master Services Agreement as stated in the header Document 12 - Subprocessors for Data Processing Addendum",
+            "There are no references to 'Volume Bands' in any provided documents, but they are defined in Document 10 (Pricing and Rate Card) Document 10 - Pricing Section"
+          ],
+          "matched": [
+            "Z17_annex_2_identity_collision",
+            "Z29_glossary_business_day_third_definition"
+          ],
+          "unmatched": [
+            "The Glossary of Defined Terms in Document 10 (Exhibit A) does not define the term 'Services' Document 10 - Glossary",
+            "Clause 4.3 in Document 2 (Statement of Work 1) states that changes should be agreed before being implemented, but there is no corresponding clause in Document 1 Document 2 - Structure Section",
+            "The glossary does not define 'Personal Data' as used in the DPA and other documents Glossary of Defined Terms in Document 10 (Exhibit A) for Master Services Agreement",
+            "Clause 8.2 in Document 4 (Service Level and Support Schedule) references Clause 5, which does not exist in any of the provided documents Document 4 - Service Level Section",
+            "Clause 6.1 in Document 9 (Exit and Transition Plan) mentions a milestone 'parallel running complete' that is not defined anywhere Document 9 - Exit Milestones for Master Services Agreement",
+            "The Glossary of Defined Terms does not include the term 'Transition Period' Glossary of Defined Terms in Document 10 (Exhibit A) for Master Services Agreement",
+            "In Document 7 (Business Continuity and Disaster Recovery Plan), Clause 2.4 states that recovery objectives apply to production environments only, but there is no corresponding clause stating this applies to non-production environments Document 7 - Business Continuity Section",
+            "In Document 8 (Change Control Procedure), the term 'Key Personnel' is not defined in any of the provided documents Document 8 - Change Control Section",
+            "In Document 9, the Exit Milestones do not include a milestone for 'data extract delivered' Exit Milestones section in Document 9 (Exit and Transition Plan)",
+            "There are no references to 'Volume Bands' in any provided documents, but they are defined in Document 10 (Pricing and Rate Card) Document 10 - Pricing Section"
+          ],
+          "seconds": 8.3,
+          "usage": {
+            "input_tokens": 11918,
+            "output_tokens": 575,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 5,
+          "raw": "{\"findings\": [{\"issue\": \"The same term defined two different ways, 'Business Day'\", \"location\": \"01_msa.md:1.2\"}, {\"issue\": \"Conflicting descriptions for the term 'Deliverable'\", \"location\": \"01_msa.md:1.4; 02_sow.md:6.1\"}, {\"issue\": \"Circular reference to Annexes\", \"location\": \"03_dpa.md:9.3\"}, {\"issue\": \"Incompatible dates and terms in the Order Form\", \"location\": \"05_order_form.md:1.3, 1.4\"}, {\"issue\": \"Conflicting definitions for 'Subprocessor'\", \"location\": \"03_dpa.md:1.6; 08_change_control.md:2.1\"}, {\"issue\": \"Inconsistent unit of time - Business Days vs calendar months\", \"location\": \"05_order_form.md:3.2\"}, {\"issue\": \"Duplicate reference to 'Change Request' in the Change Control Procedure\", \"location\": \"08_change_control.md:2.2; 08_change_control.md:4.1\"}, {\"issue\": \"Conflicting definition of 'Personal Data'\", \"location\": \"01_msa.md:7.1; 03_dpa.md:1.2\"}]}",
+          "findings": [
+            "The same term defined two different ways, 'Business Day' 01_msa.md:1.2",
+            "Conflicting descriptions for the term 'Deliverable' 01_msa.md:1.4; 02_sow.md:6.1",
+            "Circular reference to Annexes 03_dpa.md:9.3",
+            "Incompatible dates and terms in the Order Form 05_order_form.md:1.3, 1.4",
+            "Conflicting definitions for 'Subprocessor' 03_dpa.md:1.6; 08_change_control.md:2.1",
+            "Inconsistent unit of time - Business Days vs calendar months 05_order_form.md:3.2",
+            "Duplicate reference to 'Change Request' in the Change Control Procedure 08_change_control.md:2.2; 08_change_control.md:4.1",
+            "Conflicting definition of 'Personal Data' 01_msa.md:7.1; 03_dpa.md:1.2"
+          ],
+          "matched": [],
+          "unmatched": [
+            "The same term defined two different ways, 'Business Day' 01_msa.md:1.2",
+            "Conflicting descriptions for the term 'Deliverable' 01_msa.md:1.4; 02_sow.md:6.1",
+            "Circular reference to Annexes 03_dpa.md:9.3",
+            "Incompatible dates and terms in the Order Form 05_order_form.md:1.3, 1.4",
+            "Conflicting definitions for 'Subprocessor' 03_dpa.md:1.6; 08_change_control.md:2.1",
+            "Inconsistent unit of time - Business Days vs calendar months 05_order_form.md:3.2",
+            "Duplicate reference to 'Change Request' in the Change Control Procedure 08_change_control.md:2.2; 08_change_control.md:4.1",
+            "Conflicting definition of 'Personal Data' 01_msa.md:7.1; 03_dpa.md:1.2"
+          ],
+          "seconds": 5.3,
+          "usage": {
+            "input_tokens": 11918,
+            "output_tokens": 279,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 6,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Definition of 'Business Day' differs between documents\",\n      \"location\": \"01_msa.md (Section 1.2) and 04_sla.md (Section 2.1)\",\n      \"details\": \"The 'Business Day' definition in the Master Services Agreement (MSA) is different from the one defined in the Service Level and Support Schedule (SLAS). In the MSA, a Business Day means Monday to Friday, including public holidays. In the SLAS, a Business Day means Monday to Saturday, excluding US federal holidays. This difference could lead to confusion regarding when certain services are available.\"\n    },\n    {\n      \"issue\": \"Duplicate definition of 'Business Day'\",\n      \"location\": \"01_msa.md (Section 1.2) and 04_sla.md (Section 2.1)\",\n      \"details\": \"Both the MSA and SLAS define a 'Business Day' as Monday to Saturday, including US federal holidays. This is redundant and could lead to confusion if both documents are used together.\"\n    },\n    {\n      \"issue\": \"Inconsistent definition of 'Deliverable'\",\n      \"location\": \"01_msa.md (Section 1.4) and 02_sow.md (Section 6.2)\",\n      \"details\": \"The MSA defines a Deliverable as any item identified as such in a Statement of Work, while the Statement of Work specifically mentions Deliverables for each phase. This inconsistency could cause confusion if both documents are used together.\"\n    },\n    {\n      \"issue\": \"Conflicting definition of 'Security Incident'\",\n      \"location\": \"02_sow.md (Section 7.1) and 03_dpa.md (Section 6.1)\",\n      \"details\": \"The Statement of Work defines a Security Incident as an unauthorised or unlawful access to, or acquisition, alteration, disclosure, loss or destruction of Customer Personal Data. The Data Processing Addendum, however, treats all Security Incidents as Priority 1 Incidents for the purposes of SLAS clause 5.1. This could cause ambiguity and may not be aligned with actual incident handling procedures.\"\n    },\n    {\n      \"issue\": \"Ambiguous definition of 'Transition Period'\",\n      \"location\": \"09_exit.md (Section 2) and 13_exhibit_a_acceptance.md (Section 4)\",\n      \"details\": \"The Exit and Transition Plan defines the Transition Period as starting on the date notice of termination is given. However, this document does not specify how long the transition period ends. The Exhibit A Acceptance document only mentions a 'Transition Period' in Section 4, which could cause confusion about its length.\"\n    },\n    {\n      \"issue\": \"No definition for 'Volume Bands'\",\n      \"location\": \"08_change_control.md (Section 1)\",\n      \"details\": \"There is no mention of the term 'Volume Bands' in any document provided. If used elsewhere it could lead to ambiguity and potential confusion when interpreting related clauses.\"\n    },\n    {\n      \"issue\": \"No definition for 'Vetted Personnel'\",\n      \"location\": \"08_change_control.md (Section 1)\",\n      \"details\": \"The change control procedure does not define what constitutes 'vetted personnel'. If this term is used elsewhere, it could cause confusion about its interpretation and eligibility criteria.\"\n    },\n    {\n      \"issue\": \"No definition for 'Non-Key Personnel'\",\n      \"location\": \"08_change_control.md (Section 1)\",\n      \"details\": \"The change control procedure does not define what constitutes 'non-key personnel'. If this term is used elsewhere, it could cause confusion about its interpretation and role within the team.\"\n    },\n    {\n      \"issue\": \"No definition for 'Non-Sensitive Data'\",\n      \"location\": \"03_dpa.md (Section 1.5)\",\n      \"details\": \"The Data Processing Addendum does not define what constitutes 'non-sensitive data'. If this term is used elsewhere, it could cause ambiguity about its classification and handling.\"\n    },\n    {\n      \"issue\": \"No definition for 'Reconciliation'\",\n      \"location\": \"03_dpa.md (Section 3.4)\",\n      \"details\": \"The Data Processing Addendum does not define what constitutes 'reconciliation'. If this term is used elsewhere, it could cause confusion about its interpretation and methodology.\"\n    },\n    {\n      \"issue\": \"No definition for 'Excluded Dates'\",\n      \"location\": \"09_exit.md (Section 1)\",\n      \"details\": \"The Exit and Transition Plan does not define what constitutes an 'excluded date'. If this term is used elsewhere, it could cause ambiguity about the timing of certain milestones.\"\n    },\n    {\n      \"issue\": \"No definition for 'Volume Bands'\",\n      \"location\": \"08_change_control.md (Section 1)\",\n      \"details\": \"The Change Control Procedure does not define what constitutes 'volume bands'. If this term is used elsewhere, it could cause ambiguity about its meaning and application.\"\n    },\n    {\n      \"issue\": \"No definition for 'Excluded Dates'\",\n      \"location\": \"09_exit.md (Section 1)\",\n      \"details\": \"The Exit and Transition Plan does not define what constitutes an 'excluded date'. If this term is used elsewhere, it could cause ambiguity about the timing of certain milestones.\"\n    },\n    {\n      \"issue\": \"No definition for 'Key Personnel'\",\n      \"location\": \"08_change_control.md (Section 1)\",\n      \"details\": \"The Change Control Procedure does not define what constitutes a 'key personnel'. If this term is used elsewhere, it could cause ambiguity about its eligibility and role.\"\n    },\n    {\n      \"issue\": \"No definition for 'Subprocessors'\",\n      \"location\": \"08_change_control.md (Section 1)\",\n      \"details\": \"The Change Control Procedure does not define what constitutes a 'subprocessor'. If this term is used elsewhere, it could cause ambiguity about its meaning and role.\"\n    },\n    {\n      \"issue\": \"No definition for 'Transition Milestones'\",\n      \"location\": \"09_exit.md (Section 7)\",\n      \"details\": \"The Exit Plan does not define what constitutes a 'transition milestone'. If this term is used elsewhere, it could cause ambiguity about its interpretation and significance.\"\n    },\n    {\n      \"issue\": \"No definition for 'Excluded Dates'\",\n      \"location\": \"09_exit.md (Section 1)\",\n      \"details\": \"The Exit Plan does not define what constitutes an 'excluded date'. If this term is used elsewhere, it could cause ambiguity about the timing of certain milestones.\"\n    },\n    {\n      \"issue\": \"No definition for 'Volume Bands'\",\n      \"location\": \"08_change_control.md (Section 1)\",\n      \"details\": \"The Change Control Procedure does not define what constitutes a 'volume band'. If this term is used elsewhere, it could cause ambiguity about its meaning and application.\"\n    },\n    {\n      \"issue\": \"No definition for 'Transition Milestones'\",\n      \"location\": \"09_exit.md (Section 7)\",\n      \"details\": \"The Exit Plan does not define what constitutes a 'transition milestone'. If this term is used elsewhere, it could cause ambiguity about its interpretation and significance.\"\n    },\n    {\n      \"issue\": \"No definition for 'Subprocessors'\",\n      \"location\": \"08_change_control.md (Section 1)\",\n      \"details\": \"The Change Control Procedure does not define what constitutes a 'subprocessor'. If this term is used elsewhere, it could cause ambiguity about its meaning and role.\"\n    },\n    {\n      \"issue\": \"No definition for 'Volume Bands'\",\n      \"location\": \"08_change_control.md (Section 1)\",\n      \"details\": \"The Change Control Procedure does not define what constitutes a 'volume band'. If this term is used elsewhere, it could cause ambiguity about its meaning and application.\"\n    },\n    {\n      \"issue\": \"No definition for 'Subprocessors'\",\n      \"location\": \"08_change_control.md (Section 1)\",\n      \"details\": \"The Change Control Procedure does not define what constitutes a 'subprocessor'. If this term is used elsewhere, it could cause ambiguity about its meaning and role.\"\n    },\n    {\n      \"issue\": \"No definition for 'Volume Bands'\",\n      \"location\": \"08_change_control.md (Section 1)\",\n      \"details\": \"The Change Control Procedure does not define what constitutes a 'volume band'. If this term is used elsewhere, it could cause ambiguity about its meaning and application.\"\n    }\n  ]\n}",
+          "findings": [
+            "Definition of 'Business Day' differs between documents 01_msa.md (Section 1.2) and 04_sla.md (Section 2.1) The 'Business Day' definition in the Master Services Agreement (MSA) is different from the one defined in the Service Level and Support Schedule (SLAS). In the MSA, a Business Day means Monday to Friday, including public holidays. In the SLAS, a Business Day means Monday to Saturday, excluding US federal holidays. This difference could lead to confusion regarding when certain services are available.",
+            "Duplicate definition of 'Business Day' 01_msa.md (Section 1.2) and 04_sla.md (Section 2.1) Both the MSA and SLAS define a 'Business Day' as Monday to Saturday, including US federal holidays. This is redundant and could lead to confusion if both documents are used together.",
+            "Inconsistent definition of 'Deliverable' 01_msa.md (Section 1.4) and 02_sow.md (Section 6.2) The MSA defines a Deliverable as any item identified as such in a Statement of Work, while the Statement of Work specifically mentions Deliverables for each phase. This inconsistency could cause confusion if both documents are used together.",
+            "Conflicting definition of 'Security Incident' 02_sow.md (Section 7.1) and 03_dpa.md (Section 6.1) The Statement of Work defines a Security Incident as an unauthorised or unlawful access to, or acquisition, alteration, disclosure, loss or destruction of Customer Personal Data. The Data Processing Addendum, however, treats all Security Incidents as Priority 1 Incidents for the purposes of SLAS clause 5.1. This could cause ambiguity and may not be aligned with actual incident handling procedures.",
+            "Ambiguous definition of 'Transition Period' 09_exit.md (Section 2) and 13_exhibit_a_acceptance.md (Section 4) The Exit and Transition Plan defines the Transition Period as starting on the date notice of termination is given. However, this document does not specify how long the transition period ends. The Exhibit A Acceptance document only mentions a 'Transition Period' in Section 4, which could cause confusion about its length.",
+            "No definition for 'Volume Bands' 08_change_control.md (Section 1) There is no mention of the term 'Volume Bands' in any document provided. If used elsewhere it could lead to ambiguity and potential confusion when interpreting related clauses.",
+            "No definition for 'Vetted Personnel' 08_change_control.md (Section 1) The change control procedure does not define what constitutes 'vetted personnel'. If this term is used elsewhere, it could cause confusion about its interpretation and eligibility criteria.",
+            "No definition for 'Non-Key Personnel' 08_change_control.md (Section 1) The change control procedure does not define what constitutes 'non-key personnel'. If this term is used elsewhere, it could cause confusion about its interpretation and role within the team.",
+            "No definition for 'Non-Sensitive Data' 03_dpa.md (Section 1.5) The Data Processing Addendum does not define what constitutes 'non-sensitive data'. If this term is used elsewhere, it could cause ambiguity about its classification and handling.",
+            "No definition for 'Reconciliation' 03_dpa.md (Section 3.4) The Data Processing Addendum does not define what constitutes 'reconciliation'. If this term is used elsewhere, it could cause confusion about its interpretation and methodology.",
+            "No definition for 'Excluded Dates' 09_exit.md (Section 1) The Exit and Transition Plan does not define what constitutes an 'excluded date'. If this term is used elsewhere, it could cause ambiguity about the timing of certain milestones.",
+            "No definition for 'Volume Bands' 08_change_control.md (Section 1) The Change Control Procedure does not define what constitutes 'volume bands'. If this term is used elsewhere, it could cause ambiguity about its meaning and application.",
+            "No definition for 'Excluded Dates' 09_exit.md (Section 1) The Exit and Transition Plan does not define what constitutes an 'excluded date'. If this term is used elsewhere, it could cause ambiguity about the timing of certain milestones.",
+            "No definition for 'Key Personnel' 08_change_control.md (Section 1) The Change Control Procedure does not define what constitutes a 'key personnel'. If this term is used elsewhere, it could cause ambiguity about its eligibility and role.",
+            "No definition for 'Subprocessors' 08_change_control.md (Section 1) The Change Control Procedure does not define what constitutes a 'subprocessor'. If this term is used elsewhere, it could cause ambiguity about its meaning and role.",
+            "No definition for 'Transition Milestones' 09_exit.md (Section 7) The Exit Plan does not define what constitutes a 'transition milestone'. If this term is used elsewhere, it could cause ambiguity about its interpretation and significance.",
+            "No definition for 'Excluded Dates' 09_exit.md (Section 1) The Exit Plan does not define what constitutes an 'excluded date'. If this term is used elsewhere, it could cause ambiguity about the timing of certain milestones.",
+            "No definition for 'Volume Bands' 08_change_control.md (Section 1) The Change Control Procedure does not define what constitutes a 'volume band'. If this term is used elsewhere, it could cause ambiguity about its meaning and application.",
+            "No definition for 'Transition Milestones' 09_exit.md (Section 7) The Exit Plan does not define what constitutes a 'transition milestone'. If this term is used elsewhere, it could cause ambiguity about its interpretation and significance.",
+            "No definition for 'Subprocessors' 08_change_control.md (Section 1) The Change Control Procedure does not define what constitutes a 'subprocessor'. If this term is used elsewhere, it could cause ambiguity about its meaning and role.",
+            "No definition for 'Volume Bands' 08_change_control.md (Section 1) The Change Control Procedure does not define what constitutes a 'volume band'. If this term is used elsewhere, it could cause ambiguity about its meaning and application.",
+            "No definition for 'Subprocessors' 08_change_control.md (Section 1) The Change Control Procedure does not define what constitutes a 'subprocessor'. If this term is used elsewhere, it could cause ambiguity about its meaning and role.",
+            "No definition for 'Volume Bands' 08_change_control.md (Section 1) The Change Control Procedure does not define what constitutes a 'volume band'. If this term is used elsewhere, it could cause ambiguity about its meaning and application."
+          ],
+          "matched": [
+            "X05_business_day_definition",
+            "X07_security_incident_definition",
+            "Z27_key_personnel_count",
+            "Z29_glossary_business_day_third_definition",
+            "Z35_glossary_services_includes_support"
+          ],
+          "unmatched": [
+            "Inconsistent definition of 'Deliverable' 01_msa.md (Section 1.4) and 02_sow.md (Section 6.2) The MSA defines a Deliverable as any item identified as such in a Statement of Work, while the Statement of Work specifically mentions Deliverables for each phase. This inconsistency could cause confusion if both documents are used together.",
+            "Ambiguous definition of 'Transition Period' 09_exit.md (Section 2) and 13_exhibit_a_acceptance.md (Section 4) The Exit and Transition Plan defines the Transition Period as starting on the date notice of termination is given. However, this document does not specify how long the transition period ends. The Exhibit A Acceptance document only mentions a 'Transition Period' in Section 4, which could cause confusion about its length.",
+            "No definition for 'Volume Bands' 08_change_control.md (Section 1) There is no mention of the term 'Volume Bands' in any document provided. If used elsewhere it could lead to ambiguity and potential confusion when interpreting related clauses.",
+            "No definition for 'Vetted Personnel' 08_change_control.md (Section 1) The change control procedure does not define what constitutes 'vetted personnel'. If this term is used elsewhere, it could cause confusion about its interpretation and eligibility criteria.",
+            "No definition for 'Non-Sensitive Data' 03_dpa.md (Section 1.5) The Data Processing Addendum does not define what constitutes 'non-sensitive data'. If this term is used elsewhere, it could cause ambiguity about its classification and handling.",
+            "No definition for 'Reconciliation' 03_dpa.md (Section 3.4) The Data Processing Addendum does not define what constitutes 'reconciliation'. If this term is used elsewhere, it could cause confusion about its interpretation and methodology.",
+            "No definition for 'Excluded Dates' 09_exit.md (Section 1) The Exit and Transition Plan does not define what constitutes an 'excluded date'. If this term is used elsewhere, it could cause ambiguity about the timing of certain milestones.",
+            "No definition for 'Volume Bands' 08_change_control.md (Section 1) The Change Control Procedure does not define what constitutes 'volume bands'. If this term is used elsewhere, it could cause ambiguity about its meaning and application.",
+            "No definition for 'Excluded Dates' 09_exit.md (Section 1) The Exit and Transition Plan does not define what constitutes an 'excluded date'. If this term is used elsewhere, it could cause ambiguity about the timing of certain milestones.",
+            "No definition for 'Subprocessors' 08_change_control.md (Section 1) The Change Control Procedure does not define what constitutes a 'subprocessor'. If this term is used elsewhere, it could cause ambiguity about its meaning and role.",
+            "No definition for 'Transition Milestones' 09_exit.md (Section 7) The Exit Plan does not define what constitutes a 'transition milestone'. If this term is used elsewhere, it could cause ambiguity about its interpretation and significance.",
+            "No definition for 'Excluded Dates' 09_exit.md (Section 1) The Exit Plan does not define what constitutes an 'excluded date'. If this term is used elsewhere, it could cause ambiguity about the timing of certain milestones.",
+            "No definition for 'Volume Bands' 08_change_control.md (Section 1) The Change Control Procedure does not define what constitutes a 'volume band'. If this term is used elsewhere, it could cause ambiguity about its meaning and application.",
+            "No definition for 'Transition Milestones' 09_exit.md (Section 7) The Exit Plan does not define what constitutes a 'transition milestone'. If this term is used elsewhere, it could cause ambiguity about its interpretation and significance.",
+            "No definition for 'Subprocessors' 08_change_control.md (Section 1) The Change Control Procedure does not define what constitutes a 'subprocessor'. If this term is used elsewhere, it could cause ambiguity about its meaning and role.",
+            "No definition for 'Volume Bands' 08_change_control.md (Section 1) The Change Control Procedure does not define what constitutes a 'volume band'. If this term is used elsewhere, it could cause ambiguity about its meaning and application.",
+            "No definition for 'Subprocessors' 08_change_control.md (Section 1) The Change Control Procedure does not define what constitutes a 'subprocessor'. If this term is used elsewhere, it could cause ambiguity about its meaning and role.",
+            "No definition for 'Volume Bands' 08_change_control.md (Section 1) The Change Control Procedure does not define what constitutes a 'volume band'. If this term is used elsewhere, it could cause ambiguity about its meaning and application."
+          ],
+          "seconds": 21.1,
+          "usage": {
+            "input_tokens": 11918,
+            "output_tokens": 1802,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 7,
+          "raw": "{\"findings\": [{\"issue\": \"Inconsistent definition of 'Business Day', Document 1 vs Document 8\", \"location\": \"DOCUMENTS/01_msa.md and DOCUMENTS/08_change_control.md\"}, {\"issue\": \"No reference to Annex 2 in Statement of Work 1, Document 2\", \"location\": \"DOCUMENTS/02_sow.md\"}, {\"issue\": \"Ambiguous term 'Key Personnel' not defined in terms, Document 2\", \"location\": \"DOCUMENTS/02_sow.md\"}, {\"issue\": \"Change Request Process and Change Control Board not explicitly defined, Document 1\", \"location\": \"DOCUMENTS/01_msa.md\"}, {\"issue\": \"No reference to 'Transition Period' in Statement of Work 1, Document 2\", \"location\": \"DOCUMENTS/02_sow.md\"}, {\"issue\": \"Potential circular precedence issue: Order Form's order of precedence includes the Agreement, which references other documents not present.\", \"location\": \"DOCUMENTS/05_order_form.md\"}, {\"issue\": \"No reference to 'Acceptable Use Policy' in Statement of Work 1, Document 2\", \"location\": \"DOCUMENTS/02_sow.md\"}, {\"issue\": \"Subprocessor list referenced but no Annex 2 provided, Document 7\", \"location\": \"DOCUMENTS/07_bcdr.md\"}, {\"issue\": \"No reference to 'VETTING' in Glossary of Defined Terms, Document 15\", \"location\": \"DOCUMENTS/15_glossary.md\"}]}",
+          "findings": [
+            "Inconsistent definition of 'Business Day', Document 1 vs Document 8 DOCUMENTS/01_msa.md and DOCUMENTS/08_change_control.md",
+            "No reference to Annex 2 in Statement of Work 1, Document 2 DOCUMENTS/02_sow.md",
+            "Ambiguous term 'Key Personnel' not defined in terms, Document 2 DOCUMENTS/02_sow.md",
+            "Change Request Process and Change Control Board not explicitly defined, Document 1 DOCUMENTS/01_msa.md",
+            "No reference to 'Transition Period' in Statement of Work 1, Document 2 DOCUMENTS/02_sow.md",
+            "Potential circular precedence issue: Order Form's order of precedence includes the Agreement, which references other documents not present. DOCUMENTS/05_order_form.md",
+            "No reference to 'Acceptable Use Policy' in Statement of Work 1, Document 2 DOCUMENTS/02_sow.md",
+            "Subprocessor list referenced but no Annex 2 provided, Document 7 DOCUMENTS/07_bcdr.md",
+            "No reference to 'VETTING' in Glossary of Defined Terms, Document 15 DOCUMENTS/15_glossary.md"
+          ],
+          "matched": [
+            "E04_order_form_precedence",
+            "E19_dead_xref_msa_clause_17",
+            "X04_circular_precedence",
+            "Z17_annex_2_identity_collision",
+            "Z30_glossary_agreement_includes_order_form"
+          ],
+          "unmatched": [
+            "Inconsistent definition of 'Business Day', Document 1 vs Document 8 DOCUMENTS/01_msa.md and DOCUMENTS/08_change_control.md",
+            "No reference to Annex 2 in Statement of Work 1, Document 2 DOCUMENTS/02_sow.md",
+            "Ambiguous term 'Key Personnel' not defined in terms, Document 2 DOCUMENTS/02_sow.md",
+            "No reference to 'Transition Period' in Statement of Work 1, Document 2 DOCUMENTS/02_sow.md",
+            "No reference to 'Acceptable Use Policy' in Statement of Work 1, Document 2 DOCUMENTS/02_sow.md",
+            "No reference to 'VETTING' in Glossary of Defined Terms, Document 15 DOCUMENTS/15_glossary.md"
+          ],
+          "seconds": 5.8,
+          "usage": {
+            "input_tokens": 11918,
+            "output_tokens": 328,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        }
+      ],
+      "analysis": {
+        "label": "parallel_rep1",
+        "k": 8,
+        "tokens_in": 95344,
+        "tokens_out": 5258,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+        "tokens_per_call_out": [
+          786,
+          629,
+          436,
+          423,
+          575,
+          279,
+          1802,
+          328
+        ],
+        "cost_usd_total": null,
+        "cost_usd_first_call": null,
+        "cost_usd_wasted_after_first": null,
+        "seconds_total": 79.9,
+        "finding_counts": [
+          10,
+          10,
+          9,
+          8,
+          12,
+          8,
+          23,
+          9
+        ],
+        "sections_per_call": [
+          12,
+          6,
+          1,
+          4,
+          10,
+          11,
+          12,
+          2
+        ],
+        "sections_union": 35,
+        "sections_union_curve": [
+          12,
+          17,
+          18,
+          18,
+          24,
+          30,
+          35,
+          35
+        ],
+        "mean_pairwise_jaccard_sections": 0.126,
+        "sections_seen": [
+          "1.1",
+          "1.2",
+          "1.3",
+          "1.4",
+          "1.6",
+          "2.1",
+          "2.2",
+          "2.4",
+          "3.2",
+          "3.4",
+          "3.7",
+          "4.1",
+          "4.3",
+          "5.1",
+          "6.1",
+          "6.3",
+          "6.5",
+          "7.1",
+          "8.2",
+          "9.3",
+          "annex 2",
+          "data processing addendum",
+          "dpa",
+          "master services agreement",
+          "msa",
+          "s1",
+          "s2",
+          "s3",
+          "s4",
+          "s6",
+          "s7",
+          "service level",
+          "sla",
+          "sow",
+          "statement of work"
+        ],
+        "per_call_recall": [
+          3,
+          3,
+          0,
+          3,
+          2,
+          0,
+          5,
+          5
+        ],
+        "mean_per_call": 2.62,
+        "best_single": 5,
+        "union_recall": 16,
+        "union_curve": [
+          3,
+          6,
+          6,
+          9,
+          11,
+          11,
+          13,
+          16
+        ],
+        "marginal_gain_after_first": 13,
+        "mean_pairwise_jaccard": 0.063,
+        "union_ids": [
+          "E04_order_form_precedence",
+          "E08_restricted_data_scope",
+          "E15_rpo_tolerates_data_loss",
+          "E19_dead_xref_msa_clause_17",
+          "X04_circular_precedence",
+          "X05_business_day_definition",
+          "X06_confidential_information_definition",
+          "X07_security_incident_definition",
+          "X15_automatic_credit_vs_no_setoff",
+          "Z06_credit_base_differs",
+          "Z17_annex_2_identity_collision",
+          "Z19_acceptance_criteria_location",
+          "Z27_key_personnel_count",
+          "Z29_glossary_business_day_third_definition",
+          "Z30_glossary_agreement_includes_order_form",
+          "Z35_glossary_services_includes_support"
+        ],
+        "never_found": [
+          "E01_initial_term_three_way",
+          "E02_annual_contract_value",
+          "E03_payment_terms_three_way",
+          "E05_support_hours",
+          "E06_service_level_start",
+          "E07_non_renewal_notice",
+          "E09_any_provider_region",
+          "E10_review_cadence",
+          "E11_log_retention",
+          "E12_incident_notice_three_way",
+          "E13_penetration_test_sharing",
+          "E14_rto_vs_sla_resolution",
+          "E16_frankfurt_recovery_site",
+          "E17_sla_suspended_in_continuity_event",
+          "E18_planned_unavailability_excluded",
+          "E20_deemed_approved_change",
+          "E21_delivery_lead_change_authority",
+          "E22_change_charges_bypass_notice",
+          "E23_escalation_path_conflict",
+          "E24_exit_retention_vs_dpa_deletion",
+          "E25_transition_charges_vs_inclusive_fee",
+          "E26_data_return_format",
+          "E27_source_code_vs_ip_retention",
+          "E28_dead_xref_dpa_clause_14",
+          "X01_monthly_fee",
+          "X02_term_length",
+          "X03_termination_notice",
+          "X08_incident_notice_window",
+          "X09_retain_vs_delete",
+          "X10_subprocessor_consent",
+          "X11_liability_cap",
+          "X12_liability_carveout_collision",
+          "X13_availability_target",
+          "X14_service_credit_cap",
+          "X16_governing_law",
+          "X17_dead_xref_to_sow",
+          "X18_dead_xref_to_dpa_annex",
+          "X19_start_date_precedes_msa",
+          "X20_payment_terms",
+          "X21_processing_location",
+          "X22_audit_rights",
+          "X23_deemed_vs_express_acceptance",
+          "X24_insurance_limit",
+          "Z01_fourth_monthly_charge",
+          "Z02_invoiced_in_advance",
+          "Z03_rate_fixed_vs_cpi_increase",
+          "Z04_day_rate_three_way",
+          "Z05_service_credit_cap_three_way",
+          "Z07_invoice_query_window",
+          "Z08_immediate_suspension_vs_cure_period",
+          "Z09_no_monitoring_vs_continuous_monitoring",
+          "Z10_under_16_vs_retail_customers",
+          "Z11_card_data_prohibited_but_tokenised",
+          "Z12_law_enforcement_disclosure",
+          "Z13_unilateral_policy_amendment",
+          "Z14_singapore_subprocessor",
+          "Z15_objection_right_vs_prior_consent",
+          "Z16_immediate_replacement_no_consent",
+          "Z18_transfer_mechanism_scope",
+          "Z20_acceptance_certificate_vs_deemed",
+          "Z21_two_sources_of_deliverables",
+          "Z22_material_defect_vs_priority_1",
+          "Z23_warranty_period_conflict",
+          "Z24_substitution_notice_vs_prior_agreement",
+          "Z25_delivery_lead_location",
+          "Z26_engineer_rate_vs_standard_rate",
+          "Z28_glossary_precedence_fourth_claim",
+          "Z31_glossary_deliverable_any_output",
+          "Z32_glossary_fee_includes_expenses",
+          "Z33_glossary_security_incident_third_definition",
+          "Z34_glossary_personal_data_uk_only"
+        ],
+        "unmatched_finding_count": 72
+      }
+    },
+    {
+      "repeat": 2,
+      "runs": [
+        {
+          "call": 0,
+          "raw": "{\"findings\": [{\"issue\": \"Multiple definitions for 'Business Day' in different documents\", \"location\": \"01_msa.md, 02_sow.md\"}, {\"issue\": \"Conflicting terms for Deliverables across different documents\", \"location\": \"01_msa.md, 02_sow.md, 09_exit.md\"}, {\"issue\": \"Differing definitions of 'Subprocessor' in different documents\", \"location\": \"03_dpa.md, 07_bcdr.md, 08_change_control.md, 09_exit.md\"}, {\"issue\": \"Conflicts between terms for 'Acceptance Criteria'\", \"location\": \"01_msa.md, 02_sow.md, 13_exhibit_a_acceptance.md\", \"location_details\": \"All three documents use the term but provide different criteria and acceptance rules.\"}, {\"issue\": \"Differing time periods specified in the Order Form\", \"location\": \"05_order_form.md\"}, {\"issue\": \"Inconsistent reference to 'Agreement' across different levels of precedence\", \"location\": \"02_sow.md, 03_dpa.md, 04_sla.md\"}, {\"issue\": \"No mention of a specific version control for the Order Form and SOW documents\", \"location\": \"05_order_form.md, 02_sow.md\"}, {\"issue\": \"Mismatched reference to 'Transition Period' in different documents\", \"location\": \"09_exit.md, 13_exhibit_a_acceptance.md\"}, {\"issue\": \"Omissions of annexes and schedules not referenced in the main body of the document\", \"location\": \"07_bcdr.md, 08_change_control.md, 12_subprocessors.md, 15_glossary.md\"}, {\"issue\": \"Multiple definitions for 'Security Incident' across different documents with differing scopes and consequences\", \"location\": \"03_dpa.md, 07_bcdr.md, 09_exit.md\"}, {\"issue\": \"Missing reference to a specific version of the Master Services Agreement in the Order Form\", \"location\": \"05_order_form.md\"}]}",
+          "findings": [
+            "Multiple definitions for 'Business Day' in different documents 01_msa.md, 02_sow.md",
+            "Conflicting terms for Deliverables across different documents 01_msa.md, 02_sow.md, 09_exit.md",
+            "Differing definitions of 'Subprocessor' in different documents 03_dpa.md, 07_bcdr.md, 08_change_control.md, 09_exit.md",
+            "Conflicts between terms for 'Acceptance Criteria' 01_msa.md, 02_sow.md, 13_exhibit_a_acceptance.md All three documents use the term but provide different criteria and acceptance rules.",
+            "Differing time periods specified in the Order Form 05_order_form.md",
+            "Inconsistent reference to 'Agreement' across different levels of precedence 02_sow.md, 03_dpa.md, 04_sla.md",
+            "No mention of a specific version control for the Order Form and SOW documents 05_order_form.md, 02_sow.md",
+            "Mismatched reference to 'Transition Period' in different documents 09_exit.md, 13_exhibit_a_acceptance.md",
+            "Omissions of annexes and schedules not referenced in the main body of the document 07_bcdr.md, 08_change_control.md, 12_subprocessors.md, 15_glossary.md",
+            "Multiple definitions for 'Security Incident' across different documents with differing scopes and consequences 03_dpa.md, 07_bcdr.md, 09_exit.md",
+            "Missing reference to a specific version of the Master Services Agreement in the Order Form 05_order_form.md"
+          ],
+          "matched": [
+            "X04_circular_precedence",
+            "X07_security_incident_definition"
+          ],
+          "unmatched": [
+            "Multiple definitions for 'Business Day' in different documents 01_msa.md, 02_sow.md",
+            "Conflicting terms for Deliverables across different documents 01_msa.md, 02_sow.md, 09_exit.md",
+            "Differing definitions of 'Subprocessor' in different documents 03_dpa.md, 07_bcdr.md, 08_change_control.md, 09_exit.md",
+            "Conflicts between terms for 'Acceptance Criteria' 01_msa.md, 02_sow.md, 13_exhibit_a_acceptance.md All three documents use the term but provide different criteria and acceptance rules.",
+            "Differing time periods specified in the Order Form 05_order_form.md",
+            "No mention of a specific version control for the Order Form and SOW documents 05_order_form.md, 02_sow.md",
+            "Mismatched reference to 'Transition Period' in different documents 09_exit.md, 13_exhibit_a_acceptance.md",
+            "Omissions of annexes and schedules not referenced in the main body of the document 07_bcdr.md, 08_change_control.md, 12_subprocessors.md, 15_glossary.md",
+            "Missing reference to a specific version of the Master Services Agreement in the Order Form 05_order_form.md"
+          ],
+          "seconds": 7.1,
+          "usage": {
+            "input_tokens": 11918,
+            "output_tokens": 448,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 1,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Inconsistent definition of 'Business Day'. Document 01_msa.md defines it as Monday to Friday, including public holidays. Document 02_sow.md and 07_bcdr.md define it as Monday to Saturday, excluding US federal holidays.\",\n      \"location\": \"Definitions in DOCUMENTS: 01_msa.md, 02_sow.md, 07_bcdr.md\"\n    },\n    {\n      \"issue\": \"Inconsistent reference to 'Subprocessor'. Document 03_dpa.md uses it without definition or explanation. Documents 08_change_control.md and 12_subprocessors.md introduce the term with no further explanation.\",\n      \"location\": \"Definitions in DOCUMENTS: 03_dpa.md, 08_change_control.md, 12_subprocessors.md\"\n    },\n    {\n      \"issue\": \"Contradictory terms for 'Deliverable'. Document 01_msa.md defines it as any output of the Services provided to Customer. Document 13_exhibit_a_acceptance.md specifies that Deliverables must be identified in a Statement of Work.\",\n      \"location\": \"Definitions in DOCUMENTS: 01_msa.md, 13_exhibit_a_acceptance.md\"\n    },\n    {\n      \"issue\": \"Conflicting terms for 'Fee'. Document 04_sla.md uses it as the monthly fee for Services. In contrast, Document 10_pricing.md describes a recurring charge of \u00a313,100 per month that also includes a managed-service surcharge.\",\n      \"location\": \"Definitions in DOCUMENTS: 04_sla.md, 10_pricing.md\"\n    },\n    {\n      \"issue\": \"Unclear terms for 'Transition Period'. Document 11_acceptable_use.md states it is the period from the effective date of termination to six months after that. However, this term is not defined in any document and is only mentioned in DOCUMENTS: 09_exit.md\",\n      \"location\": \"Definitions in DOCUMENTS: 09_exit.md\"\n    },\n    {\n      \"issue\": \"Inconsistent reference to 'Recovery Point Objective' (RPO). Document 04_sla.md refers to it as the maximum period of data loss, whereas Document 06_infosec.md and 07_bcdr.md define it as the maximum amount of data that can be recovered after a disaster.\",\n      \"location\": \"Definitions in DOCUMENTS: 04_sla.md, 06_infosec.md, 07_bcdr.md\"\n    },\n    {\n      \"issue\": \"Mismatched currency references. Document 01_msa.md uses GBP as the base currency for all figures and excludes VAT. In contrast, Document 10_pricing.md specifies that all charges are stated in GBP but include a fixed amount of value added tax.\",\n      \"location\": \"Definitions in DOCUMENTS: 01_msa.md, 10_pricing.md\"\n    },\n    {\n      \"issue\": \"Circular reference to Annex 1. Document 15_glossary.md references this annex without defining it or explaining how it is used within the glossary.\",\n      \"location\": \"Definitions in DOCUMENTS: 15_glossary.md\"\n    }\n  ]\n}",
+          "findings": [
+            "Inconsistent definition of 'Business Day'. Document 01_msa.md defines it as Monday to Friday, including public holidays. Document 02_sow.md and 07_bcdr.md define it as Monday to Saturday, excluding US federal holidays. Definitions in DOCUMENTS: 01_msa.md, 02_sow.md, 07_bcdr.md",
+            "Inconsistent reference to 'Subprocessor'. Document 03_dpa.md uses it without definition or explanation. Documents 08_change_control.md and 12_subprocessors.md introduce the term with no further explanation. Definitions in DOCUMENTS: 03_dpa.md, 08_change_control.md, 12_subprocessors.md",
+            "Contradictory terms for 'Deliverable'. Document 01_msa.md defines it as any output of the Services provided to Customer. Document 13_exhibit_a_acceptance.md specifies that Deliverables must be identified in a Statement of Work. Definitions in DOCUMENTS: 01_msa.md, 13_exhibit_a_acceptance.md",
+            "Conflicting terms for 'Fee'. Document 04_sla.md uses it as the monthly fee for Services. In contrast, Document 10_pricing.md describes a recurring charge of \u00a313,100 per month that also includes a managed-service surcharge. Definitions in DOCUMENTS: 04_sla.md, 10_pricing.md",
+            "Unclear terms for 'Transition Period'. Document 11_acceptable_use.md states it is the period from the effective date of termination to six months after that. However, this term is not defined in any document and is only mentioned in DOCUMENTS: 09_exit.md Definitions in DOCUMENTS: 09_exit.md",
+            "Inconsistent reference to 'Recovery Point Objective' (RPO). Document 04_sla.md refers to it as the maximum period of data loss, whereas Document 06_infosec.md and 07_bcdr.md define it as the maximum amount of data that can be recovered after a disaster. Definitions in DOCUMENTS: 04_sla.md, 06_infosec.md, 07_bcdr.md",
+            "Mismatched currency references. Document 01_msa.md uses GBP as the base currency for all figures and excludes VAT. In contrast, Document 10_pricing.md specifies that all charges are stated in GBP but include a fixed amount of value added tax. Definitions in DOCUMENTS: 01_msa.md, 10_pricing.md",
+            "Circular reference to Annex 1. Document 15_glossary.md references this annex without defining it or explaining how it is used within the glossary. Definitions in DOCUMENTS: 15_glossary.md"
+          ],
+          "matched": [
+            "E15_rpo_tolerates_data_loss",
+            "X05_business_day_definition",
+            "Z01_fourth_monthly_charge",
+            "Z06_credit_base_differs",
+            "Z29_glossary_business_day_third_definition",
+            "Z31_glossary_deliverable_any_output"
+          ],
+          "unmatched": [
+            "Inconsistent reference to 'Subprocessor'. Document 03_dpa.md uses it without definition or explanation. Documents 08_change_control.md and 12_subprocessors.md introduce the term with no further explanation. Definitions in DOCUMENTS: 03_dpa.md, 08_change_control.md, 12_subprocessors.md",
+            "Unclear terms for 'Transition Period'. Document 11_acceptable_use.md states it is the period from the effective date of termination to six months after that. However, this term is not defined in any document and is only mentioned in DOCUMENTS: 09_exit.md Definitions in DOCUMENTS: 09_exit.md",
+            "Mismatched currency references. Document 01_msa.md uses GBP as the base currency for all figures and excludes VAT. In contrast, Document 10_pricing.md specifies that all charges are stated in GBP but include a fixed amount of value added tax. Definitions in DOCUMENTS: 01_msa.md, 10_pricing.md",
+            "Circular reference to Annex 1. Document 15_glossary.md references this annex without defining it or explaining how it is used within the glossary. Definitions in DOCUMENTS: 15_glossary.md"
+          ],
+          "seconds": 9.7,
+          "usage": {
+            "input_tokens": 11918,
+            "output_tokens": 694,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 2,
+          "raw": "{\"findings\": [{\"issue\": \"The term 'Agreement' in document 01_msa.md refers to only one specific agreement (Master Services Agreement), but it's used inconsistently with other documents like Document 02_sow.md, where the same term is defined as referring to the Master Services Agreement together with each Schedule and Addendum executed under it. This inconsistency could lead to confusion.\", \"location\": \"document 01_msa.md section 1.1\"}, {\"issue\": \"In Document 04_sla.md, 'Business Day' is defined inconsistently with other documents. In document 01_msa.md, a Business Day includes public holidays, but in this document, it excludes them.\", \"location\": \"document 04_sla.md section 1.1\"}, {\"issue\": \"In Document 07_bcdr.md, the Recovery Time Objective (RTO) and Recovery Point Objective (RPO) are set for only one production environment without mentioning non-production environments as mentioned in document 01_msa.md.\", \"location\": \"document 07_bcdr.md section 2.1\"}, {\"issue\": \"In Document 13_exhibit_a_acceptance.md, the Acceptance Criteria for Deliverable D5 is set at a variance of not more than 0.01%, which is an arbitrary and overly strict acceptance criterion for such a critical deliverable.\", \"location\": \"document 13_exhibit_a_acceptance.md section 3.5\"}, {\"issue\": \"In Document 14_exhibit_b_personnel, the role rates do not include any overtime or additional charges as mentioned in the Service Level and Support Schedule (Document 04_sla.md).\", \"location\": \"document 14_exhibit_b_personnel section 2.3\"}, {\"issue\": \"There is no reference to Annexes in any of the documents, yet Annexe 1 (in Document 02_sow.md) contains a list of processing details and Annexe 2 (in Document 03_dpa.md) lists approved processing locations. This could lead to confusion about which annexes are applicable.\", \"location\": \"throughout all documents\"}, {\"issue\": \"In Document 15_glossary.md, the definitions conflict with each other in a few places, such as 'Business Day' and 'Change Request'.\", \"location\": \"document 15_glossary.md section 2\"}]}",
+          "findings": [
+            "The term 'Agreement' in document 01_msa.md refers to only one specific agreement (Master Services Agreement), but it's used inconsistently with other documents like Document 02_sow.md, where the same term is defined as referring to the Master Services Agreement together with each Schedule and Addendum executed under it. This inconsistency could lead to confusion. document 01_msa.md section 1.1",
+            "In Document 04_sla.md, 'Business Day' is defined inconsistently with other documents. In document 01_msa.md, a Business Day includes public holidays, but in this document, it excludes them. document 04_sla.md section 1.1",
+            "In Document 07_bcdr.md, the Recovery Time Objective (RTO) and Recovery Point Objective (RPO) are set for only one production environment without mentioning non-production environments as mentioned in document 01_msa.md. document 07_bcdr.md section 2.1",
+            "In Document 13_exhibit_a_acceptance.md, the Acceptance Criteria for Deliverable D5 is set at a variance of not more than 0.01%, which is an arbitrary and overly strict acceptance criterion for such a critical deliverable. document 13_exhibit_a_acceptance.md section 3.5",
+            "In Document 14_exhibit_b_personnel, the role rates do not include any overtime or additional charges as mentioned in the Service Level and Support Schedule (Document 04_sla.md). document 14_exhibit_b_personnel section 2.3",
+            "There is no reference to Annexes in any of the documents, yet Annexe 1 (in Document 02_sow.md) contains a list of processing details and Annexe 2 (in Document 03_dpa.md) lists approved processing locations. This could lead to confusion about which annexes are applicable. throughout all documents",
+            "In Document 15_glossary.md, the definitions conflict with each other in a few places, such as 'Business Day' and 'Change Request'. document 15_glossary.md section 2"
+          ],
+          "matched": [
+            "E14_rto_vs_sla_resolution",
+            "E15_rpo_tolerates_data_loss"
+          ],
+          "unmatched": [
+            "The term 'Agreement' in document 01_msa.md refers to only one specific agreement (Master Services Agreement), but it's used inconsistently with other documents like Document 02_sow.md, where the same term is defined as referring to the Master Services Agreement together with each Schedule and Addendum executed under it. This inconsistency could lead to confusion. document 01_msa.md section 1.1",
+            "In Document 04_sla.md, 'Business Day' is defined inconsistently with other documents. In document 01_msa.md, a Business Day includes public holidays, but in this document, it excludes them. document 04_sla.md section 1.1",
+            "In Document 13_exhibit_a_acceptance.md, the Acceptance Criteria for Deliverable D5 is set at a variance of not more than 0.01%, which is an arbitrary and overly strict acceptance criterion for such a critical deliverable. document 13_exhibit_a_acceptance.md section 3.5",
+            "In Document 14_exhibit_b_personnel, the role rates do not include any overtime or additional charges as mentioned in the Service Level and Support Schedule (Document 04_sla.md). document 14_exhibit_b_personnel section 2.3",
+            "There is no reference to Annexes in any of the documents, yet Annexe 1 (in Document 02_sow.md) contains a list of processing details and Annexe 2 (in Document 03_dpa.md) lists approved processing locations. This could lead to confusion about which annexes are applicable. throughout all documents",
+            "In Document 15_glossary.md, the definitions conflict with each other in a few places, such as 'Business Day' and 'Change Request'. document 15_glossary.md section 2"
+          ],
+          "seconds": 7.7,
+          "usage": {
+            "input_tokens": 11918,
+            "output_tokens": 509,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 3,
+          "raw": "{\"findings\": [{\"issue\": \"The definition of 'Business Day' in Document 01_msa.md conflicts with the definitions in other documents. In Document 01_msa.md, it is defined as Monday to Friday, including public holidays. However, in Document 04_sla.md (Document 2), it is defined as Monday to Saturday, excluding US federal holidays.\", \"location\": \"Document 01_msa.md Section 3.1 and Document 04_sla.md Section 2.1\"}, {\"issue\": \"In Document 02_sow.md (Statement of Work 1) Section 5.1, the monthly Fee is \u00a312,800, while in Document 04_sla.md (Service Level and Support Schedule), it is stated as \u00a313,100. This creates a conflict in pricing.\", \"location\": \"Document 02_sow.md Section 5.1 and Document 04_sla.md Section 1.1\"}, {\"issue\": \"In Document 03_dpa.md (Data Processing Addendum), the total aggregate liability for breach of this addendum or Data Protection Law is not specified. This could conflict with the overall limit in clause 13.1 of Document 01_msa.md.\", \"location\": \"Document 03_dpa.md Section 11\"}, {\"issue\": \"In Document 06_infosec.md (Information Security Policy), there are no specific references to which roles and responsibilities are covered, as most terms are defined in the Glossary. However, there is a lack of reference to roles such as Delivery Lead or Account Director.\", \"location\": \"Document 06_infosec.md Section 1\"}, {\"issue\": \"In Document 07_bcdr.md (Business Continuity and Disaster Recovery Plan), there is no reference to which parties are responsible for the testing activities. The Testing section in Document 08_change_control.md does not apply here as it deals with routine operational activity.\", \"location\": \"Document 07_bcdr.md Section 5\"}, {\"issue\": \"In Document 09_exit.md (Exit and Transition Plan), there is no reference to which parties are responsible for the knowledge transfer sessions. The Knowledge Transfer section in Document 11_acceptable_use.md deals with this responsibility.\", \"location\": \"Document 09_exit.md Section 3\"}]}",
+          "findings": [
+            "The definition of 'Business Day' in Document 01_msa.md conflicts with the definitions in other documents. In Document 01_msa.md, it is defined as Monday to Friday, including public holidays. However, in Document 04_sla.md (Document 2), it is defined as Monday to Saturday, excluding US federal holidays. Document 01_msa.md Section 3.1 and Document 04_sla.md Section 2.1",
+            "In Document 02_sow.md (Statement of Work 1) Section 5.1, the monthly Fee is \u00a312,800, while in Document 04_sla.md (Service Level and Support Schedule), it is stated as \u00a313,100. This creates a conflict in pricing. Document 02_sow.md Section 5.1 and Document 04_sla.md Section 1.1",
+            "In Document 03_dpa.md (Data Processing Addendum), the total aggregate liability for breach of this addendum or Data Protection Law is not specified. This could conflict with the overall limit in clause 13.1 of Document 01_msa.md. Document 03_dpa.md Section 11",
+            "In Document 06_infosec.md (Information Security Policy), there are no specific references to which roles and responsibilities are covered, as most terms are defined in the Glossary. However, there is a lack of reference to roles such as Delivery Lead or Account Director. Document 06_infosec.md Section 1",
+            "In Document 07_bcdr.md (Business Continuity and Disaster Recovery Plan), there is no reference to which parties are responsible for the testing activities. The Testing section in Document 08_change_control.md does not apply here as it deals with routine operational activity. Document 07_bcdr.md Section 5",
+            "In Document 09_exit.md (Exit and Transition Plan), there is no reference to which parties are responsible for the knowledge transfer sessions. The Knowledge Transfer section in Document 11_acceptable_use.md deals with this responsibility. Document 09_exit.md Section 3"
+          ],
+          "matched": [
+            "X01_monthly_fee",
+            "X05_business_day_definition",
+            "X12_liability_carveout_collision",
+            "Z01_fourth_monthly_charge",
+            "Z29_glossary_business_day_third_definition"
+          ],
+          "unmatched": [
+            "In Document 06_infosec.md (Information Security Policy), there are no specific references to which roles and responsibilities are covered, as most terms are defined in the Glossary. However, there is a lack of reference to roles such as Delivery Lead or Account Director. Document 06_infosec.md Section 1",
+            "In Document 07_bcdr.md (Business Continuity and Disaster Recovery Plan), there is no reference to which parties are responsible for the testing activities. The Testing section in Document 08_change_control.md does not apply here as it deals with routine operational activity. Document 07_bcdr.md Section 5",
+            "In Document 09_exit.md (Exit and Transition Plan), there is no reference to which parties are responsible for the knowledge transfer sessions. The Knowledge Transfer section in Document 11_acceptable_use.md deals with this responsibility. Document 09_exit.md Section 3"
+          ],
+          "seconds": 7.7,
+          "usage": {
+            "input_tokens": 11918,
+            "output_tokens": 499,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 4,
+          "raw": "{\"findings\": [{\"issue\": \"The order of precedence conflicts between documents.\", \"location\": \"All four documents\"}, {\"issue\": \"Definitions in Document 1 (MSA) conflict with those in Document 3 (Data Processing Addendum).\", \"location\": \"Document 1 and Document 3\"}, {\"issue\": \"Clause 4.5 (Payment terms) of Order Form conflicts with Clause 2.4 (Change Request) of Change Control Procedure.\", \"location\": \"Order Form and Change Control Procedure\"}, {\"issue\": \"Definition 'Business Day' in MSA is not consistent across all documents.\", \"location\": \"All four documents\"}, {\"issue\": \"The transition period defined in Schedule 4 to the Master Services Agreement conflicts with the exit milestones set out in Annex 1 of Exit and Transition Plan.\", \"location\": \"Schedule 4 and Document 9 (Exit and Transition Plan)\"}]}",
+          "findings": [
+            "The order of precedence conflicts between documents. All four documents",
+            "Definitions in Document 1 (MSA) conflict with those in Document 3 (Data Processing Addendum). Document 1 and Document 3",
+            "Clause 4.5 (Payment terms) of Order Form conflicts with Clause 2.4 (Change Request) of Change Control Procedure. Order Form and Change Control Procedure",
+            "Definition 'Business Day' in MSA is not consistent across all documents. All four documents",
+            "The transition period defined in Schedule 4 to the Master Services Agreement conflicts with the exit milestones set out in Annex 1 of Exit and Transition Plan. Schedule 4 and Document 9 (Exit and Transition Plan)"
+          ],
+          "matched": [
+            "X04_circular_precedence",
+            "Z28_glossary_precedence_fourth_claim"
+          ],
+          "unmatched": [
+            "Definitions in Document 1 (MSA) conflict with those in Document 3 (Data Processing Addendum). Document 1 and Document 3",
+            "Clause 4.5 (Payment terms) of Order Form conflicts with Clause 2.4 (Change Request) of Change Control Procedure. Order Form and Change Control Procedure",
+            "Definition 'Business Day' in MSA is not consistent across all documents. All four documents",
+            "The transition period defined in Schedule 4 to the Master Services Agreement conflicts with the exit milestones set out in Annex 1 of Exit and Transition Plan. Schedule 4 and Document 9 (Exit and Transition Plan)"
+          ],
+          "seconds": 4.3,
+          "usage": {
+            "input_tokens": 11918,
+            "output_tokens": 187,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 5,
+          "raw": "{\n  \"findings\": [\n    {\n      \"issue\": \"Inconsistent term definitions: 'Business Day' is defined as Monday to Friday in one document and Monday to Saturday in another.\",\n      \"location\": \"01_msa.md (Definitions) and 02_sow.md (Definitions)\"\n    },\n    {\n      \"issue\": \"Incompatible dates: The Order Form specifies an Initial Term of 12 months from the Service Commencement Date, but there is no mention of a specific Start Date in any document.\",\n      \"location\": \"05_order_form.md\"\n    },\n    {\n      \"issue\": \"Conflicting change control procedures: Documents 8 and 14 both contain Change Control Procedures (CCPs), which could lead to confusion or conflicts if applied simultaneously.\",\n      \"location\": \"08_change_control.md and 14_exhibit_b_personnel.md\"\n    },\n    {\n      \"issue\": \"Inconsistent fee structure: Document 10 mentions a recurring charge of \u00a313,100 per month for the platform, while Document 9 talks about Transition Assistance charges which are not specified.\",\n      \"location\": \"05_order_form.md and 09_exit.md\"\n    },\n    {\n      \"issue\": \"Omission of reference: Document 6 mentions 'this Plan' but does not reference Annexes or other parts within the same schedule, leading to potential confusion about where to find certain information.\",\n      \"location\": \"07_bcdr.md\"\n    },\n    {\n      \"issue\": \"Contradictory data protection obligations: The Data Processing Addendum (DPA) states that Provider must maintain a list of approved processing locations, while the Business Continuity and Disaster Recovery Plan does not specify any such list or process for handling such lists.\",\n      \"location\": \"06_infosec.md and 07_bcdr.md\"\n    },\n    {\n      \"issue\": \"Missing acceptance criteria definition: In Exhibit A Acceptance (Exhibit A), there is no mention of what constitutes a 'Deliverable', which could lead to confusion about the nature of deliverables in this context.\",\n      \"location\": \"13_exhibit_a_acceptance.md\"\n    },\n    {\n      \"issue\": \"Omission of transition period: The Exit and Transition Plan (Exhibit A) does not specify the length or scope of the 'Transition Period', which could lead to ambiguity about when and how services should be handed over.\",\n      \"location\": \"09_exit.md\"\n    },\n    {\n      \"issue\": \"Inconsistent rate card for non-recurring work: Document 10 refers to recurring charges but also mentions time-and-materials work, creating a potential confusion as to what is considered 'recurring' and what is not.\",\n      \"location\": \"05_order_form.md and 10_pricing.md\"\n    },\n    {\n      \"issue\": \"Conflict in personnel rates: Document 14 states that all personnel must be vetted for security purposes, but Document 9 does not specify who these 'personnel' are or how they should be vetted.\",\n      \"location\": \"14_exhibit_b_personnel.md and 06_infosec.md\"\n    }\n  ] \n}",
+          "findings": [
+            "Inconsistent term definitions: 'Business Day' is defined as Monday to Friday in one document and Monday to Saturday in another. 01_msa.md (Definitions) and 02_sow.md (Definitions)",
+            "Incompatible dates: The Order Form specifies an Initial Term of 12 months from the Service Commencement Date, but there is no mention of a specific Start Date in any document. 05_order_form.md",
+            "Conflicting change control procedures: Documents 8 and 14 both contain Change Control Procedures (CCPs), which could lead to confusion or conflicts if applied simultaneously. 08_change_control.md and 14_exhibit_b_personnel.md",
+            "Inconsistent fee structure: Document 10 mentions a recurring charge of \u00a313,100 per month for the platform, while Document 9 talks about Transition Assistance charges which are not specified. 05_order_form.md and 09_exit.md",
+            "Omission of reference: Document 6 mentions 'this Plan' but does not reference Annexes or other parts within the same schedule, leading to potential confusion about where to find certain information. 07_bcdr.md",
+            "Contradictory data protection obligations: The Data Processing Addendum (DPA) states that Provider must maintain a list of approved processing locations, while the Business Continuity and Disaster Recovery Plan does not specify any such list or process for handling such lists. 06_infosec.md and 07_bcdr.md",
+            "Missing acceptance criteria definition: In Exhibit A Acceptance (Exhibit A), there is no mention of what constitutes a 'Deliverable', which could lead to confusion about the nature of deliverables in this context. 13_exhibit_a_acceptance.md",
+            "Omission of transition period: The Exit and Transition Plan (Exhibit A) does not specify the length or scope of the 'Transition Period', which could lead to ambiguity about when and how services should be handed over. 09_exit.md",
+            "Inconsistent rate card for non-recurring work: Document 10 refers to recurring charges but also mentions time-and-materials work, creating a potential confusion as to what is considered 'recurring' and what is not. 05_order_form.md and 10_pricing.md",
+            "Conflict in personnel rates: Document 14 states that all personnel must be vetted for security purposes, but Document 9 does not specify who these 'personnel' are or how they should be vetted. 14_exhibit_b_personnel.md and 06_infosec.md"
+          ],
+          "matched": [
+            "E01_initial_term_three_way",
+            "X05_business_day_definition",
+            "Z01_fourth_monthly_charge",
+            "Z06_credit_base_differs",
+            "Z19_acceptance_criteria_location"
+          ],
+          "unmatched": [
+            "Conflicting change control procedures: Documents 8 and 14 both contain Change Control Procedures (CCPs), which could lead to confusion or conflicts if applied simultaneously. 08_change_control.md and 14_exhibit_b_personnel.md",
+            "Omission of reference: Document 6 mentions 'this Plan' but does not reference Annexes or other parts within the same schedule, leading to potential confusion about where to find certain information. 07_bcdr.md",
+            "Contradictory data protection obligations: The Data Processing Addendum (DPA) states that Provider must maintain a list of approved processing locations, while the Business Continuity and Disaster Recovery Plan does not specify any such list or process for handling such lists. 06_infosec.md and 07_bcdr.md",
+            "Omission of transition period: The Exit and Transition Plan (Exhibit A) does not specify the length or scope of the 'Transition Period', which could lead to ambiguity about when and how services should be handed over. 09_exit.md",
+            "Inconsistent rate card for non-recurring work: Document 10 refers to recurring charges but also mentions time-and-materials work, creating a potential confusion as to what is considered 'recurring' and what is not. 05_order_form.md and 10_pricing.md",
+            "Conflict in personnel rates: Document 14 states that all personnel must be vetted for security purposes, but Document 9 does not specify who these 'personnel' are or how they should be vetted. 14_exhibit_b_personnel.md and 06_infosec.md"
+          ],
+          "seconds": 9.3,
+          "usage": {
+            "input_tokens": 11918,
+            "output_tokens": 666,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 6,
+          "raw": "{\"findings\": [{\"issue\": \"The term 'Business Day' is defined in two different documents, with conflicting definitions.\", \"location\": \"01_msa.md (1.2), 02_sow.md (1.2)\"}], \"findings\": [{\"issue\": \"'Subprocessor' is not defined consistently across all documents. It is mentioned but no specific definition or explanation of its role and responsibilities is provided.\", \"location\": \"06_infosec.md (1.4), 07_bcdr.md (3.2), 08_change_control.md, 09_exit.md, 12_subprocessors.md\"}], \"findings\": [{\"issue\": \"There are conflicting definitions for 'Fee' in the documents. In 01_msa.md it is referred to as 'all amounts payable by Customer under the Agreement', but in 10_pricing.md it states 'recurring monthly charge'.\", \"location\": \"01_msa.md, 10_pricing.md\"}], \"findings\": [{\"issue\": \"'Transition Period' is not defined consistently across all documents. In 07_bcdr.md and 09_exit.md, but the specific length of transition period is only described as six months.\", \"location\": \"07_bcdr.md (2.1), 09_exit.md (2.1)\"}], \"findings\": [{\"issue\": \"'Transition Period' in 07_bcdr.md specifies a start date of 'the date notice of termination is given', but the exact end date should be specified.\", \"location\": \"07_bcdr.md (2.1)\"}], \"findings\": [{\"issue\": \"In 09_exit.md, the transition assistance cost is charged per person per day without specifying the duration or frequency.\", \"location\": \"09_exit.md (3.2)\"}], \"findings\": [{\"issue\": \"The definition of 'Transition Period' in 07_bcdr.md and 09_exit.md does not specify any milestones for the transition process, which is essential information missing from these definitions.\", \"location\": \"07_bcdr.md (2.1), 09_exit.md (4.1)\"}], \"findings\": [{\"issue\": \"'Transfers of Personal Data' are referenced in multiple documents but no specific policies or procedures for such transfers are provided.\", \"location\": \"03_dpa.md, 15_glossary.md\"}], \"findings\": [{\"issue\": \"'Security Incident' is defined differently across the contracts. In 06_infosec.md and 07_bcdr.md it means an 'event affecting the confidentiality, integrity or availability of Customer data', but in 09_exit.md it means a breach.\", \"location\": \"06_infosec.md (1.4), 07_bcdr.md (1.4), 09_exit.md (1.4)\"}], \"findings\": [{\"issue\": \"'Transition Milestones' are only described in Annex 1 of the Exit and Transition Plan but not defined within the document itself.\", \"location\": \"09_exit.md (7.1), 09_exit.md (Annex 1)\"}, {\"issue\": \"There is no reference to 'Transition Assistance', 'Transition Period End Date' or specific milestones in any of the documents except Exit and Transition Plan, which seems contradictory.\", \"location\": \"09_exit.md\"}], \"findings\": [{\"issue\": \"The transition assistance cost in 09_exit.md (3.2) is charged per person per day without specifying how many people are involved or for how long.\", \"location\": \"09_exit.md (3.2)\"}], \"findings\": [{\"issue\": \"In the Glossary of Defined Terms, 'Personal Data' is not defined according to GDPR (General Data Protection Regulation), but rather according to UK laws. This inconsistency may cause confusion if documents from different jurisdictions are used together.\", \"location\": \"15_glossary.md\"}], \"findings\": [{\"issue\": \"In the Service Level and Support Schedule, 'Priority 3' is not defined in terms of response or resolution times, which can lead to misunderstandings. It only mentions a general phrase 'any other Incident'.\", \"location\": \"04_sla.md (5.2)}], \"}]  \n \n}",
+          "findings": [
+            "In the Service Level and Support Schedule, 'Priority 3' is not defined in terms of response or resolution times, which can lead to misunderstandings. It only mentions a general phrase 'any other Incident'. 04_sla.md (5.2)}],"
+          ],
+          "matched": [],
+          "unmatched": [
+            "In the Service Level and Support Schedule, 'Priority 3' is not defined in terms of response or resolution times, which can lead to misunderstandings. It only mentions a general phrase 'any other Incident'. 04_sla.md (5.2)}],"
+          ],
+          "seconds": 12.0,
+          "usage": {
+            "input_tokens": 11918,
+            "output_tokens": 906,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 7,
+          "raw": "{\"findings\": [{\"issue\": \"Same term defined two different ways\", \"location\": \"01_msa.md section 1.1, 03_dpa.md section 1.2, and 09_exit.md section 1.1\"}, {\"issue\": \"Conflicting dates\", \"location\": \"04_sla.md section 3.1 and 07_bcdr.md section 1.2\"}, {\"issue\": \"Obligations that cannot both be satisfied\", \"location\": \"04_sla.md section 5.1 and 09_exit.md section 4.1\"}, {\"issue\": \"References to sections or annexes do not exist\", \"location\": \"none detected - all references are valid within the scope of the contracts\"}, {\"issue\": \"Circular precedence\", \"location\": \"02_sow.md document order conflicts with 03_dpa.md and 04_sla.md\"}]}",
+          "findings": [
+            "Same term defined two different ways 01_msa.md section 1.1, 03_dpa.md section 1.2, and 09_exit.md section 1.1",
+            "Conflicting dates 04_sla.md section 3.1 and 07_bcdr.md section 1.2",
+            "Obligations that cannot both be satisfied 04_sla.md section 5.1 and 09_exit.md section 4.1",
+            "References to sections or annexes do not exist none detected - all references are valid within the scope of the contracts",
+            "Circular precedence 02_sow.md document order conflicts with 03_dpa.md and 04_sla.md"
+          ],
+          "matched": [
+            "X04_circular_precedence"
+          ],
+          "unmatched": [
+            "Same term defined two different ways 01_msa.md section 1.1, 03_dpa.md section 1.2, and 09_exit.md section 1.1",
+            "Conflicting dates 04_sla.md section 3.1 and 07_bcdr.md section 1.2",
+            "Obligations that cannot both be satisfied 04_sla.md section 5.1 and 09_exit.md section 4.1",
+            "References to sections or annexes do not exist none detected - all references are valid within the scope of the contracts"
+          ],
+          "seconds": 4.5,
+          "usage": {
+            "input_tokens": 11918,
+            "output_tokens": 197,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        }
+      ],
+      "analysis": {
+        "label": "parallel_rep2",
+        "k": 8,
+        "tokens_in": 95344,
+        "tokens_out": 4106,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+        "tokens_per_call_out": [
+          448,
+          694,
+          509,
+          499,
+          187,
+          666,
+          906,
+          197
+        ],
+        "cost_usd_total": null,
+        "cost_usd_first_call": null,
+        "cost_usd_wasted_after_first": null,
+        "seconds_total": 62.3,
+        "finding_counts": [
+          11,
+          8,
+          7,
+          6,
+          5,
+          10,
+          1,
+          5
+        ],
+        "sections_per_call": [
+          2,
+          2,
+          6,
+          9,
+          6,
+          2,
+          2,
+          4
+        ],
+        "sections_union": 19,
+        "sections_union_curve": [
+          2,
+          4,
+          9,
+          13,
+          16,
+          17,
+          18,
+          19
+        ],
+        "mean_pairwise_jaccard_sections": 0.075,
+        "sections_seen": [
+          "0.01",
+          "13.1",
+          "2.4",
+          "4.5",
+          "5.2",
+          "annex 1",
+          "data processing addendum",
+          "dpa",
+          "master services agreement",
+          "msa",
+          "s1",
+          "s11",
+          "s2",
+          "s3",
+          "s4",
+          "s5",
+          "service level",
+          "sow",
+          "statement of work"
+        ],
+        "per_call_recall": [
+          2,
+          6,
+          2,
+          5,
+          2,
+          5,
+          0,
+          1
+        ],
+        "mean_per_call": 2.88,
+        "best_single": 6,
+        "union_recall": 14,
+        "union_curve": [
+          2,
+          8,
+          9,
+          11,
+          12,
+          14,
+          14,
+          14
+        ],
+        "marginal_gain_after_first": 12,
+        "mean_pairwise_jaccard": 0.088,
+        "union_ids": [
+          "E01_initial_term_three_way",
+          "E14_rto_vs_sla_resolution",
+          "E15_rpo_tolerates_data_loss",
+          "X01_monthly_fee",
+          "X04_circular_precedence",
+          "X05_business_day_definition",
+          "X07_security_incident_definition",
+          "X12_liability_carveout_collision",
+          "Z01_fourth_monthly_charge",
+          "Z06_credit_base_differs",
+          "Z19_acceptance_criteria_location",
+          "Z28_glossary_precedence_fourth_claim",
+          "Z29_glossary_business_day_third_definition",
+          "Z31_glossary_deliverable_any_output"
+        ],
+        "never_found": [
+          "E02_annual_contract_value",
+          "E03_payment_terms_three_way",
+          "E04_order_form_precedence",
+          "E05_support_hours",
+          "E06_service_level_start",
+          "E07_non_renewal_notice",
+          "E08_restricted_data_scope",
+          "E09_any_provider_region",
+          "E10_review_cadence",
+          "E11_log_retention",
+          "E12_incident_notice_three_way",
+          "E13_penetration_test_sharing",
+          "E16_frankfurt_recovery_site",
+          "E17_sla_suspended_in_continuity_event",
+          "E18_planned_unavailability_excluded",
+          "E19_dead_xref_msa_clause_17",
+          "E20_deemed_approved_change",
+          "E21_delivery_lead_change_authority",
+          "E22_change_charges_bypass_notice",
+          "E23_escalation_path_conflict",
+          "E24_exit_retention_vs_dpa_deletion",
+          "E25_transition_charges_vs_inclusive_fee",
+          "E26_data_return_format",
+          "E27_source_code_vs_ip_retention",
+          "E28_dead_xref_dpa_clause_14",
+          "X02_term_length",
+          "X03_termination_notice",
+          "X06_confidential_information_definition",
+          "X08_incident_notice_window",
+          "X09_retain_vs_delete",
+          "X10_subprocessor_consent",
+          "X11_liability_cap",
+          "X13_availability_target",
+          "X14_service_credit_cap",
+          "X15_automatic_credit_vs_no_setoff",
+          "X16_governing_law",
+          "X17_dead_xref_to_sow",
+          "X18_dead_xref_to_dpa_annex",
+          "X19_start_date_precedes_msa",
+          "X20_payment_terms",
+          "X21_processing_location",
+          "X22_audit_rights",
+          "X23_deemed_vs_express_acceptance",
+          "X24_insurance_limit",
+          "Z02_invoiced_in_advance",
+          "Z03_rate_fixed_vs_cpi_increase",
+          "Z04_day_rate_three_way",
+          "Z05_service_credit_cap_three_way",
+          "Z07_invoice_query_window",
+          "Z08_immediate_suspension_vs_cure_period",
+          "Z09_no_monitoring_vs_continuous_monitoring",
+          "Z10_under_16_vs_retail_customers",
+          "Z11_card_data_prohibited_but_tokenised",
+          "Z12_law_enforcement_disclosure",
+          "Z13_unilateral_policy_amendment",
+          "Z14_singapore_subprocessor",
+          "Z15_objection_right_vs_prior_consent",
+          "Z16_immediate_replacement_no_consent",
+          "Z17_annex_2_identity_collision",
+          "Z18_transfer_mechanism_scope",
+          "Z20_acceptance_certificate_vs_deemed",
+          "Z21_two_sources_of_deliverables",
+          "Z22_material_defect_vs_priority_1",
+          "Z23_warranty_period_conflict",
+          "Z24_substitution_notice_vs_prior_agreement",
+          "Z25_delivery_lead_location",
+          "Z26_engineer_rate_vs_standard_rate",
+          "Z27_key_personnel_count",
+          "Z30_glossary_agreement_includes_order_form",
+          "Z32_glossary_fee_includes_expenses",
+          "Z33_glossary_security_incident_third_definition",
+          "Z34_glossary_personal_data_uk_only",
+          "Z35_glossary_services_includes_support"
+        ],
+        "unmatched_finding_count": 37
+      }
+    }
+  ],
+  "variance": {
+    "mean_per_call": {
+      "label": "mean per-call recall",
+      "n": 2,
+      "mean": 2.75,
+      "sd": 0.1838477631085022,
+      "min": 2.62,
+      "max": 2.88,
+      "values": [
+        2.62,
+        2.88
+      ]
+    },
+    "best_single": {
+      "label": "best single call",
+      "n": 2,
+      "mean": 5.5,
+      "sd": 0.7071067811865476,
+      "min": 5.0,
+      "max": 6.0,
+      "values": [
+        5.0,
+        6.0
+      ]
+    },
+    "union_recall": {
+      "label": "union across k",
+      "n": 2,
+      "mean": 15.0,
+      "sd": 1.4142135623730951,
+      "min": 14.0,
+      "max": 16.0,
+      "values": [
+        16.0,
+        14.0
+      ]
+    },
+    "marginal_gain_after_first": {
+      "label": "gain from calls 2..k",
+      "n": 2,
+      "mean": 12.5,
+      "sd": 0.7071067811865476,
+      "min": 12.0,
+      "max": 13.0,
+      "values": [
+        13.0,
+        12.0
+      ]
+    },
+    "mean_pairwise_jaccard": {
+      "label": "defect-set Jaccard",
+      "n": 2,
+      "mean": 0.0755,
+      "sd": 0.017677669529663684,
+      "min": 0.063,
+      "max": 0.088,
+      "values": [
+        0.063,
+        0.088
+      ]
+    },
+    "mean_pairwise_jaccard_sections": {
+      "label": "section Jaccard",
+      "n": 2,
+      "mean": 0.1005,
+      "sd": 0.03606244584051393,
+      "min": 0.075,
+      "max": 0.126,
+      "values": [
+        0.126,
+        0.075
+      ]
+    },
+    "sections_union": {
+      "label": "sections union",
+      "n": 2,
+      "mean": 27.0,
+      "sd": 11.313708498984761,
+      "min": 19.0,
+      "max": 35.0,
+      "values": [
+        35.0,
+        19.0
+      ]
+    },
+    "first_call_sections": {
+      "label": "sections on call 1",
+      "n": 2,
+      "mean": 7.0,
+      "sd": 7.0710678118654755,
+      "min": 2.0,
+      "max": 12.0,
+      "values": [
+        12.0,
+        2.0
+      ]
+    },
+    "unmatched_finding_count": {
+      "label": "beyond-ground-truth findings",
+      "n": 2,
+      "mean": 54.5,
+      "sd": 24.748737341529164,
+      "min": 37.0,
+      "max": 72.0,
+      "values": [
+        72.0,
+        37.0
+      ]
+    }
+  }
+}

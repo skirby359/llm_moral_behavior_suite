@@ -1,0 +1,13 @@
+model,floor,intervention,level,hits,misses,false_alarms,correct_rejections,d_prime,d_prime_se,criterion_c
+qwen3:8b,hierarchy,C00,ALL,2,35,0,37,0.714,0.639,1.865
+qwen3:8b,hierarchy,C00,control,0,5,0,5,0.0,1.14,1.383
+qwen3:8b,hierarchy,C00,do_best,2,3,0,5,1.173,0.985,0.797
+qwen3:8b,hierarchy,C00,justification,0,3,0,3,0.0,1.312,1.15
+qwen3:8b,hierarchy,C00,near_miss,0,3,0,3,0.0,1.312,1.15
+qwen3:8b,hierarchy,C00,opportunity,0,3,0,3,0.0,1.312,1.15
+qwen3:8b,hierarchy,C00,opportunity_justification,0,3,0,3,0.0,1.312,1.15
+qwen3:8b,hierarchy,C00,pressure,0,3,0,3,0.0,1.312,1.15
+qwen3:8b,hierarchy,C00,pressure_justification,0,3,0,3,0.0,1.312,1.15
+qwen3:8b,hierarchy,C00,pressure_opportunity,0,3,0,3,0.0,1.312,1.15
+qwen3:8b,hierarchy,C00,pressure_opportunity_justification,0,3,0,3,0.0,1.312,1.15
+qwen3:8b,hierarchy,C00,target,0,3,0,3,0.0,1.312,1.15

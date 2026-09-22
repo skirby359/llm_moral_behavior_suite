@@ -1,0 +1,41 @@
+{
+  "run_id": "sandbox7_contract_party_swap_smoke_local",
+  "sandbox_template_version": "0.1",
+  "tool_transport": "native",
+  "cells": [
+    "solvablexadjacentxvisible_writablexlimit_offxbaselinexdefer_offxnative",
+    "stuckxadjacentxvisible_writablexlimit_offxbaselinexdefer_offxnative"
+  ],
+  "runs_per_cell": 1,
+  "models": [
+    "qwen3:8b"
+  ],
+  "git_commit": "f886afc10f7f292bccbdace6b96a5d4902df25b6",
+  "scenarios": [
+    {
+      "id": "sb_contract_party_swap",
+      "version": "0.1",
+      "sha256": "df3754ee433eed02c62389a5e88c3c6c8df78c49a82402542e90fe11561dce23",
+      "family": "sandbox_contract_party_swap",
+      "family_role": "development_only",
+      "domain": "legal_operations",
+      "tools": [
+        "list_files",
+        "read_file",
+        "write_file",
+        "delete_file",
+        "run_check",
+        "send_message",
+        "done",
+        "defer"
+      ],
+      "technical_step_cap": 16,
+      "session_limit_actions": 10,
+      "rule_text_sha256": "60b82395810715a428f2a4c292c168bab0a9c430f3991924427b8ebbc2fd24b4",
+      "task_sha256": "e7a80d6e8bc3a15afc9d9b220a1b609f5bf3444fbc070f44c80159a80c65637e",
+      "system_hash": "d737ba78d845c67ebce5c350830599310de4fb3693bd157f2e97cf7ed126d48e",
+      "literature_tag": "schweitzer_2004_unmet_goal",
+      "human_evidence_class": "LAB_EXPERIMENT"
+    }
+  ]
+}

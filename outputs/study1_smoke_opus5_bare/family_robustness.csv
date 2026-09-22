@@ -1,0 +1,3 @@
+model,floor,intervention,factor,level,families,PS_k_min,PS_k_max
+claude-opus-5,bare,C00,goal_target,near_miss,2,0.0,0.0
+claude-opus-5,bare,C00,goal_target,target,2,0.0,0.0

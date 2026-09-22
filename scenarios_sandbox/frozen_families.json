@@ -1,0 +1,77 @@
+{
+  "_note": "Families whose first frontier outcome has been observed. From that moment the scenario, rule, tools, checker, prompts and shortcuts do not change: verify_sandbox.py and the config tests fail if a listed family's source hash moves. `may_run` is a separate question. A family with `may_run: false` is finished and is never sampled again -- it cannot contribute to any confirmatory estimate, and the runner refuses to select it without --allow-frozen; re-deriving outcomes from its committed logs (scenarios_sandbox/rescore_family1.py) is analysis, not sampling, and is permitted. A family with `may_run: true` has its materials frozen while its pre-registered sampling (scenarios_sandbox/PRERUN_FAMILY2.md) is still running.",
+  "families": {
+    "sandbox_reconciliation": {
+      "frozen_at_commit": "59effac",
+      "frozen_on": "2026-09-10",
+      "scenario_sha256": "9403705a2d884763db9065668b02f5d1fb3f8dd6a18c43269669394ed4cf5b70",
+      "reason": "first frontier outcome observed in the price probe; Wave 3 discovery family",
+      "may_run": false
+    },
+    "sandbox_batch_release": {
+      "frozen_at_commit": "93a7a30",
+      "frozen_on": "2026-09-11",
+      "scenario_sha256": "14637ad4d3d0b0eee6c9f4c280cffd8d3dab02af69469d978ac207c9f07b92a8",
+      "reason": "first frontier outcomes observed in the Wave 4 price probe; materials frozen while the pre-registered sampling runs",
+      "may_run": true
+    },
+    "sandbox_access_provisioning": {
+      "frozen_at_commit": "1119e76",
+      "frozen_on": "2026-09-11",
+      "scenario_sha256": "ccb7ece59b673122b7ccabb81852e3e95768c03479e9fb41ba2a9dc33c6b6658",
+      "reason": "Wave 5 bridge family: materials frozen before the pre-registered wave (PREREG_WAVE5_BRIDGE.md), verified and remit-passed, per the freeze-before-run rule",
+      "may_run": true
+    },
+    "sandbox_contract_execution": {
+      "frozen_at_commit": "1119e76",
+      "frozen_on": "2026-09-11",
+      "scenario_sha256": "4b8e36c7bb847fa2841131e5cf999fefb531de18cd9de9cef0a289b87cbe2023",
+      "reason": "Wave 5 bridge family: materials frozen before the pre-registered wave (PREREG_WAVE5_BRIDGE.md), verified and remit-passed, per the freeze-before-run rule",
+      "may_run": true
+    },
+    "sandbox_grant_disbursement": {
+      "frozen_at_commit": "1119e76",
+      "frozen_on": "2026-09-11",
+      "scenario_sha256": "592c51c3d3d22b05867cb0e42de56c5f6c5852fb523eec285e8b95dac6d090ef",
+      "reason": "Wave 5 bridge family: materials frozen before the pre-registered wave (PREREG_WAVE5_BRIDGE.md), verified and remit-passed, per the freeze-before-run rule",
+      "may_run": true
+    },
+    "sandbox_contract_goal_swap": {
+      "frozen_at_commit": "14f74e8",
+      "frozen_on": "2026-09-12",
+      "scenario_sha256": "d4ac39ff8aa9318485a7764cdbb583e55a282a67e230124a062ad84d6c836a16",
+      "reason": "Wave 7 minimal-pair variant of sandbox_contract_execution on dimension G (PREREG_WAVE7_DOMAIN_EFFECT.md; generated from the anchor by wave7_pairs.py); verified, smoke-run and remit-passed, frozen before the first frontier call",
+      "may_run": true
+    },
+    "sandbox_grant_goal_swap": {
+      "frozen_at_commit": "14f74e8",
+      "frozen_on": "2026-09-12",
+      "scenario_sha256": "2ac96b5bc98e2ac86e8ca1a6358c126840c1c9cd001768aa2bbdcbf4c6be597e",
+      "reason": "Wave 7 minimal-pair variant of sandbox_grant_disbursement on dimension G (PREREG_WAVE7_DOMAIN_EFFECT.md; generated from the anchor by wave7_pairs.py); verified, smoke-run and remit-passed, frozen before the first frontier call",
+      "may_run": true
+    },
+    "sandbox_contract_party_swap": {
+      "frozen_at_commit": "14f74e8",
+      "frozen_on": "2026-09-12",
+      "scenario_sha256": "df3754ee433eed02c62389a5e88c3c6c8df78c49a82402542e90fe11561dce23",
+      "reason": "Wave 7 minimal-pair variant of sandbox_contract_execution on dimension P (PREREG_WAVE7_DOMAIN_EFFECT.md; generated from the anchor by wave7_pairs.py); verified, smoke-run and remit-passed, frozen before the first frontier call",
+      "may_run": true
+    },
+    "sandbox_grant_party_swap": {
+      "frozen_at_commit": "14f74e8",
+      "frozen_on": "2026-09-12",
+      "scenario_sha256": "cc0d096a244f129dacc31ac9bad13299de8991d077953b632908d2007bb9e640",
+      "reason": "Wave 7 minimal-pair variant of sandbox_grant_disbursement on dimension P (PREREG_WAVE7_DOMAIN_EFFECT.md; generated from the anchor by wave7_pairs.py); verified, smoke-run and remit-passed, frozen before the first frontier call",
+      "may_run": true
+    }
+  },
+  "_banks_note": "Support banks whose bytes are frozen the same way a family's are: tests/test_sandbox_configs.py and verify_sandbox.py check I fail if the file's SHA-256 moves. A bank does not carry outcomes; freezing it fixes the exact strings a preregistered study substitutes for a family's own sentence, so 'the wording was chosen after seeing the result' cannot happen.",
+  "banks": {
+    "framing_paraphrases": {
+      "file": "framing_paraphrases.yaml",
+      "frozen_on": "2026-09-14",
+      "sha256": "2737669b43e68833ba59ca573d140ba50b434d2eafab269694fa9e6694d217f9",
+      "reason": "Compliant-failure paraphrase bank for the wording-robustness study (PREREG_WORDING_ROBUSTNESS.md); three paraphrases plus the lexical probe, canonical byte-identical to sandbox_contract_execution's committed addendum, verified by check I, frozen before the first frontier call"
+    }
+  }
+}

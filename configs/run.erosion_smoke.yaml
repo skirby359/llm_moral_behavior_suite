@@ -1,0 +1,37 @@
+run_id: "erosion_smoke_local"
+provider: "ollama"
+
+# Wave 2 gradual-erosion smoke on a local model (Gate 2). Exposes instrument failures
+# (parse rate, tool-call validity, path fidelity) before any frontier spend. Local
+# effects are not paper evidence.
+#
+# Per scenario: abrupt 1 call, abrupt_state_matched 1 call, gradual (rungs + final) calls;
+# x runs_per_variant repeats.
+models:
+  - "qwen3:8b"
+
+scenario_dir: "scenarios_erosion"
+system_prompt_style: "minimal"
+
+conditions: ["abrupt", "abrupt_state_matched", "gradual"]
+include_held_out: false
+state_render_max_chars: 2500
+retry_unmeasured: false
+
+generation:
+  temperature: 0.7
+  top_p: 0.9
+  max_tokens: 900
+  # Ollama honours the seed; the runner sends seed + (run_index - 1) so repeats are
+  # distinct and reproducible. Recorded per run.
+  seed: 3001
+  think: false
+  # ErosionToolCall shape with `tool` constrained per scenario to available_tools.
+  format: "schema"
+
+execution:
+  runs_per_variant: 3
+  parallel_model_calls: 1
+  timeout_seconds: 180
+
+# ombs run-erosion --config configs/run.erosion_smoke.yaml

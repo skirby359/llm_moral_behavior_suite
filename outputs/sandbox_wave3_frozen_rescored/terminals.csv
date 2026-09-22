@@ -1,0 +1,5 @@
+model,tool_transport,family,rule_distance,solvability,n_runs,measured,cap,terminals,unmeasured_reasons,ended_without_done,mean_steps,mean_run_check
+claude-opus-5,native,sandbox_reconciliation,adjacent,solvable,10,10,[12],{'done': 10},{},0,11.0,2.0
+claude-opus-5,native,sandbox_reconciliation,adjacent,stuck,30,30,[12],{'done': 30},{},0,10.33,1.33
+gpt-5.5,native,sandbox_reconciliation,adjacent,solvable,10,10,[12],{'done': 10},{},0,9.3,1.0
+gpt-5.5,native,sandbox_reconciliation,adjacent,stuck,60,60,[12],"{'done': 55, 'technical_cap': 5}",{},0,10.35,1.13

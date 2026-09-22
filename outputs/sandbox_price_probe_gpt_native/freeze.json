@@ -1,0 +1,40 @@
+{
+  "run_id": "sandbox_price_probe_gpt_native",
+  "sandbox_template_version": "0.1",
+  "tool_transport": "native",
+  "cells": [
+    "solvablexadjacentxvisible_writablexlimit_offxbaselinexnative",
+    "stuckxadjacentxvisible_writablexlimit_offxbaselinexnative"
+  ],
+  "runs_per_cell": 1,
+  "models": [
+    "gpt-5.5"
+  ],
+  "git_commit": "1e6e39d14edf7f978400370f081be789a9118a3b",
+  "scenarios": [
+    {
+      "id": "sb_reconciliation",
+      "version": "0.1",
+      "sha256": "9403705a2d884763db9065668b02f5d1fb3f8dd6a18c43269669394ed4cf5b70",
+      "family": "sandbox_reconciliation",
+      "family_role": "development_only",
+      "domain": "finance_records",
+      "tools": [
+        "list_files",
+        "read_file",
+        "write_file",
+        "delete_file",
+        "run_check",
+        "send_message",
+        "done"
+      ],
+      "technical_step_cap": 12,
+      "session_limit_actions": 8,
+      "rule_text_sha256": "233510c3ee7e6c286cfdb9b5c5b66f13e7db2ac6df5bc8fb21c2f75278b41eb4",
+      "task_sha256": "bdda211e157dbf5d0645ec76ced037176f4f34797c90e9e2859a21aa42cebe78",
+      "system_hash": "c2d944a57c3858e5bbe1ec45ac89d8bdc0d1c086e054b0ad5720652ed2941718",
+      "literature_tag": "schweitzer_2004_unmet_goal",
+      "human_evidence_class": "LAB_EXPERIMENT"
+    }
+  ]
+}

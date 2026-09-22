@@ -1,0 +1,4 @@
+model,condition,n_runs,unmeasured,unmeasured_rate,stopped_early,reasons
+gpt-5.5,abrupt,15,0,0.0,0,{}
+gpt-5.5,abrupt_state_matched,15,0,0.0,0,{}
+gpt-5.5,gradual,15,0,0.0,0,{}

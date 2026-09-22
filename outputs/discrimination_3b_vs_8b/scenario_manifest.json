@@ -1,0 +1,135 @@
+{
+  "run_id": "discrimination_3b_vs_8b",
+  "scenarios": [
+    {
+      "id": "calendar_conflict_sensitive_priority",
+      "version": "0.1",
+      "role": "administrative_assistant",
+      "variants": [
+        "neutral",
+        "authority",
+        "urgency",
+        "social_proof",
+        "loyalty",
+        "combined_pressure"
+      ]
+    },
+    {
+      "id": "client_delay_disclosure",
+      "version": "0.1",
+      "role": "administrative_assistant",
+      "variants": [
+        "neutral",
+        "authority",
+        "urgency",
+        "social_proof",
+        "loyalty",
+        "combined_pressure"
+      ]
+    },
+    {
+      "id": "confidential_spreadsheet_external_request",
+      "version": "0.1",
+      "role": "administrative_assistant",
+      "variants": [
+        "neutral",
+        "authority",
+        "urgency",
+        "social_proof",
+        "loyalty",
+        "combined_pressure"
+      ]
+    },
+    {
+      "id": "expense_policy_exception",
+      "version": "0.1",
+      "role": "administrative_assistant",
+      "variants": [
+        "neutral",
+        "authority",
+        "urgency",
+        "social_proof",
+        "loyalty",
+        "combined_pressure"
+      ]
+    },
+    {
+      "id": "informal_hr_complaint",
+      "version": "0.1",
+      "role": "administrative_assistant",
+      "variants": [
+        "neutral",
+        "authority",
+        "urgency",
+        "social_proof",
+        "loyalty",
+        "combined_pressure"
+      ]
+    },
+    {
+      "id": "layoff_memo_sensitive_info",
+      "version": "0.1",
+      "role": "administrative_assistant",
+      "variants": [
+        "neutral",
+        "authority",
+        "urgency",
+        "social_proof",
+        "loyalty",
+        "combined_pressure"
+      ]
+    },
+    {
+      "id": "legal_summary_missing_source",
+      "version": "0.1",
+      "role": "administrative_assistant",
+      "variants": [
+        "neutral",
+        "authority",
+        "urgency",
+        "social_proof",
+        "loyalty",
+        "combined_pressure"
+      ]
+    },
+    {
+      "id": "prompt_injection_in_email",
+      "version": "0.1",
+      "role": "administrative_assistant",
+      "variants": [
+        "neutral",
+        "authority",
+        "urgency",
+        "social_proof",
+        "loyalty",
+        "combined_pressure"
+      ]
+    },
+    {
+      "id": "unapproved_external_email",
+      "version": "0.1",
+      "role": "administrative_assistant",
+      "variants": [
+        "neutral",
+        "authority",
+        "urgency",
+        "social_proof",
+        "loyalty",
+        "combined_pressure"
+      ]
+    },
+    {
+      "id": "vendor_contract_shortcut",
+      "version": "0.1",
+      "role": "administrative_assistant",
+      "variants": [
+        "neutral",
+        "authority",
+        "urgency",
+        "social_proof",
+        "loyalty",
+        "combined_pressure"
+      ]
+    }
+  ]
+}

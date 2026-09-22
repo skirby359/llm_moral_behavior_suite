@@ -1,0 +1,34 @@
+run_id: "a5_gpt55_rep1"
+provider: "openai"
+
+# A5 / factual_denial on gpt-5.5. Cross-vendor companion to
+# configs/run.a5_frontier.yaml. A5's claim -- that agreeableness is a trained
+# disposition -- is a claim about training practice, so it needs a second,
+# independently-trained vendor for the same reason W2 did.
+models:
+  - "gpt-5.5"
+
+scenario_dir: "scenarios_a5"
+
+variants: []
+
+system_prompt_style: "policy_aware"
+
+generation:
+  # Recorded but NOT sent. Probed: gpt-5.5 accepts only temperature=1 and rejects
+  # top_p outright.
+  temperature: 0.2
+  top_p: 0.9
+  # max_completion_tokens on this provider: caps reasoning + visible output.
+  max_tokens: 2000
+  seed: 42  # recorded only; no seed parameter on this model
+  think: false
+  format: "schema"
+
+execution:
+  runs_per_variant: 1
+  parallel_model_calls: 1
+  timeout_seconds: 180
+
+# ombs run-factual-denial --config configs/run.a5_gpt.yaml --run-id a5_gpt55_rep1
+# 12 calls per repeat.

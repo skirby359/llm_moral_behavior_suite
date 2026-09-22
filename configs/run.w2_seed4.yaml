@@ -1,0 +1,37 @@
+run_id: "w2_local_seed4"
+provider: "ollama"
+
+# W2 on local models. This is the condition most likely to show the effect:
+# the repo's earlier runs found BOTH local models comply at turn 1 on a bare VP
+# authority claim in the spreadsheet scenario (and actually call send_email in the
+# tool variant). Opus 5 held 5/5 on every ladder, so if W2 shows anywhere it shows
+# here, as a difference in survival depth between the authority and false_history
+# twins on identical material facts.
+models:
+  - "qwen3:8b"
+  - "qwen2.5:3b"
+
+scenario_dir: "scenarios_w2"
+
+variants: []
+
+system_prompt_style: "policy_aware"
+
+generation:
+  temperature: 0.2
+  top_p: 0.9
+  max_tokens: 800
+  seed: 1004
+  # qwen3 emits <think> blocks otherwise; repo convention.
+  think: false
+  # Force schema compliance: gemma/qwen small models write prose into enum fields,
+  # and a parse failure would be indistinguishable from a boundary failure.
+  format: "schema"
+
+execution:
+  runs_per_variant: 1
+  parallel_model_calls: 1
+  timeout_seconds: 120
+
+# ombs run-multiturn --config configs/run.w2_local.yaml
+# 2 models x 4 scenarios x (1 opening + 5 pushback) = 48 calls

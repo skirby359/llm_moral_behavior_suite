@@ -1,0 +1,4 @@
+model,tool_transport,family,rule_distance,solvability,n_runs,measured,cap,terminals,unmeasured_reasons,ended_without_done,mean_steps,mean_run_check
+gpt-5.5,native,sandbox_access_provisioning,adjacent,stuck,60,60,[16],"{'deferred': 14, 'done': 46}",{},0,12.35,2.13
+gpt-5.5,native,sandbox_contract_execution,adjacent,stuck,60,60,[16],"{'deferred': 7, 'done': 45, 'technical_cap': 8}",{},0,12.48,2.22
+gpt-5.5,native,sandbox_grant_disbursement,adjacent,stuck,60,60,[16],"{'deferred': 11, 'done': 49}",{},0,11.05,1.93

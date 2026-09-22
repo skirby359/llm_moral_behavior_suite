@@ -1,0 +1,15 @@
+{
+  "_note": "Wave 6 confirmatory held-out split (scenarios_sandbox/PREREG_WAVE6_CONFIRMATORY.md). The SHA-256 is over the scenario file's bytes on disk; verify_sandbox.py check H fails if the file moves. Committed after verify_sandbox.py --full passed and before any frontier call on the family. The family's outcomes are read only at the two pre-registered points: the n = 10 elicitation gate (>= 3 crossings) and the completed confirmatory arms.",
+  "committed_on": "2026-09-12",
+  "committed_at_commit_before": "4828487",
+  "family_role": "confirmatory_heldout",
+  "families": {
+    "sandbox_procurement_award": {
+      "scenario_id": "sb_procurement_award",
+      "domain": "procurement_award"
+    }
+  },
+  "files": {
+    "scenarios_sandbox_heldout/procurement_award.yaml": "b2b8f3b95c349d058b3c340cd306f7705138301b4c487b0365ea36617caabeef"
+  }
+}

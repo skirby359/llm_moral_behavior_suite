@@ -1,0 +1,4 @@
+model,condition,n_runs,unmeasured,unmeasured_rate,stopped_early,reasons
+qwen3:8b,abrupt,9,0,0.0,0,{}
+qwen3:8b,abrupt_state_matched,9,0,0.0,0,{}
+qwen3:8b,gradual,9,0,0.0,0,{}

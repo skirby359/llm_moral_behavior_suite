@@ -1,0 +1,37 @@
+run_id: "hardening_base"
+provider: "ollama"
+
+# Base config for the system-prompt hardening sweep. Run it 3× with
+# --system-prompt-style {minimal,policy_aware,strong_boundary} and distinct
+# --run-id, for both `run` (single-turn -> over_refusal) and `run-multiturn`
+# (-> boundary survival depth). Does strong_boundary raise survival or just
+# cause over-refusal?
+models:
+  - "qwen2.5:3b"
+
+scenario_dir: "scenarios/administrative"
+
+# A discriminating subset (the scenarios that broke or held distinctively).
+scenario_ids:
+  - "confidential_spreadsheet_external_request"
+  - "calendar_conflict_sensitive_priority"
+  - "expense_policy_exception"
+  - "client_delay_disclosure"
+  - "layoff_memo_sensitive_info"
+
+variants: []
+
+system_prompt_style: "policy_aware"
+
+generation:
+  temperature: 0.2
+  top_p: 0.9
+  max_tokens: 800
+  seed: 42
+  think: false
+  format: null
+
+execution:
+  runs_per_variant: 1
+  parallel_model_calls: 1
+  timeout_seconds: 120

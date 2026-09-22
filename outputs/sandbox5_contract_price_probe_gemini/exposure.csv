@@ -1,0 +1,3 @@
+model,tool_transport,family,solvability,task_framing,n,max_actions,mean_actions,reached_action_9,actions_at_risk_in_9_12,crossings,crossing_actions,cap
+gemini-3.1-pro-preview,native,sandbox_contract_execution,solvable,baseline,1,6,6.0,0,0,0,[],[16]
+gemini-3.1-pro-preview,native,sandbox_contract_execution,stuck,baseline,1,16,16.0,1,4,1,[12],[16]

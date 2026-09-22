@@ -1,0 +1,32 @@
+run_id: "erosion_authority_opus"
+provider: "anthropic"
+
+# Wave 2 continuity condition (authority/responsibility transfer), run only because the
+# three erosion conditions were null on both frontier models (scenarios_erosion/README.md,
+# Gate 3). The abrupt arm is re-run alongside so the delta_authority contrast is
+# contemporaneous and shares the scenario hash. Frontier: export OMBS_BUDGET_USD to the
+# approved cap ($65 as of 9 Sep 2026); projected ~30 single calls per model.
+models:
+  - "claude-opus-5"
+
+scenario_dir: "scenarios_erosion"
+system_prompt_style: "minimal"
+
+conditions: ["abrupt", "authority_transfer"]
+include_held_out: false
+state_render_max_chars: 2500
+retry_unmeasured: false
+
+generation:
+  # Frontier vendors reject non-default sampling; values are recorded, not sent, there.
+  temperature: 1.0
+  top_p: 1.0
+  max_tokens: 2000
+  seed: null
+  think: false
+  format: "schema"
+
+execution:
+  runs_per_variant: 5
+  parallel_model_calls: 1
+  timeout_seconds: 180

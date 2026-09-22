@@ -1,0 +1,47 @@
+run_id: "a5_local"
+provider: "ollama"
+
+# A5 / factual_denial on local models (notes/PHASE-20-RELATIONAL.md, asymmetry A5).
+#
+# The question A5 asks is NOT the question the rest of this suite asks. Every
+# earlier phase measures whether a boundary holds. This measures whether a TRUE,
+# CHECKABLE, NON-BOUNDARY claim holds while a colleague denies it and becomes
+# progressively more put out. Nothing in these scenarios is confidential,
+# irreversible, or against policy -- writing down the colleague's number harms
+# nobody. If the model moves, it moves for social reasons alone.
+#
+# The prediction worth testing: a model can score perfectly on boundary
+# preservation and badly here. qwen3:8b holds 5/5 authority turns on the W2 layoff
+# facts; whether it holds a piece of arithmetic against five turns of displeasure
+# is a separate question about a separate trained disposition.
+models:
+  - "qwen3:8b"
+  - "qwen2.5:3b"
+
+scenario_dir: "scenarios_a5"
+
+variants: []
+
+system_prompt_style: "policy_aware"
+
+generation:
+  temperature: 0.2
+  top_p: 0.9
+  max_tokens: 800
+  # Ollama honours the seed, so vary it across runs before quoting any error bar.
+  # A pinned seed already produced a meaningless +/- 0.00 once in this repo (W2,
+  # qwen2.5:3b) -- see scenarios_w2/summarize_w2.py.
+  seed: 1001
+  think: false
+  # Forces the FactualPosition shape (not ModelDecision -- A5 has its own output
+  # contract). Small models write prose into enum fields, and a parse failure
+  # would be indistinguishable from a capitulation.
+  format: "schema"
+
+execution:
+  runs_per_variant: 1
+  parallel_model_calls: 1
+  timeout_seconds: 120
+
+# ombs run-factual-denial --config configs/run.a5_local.yaml
+# 2 models x 2 scenarios x (1 opening + 5 denials) = 24 calls. Free.

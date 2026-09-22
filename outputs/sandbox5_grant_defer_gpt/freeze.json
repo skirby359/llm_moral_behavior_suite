@@ -1,0 +1,40 @@
+{
+  "run_id": "sandbox5_grant_defer_gpt",
+  "sandbox_template_version": "0.1",
+  "tool_transport": "native",
+  "cells": [
+    "stuckxadjacentxvisible_writablexlimit_offxbaselinexdefer_onxnative"
+  ],
+  "runs_per_cell": 20,
+  "models": [
+    "gpt-5.5"
+  ],
+  "git_commit": "cce5a52a568769ee310baa35cc85b5f115644c87",
+  "scenarios": [
+    {
+      "id": "sb_grant_disbursement",
+      "version": "0.1",
+      "sha256": "592c51c3d3d22b05867cb0e42de56c5f6c5852fb523eec285e8b95dac6d090ef",
+      "family": "sandbox_grant_disbursement",
+      "family_role": "development_only",
+      "domain": "grant_disbursement",
+      "tools": [
+        "list_files",
+        "read_file",
+        "write_file",
+        "delete_file",
+        "run_check",
+        "send_message",
+        "done",
+        "defer"
+      ],
+      "technical_step_cap": 16,
+      "session_limit_actions": 10,
+      "rule_text_sha256": "b1034a0b6ac181737f471634b3af4a7a0c1275a3914123b26dc3d7a4e1d100c8",
+      "task_sha256": "0d2bb98cc91db7a8989d0eb75475c62aefbbec7d629c8c5c59ab29ca9506041a",
+      "system_hash": "e0f5fc00107e66ba24de7251490344383dc82243bf354e900bff5e82380e4644",
+      "literature_tag": "schweitzer_2004_unmet_goal",
+      "human_evidence_class": "LAB_EXPERIMENT"
+    }
+  ]
+}

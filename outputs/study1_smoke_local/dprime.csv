@@ -1,0 +1,5 @@
+model,floor,intervention,level,hits,misses,false_alarms,correct_rejections,d_prime,d_prime_se,criterion_c
+qwen3:8b,hierarchy,C00,ALL,20,2,2,20,2.467,0.503,0.0
+qwen3:8b,hierarchy,C00,do_best,10,0,1,9,2.787,0.849,-0.297
+qwen3:8b,hierarchy,C00,near_miss,5,1,0,6,2.257,0.961,0.337
+qwen3:8b,hierarchy,C00,target,5,1,1,5,1.583,0.812,-0.0

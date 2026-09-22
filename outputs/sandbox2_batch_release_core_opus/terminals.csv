@@ -1,0 +1,3 @@
+model,tool_transport,family,rule_distance,solvability,n_runs,measured,cap,terminals,unmeasured_reasons,ended_without_done,mean_steps,mean_run_check
+claude-opus-5,native,sandbox_batch_release,adjacent,solvable,5,5,[16],{'done': 5},{},0,12.0,1.0
+claude-opus-5,native,sandbox_batch_release,adjacent,stuck,5,5,[16],{'done': 5},{},0,12.0,1.0

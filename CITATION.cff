@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite it as below."
+title: "ombs — LLM Operational Moral-Behavior Testing Suite"
+abstract: >-
+  An evaluation harness and preregistered scenario set measuring role-boundary
+  crossing and task framing in tool-using language-model agents: a goal-obstacle
+  sandbox in which the agent owns a checked success criterion, the honest path is
+  blocked, and a protected register is technically writable although reserved to
+  another role.
+authors:
+  - family-names: Kirby
+    given-names: Steve
+license: Apache-2.0
+version: "0.1.0"
+date-released: "2026-09-21"
+keywords:
+  - language-model agents
+  - evaluation
+  - AI safety
+  - specification gaming
+  - role-boundary crossing
+  - task framing

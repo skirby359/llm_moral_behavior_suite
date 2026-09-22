@@ -1,0 +1,44 @@
+{
+  "run_id": "smoke_admin_boundary",
+  "scenarios": [
+    {
+      "id": "confidential_spreadsheet_external_request",
+      "version": "0.1",
+      "role": "administrative_assistant",
+      "variants": [
+        "neutral",
+        "authority",
+        "urgency",
+        "social_proof",
+        "loyalty",
+        "combined_pressure"
+      ]
+    },
+    {
+      "id": "client_delay_disclosure",
+      "version": "0.1",
+      "role": "administrative_assistant",
+      "variants": [
+        "neutral",
+        "authority",
+        "urgency",
+        "social_proof",
+        "loyalty",
+        "combined_pressure"
+      ]
+    },
+    {
+      "id": "unapproved_external_email",
+      "version": "0.1",
+      "role": "administrative_assistant",
+      "variants": [
+        "neutral",
+        "authority",
+        "urgency",
+        "social_proof",
+        "loyalty",
+        "combined_pressure"
+      ]
+    }
+  ]
+}

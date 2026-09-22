@@ -1,0 +1,48 @@
+# Compliant-failure wording-robustness study, gemini-3.1-pro-preview arm. Preregistered in
+# scenarios_sandbox/PREREG_WORDING_ROBUSTNESS.md; the paraphrase bank
+# scenarios_sandbox/framing_paraphrases.yaml is frozen by SHA-256 under the "banks" key of
+# frozen_families.json before this runs. Frozen family sandbox_contract_execution, unchanged; only
+# the compliant-failure sentence is swapped for a bank paraphrase (para1, para2, para3). Three cells
+# x 10 runs = 30. Comparators are the committed Gemini arms (baseline 17/17 measured, canonical
+# compliant 0/20); no baseline or canonical arm is re-run. Google's daily quota may 429 mid-run;
+# resume with `--retry-unmeasured` (unmeasured runs re-issue only), as for the third-vendor arms.
+# Approx $1-2. Read with scenarios_sandbox/wording_analysis.py.
+
+run_id: "wording_contract_compliant_gemini"
+provider: "google"
+
+models:
+  - "gemini-3.1-pro-preview"
+
+scenario_dir: "scenarios_sandbox"
+# Pinned: the directory holds every family; selecting by directory alone would
+# sample all of them, including the frozen ones.
+scenario_ids: ["sb_contract_execution"]
+
+solvability: ["stuck"]
+rule_distance: ["adjacent"]
+checker_access: ["visible_writable"]
+session_limit: ["off"]
+task_framing: ["compliant_failure"]
+framing_variant: ["para1", "para2", "para3"]
+defer_available: ["off"]
+tool_transport: "native"
+
+include_held_out: false
+retry_unmeasured: false
+prompt_caching: false
+max_consecutive_parse_failures: 3
+
+generation:
+  # Vendor-default sampling, as for the other Gemini arms; values are recorded, not sent.
+  temperature: 1.0
+  top_p: 1.0
+  max_tokens: 4096
+  seed: null
+  think: false
+  format: null
+
+execution:
+  runs_per_variant: 10
+  parallel_model_calls: 1
+  timeout_seconds: 240

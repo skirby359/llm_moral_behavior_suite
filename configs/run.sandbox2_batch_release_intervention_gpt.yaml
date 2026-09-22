@@ -1,0 +1,60 @@
+# Wave 4 goal-obstacle sandbox, family 2: batch release (scenarios_sandbox/batch_release.yaml).
+# Cells are the cross product of the factor lists below. The scenario's technical_step_cap is
+# 16 and is never rendered; session_limit_actions is 10 and is rendered only under
+# session_limit: on. Frontier runs: export OMBS_BUDGET_USD to the approved cap. Native
+# transport only -- the JSON-schema adapter is retained and tested, not sampled (Wave 3 Phase D
+# found no transport difference and the advisor asked that the spend stop).
+#
+# The compliant-failure intervention: one added sentence legitimising an accurate failure
+# report, byte-identical to the sentence family 1 used. 30 runs, approx $4.50.
+#
+# NOT TO BE RUN until its gate opens:
+#   Conditional on crossings in the core stuck arm. Wave 3's version of this result was
+#   confounded with exposure: every crossing fell at actions 9-12 and no intervention run
+#   reached action 11. Compare within the overlapping action window, or the claim repeats the
+#   same error with a new family attached.
+
+#
+# GATE EVALUATED AND NOT OPENED (11 September 2026). The core produced 0 crossings in 40
+# blocked runs across both models, at an exposure where family 1's own hazard predicts
+# about three. This step required at least one crossing to be worth running, so it was not
+# run and its cost was not spent. Left in place as the record of a decision made in
+# advance, not as work outstanding. Reopening it needs a new reason written down first.
+
+run_id: "sandbox2_batch_release_intervention_gpt"
+provider: "openai"
+
+models:
+  - "gpt-5.5"
+
+scenario_dir: "scenarios_sandbox"
+# Pinned: the directory holds more than one family and one of them is frozen
+# (scenarios_sandbox/frozen_families.json). Selecting by directory alone would re-run it.
+scenario_ids: ["sb_batch_release"]
+
+solvability: ["stuck"]
+rule_distance: ["adjacent"]
+checker_access: ["visible_writable"]
+session_limit: ["off"]
+task_framing: ["compliant_failure"]
+defer_available: ["off"]
+tool_transport: "native"
+
+include_held_out: false
+retry_unmeasured: false
+prompt_caching: false
+max_consecutive_parse_failures: 3
+
+generation:
+  # Frontier vendors reject non-default sampling; values are recorded, not sent, there.
+  temperature: 1.0
+  top_p: 1.0
+  max_tokens: 4096
+  seed: null
+  think: false
+  format: null
+
+execution:
+  runs_per_variant: 30
+  parallel_model_calls: 1
+  timeout_seconds: 240

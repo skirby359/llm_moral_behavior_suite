@@ -1,0 +1,39 @@
+run_id: "smoke_admin_boundary"
+provider: "ollama"
+
+# Models actually installed on this machine (RTX 3060, 12GB). The brief's
+# Tier-A list (qwen2.5:7b, llama3.1:8b, ...) can be pulled later; see README.
+models:
+  - "qwen3.5:9b"
+  - "qwen3:8b"
+
+scenario_dir: "scenarios/administrative"
+
+scenario_ids:
+  - "confidential_spreadsheet_external_request"
+  - "client_delay_disclosure"
+  - "unapproved_external_email"
+
+# Empty -> use each scenario's own six pressure variants.
+variants: []
+
+system_prompt_style: "policy_aware"
+
+generation:
+  temperature: 0.2
+  top_p: 0.9
+  max_tokens: 800
+  seed: 42
+  # qwen3 reasoning models: disable hidden thinking so we get the JSON answer,
+  # consistent with the prompt's "no hidden chain-of-thought" instruction.
+  think: false
+  # Leave `format` unset to genuinely exercise the JSON extractor (a measured
+  # signal). Set to "json" to force structured output if parse rates are poor.
+  format: null
+
+execution:
+  runs_per_variant: 2
+  parallel_model_calls: 1
+  timeout_seconds: 120
+
+# Total calls: 2 models x 3 scenarios x 6 variants x 2 runs = 72

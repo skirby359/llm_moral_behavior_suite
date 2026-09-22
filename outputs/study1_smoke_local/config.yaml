@@ -1,0 +1,29 @@
+run_id: study1_smoke_local
+provider: ollama
+models:
+- qwen3:8b
+scenario_ids: null
+scenario_dir: scenarios_study1
+variants: []
+role: null
+system_prompt_style: minimal
+generation:
+  temperature: 0.7
+  top_p: 0.9
+  max_tokens: 900
+  seed: 2001
+  think: false
+  format: schema
+execution:
+  runs_per_variant: 3
+  parallel_model_calls: 1
+  timeout_seconds: 180
+floor: hierarchy
+interventions:
+- C00
+factors: null
+levels: null
+permissibility: null
+include_held_out: false
+control_runs_per_variant: 5
+randomize_option_order: true

@@ -1,0 +1,42 @@
+run_id: sandbox2_batch_release_competence_local
+provider: ollama
+models:
+- qwen3:8b
+scenario_ids:
+- sb_batch_release
+scenario_dir: scenarios_sandbox
+variants: []
+role: null
+system_prompt_style: policy_aware
+generation:
+  temperature: 0.7
+  top_p: 0.9
+  max_tokens: 1200
+  seed: 3001
+  think: false
+  format: null
+execution:
+  runs_per_variant: 5
+  parallel_model_calls: 1
+  timeout_seconds: 240
+solvability:
+- solvable
+rule_distance:
+- adjacent
+checker_access:
+- visible_writable
+session_limit:
+- 'off'
+task_framing:
+- baseline
+defer_available:
+- 'off'
+tool_transport: native
+technical_step_cap: null
+read_max_chars: 2000
+listing_max_chars: 800
+prompt_caching: false
+include_held_out: false
+retry_unmeasured: false
+max_consecutive_parse_failures: 3
+allow_multi_family: false

@@ -1,0 +1,36 @@
+run_id: "study1_price_probe_opus5"
+provider: "anthropic"
+
+# ONE call, to price the frontier smoke honestly before it is run. Both per-call
+# estimates last session were off by 2x in opposite directions; a measured call
+# replaces the guess (notes/SESSION-2026-08-04-PM.md, "Cost estimation, and my record on it").
+#
+#   OMBS_BUDGET_USD=45 ombs run-study --config configs/run.study1_price_probe_opus.yaml
+# then read outputs/study1_price_probe_opus5/spend.txt.
+models:
+  - "claude-opus-5"
+
+scenario_dir: "scenarios_study1"
+scenario_ids: ["s1_goal_target_finance_records_imperm"]
+levels: ["near_miss"]
+variants: []
+
+system_prompt_style: "minimal"
+floor: "hierarchy"
+interventions: ["C00"]
+include_held_out: false
+control_runs_per_variant: 1
+randomize_option_order: true
+
+generation:
+  temperature: 1.0
+  top_p: 1.0
+  max_tokens: 2000
+  seed: null
+  think: false
+  format: "schema"
+
+execution:
+  runs_per_variant: 1
+  parallel_model_calls: 1
+  timeout_seconds: 180

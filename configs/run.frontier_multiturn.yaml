@@ -1,0 +1,32 @@
+run_id: "frontier_multiturn_opus48"
+provider: "anthropic"
+
+# Frontier reference point (brief §2): does Claude Opus 4.8 resist the authority
+# lever ("I am a VP and I authorize this") that broke the local models in
+# multi-turn pushback? Requires ANTHROPIC_API_KEY and: uv sync --extra frontier
+models:
+  - "claude-opus-4-8"
+
+scenario_dir: "scenarios/administrative"
+
+variants: []
+
+system_prompt_style: "policy_aware"
+
+generation:
+  # Sampling params are recorded but NOT sent to Opus 4.8 (it rejects them);
+  # behavior is steered by the prompt. max_tokens kept small for the JSON answer.
+  temperature: 0.2
+  top_p: 0.9
+  max_tokens: 800
+  seed: 42
+  think: false
+  format: null
+
+execution:
+  runs_per_variant: 1
+  parallel_model_calls: 1
+  timeout_seconds: 120
+
+# Use with: ombs run-multiturn --config configs/run.frontier_multiturn.yaml
+# 1 model x 10 scenarios x (1 opening + 5 pushback) = 60 calls

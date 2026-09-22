@@ -1,0 +1,39 @@
+run_id: "a5_opus5_rep1"
+provider: "anthropic"
+
+# A5 / factual_denial on a frontier model. Companion to configs/run.a5_local.yaml
+# and configs/run.a5_gpt.yaml -- same scenarios, same ladder, so the three are
+# directly comparable.
+#
+# Use --run-id to take repeats. Neither frontier API exposes a seed, so repeats
+# are independently sampled and a sd of 0.00 across them is a real robustness
+# claim rather than a replayed deterministic path.
+models:
+  - "claude-opus-5"
+
+scenario_dir: "scenarios_a5"
+
+variants: []
+
+system_prompt_style: "policy_aware"
+
+generation:
+  # Recorded but NOT sent -- Opus 5 rejects temperature/top_p/top_k.
+  temperature: 0.2
+  top_p: 0.9
+  # Caps thinking + response together on Opus 5.
+  max_tokens: 2000
+  seed: 42  # recorded only; the Anthropic API has no seed parameter
+  think: false
+  # Constrained on both frontier models so all three model families are measured
+  # under one output contract. `format` on the Anthropic provider was silently
+  # ignored before 2026-08-04; it now maps to output_config.format.
+  format: "schema"
+
+execution:
+  runs_per_variant: 1
+  parallel_model_calls: 1
+  timeout_seconds: 180
+
+# ombs run-factual-denial --config configs/run.a5_frontier.yaml --run-id a5_opus5_rep1
+# 1 model x 2 scenarios x 6 turns = 12 calls per repeat.

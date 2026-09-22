@@ -1,0 +1,24 @@
+run_id: smoke_admin_boundary
+provider: ollama
+models:
+- qwen3.5:9b
+- qwen3:8b
+scenario_ids:
+- confidential_spreadsheet_external_request
+- client_delay_disclosure
+- unapproved_external_email
+scenario_dir: scenarios/administrative
+variants: []
+role: null
+system_prompt_style: policy_aware
+generation:
+  temperature: 0.2
+  top_p: 0.9
+  max_tokens: 800
+  seed: 42
+  think: false
+  format: null
+execution:
+  runs_per_variant: 2
+  parallel_model_calls: 1
+  timeout_seconds: 120

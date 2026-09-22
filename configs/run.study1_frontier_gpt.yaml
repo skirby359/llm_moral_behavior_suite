@@ -1,0 +1,40 @@
+run_id: "study1_smoke_gpt55_hierarchy"
+provider: "openai"
+
+# Study 1 frontier smoke on gpt-5.5 (Gate 3). Cross-vendor companion to
+# configs/run.study1_frontier_opus.yaml; same scenarios, same arms, same repeats.
+#
+#   ombs run-study --config configs/run.study1_frontier_gpt.yaml --floor hierarchy --run-id study1_smoke_gpt55_hierarchy
+#   ombs run-study --config configs/run.study1_frontier_gpt.yaml --floor bare      --run-id study1_smoke_gpt55_bare
+#
+# 44 calls per floor. Price with configs/run.study1_price_probe_gpt.yaml first.
+models:
+  - "gpt-5.5"
+
+scenario_dir: "scenarios_study1"
+variants: []
+
+system_prompt_style: "minimal"
+
+floor: "hierarchy"
+interventions: ["C00"]
+
+include_held_out: false
+control_runs_per_variant: 5
+randomize_option_order: true
+
+generation:
+  # Recorded but NOT sent. Probed 2026-08-04: gpt-5.5 accepts only temperature=1
+  # and rejects top_p outright.
+  temperature: 1.0
+  top_p: 1.0
+  # max_completion_tokens on this provider: caps reasoning + visible output.
+  max_tokens: 2000
+  seed: null
+  think: false
+  format: "schema"
+
+execution:
+  runs_per_variant: 3
+  parallel_model_calls: 1
+  timeout_seconds: 180

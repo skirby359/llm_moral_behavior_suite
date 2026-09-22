@@ -1,0 +1,41 @@
+[project]
+name = "ombs"
+version = "0.1.0"
+description = "LLM Operational Moral-Behavior Testing Suite — local-first evaluation harness"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.6",
+    "pyyaml>=6.0",
+    "typer>=0.12",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+dev = [
+    "matplotlib>=3.11.2",
+    "pytest>=8.0",
+    "ruff>=0.5",
+]
+frontier = [
+    "anthropic>=0.69",
+    "openai>=1.40",
+]
+
+[project.scripts]
+ombs = "ombs.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ombs"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]

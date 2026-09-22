@@ -1,0 +1,1004 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "k": 8,
+  "conditions": {
+    "parallel_default": {
+      "runs": [
+        {
+          "call": 0,
+          "raw": "{\"findings\":[{\"issue\":\"Arithmetic error: a three-day trip at $45/day equals $135, not $145\",\"location\":\"2.2\"},{\"issue\":\"Direct contradiction: 3.2 requires Finance approval for expenses of $500 or more, while 3.3 says expenses over $500 require manager approval only\",\"location\":\"3.2 / 3.3\"},{\"issue\":\"Logical gap/overlap at the $500 boundary: 3.1 covers under $500, 3.2 covers $500 and above, and 3.3 covers over $500, leaving conflicting rules rather than one exclusive rule; also unclear whether Finance approval is in addition to or instead of manager approval\",\"location\":\"3.1\u20133.3\"},{\"issue\":\"Circular definition: 'Qualifying Receipt' is defined as 'a receipt that qualifies under this policy', providing no substantive criteria\",\"location\":\"5.1\"},{\"issue\":\"Broken cross-reference: 'Covered Employee' points to Section 7, but the document ends at Section 6; no Section 7 exists, so the term is effectively undefined\",\"location\":\"5.2 (and 1.1)\"},{\"issue\":\"Self-nullifying effective date: the policy is effective March 1, 2026 and supersedes rev 2, yet 4.3 states reports submitted after February 28, 2026 remain governed by rev 2, meaning rev 3 would never apply to any report\",\"location\":\"4.3 vs. header/Effective date\"},{\"issue\":\"Missing referenced attachment: Appendix B (governing international travel) is not included in or attached to the document, and no Appendix A is referenced or provided\",\"location\":\"6.1\"},{\"issue\":\"Undefined term 'reviewer' \u2014 the role is never defined and its relationship to manager/Finance approvers is unspecified\",\"location\":\"4.2\"},{\"issue\":\"Unbounded discretion conflicts with the mandatory 30-day deadline: 4.1 states reports 'must' be submitted within 30 days while 4.2 permits acceptance of late reports with no criteria or limit\",\"location\":\"4.1 / 4.2\"},{\"issue\":\"Undefined trigger term 'trip completion' \u2014 no definition of when a trip is deemed complete for computing the 30-day window\",\"location\":\"4.1\"},{\"issue\":\"Gap in limits: no aggregate or per-trip cap for lodging and no rule for partial travel days or whether unused daily meal allowance can be carried across days\",\"location\":\"2.1\u20132.3\"},{\"issue\":\"1.2 requires a Qualifying Receipt for all reimbursement but sets no de minimis threshold or procedure for lost receipts, leaving small/receiptless expenses unaddressed\",\"location\":\"1.2\"},{\"issue\":\"Definitions appear in Section 5 after the defined terms are used in Sections 1\u20132, and no definition is given for other operative terms such as 'Finance' or 'manager'\",\"location\":\"5\"}]}",
+          "findings": [
+            "Arithmetic error: a three-day trip at $45/day equals $135, not $145 2.2",
+            "Direct contradiction: 3.2 requires Finance approval for expenses of $500 or more, while 3.3 says expenses over $500 require manager approval only 3.2 / 3.3",
+            "Logical gap/overlap at the $500 boundary: 3.1 covers under $500, 3.2 covers $500 and above, and 3.3 covers over $500, leaving conflicting rules rather than one exclusive rule; also unclear whether Finance approval is in addition to or instead of manager approval 3.1\u20133.3",
+            "Circular definition: 'Qualifying Receipt' is defined as 'a receipt that qualifies under this policy', providing no substantive criteria 5.1",
+            "Broken cross-reference: 'Covered Employee' points to Section 7, but the document ends at Section 6; no Section 7 exists, so the term is effectively undefined 5.2 (and 1.1)",
+            "Self-nullifying effective date: the policy is effective March 1, 2026 and supersedes rev 2, yet 4.3 states reports submitted after February 28, 2026 remain governed by rev 2, meaning rev 3 would never apply to any report 4.3 vs. header/Effective date",
+            "Missing referenced attachment: Appendix B (governing international travel) is not included in or attached to the document, and no Appendix A is referenced or provided 6.1",
+            "Undefined term 'reviewer' \u2014 the role is never defined and its relationship to manager/Finance approvers is unspecified 4.2",
+            "Unbounded discretion conflicts with the mandatory 30-day deadline: 4.1 states reports 'must' be submitted within 30 days while 4.2 permits acceptance of late reports with no criteria or limit 4.1 / 4.2",
+            "Undefined trigger term 'trip completion' \u2014 no definition of when a trip is deemed complete for computing the 30-day window 4.1",
+            "Gap in limits: no aggregate or per-trip cap for lodging and no rule for partial travel days or whether unused daily meal allowance can be carried across days 2.1\u20132.3",
+            "1.2 requires a Qualifying Receipt for all reimbursement but sets no de minimis threshold or procedure for lost receipts, leaving small/receiptless expenses unaddressed 1.2",
+            "Definitions appear in Section 5 after the defined terms are used in Sections 1\u20132, and no definition is given for other operative terms such as 'Finance' or 'manager' 5"
+          ],
+          "matched": [
+            "D1_meal_arithmetic",
+            "D2_approval_contradiction",
+            "D3_circular_definition",
+            "D4_dead_crossref",
+            "D5_undefined_reviewer",
+            "D6_supersession_clash",
+            "D7_missing_appendix"
+          ],
+          "unmatched": [
+            "Unbounded discretion conflicts with the mandatory 30-day deadline: 4.1 states reports 'must' be submitted within 30 days while 4.2 permits acceptance of late reports with no criteria or limit 4.1 / 4.2",
+            "Undefined trigger term 'trip completion' \u2014 no definition of when a trip is deemed complete for computing the 30-day window 4.1",
+            "Gap in limits: no aggregate or per-trip cap for lodging and no rule for partial travel days or whether unused daily meal allowance can be carried across days 2.1\u20132.3",
+            "1.2 requires a Qualifying Receipt for all reimbursement but sets no de minimis threshold or procedure for lost receipts, leaving small/receiptless expenses unaddressed 1.2",
+            "Definitions appear in Section 5 after the defined terms are used in Sections 1\u20132, and no definition is given for other operative terms such as 'Finance' or 'manager' 5"
+          ],
+          "seconds": 19.9,
+          "usage": {
+            "input_tokens": 865,
+            "output_tokens": 1472,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 1,
+          "raw": "{\"findings\":[{\"issue\":\"Arithmetic error: at $45/day, a three-day trip caps at $135, not $145\",\"location\":\"2.2\"},{\"issue\":\"Direct contradiction with 3.2: expenses over $500 are said to require Finance approval in 3.2 but 'manager approval only' in 3.3\",\"location\":\"3.3\"},{\"issue\":\"Overlapping/inconsistent thresholds: 3.2 covers '$500 or more' while 3.3 covers 'over $500', leaving the treatment of an exactly-$500 expense and of >$500 expenses indeterminate\",\"location\":\"3.2 / 3.3\"},{\"issue\":\"Broken cross-reference: Section 7 does not exist; the document ends at Section 6, so 'Covered Employee' is never defined\",\"location\":\"5.2\"},{\"issue\":\"Undefined term relied on in scope: 'Covered Employees' has no usable definition because its only definition points to a nonexistent section\",\"location\":\"1.1\"},{\"issue\":\"Circular definition: 'Qualifying Receipt' means 'a receipt that qualifies under this policy' \u2014 provides no independent criteria\",\"location\":\"5.1\"},{\"issue\":\"Reimbursement is conditioned on an undefined/circularly defined term ('Qualifying Receipt')\",\"location\":\"1.2\"},{\"issue\":\"Contradicts the effective date and supersession clause: rev 3 is effective March 1, 2026 and supersedes rev 2, yet reports submitted after February 28, 2026 are said to remain governed by rev 2, which would make rev 3 inoperative\",\"location\":\"4.3\"},{\"issue\":\"Logical gap: 4.3 governs by submission date while 4.1 keys deadlines to trip completion date, leaving no rule for trips completed before March 1 but submitted after, and no rule for reports submitted on or before February 28\",\"location\":\"4.1 / 4.3\"},{\"issue\":\"Undefined actor and no standards: 'the reviewer' is never defined, and no criteria or limits govern the discretion to accept late reports\",\"location\":\"4.2\"},{\"issue\":\"Undefined authority: 'Finance approval' \u2014 no body, role, or approval process is identified\",\"location\":\"3.2\"},{\"issue\":\"Referenced Appendix B is not attached, defined, or otherwise included in the document (and no Appendix A exists)\",\"location\":\"6.1\"},{\"issue\":\"No stated interaction between the Section 6 exception and the Section 2 caps \u2014 unclear whether meal/lodging caps apply to international travel\",\"location\":\"6.1 / 2\"},{\"issue\":\"No receipt threshold or de minimis rule: 1.2 requires a receipt for all reimbursements with no exception, which conflicts with practical caps stated elsewhere and is never reconciled\",\"location\":\"1.2\"},{\"issue\":\"Header states rev 3 supersedes rev 2, but no transition rule reconciles this with 4.3's carve-out, leaving supersession scope ambiguous\",\"location\":\"Preamble\"}]}",
+          "findings": [
+            "Arithmetic error: at $45/day, a three-day trip caps at $135, not $145 2.2",
+            "Direct contradiction with 3.2: expenses over $500 are said to require Finance approval in 3.2 but 'manager approval only' in 3.3 3.3",
+            "Overlapping/inconsistent thresholds: 3.2 covers '$500 or more' while 3.3 covers 'over $500', leaving the treatment of an exactly-$500 expense and of >$500 expenses indeterminate 3.2 / 3.3",
+            "Broken cross-reference: Section 7 does not exist; the document ends at Section 6, so 'Covered Employee' is never defined 5.2",
+            "Undefined term relied on in scope: 'Covered Employees' has no usable definition because its only definition points to a nonexistent section 1.1",
+            "Circular definition: 'Qualifying Receipt' means 'a receipt that qualifies under this policy' \u2014 provides no independent criteria 5.1",
+            "Reimbursement is conditioned on an undefined/circularly defined term ('Qualifying Receipt') 1.2",
+            "Contradicts the effective date and supersession clause: rev 3 is effective March 1, 2026 and supersedes rev 2, yet reports submitted after February 28, 2026 are said to remain governed by rev 2, which would make rev 3 inoperative 4.3",
+            "Logical gap: 4.3 governs by submission date while 4.1 keys deadlines to trip completion date, leaving no rule for trips completed before March 1 but submitted after, and no rule for reports submitted on or before February 28 4.1 / 4.3",
+            "Undefined actor and no standards: 'the reviewer' is never defined, and no criteria or limits govern the discretion to accept late reports 4.2",
+            "Undefined authority: 'Finance approval' \u2014 no body, role, or approval process is identified 3.2",
+            "Referenced Appendix B is not attached, defined, or otherwise included in the document (and no Appendix A exists) 6.1",
+            "No stated interaction between the Section 6 exception and the Section 2 caps \u2014 unclear whether meal/lodging caps apply to international travel 6.1 / 2",
+            "No receipt threshold or de minimis rule: 1.2 requires a receipt for all reimbursements with no exception, which conflicts with practical caps stated elsewhere and is never reconciled 1.2",
+            "Header states rev 3 supersedes rev 2, but no transition rule reconciles this with 4.3's carve-out, leaving supersession scope ambiguous Preamble"
+          ],
+          "matched": [
+            "D1_meal_arithmetic",
+            "D2_approval_contradiction",
+            "D3_circular_definition",
+            "D4_dead_crossref",
+            "D5_undefined_reviewer",
+            "D6_supersession_clash",
+            "D7_missing_appendix",
+            "D8_no_cap_exception"
+          ],
+          "unmatched": [
+            "Logical gap: 4.3 governs by submission date while 4.1 keys deadlines to trip completion date, leaving no rule for trips completed before March 1 but submitted after, and no rule for reports submitted on or before February 28 4.1 / 4.3",
+            "Undefined authority: 'Finance approval' \u2014 no body, role, or approval process is identified 3.2",
+            "No receipt threshold or de minimis rule: 1.2 requires a receipt for all reimbursements with no exception, which conflicts with practical caps stated elsewhere and is never reconciled 1.2",
+            "Header states rev 3 supersedes rev 2, but no transition rule reconciles this with 4.3's carve-out, leaving supersession scope ambiguous Preamble"
+          ],
+          "seconds": 30.6,
+          "usage": {
+            "input_tokens": 865,
+            "output_tokens": 1597,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 2,
+          "raw": "{\"findings\":[{\"issue\":\"Arithmetic error: at $45/day, a three-day trip caps at $135, not $145\",\"location\":\"2.2\"},{\"issue\":\"Internal contradiction: 3.2 requires Finance approval for expenses of $500 or more, while 3.3 says expenses over $500 require manager approval only\",\"location\":\"3.2 / 3.3\"},{\"issue\":\"Overlap/ambiguity in approval thresholds: an expense of exactly $500 falls under 3.2, but 3.1 and 3.3 leave the boundary treatment inconsistent (no rule states whether Finance approval is in addition to or instead of manager approval)\",\"location\":\"3.1\u20133.3\"},{\"issue\":\"Effective-date contradiction: the policy is effective March 1, 2026 and supersedes rev 2, yet 4.3 states reports submitted after February 28, 2026 remain governed by rev 2, meaning rev 3 could never apply to any report\",\"location\":\"4.3 / header\"},{\"issue\":\"Coverage gap: no rule governs reports submitted on or before February 28, 2026 under rev 3, and none governs which revision applies to trips completed before March 1 but submitted later\",\"location\":\"4.3\"},{\"issue\":\"Circular definition: 'Qualifying Receipt' is defined as 'a receipt that qualifies under this policy', providing no substantive criteria\",\"location\":\"5.1\"},{\"issue\":\"Broken cross-reference: 'Covered Employee' points to Section 7, which does not exist in the document\",\"location\":\"5.2\"},{\"issue\":\"Undefined term: 'Covered Employees' is used to set the policy's scope but is never actually defined (its definition is an unresolvable pointer)\",\"location\":\"1.1 / 5.2\"},{\"issue\":\"Missing referenced document: Appendix B is invoked for international travel but is not attached, defined, or otherwise described\",\"location\":\"6.1\"},{\"issue\":\"Undefined role: 'reviewer' appears only here; the policy elsewhere names only 'manager' and 'Finance', so the discretionary authority is unidentified\",\"location\":\"4.2\"},{\"issue\":\"Logical gap: 4.2 permits unlimited discretionary acceptance of late reports with no criteria or limits, rendering the 30-day deadline in 4.1 unenforceable\",\"location\":\"4.1 / 4.2\"},{\"issue\":\"Undefined term: 'trip completion', the trigger for the 30-day submission clock, is never defined\",\"location\":\"4.1\"},{\"issue\":\"Logical gap: Section 2 sets caps but no provision states the consequence of exceeding a cap (denial, partial reimbursement, or exception process)\",\"location\":\"2.1\u20132.3\"},{\"issue\":\"Unclear scope of exception: 6.1 does not state whether the Section 2 limits and Section 3 approval rules are displaced by Appendix B or apply concurrently\",\"location\":\"6.1\"},{\"issue\":\"Missing definitions/specificity: no currency is specified for the dollar caps, and no rule states whether the meal cap is per calendar day or per 24-hour travel period\",\"location\":\"2.1\u20132.3\"},{\"issue\":\"Unstated receipt threshold: 1.2 requires a Qualifying Receipt for all reimbursement with no de minimis exception, which conflicts with the practical approval tiers and is never reconciled\",\"location\":\"1.2\"}]}",
+          "findings": [
+            "Arithmetic error: at $45/day, a three-day trip caps at $135, not $145 2.2",
+            "Internal contradiction: 3.2 requires Finance approval for expenses of $500 or more, while 3.3 says expenses over $500 require manager approval only 3.2 / 3.3",
+            "Overlap/ambiguity in approval thresholds: an expense of exactly $500 falls under 3.2, but 3.1 and 3.3 leave the boundary treatment inconsistent (no rule states whether Finance approval is in addition to or instead of manager approval) 3.1\u20133.3",
+            "Effective-date contradiction: the policy is effective March 1, 2026 and supersedes rev 2, yet 4.3 states reports submitted after February 28, 2026 remain governed by rev 2, meaning rev 3 could never apply to any report 4.3 / header",
+            "Coverage gap: no rule governs reports submitted on or before February 28, 2026 under rev 3, and none governs which revision applies to trips completed before March 1 but submitted later 4.3",
+            "Circular definition: 'Qualifying Receipt' is defined as 'a receipt that qualifies under this policy', providing no substantive criteria 5.1",
+            "Broken cross-reference: 'Covered Employee' points to Section 7, which does not exist in the document 5.2",
+            "Undefined term: 'Covered Employees' is used to set the policy's scope but is never actually defined (its definition is an unresolvable pointer) 1.1 / 5.2",
+            "Missing referenced document: Appendix B is invoked for international travel but is not attached, defined, or otherwise described 6.1",
+            "Undefined role: 'reviewer' appears only here; the policy elsewhere names only 'manager' and 'Finance', so the discretionary authority is unidentified 4.2",
+            "Logical gap: 4.2 permits unlimited discretionary acceptance of late reports with no criteria or limits, rendering the 30-day deadline in 4.1 unenforceable 4.1 / 4.2",
+            "Undefined term: 'trip completion', the trigger for the 30-day submission clock, is never defined 4.1",
+            "Logical gap: Section 2 sets caps but no provision states the consequence of exceeding a cap (denial, partial reimbursement, or exception process) 2.1\u20132.3",
+            "Unclear scope of exception: 6.1 does not state whether the Section 2 limits and Section 3 approval rules are displaced by Appendix B or apply concurrently 6.1",
+            "Missing definitions/specificity: no currency is specified for the dollar caps, and no rule states whether the meal cap is per calendar day or per 24-hour travel period 2.1\u20132.3",
+            "Unstated receipt threshold: 1.2 requires a Qualifying Receipt for all reimbursement with no de minimis exception, which conflicts with the practical approval tiers and is never reconciled 1.2"
+          ],
+          "matched": [
+            "D1_meal_arithmetic",
+            "D2_approval_contradiction",
+            "D3_circular_definition",
+            "D4_dead_crossref",
+            "D5_undefined_reviewer",
+            "D6_supersession_clash",
+            "D7_missing_appendix",
+            "D8_no_cap_exception"
+          ],
+          "unmatched": [
+            "Coverage gap: no rule governs reports submitted on or before February 28, 2026 under rev 3, and none governs which revision applies to trips completed before March 1 but submitted later 4.3",
+            "Logical gap: 4.2 permits unlimited discretionary acceptance of late reports with no criteria or limits, rendering the 30-day deadline in 4.1 unenforceable 4.1 / 4.2",
+            "Undefined term: 'trip completion', the trigger for the 30-day submission clock, is never defined 4.1",
+            "Missing definitions/specificity: no currency is specified for the dollar caps, and no rule states whether the meal cap is per calendar day or per 24-hour travel period 2.1\u20132.3",
+            "Unstated receipt threshold: 1.2 requires a Qualifying Receipt for all reimbursement with no de minimis exception, which conflicts with the practical approval tiers and is never reconciled 1.2"
+          ],
+          "seconds": 22.4,
+          "usage": {
+            "input_tokens": 865,
+            "output_tokens": 1762,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 3,
+          "raw": "{\"findings\":[{\"issue\":\"Arithmetic error: at $45/day, a three-day trip cap should be $135, not $145.\",\"location\":\"2.2\"},{\"issue\":\"Circular definition: 'Qualifying Receipt' is defined as 'a receipt that qualifies under this policy', providing no substantive criteria.\",\"location\":\"5.1\"},{\"issue\":\"Broken cross-reference: 'Covered Employee' points to Section 7, but the document ends at Section 6; the term is therefore undefined.\",\"location\":\"5.2\"},{\"issue\":\"Undefined term relied upon: Section 1.1 limits the policy's applicability to 'Covered Employees', a term never actually defined (see broken pointer in 5.2).\",\"location\":\"1.1\"},{\"issue\":\"Direct contradiction: 3.2 requires Finance approval for expenses of $500 or more, while 3.3 says expenses over $500 require manager approval only.\",\"location\":\"3.2 / 3.3\"},{\"issue\":\"Overlapping/ambiguous thresholds: expenses of exactly $500 fall under 3.2 ('$500 or more') but not 3.1 ('under $500') or 3.3 ('over $500'), and the approval path for amounts above $500 is doubly specified.\",\"location\":\"3.1\u20133.3\"},{\"issue\":\"Logical gap: no rule states whether manager approval is also needed in addition to Finance approval for large expenses, or whether Finance approval substitutes for it.\",\"location\":\"3\"},{\"issue\":\"Self-nullifying provision: rev 3 is effective March 1, 2026, yet 4.3 says all reports submitted after February 28, 2026 remain governed by rev 2, meaning rev 3's submission rules can never apply and the 'Supersedes rev 2' statement is contradicted.\",\"location\":\"4.3 / header\"},{\"issue\":\"Contradiction between the 30-day mandatory deadline and the unbounded discretionary acceptance of late reports; no criteria or limits on that discretion.\",\"location\":\"4.1 / 4.2\"},{\"issue\":\"Undefined role: 'the reviewer' is never identified or defined anywhere in the policy (manager? Finance?).\",\"location\":\"4.2\"},{\"issue\":\"Undefined term: 'trip completion' is not defined, so the start of the 30-day clock is indeterminate.\",\"location\":\"4.1\"},{\"issue\":\"Reference to a non-existent attachment: Appendix B is cited but not included in or attached to the document (no Appendix A exists either).\",\"location\":\"6.1\"},{\"issue\":\"Logical gap: it is unclear whether the Section 2 meal/lodging caps and Section 3 approval rules still apply to international travel governed by Appendix B.\",\"location\":\"6.1 / 2 / 3\"},{\"issue\":\"Logical gap: no receipt threshold or exception is specified, so 1.2 literally bars reimbursement of any expense for which a receipt is unavailable, with no waiver process.\",\"location\":\"1.2\"},{\"issue\":\"Logical gap: lodging cap is stated per night but no maximum number of nights or total trip lodging cap is given, unlike the meal cap treatment in 2.2.\",\"location\":\"2.3\"}]}",
+          "findings": [
+            "Arithmetic error: at $45/day, a three-day trip cap should be $135, not $145. 2.2",
+            "Circular definition: 'Qualifying Receipt' is defined as 'a receipt that qualifies under this policy', providing no substantive criteria. 5.1",
+            "Broken cross-reference: 'Covered Employee' points to Section 7, but the document ends at Section 6; the term is therefore undefined. 5.2",
+            "Undefined term relied upon: Section 1.1 limits the policy's applicability to 'Covered Employees', a term never actually defined (see broken pointer in 5.2). 1.1",
+            "Direct contradiction: 3.2 requires Finance approval for expenses of $500 or more, while 3.3 says expenses over $500 require manager approval only. 3.2 / 3.3",
+            "Overlapping/ambiguous thresholds: expenses of exactly $500 fall under 3.2 ('$500 or more') but not 3.1 ('under $500') or 3.3 ('over $500'), and the approval path for amounts above $500 is doubly specified. 3.1\u20133.3",
+            "Logical gap: no rule states whether manager approval is also needed in addition to Finance approval for large expenses, or whether Finance approval substitutes for it. 3",
+            "Self-nullifying provision: rev 3 is effective March 1, 2026, yet 4.3 says all reports submitted after February 28, 2026 remain governed by rev 2, meaning rev 3's submission rules can never apply and the 'Supersedes rev 2' statement is contradicted. 4.3 / header",
+            "Contradiction between the 30-day mandatory deadline and the unbounded discretionary acceptance of late reports; no criteria or limits on that discretion. 4.1 / 4.2",
+            "Undefined role: 'the reviewer' is never identified or defined anywhere in the policy (manager? Finance?). 4.2",
+            "Undefined term: 'trip completion' is not defined, so the start of the 30-day clock is indeterminate. 4.1",
+            "Reference to a non-existent attachment: Appendix B is cited but not included in or attached to the document (no Appendix A exists either). 6.1",
+            "Logical gap: it is unclear whether the Section 2 meal/lodging caps and Section 3 approval rules still apply to international travel governed by Appendix B. 6.1 / 2 / 3",
+            "Logical gap: no receipt threshold or exception is specified, so 1.2 literally bars reimbursement of any expense for which a receipt is unavailable, with no waiver process. 1.2",
+            "Logical gap: lodging cap is stated per night but no maximum number of nights or total trip lodging cap is given, unlike the meal cap treatment in 2.2. 2.3"
+          ],
+          "matched": [
+            "D1_meal_arithmetic",
+            "D2_approval_contradiction",
+            "D3_circular_definition",
+            "D4_dead_crossref",
+            "D5_undefined_reviewer",
+            "D6_supersession_clash",
+            "D7_missing_appendix"
+          ],
+          "unmatched": [
+            "Logical gap: no rule states whether manager approval is also needed in addition to Finance approval for large expenses, or whether Finance approval substitutes for it. 3",
+            "Contradiction between the 30-day mandatory deadline and the unbounded discretionary acceptance of late reports; no criteria or limits on that discretion. 4.1 / 4.2",
+            "Undefined term: 'trip completion' is not defined, so the start of the 30-day clock is indeterminate. 4.1",
+            "Logical gap: no receipt threshold or exception is specified, so 1.2 literally bars reimbursement of any expense for which a receipt is unavailable, with no waiver process. 1.2",
+            "Logical gap: lodging cap is stated per night but no maximum number of nights or total trip lodging cap is given, unlike the meal cap treatment in 2.2. 2.3"
+          ],
+          "seconds": 24.2,
+          "usage": {
+            "input_tokens": 865,
+            "output_tokens": 1693,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 4,
+          "raw": "{\"findings\":[{\"issue\":\"Arithmetic error: three days at the $45 daily cap equals $135, not $145 as stated\",\"location\":\"2.2\"},{\"issue\":\"Circular definition: 'Qualifying Receipt' is defined as 'a receipt that qualifies under this policy', which provides no substantive criteria\",\"location\":\"5.1\"},{\"issue\":\"Broken cross-reference: 'Covered Employee' points to Section 7, but the document ends at Section 6, so the term is never defined\",\"location\":\"5.2\"},{\"issue\":\"Undefined term used in operative rule: 'Covered Employees' governs the entire scope but has no working definition (see 5.2 dead reference)\",\"location\":\"1.1\"},{\"issue\":\"Undefined term: 'Qualifying Receipt' is a precondition for reimbursement but the only definition is circular\",\"location\":\"1.2\"},{\"issue\":\"Direct contradiction: expenses of $500 or more require Finance approval, yet expenses over $500 require 'manager approval only'\",\"location\":\"3.2 vs 3.3\"},{\"issue\":\"Logical gap/inconsistency in approval tiers: exactly $500 is covered only by 3.2, while amounts over $500 are treated less restrictively than amounts under $500 (manager only vs manager plus implied escalation), which is internally illogical\",\"location\":\"3.1\u20133.3\"},{\"issue\":\"Self-nullifying provision: rev 3 is effective March 1, 2026 and supersedes rev 2, but 4.3 says reports submitted after February 28, 2026 remain governed by rev 2, meaning rev 3 can never apply to any report\",\"location\":\"4.3 vs Effective-date preamble\"},{\"issue\":\"Undefined actor: 'the reviewer' is granted discretion to accept late reports but is never identified or defined anywhere in the policy\",\"location\":\"4.2\"},{\"issue\":\"Undefined actor/approval body: 'Finance' is given approval authority but is not defined or identified\",\"location\":\"3.2\"},{\"issue\":\"Broken external reference: Appendix B is cited as governing international travel but is not attached, incorporated, or otherwise described; no Appendix A exists either\",\"location\":\"6.1\"},{\"issue\":\"Logical gap: no rule specifies what happens when a receipt is missing or when an expense lacks a Qualifying Receipt (only that reimbursement 'requires' one, with no exception or waiver process)\",\"location\":\"1.2 / 6\"},{\"issue\":\"Logical gap: no deadline consequence is specified \u2014 4.1 sets a 30-day deadline but 4.2 permits unlimited discretionary acceptance, leaving the deadline unenforceable\",\"location\":\"4.1\u20134.2\"},{\"issue\":\"Logical gap: no rule governs expenses exceeding the caps in Section 2 (whether they are denied, partially reimbursed, or require exception approval)\",\"location\":\"2\"},{\"issue\":\"Scope ambiguity: meal cap is stated 'per employee' per day while lodging is 'per night', with no definition of a travel day or how partial days are treated\",\"location\":\"2.1 vs 2.3\"},{\"issue\":\"Section heading 'EXCEPTIONS' contains no actual exception mechanism \u2014 only a referral to an unavailable appendix\",\"location\":\"6\"}]}",
+          "findings": [
+            "Arithmetic error: three days at the $45 daily cap equals $135, not $145 as stated 2.2",
+            "Circular definition: 'Qualifying Receipt' is defined as 'a receipt that qualifies under this policy', which provides no substantive criteria 5.1",
+            "Broken cross-reference: 'Covered Employee' points to Section 7, but the document ends at Section 6, so the term is never defined 5.2",
+            "Undefined term used in operative rule: 'Covered Employees' governs the entire scope but has no working definition (see 5.2 dead reference) 1.1",
+            "Undefined term: 'Qualifying Receipt' is a precondition for reimbursement but the only definition is circular 1.2",
+            "Direct contradiction: expenses of $500 or more require Finance approval, yet expenses over $500 require 'manager approval only' 3.2 vs 3.3",
+            "Logical gap/inconsistency in approval tiers: exactly $500 is covered only by 3.2, while amounts over $500 are treated less restrictively than amounts under $500 (manager only vs manager plus implied escalation), which is internally illogical 3.1\u20133.3",
+            "Self-nullifying provision: rev 3 is effective March 1, 2026 and supersedes rev 2, but 4.3 says reports submitted after February 28, 2026 remain governed by rev 2, meaning rev 3 can never apply to any report 4.3 vs Effective-date preamble",
+            "Undefined actor: 'the reviewer' is granted discretion to accept late reports but is never identified or defined anywhere in the policy 4.2",
+            "Undefined actor/approval body: 'Finance' is given approval authority but is not defined or identified 3.2",
+            "Broken external reference: Appendix B is cited as governing international travel but is not attached, incorporated, or otherwise described; no Appendix A exists either 6.1",
+            "Logical gap: no rule specifies what happens when a receipt is missing or when an expense lacks a Qualifying Receipt (only that reimbursement 'requires' one, with no exception or waiver process) 1.2 / 6",
+            "Logical gap: no deadline consequence is specified \u2014 4.1 sets a 30-day deadline but 4.2 permits unlimited discretionary acceptance, leaving the deadline unenforceable 4.1\u20134.2",
+            "Logical gap: no rule governs expenses exceeding the caps in Section 2 (whether they are denied, partially reimbursed, or require exception approval) 2",
+            "Scope ambiguity: meal cap is stated 'per employee' per day while lodging is 'per night', with no definition of a travel day or how partial days are treated 2.1 vs 2.3",
+            "Section heading 'EXCEPTIONS' contains no actual exception mechanism \u2014 only a referral to an unavailable appendix 6"
+          ],
+          "matched": [
+            "D1_meal_arithmetic",
+            "D2_approval_contradiction",
+            "D3_circular_definition",
+            "D4_dead_crossref",
+            "D5_undefined_reviewer",
+            "D6_supersession_clash",
+            "D7_missing_appendix"
+          ],
+          "unmatched": [
+            "Undefined actor/approval body: 'Finance' is given approval authority but is not defined or identified 3.2",
+            "Logical gap: no rule specifies what happens when a receipt is missing or when an expense lacks a Qualifying Receipt (only that reimbursement 'requires' one, with no exception or waiver process) 1.2 / 6",
+            "Logical gap: no deadline consequence is specified \u2014 4.1 sets a 30-day deadline but 4.2 permits unlimited discretionary acceptance, leaving the deadline unenforceable 4.1\u20134.2",
+            "Logical gap: no rule governs expenses exceeding the caps in Section 2 (whether they are denied, partially reimbursed, or require exception approval) 2",
+            "Scope ambiguity: meal cap is stated 'per employee' per day while lodging is 'per night', with no definition of a travel day or how partial days are treated 2.1 vs 2.3"
+          ],
+          "seconds": 21.1,
+          "usage": {
+            "input_tokens": 865,
+            "output_tokens": 1717,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 5,
+          "raw": "{\"findings\":[{\"issue\":\"Arithmetic error: a three-day trip at $45/day yields a $135 total meal cap, not $145.\",\"location\":\"2.2\"},{\"issue\":\"Circular definition: 'Qualifying Receipt' is defined as 'a receipt that qualifies under this policy', providing no substantive criteria.\",\"location\":\"5.1\"},{\"issue\":\"Broken cross-reference: 'Covered Employee' points to Section 7, but the document ends at Section 6.\",\"location\":\"5.2\"},{\"issue\":\"Undefined term: 'Covered Employee' is used in the scope clause but never actually defined (its definition merely forwards to a nonexistent section).\",\"location\":\"1.1 / 5.2\"},{\"issue\":\"Undefined term: 'Qualifying Receipt' is a condition of reimbursement but has no operative meaning due to the circular definition.\",\"location\":\"1.2\"},{\"issue\":\"Direct contradiction: 3.2 requires Finance approval for expenses of $500 or more, while 3.3 states expenses over $500 require manager approval only.\",\"location\":\"3.2 / 3.3\"},{\"issue\":\"Redundancy/logical gap in approval tiers: 3.1 (under $500, manager) and 3.3 (over $500, manager) leave the treatment of an expense exactly equal to $500 governed only by 3.2, and 3.3 adds a tier that duplicates and conflicts with 3.2.\",\"location\":\"3.1\u20133.3\"},{\"issue\":\"Self-nullifying provision: the policy is effective March 1, 2026, yet 4.3 states that all reports submitted after February 28, 2026 remain governed by rev 2, meaning rev 3 can never apply to any report.\",\"location\":\"4.3 vs. header/effective date\"},{\"issue\":\"Contradiction with supersession clause: the header states rev 3 supersedes rev 2, but 4.3 keeps rev 2 in force indefinitely.\",\"location\":\"4.3 vs. header\"},{\"issue\":\"Undefined role: 'the reviewer' is given discretion over late reports but is never defined or assigned (manager? Finance?).\",\"location\":\"4.2\"},{\"issue\":\"4.2 permits unlimited discretionary acceptance of late reports, effectively voiding the 30-day deadline in 4.1 with no criteria or limits.\",\"location\":\"4.1 / 4.2\"},{\"issue\":\"Dangling reference: Appendix B is cited as governing international travel but is not included in or attached to the document.\",\"location\":\"6.1\"},{\"issue\":\"Undefined term: 'trip completion', the trigger for the 30-day submission clock, is not defined.\",\"location\":\"4.1\"},{\"issue\":\"Logical gap: no approval requirement or process is specified for expenses governed by Appendix B/international travel, nor is it stated whether Sections 2\u20134 limits still apply.\",\"location\":\"6.1\"},{\"issue\":\"Logical gap: no stated consequence for exceeding the meal or lodging caps (e.g., partial reimbursement, denial, exception process).\",\"location\":\"2.1\u20132.3\"},{\"issue\":\"No exception or waiver mechanism is defined despite Section 6 being titled 'EXCEPTIONS'; it contains only a delegation to Appendix B.\",\"location\":\"6\"}]}",
+          "findings": [
+            "Arithmetic error: a three-day trip at $45/day yields a $135 total meal cap, not $145. 2.2",
+            "Circular definition: 'Qualifying Receipt' is defined as 'a receipt that qualifies under this policy', providing no substantive criteria. 5.1",
+            "Broken cross-reference: 'Covered Employee' points to Section 7, but the document ends at Section 6. 5.2",
+            "Undefined term: 'Covered Employee' is used in the scope clause but never actually defined (its definition merely forwards to a nonexistent section). 1.1 / 5.2",
+            "Undefined term: 'Qualifying Receipt' is a condition of reimbursement but has no operative meaning due to the circular definition. 1.2",
+            "Direct contradiction: 3.2 requires Finance approval for expenses of $500 or more, while 3.3 states expenses over $500 require manager approval only. 3.2 / 3.3",
+            "Redundancy/logical gap in approval tiers: 3.1 (under $500, manager) and 3.3 (over $500, manager) leave the treatment of an expense exactly equal to $500 governed only by 3.2, and 3.3 adds a tier that duplicates and conflicts with 3.2. 3.1\u20133.3",
+            "Self-nullifying provision: the policy is effective March 1, 2026, yet 4.3 states that all reports submitted after February 28, 2026 remain governed by rev 2, meaning rev 3 can never apply to any report. 4.3 vs. header/effective date",
+            "Contradiction with supersession clause: the header states rev 3 supersedes rev 2, but 4.3 keeps rev 2 in force indefinitely. 4.3 vs. header",
+            "Undefined role: 'the reviewer' is given discretion over late reports but is never defined or assigned (manager? Finance?). 4.2",
+            "4.2 permits unlimited discretionary acceptance of late reports, effectively voiding the 30-day deadline in 4.1 with no criteria or limits. 4.1 / 4.2",
+            "Dangling reference: Appendix B is cited as governing international travel but is not included in or attached to the document. 6.1",
+            "Undefined term: 'trip completion', the trigger for the 30-day submission clock, is not defined. 4.1",
+            "Logical gap: no approval requirement or process is specified for expenses governed by Appendix B/international travel, nor is it stated whether Sections 2\u20134 limits still apply. 6.1",
+            "Logical gap: no stated consequence for exceeding the meal or lodging caps (e.g., partial reimbursement, denial, exception process). 2.1\u20132.3",
+            "No exception or waiver mechanism is defined despite Section 6 being titled 'EXCEPTIONS'; it contains only a delegation to Appendix B. 6"
+          ],
+          "matched": [
+            "D1_meal_arithmetic",
+            "D2_approval_contradiction",
+            "D3_circular_definition",
+            "D4_dead_crossref",
+            "D5_undefined_reviewer",
+            "D6_supersession_clash",
+            "D7_missing_appendix",
+            "D8_no_cap_exception"
+          ],
+          "unmatched": [
+            "4.2 permits unlimited discretionary acceptance of late reports, effectively voiding the 30-day deadline in 4.1 with no criteria or limits. 4.1 / 4.2",
+            "Undefined term: 'trip completion', the trigger for the 30-day submission clock, is not defined. 4.1"
+          ],
+          "seconds": 18.6,
+          "usage": {
+            "input_tokens": 865,
+            "output_tokens": 1553,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 6,
+          "raw": "{\"findings\":[{\"issue\":\"Arithmetic error: a three-day trip at the $45/day cap in 2.1 totals $135, not $145.\",\"location\":\"2.2\"},{\"issue\":\"Broken cross-reference: 5.2 refers to Section 7 for the definition of 'Covered Employee', but the document ends at Section 6; Section 7 does not exist.\",\"location\":\"5.2\"},{\"issue\":\"Undefined term: 'Covered Employee' is used in 1.1 as the scope trigger but is never actually defined (the pointer leads nowhere).\",\"location\":\"1.1 / 5.2\"},{\"issue\":\"Circular definition: 'Qualifying Receipt' is defined as 'a receipt that qualifies under this policy', providing no independent criteria.\",\"location\":\"5.1\"},{\"issue\":\"Internal contradiction: 3.2 requires Finance approval for expenses of $500 or more, while 3.3 says expenses over $500 require manager approval only.\",\"location\":\"3.2 / 3.3\"},{\"issue\":\"Overlapping/ambiguous thresholds: expenses of exactly $500 fall under 3.2 only, while amounts above $500 are covered by two conflicting rules; no single rule governs each amount unambiguously.\",\"location\":\"3.1\u20133.3\"},{\"issue\":\"Contradiction with effective date: the header says rev 3 is effective March 1, 2026 and supersedes rev 2, yet 4.3 says reports submitted after February 28, 2026 remain governed by rev 2 \u2014 this would prevent rev 3 from ever applying.\",\"location\":\"4.3 vs. header\"},{\"issue\":\"Logical gap: no rule states which revision governs reports submitted on or before February 28, 2026, or how trips completed before March 1 but reported after are treated.\",\"location\":\"4.3\"},{\"issue\":\"Undefined term: 'the reviewer' in 4.2 is never identified (manager? Finance? someone else), leaving late-report discretion unassigned.\",\"location\":\"4.2\"},{\"issue\":\"Undefined party: 'Finance approval' is referenced but no Finance role, department, or approver is defined anywhere in the policy.\",\"location\":\"3.2\"},{\"issue\":\"Missing/unattached reference: Appendix B is invoked for international travel but is not included in or attached to the document (and no Appendix A exists).\",\"location\":\"6.1\"},{\"issue\":\"Logical gap: 4.1 sets a 30-day submission deadline but 4.2 allows unlimited discretionary acceptance with no outer limit or criteria, rendering the deadline unenforceable.\",\"location\":\"4.1 / 4.2\"},{\"issue\":\"Logical gap: 1.2 requires a Qualifying Receipt for reimbursement but no procedure or consequence is specified for lost or missing receipts.\",\"location\":\"1.2\"},{\"issue\":\"Logical gap: the meal cap is stated per day and the lodging cap per night, but no rule addresses partial travel days, shared meals, or trips spanning fewer than a full day.\",\"location\":\"2.1 / 2.3\"},{\"issue\":\"Logical gap: Section 6 is titled 'EXCEPTIONS' but contains only a referral for international travel; no general exception or waiver process is defined despite approval and cap rules implying one.\",\"location\":\"6\"}]}",
+          "findings": [
+            "Arithmetic error: a three-day trip at the $45/day cap in 2.1 totals $135, not $145. 2.2",
+            "Broken cross-reference: 5.2 refers to Section 7 for the definition of 'Covered Employee', but the document ends at Section 6; Section 7 does not exist. 5.2",
+            "Undefined term: 'Covered Employee' is used in 1.1 as the scope trigger but is never actually defined (the pointer leads nowhere). 1.1 / 5.2",
+            "Circular definition: 'Qualifying Receipt' is defined as 'a receipt that qualifies under this policy', providing no independent criteria. 5.1",
+            "Internal contradiction: 3.2 requires Finance approval for expenses of $500 or more, while 3.3 says expenses over $500 require manager approval only. 3.2 / 3.3",
+            "Overlapping/ambiguous thresholds: expenses of exactly $500 fall under 3.2 only, while amounts above $500 are covered by two conflicting rules; no single rule governs each amount unambiguously. 3.1\u20133.3",
+            "Contradiction with effective date: the header says rev 3 is effective March 1, 2026 and supersedes rev 2, yet 4.3 says reports submitted after February 28, 2026 remain governed by rev 2 \u2014 this would prevent rev 3 from ever applying. 4.3 vs. header",
+            "Logical gap: no rule states which revision governs reports submitted on or before February 28, 2026, or how trips completed before March 1 but reported after are treated. 4.3",
+            "Undefined term: 'the reviewer' in 4.2 is never identified (manager? Finance? someone else), leaving late-report discretion unassigned. 4.2",
+            "Undefined party: 'Finance approval' is referenced but no Finance role, department, or approver is defined anywhere in the policy. 3.2",
+            "Missing/unattached reference: Appendix B is invoked for international travel but is not included in or attached to the document (and no Appendix A exists). 6.1",
+            "Logical gap: 4.1 sets a 30-day submission deadline but 4.2 allows unlimited discretionary acceptance with no outer limit or criteria, rendering the deadline unenforceable. 4.1 / 4.2",
+            "Logical gap: 1.2 requires a Qualifying Receipt for reimbursement but no procedure or consequence is specified for lost or missing receipts. 1.2",
+            "Logical gap: the meal cap is stated per day and the lodging cap per night, but no rule addresses partial travel days, shared meals, or trips spanning fewer than a full day. 2.1 / 2.3",
+            "Logical gap: Section 6 is titled 'EXCEPTIONS' but contains only a referral for international travel; no general exception or waiver process is defined despite approval and cap rules implying one. 6"
+          ],
+          "matched": [
+            "D1_meal_arithmetic",
+            "D2_approval_contradiction",
+            "D3_circular_definition",
+            "D4_dead_crossref",
+            "D5_undefined_reviewer",
+            "D6_supersession_clash",
+            "D7_missing_appendix"
+          ],
+          "unmatched": [
+            "Logical gap: no rule states which revision governs reports submitted on or before February 28, 2026, or how trips completed before March 1 but reported after are treated. 4.3",
+            "Undefined party: 'Finance approval' is referenced but no Finance role, department, or approver is defined anywhere in the policy. 3.2",
+            "Logical gap: 4.1 sets a 30-day submission deadline but 4.2 allows unlimited discretionary acceptance with no outer limit or criteria, rendering the deadline unenforceable. 4.1 / 4.2",
+            "Logical gap: 1.2 requires a Qualifying Receipt for reimbursement but no procedure or consequence is specified for lost or missing receipts. 1.2",
+            "Logical gap: the meal cap is stated per day and the lodging cap per night, but no rule addresses partial travel days, shared meals, or trips spanning fewer than a full day. 2.1 / 2.3",
+            "Logical gap: Section 6 is titled 'EXCEPTIONS' but contains only a referral for international travel; no general exception or waiver process is defined despite approval and cap rules implying one. 6"
+          ],
+          "seconds": 21.4,
+          "usage": {
+            "input_tokens": 865,
+            "output_tokens": 1723,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "call": 7,
+          "raw": "{\"findings\":[{\"issue\":\"Arithmetic error: at $45/day, a three-day trip caps at $135, not $145\",\"location\":\"2.2\"},{\"issue\":\"Circular definition: 'Qualifying Receipt' is defined as 'a receipt that qualifies under this policy', providing no substantive criteria\",\"location\":\"5.1\"},{\"issue\":\"Broken cross-reference: 'Covered Employee' points to Section 7, but the document ends at Section 6; no Section 7 exists\",\"location\":\"5.2\"},{\"issue\":\"Undefined term in operative text: 'Covered Employees' is used to set the policy's scope but never actually defined (its only definition is a dead reference)\",\"location\":\"1.1\"},{\"issue\":\"Direct contradiction: expenses of $500 or more require Finance approval (3.2), while expenses over $500 require manager approval only (3.3)\",\"location\":\"3.2 / 3.3\"},{\"issue\":\"Logical gap/ambiguity at the boundary: an expense of exactly $500 is covered by 3.2 but excluded from both 3.1 ('under $500') and 3.3 ('over $500'), leaving inconsistent treatment across the tier scheme\",\"location\":\"3.1\u20133.3\"},{\"issue\":\"Self-nullifying provision: the policy is effective March 1, 2026 and supersedes rev 2, yet 4.3 states reports submitted after February 28, 2026 remain governed by rev 2 \u2014 meaning rev 3 can never apply to any report\",\"location\":\"4.3 / Effective date header\"},{\"issue\":\"Contradiction with the supersession statement in the header: rev 2 is declared superseded but 4.3 keeps it in force indefinitely\",\"location\":\"4.3\"},{\"issue\":\"Gap: no rule states what governs reports submitted on or before February 28, 2026 under rev 3, nor how the 30-day submission window in 4.1 interacts with the rev 2 carve-out\",\"location\":\"4.1 / 4.3\"},{\"issue\":\"Undefined term: 'the reviewer' is given discretion to accept late reports but is never identified or defined (compare 'manager' and 'Finance' in Section 3)\",\"location\":\"4.2\"},{\"issue\":\"Dangling reference: Appendix B is cited as governing international travel but is not attached, defined, or otherwise included in the document\",\"location\":\"6.1\"},{\"issue\":\"Missing provision: 1.2 conditions all reimbursement on a Qualifying Receipt, but no receipt threshold, format, or submission requirement is specified anywhere\",\"location\":\"1.2\"},{\"issue\":\"Gap: Section 2 sets per-night lodging and per-day meal caps but no rule specifies whether approval under Section 3 is assessed per item, per day, or per report\",\"location\":\"2 / 3\"},{\"issue\":\"Gap: no provision states whether approval must be obtained before the expense is incurred or at reimbursement time\",\"location\":\"3\"}]}",
+          "findings": [
+            "Arithmetic error: at $45/day, a three-day trip caps at $135, not $145 2.2",
+            "Circular definition: 'Qualifying Receipt' is defined as 'a receipt that qualifies under this policy', providing no substantive criteria 5.1",
+            "Broken cross-reference: 'Covered Employee' points to Section 7, but the document ends at Section 6; no Section 7 exists 5.2",
+            "Undefined term in operative text: 'Covered Employees' is used to set the policy's scope but never actually defined (its only definition is a dead reference) 1.1",
+            "Direct contradiction: expenses of $500 or more require Finance approval (3.2), while expenses over $500 require manager approval only (3.3) 3.2 / 3.3",
+            "Logical gap/ambiguity at the boundary: an expense of exactly $500 is covered by 3.2 but excluded from both 3.1 ('under $500') and 3.3 ('over $500'), leaving inconsistent treatment across the tier scheme 3.1\u20133.3",
+            "Self-nullifying provision: the policy is effective March 1, 2026 and supersedes rev 2, yet 4.3 states reports submitted after February 28, 2026 remain governed by rev 2 \u2014 meaning rev 3 can never apply to any report 4.3 / Effective date header",
+            "Contradiction with the supersession statement in the header: rev 2 is declared superseded but 4.3 keeps it in force indefinitely 4.3",
+            "Gap: no rule states what governs reports submitted on or before February 28, 2026 under rev 3, nor how the 30-day submission window in 4.1 interacts with the rev 2 carve-out 4.1 / 4.3",
+            "Undefined term: 'the reviewer' is given discretion to accept late reports but is never identified or defined (compare 'manager' and 'Finance' in Section 3) 4.2",
+            "Dangling reference: Appendix B is cited as governing international travel but is not attached, defined, or otherwise included in the document 6.1",
+            "Missing provision: 1.2 conditions all reimbursement on a Qualifying Receipt, but no receipt threshold, format, or submission requirement is specified anywhere 1.2",
+            "Gap: Section 2 sets per-night lodging and per-day meal caps but no rule specifies whether approval under Section 3 is assessed per item, per day, or per report 2 / 3",
+            "Gap: no provision states whether approval must be obtained before the expense is incurred or at reimbursement time 3"
+          ],
+          "matched": [
+            "D1_meal_arithmetic",
+            "D2_approval_contradiction",
+            "D3_circular_definition",
+            "D4_dead_crossref",
+            "D5_undefined_reviewer",
+            "D6_supersession_clash",
+            "D7_missing_appendix"
+          ],
+          "unmatched": [
+            "Missing provision: 1.2 conditions all reimbursement on a Qualifying Receipt, but no receipt threshold, format, or submission requirement is specified anywhere 1.2",
+            "Gap: Section 2 sets per-night lodging and per-day meal caps but no rule specifies whether approval under Section 3 is assessed per item, per day, or per report 2 / 3",
+            "Gap: no provision states whether approval must be obtained before the expense is incurred or at reimbursement time 3"
+          ],
+          "seconds": 17.5,
+          "usage": {
+            "input_tokens": 865,
+            "output_tokens": 1455,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        }
+      ],
+      "analysis": {
+        "label": "parallel_default",
+        "k": 8,
+        "tokens_in": 6920,
+        "tokens_out": 12972,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+        "tokens_per_call_out": [
+          1472,
+          1597,
+          1762,
+          1693,
+          1717,
+          1553,
+          1723,
+          1455
+        ],
+        "cost_usd_total": 0.3589,
+        "cost_usd_first_call": 0.0411,
+        "cost_usd_wasted_after_first": 0.3178,
+        "seconds_total": 175.7,
+        "finding_counts": [
+          13,
+          15,
+          16,
+          15,
+          16,
+          16,
+          15,
+          14
+        ],
+        "sections_per_call": [
+          17,
+          14,
+          17,
+          18,
+          17,
+          16,
+          16,
+          16
+        ],
+        "sections_union": 20,
+        "sections_union_curve": [
+          17,
+          19,
+          20,
+          20,
+          20,
+          20,
+          20,
+          20
+        ],
+        "mean_pairwise_jaccard_sections": 0.811,
+        "sections_seen": [
+          "1.1",
+          "1.2",
+          "2.1",
+          "2.2",
+          "2.3",
+          "3.1",
+          "3.2",
+          "3.3",
+          "4.1",
+          "4.2",
+          "4.3",
+          "5.1",
+          "5.2",
+          "6.1",
+          "s1",
+          "s2",
+          "s3",
+          "s5",
+          "s6",
+          "s7"
+        ],
+        "per_call_recall": [
+          7,
+          8,
+          8,
+          7,
+          7,
+          8,
+          7,
+          7
+        ],
+        "mean_per_call": 7.38,
+        "best_single": 8,
+        "union_recall": 8,
+        "union_curve": [
+          7,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8
+        ],
+        "marginal_gain_after_first": 1,
+        "mean_pairwise_jaccard": 0.933,
+        "union_ids": [
+          "D1_meal_arithmetic",
+          "D2_approval_contradiction",
+          "D3_circular_definition",
+          "D4_dead_crossref",
+          "D5_undefined_reviewer",
+          "D6_supersession_clash",
+          "D7_missing_appendix",
+          "D8_no_cap_exception"
+        ],
+        "never_found": [],
+        "unmatched_finding_count": 35
+      }
+    },
+    "sequential_default": {
+      "runs": [
+        {
+          "turn": 0,
+          "raw": "{\"findings\":[{\"issue\":\"Arithmetic error: at $45/day a three-day trip totals $135, not $145\",\"location\":\"2.2\"},{\"issue\":\"Contradiction: 3.2 requires Finance approval for expenses of $500 or more, while 3.3 says expenses over $500 require manager approval only\",\"location\":\"3.2 / 3.3\"},{\"issue\":\"Logical gap/overlap at the $500 boundary: an expense of exactly $500 falls under 3.2 (Finance) but is excluded from 3.1 and 3.3, leaving inconsistent treatment of the threshold\",\"location\":\"3.1\u20133.3\"},{\"issue\":\"Circular definition: 'Qualifying Receipt' is defined as 'a receipt that qualifies under this policy', providing no substantive criteria\",\"location\":\"5.1\"},{\"issue\":\"Broken cross-reference: 'Covered Employee' points to Section 7, which does not exist (document ends at Section 6)\",\"location\":\"5.2\"},{\"issue\":\"Undefined term: 'Covered Employees' is used in the scope clause but never actually defined, since its only definition is a dead cross-reference\",\"location\":\"1.1 / 5.2\"},{\"issue\":\"Effective-date contradiction: rev 3 is effective March 1, 2026 and supersedes rev 2, yet 4.3 states reports submitted after February 28, 2026 remain governed by rev 2, which would make rev 3 inoperative for essentially all future reports\",\"location\":\"4.3 / header\"},{\"issue\":\"Undefined term: 'the reviewer' is never identified, and no criteria govern the exercise of discretion over late reports\",\"location\":\"4.2\"},{\"issue\":\"Provision undermines the stated deadline: 4.1 imposes a mandatory 30-day submission window but 4.2 allows unlimited discretionary acceptance with no limiting standard\",\"location\":\"4.1 / 4.2\"},{\"issue\":\"Missing referenced material: Appendix B is incorporated for international travel but is not attached or described anywhere (nor is any Appendix A)\",\"location\":\"6.1\"},{\"issue\":\"Undefined term: 'Finance approval' \u2014 no definition of the Finance function or approver authority\",\"location\":\"3.2\"},{\"issue\":\"Undefined term: 'trip completion' is the trigger for the 30-day clock but is never defined\",\"location\":\"4.1\"},{\"issue\":\"Inconsistent framing: 2.1 sets a per-day per-employee cap while 2.2 converts it into a 'total meal cap' without stating whether caps may be averaged across days\",\"location\":\"2.1 / 2.2\"},{\"issue\":\"Lodging cap gives no guidance on shared rooms, taxes/fees inclusion, or approval path for exceeding the nightly cap\",\"location\":\"2.3\"},{\"issue\":\"Section 5 (Definitions) appears after the terms it defines are used, and omits definitions for other operative terms used in the policy\",\"location\":\"5\"}]}",
+          "findings": [
+            "Arithmetic error: at $45/day a three-day trip totals $135, not $145 2.2",
+            "Contradiction: 3.2 requires Finance approval for expenses of $500 or more, while 3.3 says expenses over $500 require manager approval only 3.2 / 3.3",
+            "Logical gap/overlap at the $500 boundary: an expense of exactly $500 falls under 3.2 (Finance) but is excluded from 3.1 and 3.3, leaving inconsistent treatment of the threshold 3.1\u20133.3",
+            "Circular definition: 'Qualifying Receipt' is defined as 'a receipt that qualifies under this policy', providing no substantive criteria 5.1",
+            "Broken cross-reference: 'Covered Employee' points to Section 7, which does not exist (document ends at Section 6) 5.2",
+            "Undefined term: 'Covered Employees' is used in the scope clause but never actually defined, since its only definition is a dead cross-reference 1.1 / 5.2",
+            "Effective-date contradiction: rev 3 is effective March 1, 2026 and supersedes rev 2, yet 4.3 states reports submitted after February 28, 2026 remain governed by rev 2, which would make rev 3 inoperative for essentially all future reports 4.3 / header",
+            "Undefined term: 'the reviewer' is never identified, and no criteria govern the exercise of discretion over late reports 4.2",
+            "Provision undermines the stated deadline: 4.1 imposes a mandatory 30-day submission window but 4.2 allows unlimited discretionary acceptance with no limiting standard 4.1 / 4.2",
+            "Missing referenced material: Appendix B is incorporated for international travel but is not attached or described anywhere (nor is any Appendix A) 6.1",
+            "Undefined term: 'Finance approval' \u2014 no definition of the Finance function or approver authority 3.2",
+            "Undefined term: 'trip completion' is the trigger for the 30-day clock but is never defined 4.1",
+            "Inconsistent framing: 2.1 sets a per-day per-employee cap while 2.2 converts it into a 'total meal cap' without stating whether caps may be averaged across days 2.1 / 2.2",
+            "Lodging cap gives no guidance on shared rooms, taxes/fees inclusion, or approval path for exceeding the nightly cap 2.3",
+            "Section 5 (Definitions) appears after the terms it defines are used, and omits definitions for other operative terms used in the policy 5"
+          ],
+          "matched": [
+            "D1_meal_arithmetic",
+            "D2_approval_contradiction",
+            "D3_circular_definition",
+            "D4_dead_crossref",
+            "D5_undefined_reviewer",
+            "D6_supersession_clash",
+            "D7_missing_appendix",
+            "D8_no_cap_exception"
+          ],
+          "unmatched": [
+            "Provision undermines the stated deadline: 4.1 imposes a mandatory 30-day submission window but 4.2 allows unlimited discretionary acceptance with no limiting standard 4.1 / 4.2",
+            "Undefined term: 'Finance approval' \u2014 no definition of the Finance function or approver authority 3.2",
+            "Undefined term: 'trip completion' is the trigger for the 30-day clock but is never defined 4.1",
+            "Inconsistent framing: 2.1 sets a per-day per-employee cap while 2.2 converts it into a 'total meal cap' without stating whether caps may be averaged across days 2.1 / 2.2",
+            "Section 5 (Definitions) appears after the terms it defines are used, and omits definitions for other operative terms used in the policy 5"
+          ],
+          "seconds": 19.1,
+          "usage": {
+            "input_tokens": 865,
+            "output_tokens": 1618,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "turn": 1,
+          "raw": "{\"findings\":[{\"issue\":\"No stated relationship between the exceptions in Section 6 and the limits in Section 2 \u2014 unclear whether Appendix B overrides the $45 meal and $210 lodging caps for international travel\",\"location\":\"6.1 / 2\"},{\"issue\":\"Section 6 is titled 'EXCEPTIONS' but contains only one clause about international travel; no general exception or waiver process is provided anywhere in the policy\",\"location\":\"6\"},{\"issue\":\"No currency is specified for the dollar amounts, which is material given the policy contemplates international travel\",\"location\":\"2.1\u20132.3 / 6.1\"},{\"issue\":\"1.2 conditions all reimbursement on a Qualifying Receipt with no de minimis threshold or exception for receipts that are unobtainable (e.g., tips, tolls, transit fares)\",\"location\":\"1.2\"},{\"issue\":\"Approval rules in Section 3 do not state whether approval must be obtained before the expense is incurred or after submission, nor how approval interacts with the Section 4 deadline\",\"location\":\"3 / 4\"},{\"issue\":\"No anti-splitting provision: expenses could be divided into sub-$500 items to avoid Finance approval under 3.2\",\"location\":\"3.1\u20133.2\"},{\"issue\":\"No consequence is specified for non-compliance (e.g., denial of reimbursement, disciplinary action), making the mandatory language in 4.1 unenforceable on its face\",\"location\":\"4\"},{\"issue\":\"No revision history, version-control, or amendment procedure clause, despite the document being labeled 'rev 3' and superseding a prior revision\",\"location\":\"Header\"},{\"issue\":\"Supersession is incomplete: the header says rev 3 supersedes rev 2, but no rule addresses expenses incurred under rev 2 and submitted under rev 3 (other than the contradictory 4.3)\",\"location\":\"Header / 4.3\"},{\"issue\":\"Rev 2 is described as effective January 15, 2026 and superseded March 1, 2026, giving it a six-week life; 4.3 would nonetheless extend it indefinitely, an internal inconsistency in the transition scheme\",\"location\":\"Header / 4.3\"},{\"issue\":\"No provision addresses non-travel expenses even though the policy is titled 'Travel and Expense Policy'; Sections 2\u20134 assume a trip context, leaving ordinary expense reimbursement ungoverned\",\"location\":\"Title / 2\u20134\"},{\"issue\":\"Section 3 does not address self-approval or approval of a manager's own expenses, nor delegation when the approver is unavailable\",\"location\":\"3\"},{\"issue\":\"No reimbursement timeline or payment method is specified for approved reports\",\"location\":\"4\"},{\"issue\":\"Scope clause does not address contractors, interns, or non-employees who may travel on company business\",\"location\":\"1.1\"},{\"issue\":\"Nightly lodging cap does not specify treatment of partial nights, late checkout, or cancellation/no-show charges\",\"location\":\"2.3\"},{\"issue\":\"No governing document hierarchy: if Appendix B conflicts with the main policy, no precedence rule is given\",\"location\":\"6.1\"}]}",
+          "findings": [
+            "No stated relationship between the exceptions in Section 6 and the limits in Section 2 \u2014 unclear whether Appendix B overrides the $45 meal and $210 lodging caps for international travel 6.1 / 2",
+            "Section 6 is titled 'EXCEPTIONS' but contains only one clause about international travel; no general exception or waiver process is provided anywhere in the policy 6",
+            "No currency is specified for the dollar amounts, which is material given the policy contemplates international travel 2.1\u20132.3 / 6.1",
+            "1.2 conditions all reimbursement on a Qualifying Receipt with no de minimis threshold or exception for receipts that are unobtainable (e.g., tips, tolls, transit fares) 1.2",
+            "Approval rules in Section 3 do not state whether approval must be obtained before the expense is incurred or after submission, nor how approval interacts with the Section 4 deadline 3 / 4",
+            "No anti-splitting provision: expenses could be divided into sub-$500 items to avoid Finance approval under 3.2 3.1\u20133.2",
+            "No consequence is specified for non-compliance (e.g., denial of reimbursement, disciplinary action), making the mandatory language in 4.1 unenforceable on its face 4",
+            "No revision history, version-control, or amendment procedure clause, despite the document being labeled 'rev 3' and superseding a prior revision Header",
+            "Supersession is incomplete: the header says rev 3 supersedes rev 2, but no rule addresses expenses incurred under rev 2 and submitted under rev 3 (other than the contradictory 4.3) Header / 4.3",
+            "Rev 2 is described as effective January 15, 2026 and superseded March 1, 2026, giving it a six-week life; 4.3 would nonetheless extend it indefinitely, an internal inconsistency in the transition scheme Header / 4.3",
+            "No provision addresses non-travel expenses even though the policy is titled 'Travel and Expense Policy'; Sections 2\u20134 assume a trip context, leaving ordinary expense reimbursement ungoverned Title / 2\u20134",
+            "Section 3 does not address self-approval or approval of a manager's own expenses, nor delegation when the approver is unavailable 3",
+            "No reimbursement timeline or payment method is specified for approved reports 4",
+            "Scope clause does not address contractors, interns, or non-employees who may travel on company business 1.1",
+            "Nightly lodging cap does not specify treatment of partial nights, late checkout, or cancellation/no-show charges 2.3",
+            "No governing document hierarchy: if Appendix B conflicts with the main policy, no precedence rule is given 6.1"
+          ],
+          "matched": [
+            "D6_supersession_clash",
+            "D7_missing_appendix",
+            "D8_no_cap_exception"
+          ],
+          "unmatched": [
+            "Section 6 is titled 'EXCEPTIONS' but contains only one clause about international travel; no general exception or waiver process is provided anywhere in the policy 6",
+            "No currency is specified for the dollar amounts, which is material given the policy contemplates international travel 2.1\u20132.3 / 6.1",
+            "1.2 conditions all reimbursement on a Qualifying Receipt with no de minimis threshold or exception for receipts that are unobtainable (e.g., tips, tolls, transit fares) 1.2",
+            "Approval rules in Section 3 do not state whether approval must be obtained before the expense is incurred or after submission, nor how approval interacts with the Section 4 deadline 3 / 4",
+            "No anti-splitting provision: expenses could be divided into sub-$500 items to avoid Finance approval under 3.2 3.1\u20133.2",
+            "No consequence is specified for non-compliance (e.g., denial of reimbursement, disciplinary action), making the mandatory language in 4.1 unenforceable on its face 4",
+            "No revision history, version-control, or amendment procedure clause, despite the document being labeled 'rev 3' and superseding a prior revision Header",
+            "No provision addresses non-travel expenses even though the policy is titled 'Travel and Expense Policy'; Sections 2\u20134 assume a trip context, leaving ordinary expense reimbursement ungoverned Title / 2\u20134",
+            "Section 3 does not address self-approval or approval of a manager's own expenses, nor delegation when the approver is unavailable 3",
+            "No reimbursement timeline or payment method is specified for approved reports 4",
+            "Scope clause does not address contractors, interns, or non-employees who may travel on company business 1.1",
+            "Nightly lodging cap does not specify treatment of partial nights, late checkout, or cancellation/no-show charges 2.3"
+          ],
+          "seconds": 16.6,
+          "usage": {
+            "input_tokens": 1866,
+            "output_tokens": 1042,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "turn": 2,
+          "raw": "{\"findings\":[{\"issue\":\"Undefined term: 'manager' \u2014 no definition of who qualifies as the approving manager (direct supervisor, cost-center owner, grade level), making 3.1/3.3 unenforceable\",\"location\":\"3.1 / 3.3\"},{\"issue\":\"Terminology inconsistency across sections: approvals are assigned to 'manager' and 'Finance' (Section 3) but late-report discretion is given to a 'reviewer' (4.2), with no statement that these are the same or different roles\",\"location\":\"3 / 4.2\"},{\"issue\":\"Thresholds in Section 3 do not state whether the $500 test applies per expense line item, per report, per day, or per trip\",\"location\":\"3.1\u20133.3\"},{\"issue\":\"No de minimis floor: 3.1 literally requires manager approval for even trivial expenses of a few dollars\",\"location\":\"3.1\"},{\"issue\":\"Silent on whether caps apply to actual costs or permit a per-diem allowance, and whether unused daily meal allowance is forfeited\",\"location\":\"2.1 / 2.2\"},{\"issue\":\"Meal cap does not state whether tax, tips, or alcohol are included or excluded\",\"location\":\"2.1\"},{\"issue\":\"No rule for group or hosted meals where one employee pays for several people, despite the cap being expressed 'per employee'\",\"location\":\"2.1\"},{\"issue\":\"No consequence stated for exceeding a cap: unclear whether the overage alone is denied or the entire expense is disallowed\",\"location\":\"2\"},{\"issue\":\"Major coverage gap for a travel policy: no limits or rules for airfare, rail, rental cars, mileage/personal vehicle use, parking, or ground transportation\",\"location\":\"2\"},{\"issue\":\"No provision for travel advances, corporate cards, or direct billing\",\"location\":\"2 / 4\"},{\"issue\":\"4.1 does not specify whether the 30 days are calendar days or business days, nor how the deadline falls on weekends/holidays\",\"location\":\"4.1\"},{\"issue\":\"No submission mechanism specified (system, form, required documentation), despite 4.1 mandating that reports 'be submitted'\",\"location\":\"4.1\"},{\"issue\":\"No appeal or escalation route for denied or reduced reimbursements\",\"location\":\"3 / 4\"},{\"issue\":\"No record-retention requirement for receipts and no fraud/misrepresentation or false-claims provision\",\"location\":\"1.2 / 4\"},{\"issue\":\"No currency-conversion rule (rate source, conversion date) for foreign expenses, despite international travel being contemplated\",\"location\":\"6.1\"},{\"issue\":\"Policy identifies no owner, administrator, or contact point for interpretation questions, and contains no review or expiry date\",\"location\":\"Header\"},{\"issue\":\"4.3 refers to 'rev 2' without citing where it can be obtained or which of its provisions differ, making the transition rule impossible to apply\",\"location\":\"4.3\"},{\"issue\":\"Inconsistent capitalization/defined-term discipline: 'Finance', 'Appendix B', and 'reviewer' are treated as terms of art but are not defined in Section 5\",\"location\":\"3.2 / 4.2 / 6.1\"},{\"issue\":\"Section 2 caps contain no cross-reference to the exception mechanism in Section 6, so no path exists to authorize an over-cap expense\",\"location\":\"2 / 6\"},{\"issue\":\"The word 'therefore' in 2.2 falsely presents an aggregate trip cap as a logical consequence of a daily cap; a daily cap does not by itself establish that unused amounts may be pooled across days\",\"location\":\"2.2\"}]}",
+          "findings": [
+            "Undefined term: 'manager' \u2014 no definition of who qualifies as the approving manager (direct supervisor, cost-center owner, grade level), making 3.1/3.3 unenforceable 3.1 / 3.3",
+            "Terminology inconsistency across sections: approvals are assigned to 'manager' and 'Finance' (Section 3) but late-report discretion is given to a 'reviewer' (4.2), with no statement that these are the same or different roles 3 / 4.2",
+            "Thresholds in Section 3 do not state whether the $500 test applies per expense line item, per report, per day, or per trip 3.1\u20133.3",
+            "No de minimis floor: 3.1 literally requires manager approval for even trivial expenses of a few dollars 3.1",
+            "Silent on whether caps apply to actual costs or permit a per-diem allowance, and whether unused daily meal allowance is forfeited 2.1 / 2.2",
+            "Meal cap does not state whether tax, tips, or alcohol are included or excluded 2.1",
+            "No rule for group or hosted meals where one employee pays for several people, despite the cap being expressed 'per employee' 2.1",
+            "No consequence stated for exceeding a cap: unclear whether the overage alone is denied or the entire expense is disallowed 2",
+            "Major coverage gap for a travel policy: no limits or rules for airfare, rail, rental cars, mileage/personal vehicle use, parking, or ground transportation 2",
+            "No provision for travel advances, corporate cards, or direct billing 2 / 4",
+            "4.1 does not specify whether the 30 days are calendar days or business days, nor how the deadline falls on weekends/holidays 4.1",
+            "No submission mechanism specified (system, form, required documentation), despite 4.1 mandating that reports 'be submitted' 4.1",
+            "No appeal or escalation route for denied or reduced reimbursements 3 / 4",
+            "No record-retention requirement for receipts and no fraud/misrepresentation or false-claims provision 1.2 / 4",
+            "No currency-conversion rule (rate source, conversion date) for foreign expenses, despite international travel being contemplated 6.1",
+            "Policy identifies no owner, administrator, or contact point for interpretation questions, and contains no review or expiry date Header",
+            "4.3 refers to 'rev 2' without citing where it can be obtained or which of its provisions differ, making the transition rule impossible to apply 4.3",
+            "Inconsistent capitalization/defined-term discipline: 'Finance', 'Appendix B', and 'reviewer' are treated as terms of art but are not defined in Section 5 3.2 / 4.2 / 6.1",
+            "Section 2 caps contain no cross-reference to the exception mechanism in Section 6, so no path exists to authorize an over-cap expense 2 / 6",
+            "The word 'therefore' in 2.2 falsely presents an aggregate trip cap as a logical consequence of a daily cap; a daily cap does not by itself establish that unused amounts may be pooled across days 2.2"
+          ],
+          "matched": [
+            "D2_approval_contradiction",
+            "D5_undefined_reviewer",
+            "D7_missing_appendix"
+          ],
+          "unmatched": [
+            "Undefined term: 'manager' \u2014 no definition of who qualifies as the approving manager (direct supervisor, cost-center owner, grade level), making 3.1/3.3 unenforceable 3.1 / 3.3",
+            "Thresholds in Section 3 do not state whether the $500 test applies per expense line item, per report, per day, or per trip 3.1\u20133.3",
+            "No de minimis floor: 3.1 literally requires manager approval for even trivial expenses of a few dollars 3.1",
+            "Silent on whether caps apply to actual costs or permit a per-diem allowance, and whether unused daily meal allowance is forfeited 2.1 / 2.2",
+            "Meal cap does not state whether tax, tips, or alcohol are included or excluded 2.1",
+            "No rule for group or hosted meals where one employee pays for several people, despite the cap being expressed 'per employee' 2.1",
+            "No consequence stated for exceeding a cap: unclear whether the overage alone is denied or the entire expense is disallowed 2",
+            "Major coverage gap for a travel policy: no limits or rules for airfare, rail, rental cars, mileage/personal vehicle use, parking, or ground transportation 2",
+            "No provision for travel advances, corporate cards, or direct billing 2 / 4",
+            "4.1 does not specify whether the 30 days are calendar days or business days, nor how the deadline falls on weekends/holidays 4.1",
+            "No submission mechanism specified (system, form, required documentation), despite 4.1 mandating that reports 'be submitted' 4.1",
+            "No appeal or escalation route for denied or reduced reimbursements 3 / 4",
+            "No record-retention requirement for receipts and no fraud/misrepresentation or false-claims provision 1.2 / 4",
+            "No currency-conversion rule (rate source, conversion date) for foreign expenses, despite international travel being contemplated 6.1",
+            "Policy identifies no owner, administrator, or contact point for interpretation questions, and contains no review or expiry date Header",
+            "4.3 refers to 'rev 2' without citing where it can be obtained or which of its provisions differ, making the transition rule impossible to apply 4.3",
+            "Section 2 caps contain no cross-reference to the exception mechanism in Section 6, so no path exists to authorize an over-cap expense 2 / 6",
+            "The word 'therefore' in 2.2 falsely presents an aggregate trip cap as a logical consequence of a daily cap; a daily cap does not by itself establish that unused amounts may be pooled across days 2.2"
+          ],
+          "seconds": 32.6,
+          "usage": {
+            "input_tokens": 2930,
+            "output_tokens": 2154,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "turn": 3,
+          "raw": "{\"findings\":[{\"issue\":\"No effective-date rule tied to expense incurrence: the policy states an effective date but never says whether it governs by date incurred, date of trip, or date of submission \u2014 the ambiguity is the root cause of the 4.3 conflict\",\"location\":\"Header / 4.3\"},{\"issue\":\"Section 5 heading is 'DEFINITIONS' but contains only two entries, one circular and one broken, so the section functionally defines nothing\",\"location\":\"5\"},{\"issue\":\"5.2 uses a bare cross-reference in place of a definition, a drafting form that cannot function as a definition even if Section 7 existed\",\"location\":\"5.2\"},{\"issue\":\"Numbering gap in the document structure: sections run 1\u20136 with a reference to Section 7, indicating either a deleted section or an unrenumbered cross-reference left over from rev 2\",\"location\":\"5.2 / document structure\"},{\"issue\":\"1.1 states scope in terms of persons only; no statement of subject-matter scope (which expense types) or geographic scope, and no exclusion list\",\"location\":\"1.1\"},{\"issue\":\"1.2 states a condition for reimbursement but no clause anywhere actually creates an entitlement or obligation to reimburse compliant expenses\",\"location\":\"1 / 4\"},{\"issue\":\"No business-purpose requirement: nothing requires that an expense be reasonable, necessary, or incurred for company business\",\"location\":\"1 / 2\"},{\"issue\":\"No prohibited-expense list (personal items, fines, entertainment), so any expense under the caps is implicitly reimbursable\",\"location\":\"2\"},{\"issue\":\"'Reimbursement' itself is used throughout but never defined, including whether it covers pre-paid or company-billed costs\",\"location\":\"1.2 / 5\"},{\"issue\":\"6.1 delegates governance of international travel entirely to Appendix B without stating whether Sections 1\u20135 (scope, receipts, approval, deadlines) still apply\",\"location\":\"6.1\"},{\"issue\":\"No severability clause, so the internally contradictory provisions in Section 3 provide no fallback rule\",\"location\":\"Document as a whole\"},{\"issue\":\"No tax-treatment or accountable-plan statement, despite caps and receipt rules that typically carry tax consequences\",\"location\":\"2 / 4\"},{\"issue\":\"Section ordering is illogical: limits and approvals precede definitions and scope exceptions, so operative terms are used before Sections 5 and 6 qualify them\",\"location\":\"Document structure\"},{\"issue\":\"Header lacks any approval or authorization signature, issuing authority, or document ID, undermining the supersession claim\",\"location\":\"Header\"},{\"issue\":\"4.2's discretionary acceptance has no outer time limit and no requirement that the discretion be documented, creating an audit gap against 4.1\",\"location\":\"4.2\"},{\"issue\":\"Section 3 never states what 'approval' consists of (written, in-system, verbal) or that it must be recorded\",\"location\":\"3\"},{\"issue\":\"No rule for expenses spanning both revisions (e.g., a trip beginning February 2026 and ending March 2026), which the 4.3 transition provision cannot resolve\",\"location\":\"4.3\"},{\"issue\":\"$45 meal cap and $210 lodging cap are stated as absolute figures with no location-based adjustment, indexation, or high-cost-city exception\",\"location\":\"2.1 / 2.3\"}]}",
+          "findings": [
+            "No effective-date rule tied to expense incurrence: the policy states an effective date but never says whether it governs by date incurred, date of trip, or date of submission \u2014 the ambiguity is the root cause of the 4.3 conflict Header / 4.3",
+            "Section 5 heading is 'DEFINITIONS' but contains only two entries, one circular and one broken, so the section functionally defines nothing 5",
+            "5.2 uses a bare cross-reference in place of a definition, a drafting form that cannot function as a definition even if Section 7 existed 5.2",
+            "Numbering gap in the document structure: sections run 1\u20136 with a reference to Section 7, indicating either a deleted section or an unrenumbered cross-reference left over from rev 2 5.2 / document structure",
+            "1.1 states scope in terms of persons only; no statement of subject-matter scope (which expense types) or geographic scope, and no exclusion list 1.1",
+            "1.2 states a condition for reimbursement but no clause anywhere actually creates an entitlement or obligation to reimburse compliant expenses 1 / 4",
+            "No business-purpose requirement: nothing requires that an expense be reasonable, necessary, or incurred for company business 1 / 2",
+            "No prohibited-expense list (personal items, fines, entertainment), so any expense under the caps is implicitly reimbursable 2",
+            "'Reimbursement' itself is used throughout but never defined, including whether it covers pre-paid or company-billed costs 1.2 / 5",
+            "6.1 delegates governance of international travel entirely to Appendix B without stating whether Sections 1\u20135 (scope, receipts, approval, deadlines) still apply 6.1",
+            "No severability clause, so the internally contradictory provisions in Section 3 provide no fallback rule Document as a whole",
+            "No tax-treatment or accountable-plan statement, despite caps and receipt rules that typically carry tax consequences 2 / 4",
+            "Section ordering is illogical: limits and approvals precede definitions and scope exceptions, so operative terms are used before Sections 5 and 6 qualify them Document structure",
+            "Header lacks any approval or authorization signature, issuing authority, or document ID, undermining the supersession claim Header",
+            "4.2's discretionary acceptance has no outer time limit and no requirement that the discretion be documented, creating an audit gap against 4.1 4.2",
+            "Section 3 never states what 'approval' consists of (written, in-system, verbal) or that it must be recorded 3",
+            "No rule for expenses spanning both revisions (e.g., a trip beginning February 2026 and ending March 2026), which the 4.3 transition provision cannot resolve 4.3",
+            "$45 meal cap and $210 lodging cap are stated as absolute figures with no location-based adjustment, indexation, or high-cost-city exception 2.1 / 2.3"
+          ],
+          "matched": [
+            "D2_approval_contradiction",
+            "D4_dead_crossref",
+            "D7_missing_appendix",
+            "D8_no_cap_exception"
+          ],
+          "unmatched": [
+            "No effective-date rule tied to expense incurrence: the policy states an effective date but never says whether it governs by date incurred, date of trip, or date of submission \u2014 the ambiguity is the root cause of the 4.3 conflict Header / 4.3",
+            "Section 5 heading is 'DEFINITIONS' but contains only two entries, one circular and one broken, so the section functionally defines nothing 5",
+            "1.1 states scope in terms of persons only; no statement of subject-matter scope (which expense types) or geographic scope, and no exclusion list 1.1",
+            "1.2 states a condition for reimbursement but no clause anywhere actually creates an entitlement or obligation to reimburse compliant expenses 1 / 4",
+            "No business-purpose requirement: nothing requires that an expense be reasonable, necessary, or incurred for company business 1 / 2",
+            "No prohibited-expense list (personal items, fines, entertainment), so any expense under the caps is implicitly reimbursable 2",
+            "'Reimbursement' itself is used throughout but never defined, including whether it covers pre-paid or company-billed costs 1.2 / 5",
+            "No tax-treatment or accountable-plan statement, despite caps and receipt rules that typically carry tax consequences 2 / 4",
+            "Section ordering is illogical: limits and approvals precede definitions and scope exceptions, so operative terms are used before Sections 5 and 6 qualify them Document structure",
+            "Header lacks any approval or authorization signature, issuing authority, or document ID, undermining the supersession claim Header",
+            "4.2's discretionary acceptance has no outer time limit and no requirement that the discretion be documented, creating an audit gap against 4.1 4.2",
+            "Section 3 never states what 'approval' consists of (written, in-system, verbal) or that it must be recorded 3",
+            "No rule for expenses spanning both revisions (e.g., a trip beginning February 2026 and ending March 2026), which the 4.3 transition provision cannot resolve 4.3"
+          ],
+          "seconds": 18.7,
+          "usage": {
+            "input_tokens": 4151,
+            "output_tokens": 1119,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "turn": 4,
+          "raw": "{\"findings\":[{\"issue\":\"The three-day example in 2.2 is the only worked example in the policy and it is wrong, so the sole interpretive aid actively misleads readers\",\"location\":\"2.2\"},{\"issue\":\"2.2 introduces a trip-level aggregate cap concept that is never used or cross-referenced anywhere else, leaving it orphaned\",\"location\":\"2.2\"},{\"issue\":\"Even if the arithmetic were corrected, 2.2 does not say what happens to trips of other durations (one day, four days, partial days), so the rule cannot be generalized\",\"location\":\"2.2\"},{\"issue\":\"'Trip' is used in 2.2 and 4.1 but never defined (minimum duration, overnight requirement, multi-leg itineraries)\",\"location\":\"2.2 / 4.1\"},{\"issue\":\"Section 2 is titled 'LIMITS' but covers only meals and lodging, so the title overstates the section's coverage\",\"location\":\"2\"},{\"issue\":\"No stated interaction between the caps in Section 2 and the approval thresholds in Section 3 \u2014 unclear whether Finance approval can authorize an amount above a cap\",\"location\":\"2 / 3\"},{\"issue\":\"A multi-night lodging bill will routinely exceed $500 in total while each night is under the $210 cap; the policy does not say whether the $500 test applies to the nightly rate or the invoice total\",\"location\":\"2.3 / 3.2\"},{\"issue\":\"3.3 is redundant with 3.1's structure yet contradicts 3.2, indicating an uncorrected edit from a prior revision that was never reconciled\",\"location\":\"3.3\"},{\"issue\":\"Section 3 provides no rule for expenses requiring both approvals (sequence, whether Finance approval substitutes for manager approval)\",\"location\":\"3.1\u20133.3\"},{\"issue\":\"No provision addresses what happens if an approver does not respond within any timeframe; no deemed-approval or deemed-denial default\",\"location\":\"3\"},{\"issue\":\"4.1 uses mandatory 'must' while 4.2 immediately makes the obligation optional, producing an unresolved conflict of obligation strength within the same section\",\"location\":\"4.1 / 4.2\"},{\"issue\":\"4.3 is placed in the SUBMISSION section although it is a transition/applicability provision that belongs with the effective-date header or Section 1\",\"location\":\"4.3\"},{\"issue\":\"The document never states that headings are for convenience only, yet substantive scope is inferred from headings such as 'EXCEPTIONS' and 'LIMITS'\",\"location\":\"Document structure\"},{\"issue\":\"'Appendix B' implies at least an Appendix A exists; neither is listed in any table of contents or attachment schedule\",\"location\":\"6.1\"},{\"issue\":\"No incorporation-by-reference language stating that Appendix B forms part of this policy and is subject to the same revision control\",\"location\":\"6.1\"},{\"issue\":\"1.2 conditions reimbursement on a receipt but Section 4 never lists receipts among required submission contents, so the two requirements are not linked\",\"location\":\"1.2 / 4\"},{\"issue\":\"No privacy or data-handling statement for receipts and expense data, despite mandatory submission of personal payment records\",\"location\":\"4\"},{\"issue\":\"The policy contains no statement of purpose or objectives, giving no interpretive standard to resolve the ambiguities and conflicts it contains\",\"location\":\"Document as a whole\"}]}",
+          "findings": [
+            "The three-day example in 2.2 is the only worked example in the policy and it is wrong, so the sole interpretive aid actively misleads readers 2.2",
+            "2.2 introduces a trip-level aggregate cap concept that is never used or cross-referenced anywhere else, leaving it orphaned 2.2",
+            "Even if the arithmetic were corrected, 2.2 does not say what happens to trips of other durations (one day, four days, partial days), so the rule cannot be generalized 2.2",
+            "'Trip' is used in 2.2 and 4.1 but never defined (minimum duration, overnight requirement, multi-leg itineraries) 2.2 / 4.1",
+            "Section 2 is titled 'LIMITS' but covers only meals and lodging, so the title overstates the section's coverage 2",
+            "No stated interaction between the caps in Section 2 and the approval thresholds in Section 3 \u2014 unclear whether Finance approval can authorize an amount above a cap 2 / 3",
+            "A multi-night lodging bill will routinely exceed $500 in total while each night is under the $210 cap; the policy does not say whether the $500 test applies to the nightly rate or the invoice total 2.3 / 3.2",
+            "3.3 is redundant with 3.1's structure yet contradicts 3.2, indicating an uncorrected edit from a prior revision that was never reconciled 3.3",
+            "Section 3 provides no rule for expenses requiring both approvals (sequence, whether Finance approval substitutes for manager approval) 3.1\u20133.3",
+            "No provision addresses what happens if an approver does not respond within any timeframe; no deemed-approval or deemed-denial default 3",
+            "4.1 uses mandatory 'must' while 4.2 immediately makes the obligation optional, producing an unresolved conflict of obligation strength within the same section 4.1 / 4.2",
+            "4.3 is placed in the SUBMISSION section although it is a transition/applicability provision that belongs with the effective-date header or Section 1 4.3",
+            "The document never states that headings are for convenience only, yet substantive scope is inferred from headings such as 'EXCEPTIONS' and 'LIMITS' Document structure",
+            "'Appendix B' implies at least an Appendix A exists; neither is listed in any table of contents or attachment schedule 6.1",
+            "No incorporation-by-reference language stating that Appendix B forms part of this policy and is subject to the same revision control 6.1",
+            "1.2 conditions reimbursement on a receipt but Section 4 never lists receipts among required submission contents, so the two requirements are not linked 1.2 / 4",
+            "No privacy or data-handling statement for receipts and expense data, despite mandatory submission of personal payment records 4",
+            "The policy contains no statement of purpose or objectives, giving no interpretive standard to resolve the ambiguities and conflicts it contains Document as a whole"
+          ],
+          "matched": [
+            "D2_approval_contradiction",
+            "D7_missing_appendix",
+            "D8_no_cap_exception"
+          ],
+          "unmatched": [
+            "The three-day example in 2.2 is the only worked example in the policy and it is wrong, so the sole interpretive aid actively misleads readers 2.2",
+            "2.2 introduces a trip-level aggregate cap concept that is never used or cross-referenced anywhere else, leaving it orphaned 2.2",
+            "Even if the arithmetic were corrected, 2.2 does not say what happens to trips of other durations (one day, four days, partial days), so the rule cannot be generalized 2.2",
+            "'Trip' is used in 2.2 and 4.1 but never defined (minimum duration, overnight requirement, multi-leg itineraries) 2.2 / 4.1",
+            "Section 2 is titled 'LIMITS' but covers only meals and lodging, so the title overstates the section's coverage 2",
+            "No stated interaction between the caps in Section 2 and the approval thresholds in Section 3 \u2014 unclear whether Finance approval can authorize an amount above a cap 2 / 3",
+            "Section 3 provides no rule for expenses requiring both approvals (sequence, whether Finance approval substitutes for manager approval) 3.1\u20133.3",
+            "No provision addresses what happens if an approver does not respond within any timeframe; no deemed-approval or deemed-denial default 3",
+            "4.1 uses mandatory 'must' while 4.2 immediately makes the obligation optional, producing an unresolved conflict of obligation strength within the same section 4.1 / 4.2",
+            "4.3 is placed in the SUBMISSION section although it is a transition/applicability provision that belongs with the effective-date header or Section 1 4.3",
+            "The document never states that headings are for convenience only, yet substantive scope is inferred from headings such as 'EXCEPTIONS' and 'LIMITS' Document structure",
+            "1.2 conditions reimbursement on a receipt but Section 4 never lists receipts among required submission contents, so the two requirements are not linked 1.2 / 4",
+            "No privacy or data-handling statement for receipts and expense data, despite mandatory submission of personal payment records 4",
+            "The policy contains no statement of purpose or objectives, giving no interpretive standard to resolve the ambiguities and conflicts it contains Document as a whole"
+          ],
+          "seconds": 17.5,
+          "usage": {
+            "input_tokens": 5292,
+            "output_tokens": 1163,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "turn": 5,
+          "raw": "{\"findings\":[{\"issue\":\"Section 1 is titled 'SCOPE' but 1.2 states a substantive reimbursement condition rather than scope, misplacing an operative rule\",\"location\":\"1.2\"},{\"issue\":\"No jurisdiction or governing-law clause, and no acknowledgment of local statutory expense-reimbursement entitlements that could override the caps\",\"location\":\"Document as a whole\"},{\"issue\":\"No provision for employees without a manager (e.g., executives, sole reports), leaving 3.1 inapplicable to part of the covered population\",\"location\":\"3.1\"},{\"issue\":\"The caps in Section 2 are stated per employee but nothing addresses expenses incurred by an employee on behalf of a non-covered person (guest, spouse, candidate)\",\"location\":\"2.1\"},{\"issue\":\"No rule on splitting a single receipt across multiple employees or cost centers, despite per-employee caps\",\"location\":\"2.1 / 1.2\"},{\"issue\":\"Effective date March 1, 2026 falls before any 30-day submission cycle can complete under rev 3, yet no bridging rule addresses reports for February trips submitted in March\",\"location\":\"Header / 4.1 / 4.3\"},{\"issue\":\"4.3 is drafted as an open-ended rule with no end date, so it never expires and permanently conflicts with the header's supersession statement\",\"location\":\"4.3\"},{\"issue\":\"The phrase 'remain governed by' in 4.3 presupposes those reports were already governed by rev 2, which is untrue for trips occurring after March 1, 2026\",\"location\":\"4.3\"},{\"issue\":\"No definition of 'expense' or 'expense report', though both drive Sections 3 and 4\",\"location\":\"3 / 4 / 5\"},{\"issue\":\"Defined terms are capitalized in Section 1 ('Covered Employees', 'Qualifying Receipt') but Section 5 lists them in the singular with no convention stating that singular and plural forms are equivalent\",\"location\":\"1.1 / 1.2 / 5\"},{\"issue\":\"No rule stating whether amounts are inclusive or exclusive of VAT/sales tax, which materially changes whether a cap or the $500 threshold is breached\",\"location\":\"2 / 3\"},{\"issue\":\"No rounding convention for amounts at or near the $45, $210, and $500 boundaries\",\"location\":\"2 / 3\"},{\"issue\":\"No provision for recovery of overpayments or repayment of amounts later found non-compliant\",\"location\":\"4\"},{\"issue\":\"Nothing states that the policy is binding on employees or requires acknowledgment, so its mandatory language has no stated basis of authority\",\"location\":\"1.1\"},{\"issue\":\"No cross-reference from Section 1 to Section 6, so a reader of the scope section is not alerted that international travel is carved out\",\"location\":\"1 / 6.1\"},{\"issue\":\"Section 6 addresses exceptions by travel type only; no mechanism exists for individual, case-by-case exceptions to any cap or deadline\",\"location\":\"6\"},{\"issue\":\"The policy never states whether it applies to travel booked before the effective date but taken after it\",\"location\":\"Header / 6\"},{\"issue\":\"Numbering within sections is inconsistent in depth (Sections 5 and 6 have far fewer clauses), and 6.1 is a single-clause section that did not require subdivision\",\"location\":\"5 / 6\"}]}",
+          "findings": [
+            "Section 1 is titled 'SCOPE' but 1.2 states a substantive reimbursement condition rather than scope, misplacing an operative rule 1.2",
+            "No jurisdiction or governing-law clause, and no acknowledgment of local statutory expense-reimbursement entitlements that could override the caps Document as a whole",
+            "No provision for employees without a manager (e.g., executives, sole reports), leaving 3.1 inapplicable to part of the covered population 3.1",
+            "The caps in Section 2 are stated per employee but nothing addresses expenses incurred by an employee on behalf of a non-covered person (guest, spouse, candidate) 2.1",
+            "No rule on splitting a single receipt across multiple employees or cost centers, despite per-employee caps 2.1 / 1.2",
+            "Effective date March 1, 2026 falls before any 30-day submission cycle can complete under rev 3, yet no bridging rule addresses reports for February trips submitted in March Header / 4.1 / 4.3",
+            "4.3 is drafted as an open-ended rule with no end date, so it never expires and permanently conflicts with the header's supersession statement 4.3",
+            "The phrase 'remain governed by' in 4.3 presupposes those reports were already governed by rev 2, which is untrue for trips occurring after March 1, 2026 4.3",
+            "No definition of 'expense' or 'expense report', though both drive Sections 3 and 4 3 / 4 / 5",
+            "Defined terms are capitalized in Section 1 ('Covered Employees', 'Qualifying Receipt') but Section 5 lists them in the singular with no convention stating that singular and plural forms are equivalent 1.1 / 1.2 / 5",
+            "No rule stating whether amounts are inclusive or exclusive of VAT/sales tax, which materially changes whether a cap or the $500 threshold is breached 2 / 3",
+            "No rounding convention for amounts at or near the $45, $210, and $500 boundaries 2 / 3",
+            "No provision for recovery of overpayments or repayment of amounts later found non-compliant 4",
+            "Nothing states that the policy is binding on employees or requires acknowledgment, so its mandatory language has no stated basis of authority 1.1",
+            "No cross-reference from Section 1 to Section 6, so a reader of the scope section is not alerted that international travel is carved out 1 / 6.1",
+            "Section 6 addresses exceptions by travel type only; no mechanism exists for individual, case-by-case exceptions to any cap or deadline 6",
+            "The policy never states whether it applies to travel booked before the effective date but taken after it Header / 6",
+            "Numbering within sections is inconsistent in depth (Sections 5 and 6 have far fewer clauses), and 6.1 is a single-clause section that did not require subdivision 5 / 6"
+          ],
+          "matched": [
+            "D6_supersession_clash"
+          ],
+          "unmatched": [
+            "Section 1 is titled 'SCOPE' but 1.2 states a substantive reimbursement condition rather than scope, misplacing an operative rule 1.2",
+            "No jurisdiction or governing-law clause, and no acknowledgment of local statutory expense-reimbursement entitlements that could override the caps Document as a whole",
+            "No provision for employees without a manager (e.g., executives, sole reports), leaving 3.1 inapplicable to part of the covered population 3.1",
+            "The caps in Section 2 are stated per employee but nothing addresses expenses incurred by an employee on behalf of a non-covered person (guest, spouse, candidate) 2.1",
+            "No rule on splitting a single receipt across multiple employees or cost centers, despite per-employee caps 2.1 / 1.2",
+            "Effective date March 1, 2026 falls before any 30-day submission cycle can complete under rev 3, yet no bridging rule addresses reports for February trips submitted in March Header / 4.1 / 4.3",
+            "4.3 is drafted as an open-ended rule with no end date, so it never expires and permanently conflicts with the header's supersession statement 4.3",
+            "No definition of 'expense' or 'expense report', though both drive Sections 3 and 4 3 / 4 / 5",
+            "Defined terms are capitalized in Section 1 ('Covered Employees', 'Qualifying Receipt') but Section 5 lists them in the singular with no convention stating that singular and plural forms are equivalent 1.1 / 1.2 / 5",
+            "No rule stating whether amounts are inclusive or exclusive of VAT/sales tax, which materially changes whether a cap or the $500 threshold is breached 2 / 3",
+            "No rounding convention for amounts at or near the $45, $210, and $500 boundaries 2 / 3",
+            "No provision for recovery of overpayments or repayment of amounts later found non-compliant 4",
+            "Nothing states that the policy is binding on employees or requires acknowledgment, so its mandatory language has no stated basis of authority 1.1",
+            "No cross-reference from Section 1 to Section 6, so a reader of the scope section is not alerted that international travel is carved out 1 / 6.1",
+            "Section 6 addresses exceptions by travel type only; no mechanism exists for individual, case-by-case exceptions to any cap or deadline 6",
+            "The policy never states whether it applies to travel booked before the effective date but taken after it Header / 6",
+            "Numbering within sections is inconsistent in depth (Sections 5 and 6 have far fewer clauses), and 6.1 is a single-clause section that did not require subdivision 5 / 6"
+          ],
+          "seconds": 20.8,
+          "usage": {
+            "input_tokens": 6443,
+            "output_tokens": 1114,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "turn": 6,
+          "raw": "{\"findings\":[{\"issue\":\"The title says 'TRAVEL AND EXPENSE POLICY' but no clause states that this document is a policy of ACME WIDGETS binding its subsidiaries or affiliates, leaving corporate applicability unstated\",\"location\":\"Title / 1.1\"},{\"issue\":\"No table of contents or clause index despite internal cross-referencing (5.2 to Section 7), which would have exposed the broken reference\",\"location\":\"Document structure\"},{\"issue\":\"Rev 2's effective date of January 15, 2026 is mid-month and rev 3's is March 1, 2026, but no clause states which revision governs expenses incurred before January 15, 2026\",\"location\":\"Header\"},{\"issue\":\"The supersession statement names only rev 2; it does not state that all prior revisions and predecessor policies are superseded\",\"location\":\"Header\"},{\"issue\":\"2.3 states a lodging cap 'per night' while 2.1 states meals 'per employee' per day \u2014 the two caps use inconsistent measurement bases with no unifying convention\",\"location\":\"2.1 / 2.3\"},{\"issue\":\"Neither 2.1 nor 2.3 states whether the caps are gross reimbursable amounts or net of any employee contribution\",\"location\":\"2.1 / 2.3\"},{\"issue\":\"Section 3 sets approval requirements but never states that unapproved expenses are non-reimbursable, so approval is required with no stated legal effect\",\"location\":\"3\"},{\"issue\":\"3.1 and 3.3 both assign 'manager approval' but use different qualifiers ('require manager approval' vs 'require manager approval only'), and the word 'only' is undefined in effect \u2014 unclear whether it excludes Finance or excludes additional managers\",\"location\":\"3.1 / 3.3\"},{\"issue\":\"No provision states which approval rule governs when an expense falls under a Section 6 exception, i.e., whether Appendix B has its own approval chain\",\"location\":\"3 / 6.1\"},{\"issue\":\"4.1's 30-day clock runs from trip completion, but expenses not tied to a trip (per the policy title) have no stated submission trigger\",\"location\":\"4.1\"},{\"issue\":\"No provision addresses reimbursement where an employee leaves the company before submitting or after submitting a report\",\"location\":\"4\"},{\"issue\":\"5.1's definition uses the defined term's own root word ('Qualifying Receipt' / 'qualifies'), a self-referential construction independent of the circularity of the substance\",\"location\":\"5.1\"},{\"issue\":\"Section 5 places definitions after Sections 2\u20134 but the definitions themselves are only used in Section 1, so the section is positioned to serve no clause that follows it\",\"location\":\"5\"},{\"issue\":\"6.1 is the only exception clause yet is not cross-referenced by any of the provisions it would except from, so the carve-out is discoverable only by reading the whole document\",\"location\":\"6.1\"},{\"issue\":\"The document uses '$' amounts inconsistently in formatting (no decimal places anywhere), with no statement of whether cents are recognized in cap calculations\",\"location\":\"2 / 3\"},{\"issue\":\"No clause reserves the company's right to amend, suspend, or withdraw the policy, despite the header asserting revision authority\",\"location\":\"Header\"},{\"issue\":\"No transition rule for approvals validly obtained under rev 2 that remain pending on the rev 3 effective date\",\"location\":\"Header / 3 / 4.3\"},{\"issue\":\"No statement of how conflicts between this policy and an employment contract or collective agreement are resolved\",\"location\":\"Document as a whole\"}]}",
+          "findings": [
+            "The title says 'TRAVEL AND EXPENSE POLICY' but no clause states that this document is a policy of ACME WIDGETS binding its subsidiaries or affiliates, leaving corporate applicability unstated Title / 1.1",
+            "No table of contents or clause index despite internal cross-referencing (5.2 to Section 7), which would have exposed the broken reference Document structure",
+            "Rev 2's effective date of January 15, 2026 is mid-month and rev 3's is March 1, 2026, but no clause states which revision governs expenses incurred before January 15, 2026 Header",
+            "The supersession statement names only rev 2; it does not state that all prior revisions and predecessor policies are superseded Header",
+            "2.3 states a lodging cap 'per night' while 2.1 states meals 'per employee' per day \u2014 the two caps use inconsistent measurement bases with no unifying convention 2.1 / 2.3",
+            "Neither 2.1 nor 2.3 states whether the caps are gross reimbursable amounts or net of any employee contribution 2.1 / 2.3",
+            "Section 3 sets approval requirements but never states that unapproved expenses are non-reimbursable, so approval is required with no stated legal effect 3",
+            "3.1 and 3.3 both assign 'manager approval' but use different qualifiers ('require manager approval' vs 'require manager approval only'), and the word 'only' is undefined in effect \u2014 unclear whether it excludes Finance or excludes additional managers 3.1 / 3.3",
+            "No provision states which approval rule governs when an expense falls under a Section 6 exception, i.e., whether Appendix B has its own approval chain 3 / 6.1",
+            "4.1's 30-day clock runs from trip completion, but expenses not tied to a trip (per the policy title) have no stated submission trigger 4.1",
+            "No provision addresses reimbursement where an employee leaves the company before submitting or after submitting a report 4",
+            "5.1's definition uses the defined term's own root word ('Qualifying Receipt' / 'qualifies'), a self-referential construction independent of the circularity of the substance 5.1",
+            "Section 5 places definitions after Sections 2\u20134 but the definitions themselves are only used in Section 1, so the section is positioned to serve no clause that follows it 5",
+            "6.1 is the only exception clause yet is not cross-referenced by any of the provisions it would except from, so the carve-out is discoverable only by reading the whole document 6.1",
+            "The document uses '$' amounts inconsistently in formatting (no decimal places anywhere), with no statement of whether cents are recognized in cap calculations 2 / 3",
+            "No clause reserves the company's right to amend, suspend, or withdraw the policy, despite the header asserting revision authority Header",
+            "No transition rule for approvals validly obtained under rev 2 that remain pending on the rev 3 effective date Header / 3 / 4.3",
+            "No statement of how conflicts between this policy and an employment contract or collective agreement are resolved Document as a whole"
+          ],
+          "matched": [
+            "D2_approval_contradiction",
+            "D3_circular_definition",
+            "D4_dead_crossref",
+            "D6_supersession_clash",
+            "D7_missing_appendix"
+          ],
+          "unmatched": [
+            "The title says 'TRAVEL AND EXPENSE POLICY' but no clause states that this document is a policy of ACME WIDGETS binding its subsidiaries or affiliates, leaving corporate applicability unstated Title / 1.1",
+            "The supersession statement names only rev 2; it does not state that all prior revisions and predecessor policies are superseded Header",
+            "2.3 states a lodging cap 'per night' while 2.1 states meals 'per employee' per day \u2014 the two caps use inconsistent measurement bases with no unifying convention 2.1 / 2.3",
+            "Neither 2.1 nor 2.3 states whether the caps are gross reimbursable amounts or net of any employee contribution 2.1 / 2.3",
+            "Section 3 sets approval requirements but never states that unapproved expenses are non-reimbursable, so approval is required with no stated legal effect 3",
+            "4.1's 30-day clock runs from trip completion, but expenses not tied to a trip (per the policy title) have no stated submission trigger 4.1",
+            "No provision addresses reimbursement where an employee leaves the company before submitting or after submitting a report 4",
+            "Section 5 places definitions after Sections 2\u20134 but the definitions themselves are only used in Section 1, so the section is positioned to serve no clause that follows it 5",
+            "6.1 is the only exception clause yet is not cross-referenced by any of the provisions it would except from, so the carve-out is discoverable only by reading the whole document 6.1",
+            "The document uses '$' amounts inconsistently in formatting (no decimal places anywhere), with no statement of whether cents are recognized in cap calculations 2 / 3",
+            "No clause reserves the company's right to amend, suspend, or withdraw the policy, despite the header asserting revision authority Header",
+            "No statement of how conflicts between this policy and an employment contract or collective agreement are resolved Document as a whole"
+          ],
+          "seconds": 19.0,
+          "usage": {
+            "input_tokens": 7579,
+            "output_tokens": 1215,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "turn": 7,
+          "raw": "{\"findings\":[{\"issue\":\"No clause addresses the practical impossibility created by 4.3: since the policy takes effect March 1, 2026 and 4.3 sends all post-February-28 submissions to rev 2, rev 3's own Sections 2 and 3 can never apply to any submitted report \u2014 the document defeats itself\",\"location\":\"Header / 4.3\"},{\"issue\":\"4.3 uses a submission-date test while the header uses an effective-date test, mixing two incompatible temporal triggers within the same document without a priority rule\",\"location\":\"Header / 4.3\"},{\"issue\":\"'February 28, 2026' in 4.3 does not align with either stated effective date (January 15 or March 1), so the transition boundary is arbitrary and unexplained\",\"location\":\"4.3\"},{\"issue\":\"2026 is not a leap year, so February 28 is the last day of the month; the drafter's choice of 'after February 28' rather than 'before March 1' is redundant phrasing that invites date-arithmetic error in leap years if the clause is reused\",\"location\":\"4.3\"},{\"issue\":\"The policy nowhere states a time zone or business-day convention for determining when a submission or approval occurs relative to a deadline or effective date\",\"location\":\"4.1 / 4.3 / Header\"},{\"issue\":\"Section 2 gives no rule for meals provided free of charge (conference-included, hotel breakfast, hosted by client), which would otherwise be claimable up to the cap\",\"location\":\"2.1\"},{\"issue\":\"Section 2 does not address whether the daily meal cap applies on partial travel days (departure and return days)\",\"location\":\"2.1 / 2.2\"},{\"issue\":\"No provision covers incidental expenses (baggage, wifi, laundry, tips) that fall outside both the meal and lodging categories, leaving them neither capped nor authorized\",\"location\":\"2\"},{\"issue\":\"3.2 sets a Finance approval requirement but never identifies a monetary ceiling above which a higher authority (executive, board) is required\",\"location\":\"3.2\"},{\"issue\":\"The approval tiers do not reference the caps, so it is unclear whether an expense already within the Section 2 caps still requires the Section 3 approvals\",\"location\":\"2 / 3\"},{\"issue\":\"1.2 makes a receipt a precondition for reimbursement but 4.2 allows a reviewer to accept a late report, with no parallel discretion to waive the receipt requirement \u2014 an asymmetry that is likely unintended\",\"location\":\"1.2 / 4.2\"},{\"issue\":\"No provision establishes who bears the cost of an expense denied under this policy, or whether the employee is personally liable\",\"location\":\"3 / 4\"},{\"issue\":\"'Reviewer' in 4.2 could be read as the same person as the submitting employee's manager, permitting self-interested waiver of the deadline with no conflict-of-interest control\",\"location\":\"4.2\"},{\"issue\":\"Section 5 provides no interpretation rules (e.g., 'includes' is non-exhaustive, headings non-binding, 'or' inclusive), despite ambiguities throughout\",\"location\":\"5\"},{\"issue\":\"The definition list is not alphabetized or otherwise ordered, and 'Qualifying Receipt' (5.1) precedes 'Covered Employee' (5.2) though the latter is used first in 1.1\",\"location\":\"5.1 / 5.2\"},{\"issue\":\"No clause states the policy's relationship to expense-system configuration or automated controls, so system-enforced limits could silently differ from the stated caps\",\"location\":\"Document as a whole\"},{\"issue\":\"The document has no closing, execution block, or 'end of policy' marker, so it is impossible to confirm that Section 7 was not simply omitted from this copy\",\"location\":\"Document structure\"}]}",
+          "findings": [
+            "No clause addresses the practical impossibility created by 4.3: since the policy takes effect March 1, 2026 and 4.3 sends all post-February-28 submissions to rev 2, rev 3's own Sections 2 and 3 can never apply to any submitted report \u2014 the document defeats itself Header / 4.3",
+            "4.3 uses a submission-date test while the header uses an effective-date test, mixing two incompatible temporal triggers within the same document without a priority rule Header / 4.3",
+            "'February 28, 2026' in 4.3 does not align with either stated effective date (January 15 or March 1), so the transition boundary is arbitrary and unexplained 4.3",
+            "2026 is not a leap year, so February 28 is the last day of the month; the drafter's choice of 'after February 28' rather than 'before March 1' is redundant phrasing that invites date-arithmetic error in leap years if the clause is reused 4.3",
+            "The policy nowhere states a time zone or business-day convention for determining when a submission or approval occurs relative to a deadline or effective date 4.1 / 4.3 / Header",
+            "Section 2 gives no rule for meals provided free of charge (conference-included, hotel breakfast, hosted by client), which would otherwise be claimable up to the cap 2.1",
+            "Section 2 does not address whether the daily meal cap applies on partial travel days (departure and return days) 2.1 / 2.2",
+            "No provision covers incidental expenses (baggage, wifi, laundry, tips) that fall outside both the meal and lodging categories, leaving them neither capped nor authorized 2",
+            "3.2 sets a Finance approval requirement but never identifies a monetary ceiling above which a higher authority (executive, board) is required 3.2",
+            "The approval tiers do not reference the caps, so it is unclear whether an expense already within the Section 2 caps still requires the Section 3 approvals 2 / 3",
+            "1.2 makes a receipt a precondition for reimbursement but 4.2 allows a reviewer to accept a late report, with no parallel discretion to waive the receipt requirement \u2014 an asymmetry that is likely unintended 1.2 / 4.2",
+            "No provision establishes who bears the cost of an expense denied under this policy, or whether the employee is personally liable 3 / 4",
+            "'Reviewer' in 4.2 could be read as the same person as the submitting employee's manager, permitting self-interested waiver of the deadline with no conflict-of-interest control 4.2",
+            "Section 5 provides no interpretation rules (e.g., 'includes' is non-exhaustive, headings non-binding, 'or' inclusive), despite ambiguities throughout 5",
+            "The definition list is not alphabetized or otherwise ordered, and 'Qualifying Receipt' (5.1) precedes 'Covered Employee' (5.2) though the latter is used first in 1.1 5.1 / 5.2",
+            "No clause states the policy's relationship to expense-system configuration or automated controls, so system-enforced limits could silently differ from the stated caps Document as a whole",
+            "The document has no closing, execution block, or 'end of policy' marker, so it is impossible to confirm that Section 7 was not simply omitted from this copy Document structure"
+          ],
+          "matched": [
+            "D4_dead_crossref",
+            "D6_supersession_clash"
+          ],
+          "unmatched": [
+            "4.3 uses a submission-date test while the header uses an effective-date test, mixing two incompatible temporal triggers within the same document without a priority rule Header / 4.3",
+            "'February 28, 2026' in 4.3 does not align with either stated effective date (January 15 or March 1), so the transition boundary is arbitrary and unexplained 4.3",
+            "2026 is not a leap year, so February 28 is the last day of the month; the drafter's choice of 'after February 28' rather than 'before March 1' is redundant phrasing that invites date-arithmetic error in leap years if the clause is reused 4.3",
+            "The policy nowhere states a time zone or business-day convention for determining when a submission or approval occurs relative to a deadline or effective date 4.1 / 4.3 / Header",
+            "Section 2 gives no rule for meals provided free of charge (conference-included, hotel breakfast, hosted by client), which would otherwise be claimable up to the cap 2.1",
+            "Section 2 does not address whether the daily meal cap applies on partial travel days (departure and return days) 2.1 / 2.2",
+            "No provision covers incidental expenses (baggage, wifi, laundry, tips) that fall outside both the meal and lodging categories, leaving them neither capped nor authorized 2",
+            "3.2 sets a Finance approval requirement but never identifies a monetary ceiling above which a higher authority (executive, board) is required 3.2",
+            "The approval tiers do not reference the caps, so it is unclear whether an expense already within the Section 2 caps still requires the Section 3 approvals 2 / 3",
+            "1.2 makes a receipt a precondition for reimbursement but 4.2 allows a reviewer to accept a late report, with no parallel discretion to waive the receipt requirement \u2014 an asymmetry that is likely unintended 1.2 / 4.2",
+            "No provision establishes who bears the cost of an expense denied under this policy, or whether the employee is personally liable 3 / 4",
+            "'Reviewer' in 4.2 could be read as the same person as the submitting employee's manager, permitting self-interested waiver of the deadline with no conflict-of-interest control 4.2",
+            "Section 5 provides no interpretation rules (e.g., 'includes' is non-exhaustive, headings non-binding, 'or' inclusive), despite ambiguities throughout 5",
+            "The definition list is not alphabetized or otherwise ordered, and 'Qualifying Receipt' (5.1) precedes 'Covered Employee' (5.2) though the latter is used first in 1.1 5.1 / 5.2",
+            "No clause states the policy's relationship to expense-system configuration or automated controls, so system-enforced limits could silently differ from the stated caps Document as a whole"
+          ],
+          "seconds": 20.1,
+          "usage": {
+            "input_tokens": 8779,
+            "output_tokens": 1234,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+          }
+        }
+      ],
+      "analysis": {
+        "label": "sequential_default",
+        "k": 8,
+        "tokens_in": 37905,
+        "tokens_out": 10659,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+        "tokens_per_call_out": [
+          1618,
+          1042,
+          2154,
+          1119,
+          1163,
+          1114,
+          1215,
+          1234
+        ],
+        "cost_usd_total": 0.456,
+        "cost_usd_first_call": 0.0448,
+        "cost_usd_wasted_after_first": 0.4112,
+        "seconds_total": 164.4,
+        "finding_counts": [
+          15,
+          16,
+          20,
+          18,
+          18,
+          18,
+          18,
+          17
+        ],
+        "sections_per_call": [
+          16,
+          13,
+          14,
+          12,
+          14,
+          11,
+          15,
+          14
+        ],
+        "sections_union": 21,
+        "sections_union_curve": [
+          16,
+          20,
+          20,
+          20,
+          21,
+          21,
+          21,
+          21
+        ],
+        "mean_pairwise_jaccard_sections": 0.503,
+        "sections_seen": [
+          "1.1",
+          "1.2",
+          "2.1",
+          "2.2",
+          "2.3",
+          "3.1",
+          "3.2",
+          "3.3",
+          "4.1",
+          "4.2",
+          "4.3",
+          "5.1",
+          "5.2",
+          "6.1",
+          "s1",
+          "s2",
+          "s3",
+          "s4",
+          "s5",
+          "s6",
+          "s7"
+        ],
+        "per_call_recall": [
+          8,
+          3,
+          3,
+          4,
+          3,
+          1,
+          5,
+          2
+        ],
+        "mean_per_call": 3.62,
+        "best_single": 8,
+        "union_recall": 8,
+        "union_curve": [
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8
+        ],
+        "marginal_gain_after_first": 0,
+        "mean_pairwise_jaccard": 0.313,
+        "union_ids": [
+          "D1_meal_arithmetic",
+          "D2_approval_contradiction",
+          "D3_circular_definition",
+          "D4_dead_crossref",
+          "D5_undefined_reviewer",
+          "D6_supersession_clash",
+          "D7_missing_appendix",
+          "D8_no_cap_exception"
+        ],
+        "never_found": [],
+        "unmatched_finding_count": 106
+      }
+    }
+  },
+  "temperature_control_available": false
+}

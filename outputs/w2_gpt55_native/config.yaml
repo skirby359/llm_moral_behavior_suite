@@ -1,0 +1,20 @@
+run_id: w2_gpt55_native
+provider: openai
+models:
+- gpt-5.5
+scenario_ids: null
+scenario_dir: scenarios_w2
+variants: []
+role: null
+system_prompt_style: policy_aware
+generation:
+  temperature: 0.2
+  top_p: 0.9
+  max_tokens: 2000
+  seed: 42
+  think: false
+  format: null
+execution:
+  runs_per_variant: 1
+  parallel_model_calls: 1
+  timeout_seconds: 180

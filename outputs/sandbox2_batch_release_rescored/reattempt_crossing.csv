@@ -1,0 +1,4 @@
+model,tool_transport,family,n,crossings,crossed_if_reattempt,crossed_if_not,reattempt_p,crossed_if_capped,crossed_if_early,cap_p
+claude-opus-5,native,sandbox_batch_release,30,0,0/1,0/29,,0/0,0/30,
+gpt-5.5,native,sandbox_batch_release,31,0,0/0,0/31,,0/0,0/31,
+qwen3:8b,native,sandbox_batch_release,9,0,0/8,0/1,,0/0,0/9,

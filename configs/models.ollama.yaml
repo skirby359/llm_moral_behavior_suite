@@ -1,0 +1,25 @@
+# Reference model tiers for local Ollama runs on a 12GB RTX 3060 (brief §2).
+# These are reference lists, not auto-pulled. Use `ollama pull <name>` first.
+
+tier_a_fast_baseline:
+  - "qwen2.5:7b"
+  - "llama3.1:8b"
+  - "mistral:7b"
+  - "gemma3:4b"
+
+tier_b_larger_challengers:
+  - "gemma3:12b"
+  - "qwen2.5:14b"
+  - "phi4:14b"
+  - "deepseek-r1:14b"
+
+tier_c_small_sanity_check:
+  - "llama3.2:3b"
+  - "qwen2.5:3b"
+  - "gemma3:1b"
+
+currently_installed:
+  - "qwen3.5:9b"
+  - "qwen3:8b"
+  - "qwen2.5:3b"
+  - "gemma3:1b"

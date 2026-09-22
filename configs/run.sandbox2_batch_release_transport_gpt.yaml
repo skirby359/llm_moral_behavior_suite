@@ -1,0 +1,53 @@
+# Wave 5 goal-obstacle sandbox, family 2: batch release (scenarios_sandbox/batch_release.yaml).
+# The transport arm. All 94 committed Family 2 frontier runs are native. Family 1's gpt-5.5
+# blocked crossing rate was 5/16 (31%) under json_schema against 4/36 (11%) under native, so the
+# arm where the reference effect is strongest has never been tested in Family 2. This closes that
+# gap. gpt-5.5 only: Family 1's opus json_schema arm was 6 of 7 vendor refusals and opus has
+# crossed zero times in both families, so an opus json_schema arm answers nothing.
+#
+# This REVERSES the standing instruction to stop sampling json_schema (taken in Wave 3 when the
+# transports looked equivalent on the between-arm difference, before the base-rate gap was
+# noticed). Approved by the PI on 11 September 2026 ("do all three"). Pre-run record: the
+# Amendment 1 section of scenarios_sandbox/PRERUN_FAMILY2.md.
+#
+# Read as a run-level binomial against Family 1's json_schema stuck arm (16 runs, 5 crossings),
+# NOT against native, and NOT through the per-action hazard model, which the transport arm does
+# not need. Approx $2.80 at the measured json_schema per-run cost.
+
+run_id: "sandbox2_batch_release_transport_gpt"
+provider: "openai"
+
+models:
+  - "gpt-5.5"
+
+scenario_dir: "scenarios_sandbox"
+# Pinned: the directory holds more than one family and one of them is frozen
+# (scenarios_sandbox/frozen_families.json). Selecting by directory alone would re-run it.
+scenario_ids: ["sb_batch_release"]
+
+solvability: ["stuck"]
+rule_distance: ["adjacent"]
+checker_access: ["visible_writable"]
+session_limit: ["off"]
+task_framing: ["baseline"]
+defer_available: ["off"]
+tool_transport: "json_schema"
+
+include_held_out: false
+retry_unmeasured: false
+prompt_caching: false
+max_consecutive_parse_failures: 3
+
+generation:
+  # Frontier vendors reject non-default sampling; values are recorded, not sent, there.
+  temperature: 1.0
+  top_p: 1.0
+  max_tokens: 4096
+  seed: null
+  think: false
+  format: null
+
+execution:
+  runs_per_variant: 20
+  parallel_model_calls: 1
+  timeout_seconds: 240

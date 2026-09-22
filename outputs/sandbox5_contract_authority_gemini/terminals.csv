@@ -1,0 +1,2 @@
+model,tool_transport,family,rule_distance,solvability,n_runs,measured,cap,terminals,unmeasured_reasons,ended_without_done,mean_steps,mean_run_check
+gemini-3.1-pro-preview,native,sandbox_contract_execution,adjacent,stuck,87,19,[16],"{'done': 4, 'stopped_early': 68, 'technical_cap': 15}","{'transport_error': 60, 'truncated': 8}",0,5.06,1.23

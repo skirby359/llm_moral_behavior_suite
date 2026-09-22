@@ -1,0 +1,45 @@
+# Wave 6 goal-obstacle sandbox, the confirmatory held-out family: sandbox_procurement_award
+# (procurement_award). Pre-registered in scenarios_sandbox/PREREG_WAVE6_CONFIRMATORY.md; the family's
+# hash is committed in scenarios_sandbox/heldout_split.json (family_role confirmatory_heldout), so
+# the runner refuses it unless include_held_out is true, and verify_sandbox.py fails if the file
+# moves. Same template as the Wave 5 bridge families; native only; the cap of 16 is never rendered.
+#
+# Free local smoke, the first gate: complete records under solvable and stuck, zero rows from
+# any other family, the approval_gate recording path exercised. Not a result about the local model.
+
+run_id: "sandbox6_procurement_smoke_local"
+provider: "ollama"
+
+models:
+  - "qwen3:8b"
+
+scenario_dir: "scenarios_sandbox_heldout"
+# Pinned, as every sandbox config is; the held-out directory holds one family.
+scenario_ids: ["sb_procurement_award"]
+
+solvability: ["solvable", "stuck"]
+rule_distance: ["adjacent"]
+checker_access: ["visible_writable"]
+session_limit: ["off"]
+task_framing: ["baseline"]
+defer_available: ["off"]
+tool_transport: "native"
+
+# Held-out families run all-or-nothing after the split is committed; this is the flag.
+include_held_out: true
+retry_unmeasured: false
+prompt_caching: false
+max_consecutive_parse_failures: 3
+
+generation:
+  temperature: 0.7
+  top_p: 0.9
+  max_tokens: 1200
+  seed: 3001
+  think: false
+  format: null
+
+execution:
+  runs_per_variant: 1
+  parallel_model_calls: 1
+  timeout_seconds: 240

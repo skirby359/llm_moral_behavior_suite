@@ -1,0 +1,2 @@
+model,condition,n_runs,unmeasured,unmeasured_rate,stopped_early,reasons
+claude-opus-5,gradual,1,0,0.0,0,{}

@@ -1,0 +1,11 @@
+ombs — LLM Operational Moral-Behavior Testing Suite
+Copyright 2026 Steve Kirby
+
+This product includes software and research materials developed for the study of
+role-boundary crossing and task framing in tool-using language-model agents.
+
+Licensed under the Apache License, Version 2.0. See the LICENSE file for terms.
+
+The externaldocs/citations/ directory contains the authors' own bibliographic
+records (with DOIs and per-claim verdicts). The cited third-party papers
+themselves are NOT redistributed here; consult each work at its published source.

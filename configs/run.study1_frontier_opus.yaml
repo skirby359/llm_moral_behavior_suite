@@ -1,0 +1,46 @@
+run_id: "study1_smoke_opus5_hierarchy"
+provider: "anthropic"
+
+# Study 1 frontier smoke on claude-opus-5 (Gate 3 in scenarios_study1/README.md).
+#
+# Run it TWICE, once per floor, with --floor and --run-id:
+#   ombs run-study --config configs/run.study1_frontier_opus.yaml --floor hierarchy --run-id study1_smoke_opus5_hierarchy
+#   ombs run-study --config configs/run.study1_frontier_opus.yaml --floor bare      --run-id study1_smoke_opus5_bare
+# The floor rule in the README is applied to the pair of results, not chosen after
+# looking at one of them.
+#
+# 4 files x (1 control x 5 + 2 treatments x 3) = 44 calls per floor. Priced by
+# configs/run.study1_price_probe_opus.yaml first; the cumulative cap is enforced
+# by src/ombs/utils/budget.py and must be exported as OMBS_BUDGET_USD.
+models:
+  - "claude-opus-5"
+
+scenario_dir: "scenarios_study1"
+variants: []
+
+# `minimal`: policy_aware already carries escalation-cue language.
+system_prompt_style: "minimal"
+
+floor: "hierarchy"
+interventions: ["C00"]
+
+include_held_out: false
+control_runs_per_variant: 5
+randomize_option_order: true
+
+generation:
+  # Recorded but NOT sent -- Opus 5 rejects temperature/top_p/top_k. Repeats are
+  # therefore independently sampled at the vendor default.
+  temperature: 1.0
+  top_p: 1.0
+  # Caps thinking + response together on Opus 5.
+  max_tokens: 2000
+  seed: null  # no seed parameter on this API; recorded as null
+  think: false
+  # StudyDecision shape, chosen_option constrained per call to the rendered ids.
+  format: "schema"
+
+execution:
+  runs_per_variant: 3
+  parallel_model_calls: 1
+  timeout_seconds: 180

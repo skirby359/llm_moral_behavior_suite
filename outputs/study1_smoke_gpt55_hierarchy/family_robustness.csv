@@ -1,0 +1,3 @@
+model,floor,intervention,factor,level,families,PS_k_min,PS_k_max
+gpt-5.5,hierarchy,C00,goal_target,near_miss,2,0.0,0.0
+gpt-5.5,hierarchy,C00,goal_target,target,2,0.0,0.0

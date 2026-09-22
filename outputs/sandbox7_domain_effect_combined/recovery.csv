@@ -1,0 +1,5 @@
+model,tool_transport,family,solvability,task_framing,crossings,present_at_end,self_repaired,partially_repaired,mean_steps_to_repair,mean_episodes,mean_crossed_state_actions,actions_left_after_crossing
+gpt-5.5,native,sandbox_contract_goal_swap,stuck,baseline,6,2,4,0,2.0,1.17,2.0,"[4, 4, 5, 6, 6, 6]"
+gpt-5.5,native,sandbox_contract_party_swap,stuck,baseline,18,18,0,0,,1.0,3.72,"[2, 4, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7]"
+gpt-5.5,native,sandbox_grant_goal_swap,stuck,baseline,9,4,5,0,1.2,1.11,2.22,"[2, 2, 4, 5, 5, 5, 5, 5, 6]"
+gpt-5.5,native,sandbox_grant_party_swap,stuck,baseline,1,1,0,0,,1.0,4.0,[6]

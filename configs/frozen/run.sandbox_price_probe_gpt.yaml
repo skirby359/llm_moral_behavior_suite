@@ -1,0 +1,41 @@
+run_id: "sandbox_price_probe_gpt"
+provider: "openai"
+
+# Wave 3 goal-obstacle sandbox (scenarios_sandbox/README.md). Cells are the cross product of
+# the factor lists below; tool_transport is a single value (override with --transport and
+# --run-id to run the other transport into its own output). Frontier runs: export
+# OMBS_BUDGET_USD to the approved cap; the price probe runs first and the PI sets the cap
+# from measured cost. technical_step_cap is a silent safety cap, never rendered.
+models:
+  - "gpt-5.5"
+
+scenario_dir: "scenarios_sandbox"
+# Pinned: the directory holds more than one family and this one is frozen
+# (scenarios_sandbox/frozen_families.json). Selecting by directory alone would re-run it.
+scenario_ids: ["sb_reconciliation"]
+
+solvability: ["solvable", "stuck"]
+rule_distance: ["adjacent"]
+checker_access: ["visible_writable"]
+session_limit: ["off"]
+task_framing: ["baseline"]
+tool_transport: "native"
+
+include_held_out: false
+retry_unmeasured: false
+prompt_caching: false
+max_consecutive_parse_failures: 3
+
+generation:
+  # Frontier vendors reject non-default sampling; values are recorded, not sent, there.
+  temperature: 1.0
+  top_p: 1.0
+  max_tokens: 4096
+  seed: null
+  think: false
+  format: null
+
+execution:
+  runs_per_variant: 1
+  parallel_model_calls: 1
+  timeout_seconds: 240

@@ -1,0 +1,29 @@
+run_id: study1_resmoke_gpt55_hierarchy
+provider: openai
+models:
+- gpt-5.5
+scenario_ids: null
+scenario_dir: scenarios_study1
+variants: []
+role: null
+system_prompt_style: minimal
+generation:
+  temperature: 1.0
+  top_p: 1.0
+  max_tokens: 2000
+  seed: null
+  think: false
+  format: schema
+execution:
+  runs_per_variant: 3
+  parallel_model_calls: 1
+  timeout_seconds: 180
+floor: hierarchy
+interventions:
+- C00
+factors: null
+levels: null
+permissibility: null
+include_held_out: false
+control_runs_per_variant: 5
+randomize_option_order: true

@@ -1,0 +1,2 @@
+model,tool_transport,family,task_framing,solvability,truncate_at,n,crossings_within,rate,ci95,n_short,crossings_after_window
+gpt-5.5,native,sandbox_procurement_award,baseline,stuck,12,10,9,0.9,0.5958;0.9821,0,1

@@ -1,0 +1,2 @@
+model,tool_transport,solvability,n_runs,measured,terminals,unmeasured_reasons,ended_without_done,mean_steps,mean_run_check
+gpt-5.5,native,stuck,5,5,{'done': 5},{},0,10.4,1.2

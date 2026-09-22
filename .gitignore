@@ -1,0 +1,25 @@
+# Secrets — .env holds live ANTHROPIC_API_KEY and OPENAI_API_KEY
+.env
+.env.*
+!.env.example
+
+# Virtualenv / build
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Note: outputs/ IS tracked on purpose — it is the experimental record backing
+# FINDINGS.md and scenarios_w2/README.md. If the repo gets heavy, ignore the raw
+# per-call files rather than the reports:
+#   outputs/**/raw_responses.jsonl
+
+# Run logs from the W3 independence experiments: stdout captures, not results.
+# The results are the *.json beside them; the logs are kept locally only.
+experiments/w3_independence/*.log

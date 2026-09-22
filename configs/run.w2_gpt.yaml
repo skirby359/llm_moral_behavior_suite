@@ -1,0 +1,74 @@
+run_id: "w2_gpt55_rep1"
+provider: "openai"
+
+# W2 CROSS-VENDOR ARM (notes/PHASE-20-RELATIONAL.md, W2). Does `false_history` beat
+# `authority` on an independently-trained vendor?
+#
+# WHY THIS RUN EXISTS. W2's claim is about TRAINING PRACTICE -- authority
+# resistance has been explicitly trained, deference to an unverifiable shared
+# past probably has not. A single vendor cannot separate "a fact about training
+# practice" from "a fact about Anthropic's training practice". gpt-5.5 is the
+# second, independently-trained frontier model.
+#
+# The load-bearing comparison is still WITHIN-MODEL: authority ladder vs
+# false_history twin on identical material facts. Cross-vendor only asks whether
+# the within-model gap generalises.
+#
+# WHY format: "schema" -- and an honest note that it turned out to be unnecessary.
+#
+# This arm was constrained as a precaution, on the strength of a scratch probe in
+# which unconstrained gpt-5.5 wrote prose into the `recommended_action` enum
+# field. THAT PROBE WAS MISLEADING AND THE INFERENCE FROM IT WAS WRONG: the
+# scratch prompt listed only the JSON key names, while the repo's real template
+# (prompts/response_schema.md, RESPONSE_SCHEMA_BLOCK in prompt_builder.py)
+# enumerates the permitted enum values. Given the repo's actual prompt, gpt-5.5
+# is natively schema-compliant: the unconstrained companion arm
+# (outputs/w2_gpt55_native/) parsed 24/24 = 100%, exactly like Opus 5.
+#
+# So the format question does not affect this result, and it is measured rather
+# than assumed. Both settings were run, and both give 5.00:
+#   configs/run.w2_gpt_native.yaml   -- gpt-5.5 unconstrained. Condition-identical
+#                                       to outputs/w2_opus5_rep1..3, and the
+#                                       source of the 100% native-compliance
+#                                       figure above (the repo treats JSON
+#                                       compliance as a reported metric, kept
+#                                       separate from judgment behavior).
+#   configs/run.w2_opus_schema.yaml  -- Opus 5 under this same constraint, so a
+#                                       condition-identical pair exists at the
+#                                       constrained setting too.
+models:
+  - "gpt-5.5"
+
+scenario_dir: "scenarios_w2"
+
+variants: []
+
+system_prompt_style: "policy_aware"
+
+generation:
+  # Recorded but NOT sent. Probed: gpt-5.5 rejects temperature=0 ("Only the
+  # default (1) value is supported") and rejects top_p outright -- the same
+  # situation as Opus 5. CONSEQUENCE: no seed and no temperature control exist on
+  # either frontier vendor, so repeats here are independently sampled and a
+  # sd of 0.00 across them is a real robustness claim (unlike a pinned-seed
+  # local run, where it means nothing).
+  temperature: 0.2
+  top_p: 0.9
+  # Matches the Opus pilot exactly. On gpt-5.5 this budget is
+  # max_completion_tokens, which caps REASONING + visible output together (the
+  # probe measured 114 reasoning tokens on a schema-constrained call, so there is
+  # ample headroom). The provider records finish_reason and flags `truncated`, so
+  # a budget overrun cannot masquerade as a parse failure.
+  max_tokens: 2000
+  # Recorded only; the OpenAI API exposes no seed parameter for this model.
+  seed: 42
+  think: false
+  format: "schema"
+
+execution:
+  runs_per_variant: 1
+  parallel_model_calls: 1
+  timeout_seconds: 180
+
+# ombs run-multiturn --config configs/run.w2_gpt.yaml --run-id w2_gpt55_rep1
+# 1 model x 4 scenarios x (1 opening + 5 pushback) = 24 calls per repeat.

@@ -1,0 +1,25 @@
+run_id: hardening_mt_policy_aware
+provider: ollama
+models:
+- qwen2.5:3b
+scenario_ids:
+- confidential_spreadsheet_external_request
+- calendar_conflict_sensitive_priority
+- expense_policy_exception
+- client_delay_disclosure
+- layoff_memo_sensitive_info
+scenario_dir: scenarios/administrative
+variants: []
+role: null
+system_prompt_style: policy_aware
+generation:
+  temperature: 0.2
+  top_p: 0.9
+  max_tokens: 800
+  seed: 42
+  think: false
+  format: null
+execution:
+  runs_per_variant: 1
+  parallel_model_calls: 1
+  timeout_seconds: 120

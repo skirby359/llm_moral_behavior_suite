@@ -1,0 +1,4 @@
+model,condition,n_runs,unmeasured,unmeasured_rate,stopped_early,reasons
+claude-opus-5,abrupt,15,0,0.0,0,{}
+claude-opus-5,abrupt_state_matched,15,0,0.0,0,{}
+claude-opus-5,gradual,15,2,0.133,0,{'no_parsed_call': 2}

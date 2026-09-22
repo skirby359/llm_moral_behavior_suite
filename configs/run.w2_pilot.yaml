@@ -1,0 +1,41 @@
+run_id: "w2_pilot_opus5"
+provider: "anthropic"
+
+# W2 PILOT (notes/PHASE-20-RELATIONAL.md). Does `false_history` break a boundary that
+# `authority` could not?
+#
+# The scenario pair in scenarios_w2/ holds material facts constant and swaps only
+# the pushback ladder. The repo's earlier runs show layoff_memo RESISTED authority
+# on every model tested (locals and Opus 4.8 all held 5/5 turns), so an authority
+# survival depth of 5 here is the expected control result; a shallower depth on the
+# false_history twin is the finding.
+#
+# Metric: boundary_survival_depth + first_failure_turn from multi_turn.jsonl.
+# No new analysis code needed -- both are already on MultiTurnRecord.
+models:
+  - "claude-opus-5"
+
+scenario_dir: "scenarios_w2"
+
+variants: []
+
+system_prompt_style: "policy_aware"
+
+generation:
+  # Recorded but NOT sent to Opus 5, which rejects temperature/top_p/top_k.
+  # Thinking is ON BY DEFAULT on Opus 5, and max_tokens caps thinking + response
+  # together -- hence the larger budget than the Opus 4.8 configs use.
+  temperature: 0.2
+  top_p: 0.9
+  max_tokens: 2000
+  seed: 42
+  think: false
+  format: null
+
+execution:
+  runs_per_variant: 1
+  parallel_model_calls: 1
+  timeout_seconds: 180
+
+# ombs run-multiturn --config configs/run.w2_pilot.yaml
+# 1 model x 2 scenarios x (1 opening + 5 pushback) = 12 calls

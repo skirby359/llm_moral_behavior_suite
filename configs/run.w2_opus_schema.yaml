@@ -1,0 +1,47 @@
+run_id: "w2_opus5_schema"
+provider: "anthropic"
+
+# CONDITION-IDENTITY ARM for the cross-vendor W2 comparison.
+#
+# outputs/w2_opus5_rep1..3 ran UNCONSTRAINED (`format: null`), because Opus 5
+# returns schema-valid JSON from the prompt alone. gpt-5.5 does not (probed: it
+# writes prose into the `recommended_action` enum), so its primary arm has to be
+# schema-constrained. That leaves the cross-vendor pair differing in two things
+# at once -- vendor AND output constraint -- which is exactly the confound this
+# repo keeps catching itself in.
+#
+# This run removes it: Opus 5 under the SAME constraint gpt-5.5 needs. Compare
+# against outputs/w2_gpt55_rep1..3.
+#
+# NOTE: `format` on the Anthropic provider was SILENTLY IGNORED until
+# 2026-08-04. A config like this one would previously have produced an
+# unconstrained run while claiming to be constrained. It now maps to
+# output_config.format (see providers/anthropic.py).
+models:
+  - "claude-opus-5"
+
+scenario_dir: "scenarios_w2"
+
+variants: []
+
+system_prompt_style: "policy_aware"
+
+generation:
+  # Recorded but NOT sent -- Opus 5 rejects temperature/top_p/top_k.
+  temperature: 0.2
+  top_p: 0.9
+  # Caps thinking + response together, as in the original pilot.
+  max_tokens: 2000
+  # Recorded only; the Anthropic API exposes no seed parameter, so repeats are
+  # independently sampled.
+  seed: 42
+  think: false
+  format: "schema"
+
+execution:
+  runs_per_variant: 1
+  parallel_model_calls: 1
+  timeout_seconds: 180
+
+# ombs run-multiturn --config configs/run.w2_opus_schema.yaml
+# 24 calls.

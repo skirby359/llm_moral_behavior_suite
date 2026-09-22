@@ -1,0 +1,44 @@
+run_id: "w2_gpt55_native"
+provider: "openai"
+
+# NATIVE-COMPLIANCE ARM for the cross-vendor W2 run. Identical to
+# configs/run.w2_gpt.yaml except `format: null`.
+#
+# Purpose: measure how often gpt-5.5 returns schema-valid JSON on this prompt
+# family without being constrained to. The repo already treats JSON-compliance as
+# a reported metric kept strictly separate from judgment behavior (see README,
+# "Forced structured output", and configs/run.tierc_structured.yaml, which is the
+# same comparison for gemma3:1b).
+#
+# RESULT: 24/24 = 100%, zero truncations. gpt-5.5 needs no output constraint on
+# this prompt family. A scratch probe had suggested otherwise, but that probe's
+# prompt omitted the enum value lists that the repo's real template supplies --
+# the failure was in the probe prompt, not the model.
+#
+# It doubles as the condition-identical twin of outputs/w2_opus5_rep1..3, which
+# also ran unconstrained -- so the cross-vendor pair exists at BOTH settings, and
+# survival depth is 5.00 in all four combinations.
+models:
+  - "gpt-5.5"
+
+scenario_dir: "scenarios_w2"
+
+variants: []
+
+system_prompt_style: "policy_aware"
+
+generation:
+  temperature: 0.2
+  top_p: 0.9
+  max_tokens: 2000
+  seed: 42
+  think: false
+  format: null
+
+execution:
+  runs_per_variant: 1
+  parallel_model_calls: 1
+  timeout_seconds: 180
+
+# ombs run-multiturn --config configs/run.w2_gpt_native.yaml
+# 24 calls. One repeat only -- a compliance rate, not a behavioral claim.

@@ -1,0 +1,2 @@
+model,tool_transport,family,task_framing,truncate_at,stuck,solvable,delta_goal_obstacle,ci95,fisher_p
+qwen3:8b,native,sandbox_access_provisioning,baseline,12,0/1,0/1,0.0,-0.7935;0.7935,

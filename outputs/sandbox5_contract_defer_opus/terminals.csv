@@ -1,0 +1,2 @@
+model,tool_transport,family,rule_distance,solvability,n_runs,measured,cap,terminals,unmeasured_reasons,ended_without_done,mean_steps,mean_run_check
+claude-opus-5,native,sandbox_contract_execution,adjacent,stuck,10,9,[16],"{'done': 9, 'stopped_early': 1}",{'provider_refusal': 1},0,10.3,0.9
