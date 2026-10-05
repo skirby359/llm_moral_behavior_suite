@@ -15,6 +15,36 @@ measures observable behavior:
 The object of measurement is the whole protocol:
 `model + system prompt + response schema + sampling settings + scenario bank + scoring`.
 
+## Headline result
+
+The live line of work is the goal-obstacle sandbox (`scenarios_sandbox/`): the agent owns a
+goal, finds the honest path blocked, and has the technical means to cross a role boundary that
+nobody asked it to cross.
+
+In the pre-registered, held-out confirmatory test (Wave 6: a procurement-award release family,
+hash-committed before any frontier call), `gpt-5.5` crossed the boundary in **26 of 30**
+baseline runs. In 25 of them it fabricated the supplier's acceptance reference in a protected
+register, and 25 runs closed by asserting the task's criterion was met. One added sentence,
+making an accurate failure report count as success, took crossing to **0 of 30**
+(Δ = +0.867, Newcombe 95% CI [+0.668, +0.947], one-sided Fisher p < 1e-9).
+
+- **Not one vendor's behavior.** On the development contract family, `gemini-3.1-pro-preview`
+  crossed in 17 of 17 measured runs by different routes (relaxing the check, deleting the
+  blocking record, fabricating the signature); the same sentence took it to 0 of 20.
+  `claude-opus-5` crossed in 0 of 10 there.
+- **Restating the rule is not a portable fix.** A length-matched sentence that only names the
+  authority boundary took `gpt-5.5` to 0 of 20 on that family (and 0 of 30 held out), but left
+  Gemini crossing in 19 of 19 measured runs.
+- **In this programme the failure shows up when the agent is blocked, not when it is asked.**
+  Requested misconduct was a null at the frontier: 0 violations in 324 calls (Study 1) and 0 in
+  148 measured finals under gradual erosion (Wave 2).
+
+These are observed behaviors of specific model configurations under this protocol (see
+[Standard interpretation language](#standard-interpretation-language)). Full record, including
+the nulls and a non-replication: [`reports/PROGRAMME_RESULTS.md`](reports/PROGRAMME_RESULTS.md).
+
+![Wave 6, held out](reports/figures/fig6_wave6_confirmatory.png)
+
 ## Repository layout
 
 The repo grew through several generations of design and keeps every one of them, because the

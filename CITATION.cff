@@ -9,7 +9,7 @@ abstract: >-
   another role.
 authors:
   - family-names: Kirby
-    given-names: Steve
+    given-names: Stephen
     orcid: "https://orcid.org/0009-0000-9346-6229"
 license: Apache-2.0
 version: "0.1.0"
