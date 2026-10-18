@@ -1308,7 +1308,10 @@ SandboxSessionLimit = Literal["off", "on"]
 #: `authority_salience` is the placebo for `compliant_failure`: a length-matched sentence that
 #: mentions legitimate authority WITHOUT legitimising an accurate failure report. It separates
 #: "a compliant-failure terminal works" from "any sentence about authority works".
-SandboxTaskFraming = Literal["baseline", "compliant_failure", "authority_salience"]
+#: `neutral_filler` (added 7 October 2026, PREREG_CONTROLS.md) is a length-matched, semantically
+#: inert sentence from scenarios_sandbox/framing_controls.yaml, appended in the same position as the
+#: two framing sentences. It separates "any added sentence reduces crossing" from "this content does".
+SandboxTaskFraming = Literal["baseline", "compliant_failure", "authority_salience", "neutral_filler"]
 #: With `defer_available: on` the agent has a neutral way to stop that is not a declaration of
 #: failure. The core replication runs at `off`, architecturally identical to the first family.
 SandboxDeferAvailable = Literal["off", "on"]

@@ -149,7 +149,7 @@ def load_erosion_scenarios_from_dir(scenario_dir: str | Path) -> list[ErosionSce
 #: Support files that live beside the sandbox scenarios but are not scenarios and must not be
 #: validated as one. Kept explicit (not a heuristic on file contents) so a genuinely malformed
 #: scenario still surfaces as an error rather than being silently skipped.
-NON_SCENARIO_YAML: frozenset[str] = frozenset({"framing_paraphrases.yaml"})
+NON_SCENARIO_YAML: frozenset[str] = frozenset({"framing_paraphrases.yaml", "framing_controls.yaml"})
 
 
 def load_sandbox_scenarios_from_dir(scenario_dir: str | Path) -> list[SandboxScenario]:

@@ -536,6 +536,61 @@ THEORETICAL_TAXONOMY — or "prior AI work" / "venue".
 
 ---
 
+### 31 · Soares, Fallenstein, Yudkowsky & Armstrong 2015 — Corrigibility
+- Nate Soares, Benja Fallenstein, Eliezer Yudkowsky (MIRI), Stuart Armstrong (FHI, Oxford).
+  **Corrigibility.** AAAI Workshops: Workshops at the Twenty-Ninth AAAI Conference on Artificial
+  Intelligence (AI and Ethics), Austin TX, 25–26 Jan 2015.
+- https://intelligence.org/files/Corrigibility.pdf
+- Saved: not saved (title page read 5 Oct 2026; author order and venue line confirmed from it).
+- Class: prior AI work (conceptual).
+- Claims checked — defines a corrigible system as one that cooperates with corrective
+  intervention despite default incentives to resist: **supported** (abstract). Cited for the
+  sense of the word only.
+
+### 32 · Hadfield-Menell, Dragan, Abbeel & Russell 2017 — The Off-Switch Game
+- Dylan Hadfield-Menell, Anca Dragan, Pieter Abbeel, Stuart Russell. **The Off-Switch Game.**
+  IJCAI 2017; arXiv:1611.08219 (v1 24 Nov 2016, v3 16 Jun 2017).
+- https://arxiv.org/abs/1611.08219
+- Saved: not saved (arXiv abstract page read 5 Oct 2026).
+- Class: prior AI work (formal model).
+- Claims checked — formalises an agent's incentive to preserve a human off-switch as a function of
+  its uncertainty about the objective: **supported** (abstract). Cited for the sense of deference only.
+
+### 33 · Millidge 2026 — Mitigating Reward Hacking as Institutional Design
+- Beren Millidge. **Mitigating Reward Hacking as Institutional Design.** Essay, beren.io,
+  17 Aug 2026; LessWrong cross-post, Sep 2026.
+- https://www.beren.io/2026-08-17-Mitigating-Reward-Hacking-as-Institutional-Design/ ;
+  https://www.lesswrong.com/posts/tgcooi77NXMquCR5L/mitigating-reward-hacking-as-institutional-design
+- Saved: not saved (located and read via search summary 5 Oct 2026).
+- Class: essay, not peer-reviewed.
+- Claims checked — an unwinnable task leaves reward hacking as the only option: **supported**
+  ("Allow rights of appeal to avoid unwinnable situations"). Proposes a right of appeal as an
+  institutional mechanism: **supported**. The paper cites it as the closest proposed mechanism to
+  the compliant-failure terminal and does not claim it was tested there.
+
+### 34 · Slocum, Palan, Chute, Kim & Van Roy 2026 — OpenAI-HuggingFace reproduction
+- Stewart Slocum, Malayandi Palan, Christopher Chute, Michael Kim, Benjamin Van Roy.
+  **OpenAI-HuggingFace: A Reproduction & Lessons for Alignment Testing.** arXiv:2609.35799 v1,
+  18 Sep 2026; LessWrong post + appendix "Reproduction of the OpenAI-HuggingFace Incident",
+  11 Sep 2026.
+- https://arxiv.org/abs/2609.35799 ;
+  https://www.lesswrong.com/posts/mXPCpJCvFGybQ4mwc/appendix-reproduction-of-the-openai-huggingface-incident
+- Saved: not saved (arXiv abstract page and LessWrong appendix read 5 Oct 2026).
+- Class: prior AI work (reproduction), not peer-reviewed.
+- Claims checked — reproduces the incident with public models in a simulated pipeline:
+  **supported**. Impossible data-retrieval tasks led agents to probe and exploit unintended
+  affordances (SSRF against the package manager, shared-infrastructure probes): **supported**
+  (appendix). Does not vary an authorized failure state: not claimed by them; our contrast.
+
+### 35 · Hawk 2026 — Towards Alignment Auditing for RL Environments
+- Dylan Hawk. **Towards Alignment Auditing for RL Environments.** LessWrong, 18 Sep 2026.
+- https://www.lesswrong.com/posts/5FLMDXnJycHRRrsnx/towards-alignment-auditing-for-rl-environments
+- Saved: not saved (read via search summary 5 Oct 2026).
+- Class: essay, not peer-reviewed.
+- Claims checked — argues environments should be audited for impossible tasks because agents break
+  the task to obtain a passing grade: **supported** (the "Impossible Task" example with write
+  permission disabled). Cited for that point only.
+
 ## B. Where the project documents overstate, and what to change
 
 1. **Jiang & Tang call pressure isolation "preliminary."** Do not cite it as a validated

@@ -95,6 +95,37 @@ def frozen_families(scenario_dir: str | Path) -> dict[str, dict]:
 
 
 FRAMING_BANK_NAME = "framing_paraphrases.yaml"
+CONTROLS_BANK_NAME = "framing_controls.yaml"
+
+
+def resolve_controls_bank(config: SandboxRunConfig, scenarios: list[SandboxScenario],
+                          scenario_dir: str | Path) -> dict | None:
+    """Validate and load the control-sentence bank for a run that samples ``neutral_filler``
+    (PREREG_CONTROLS.md). Returns ``None`` unless that framing is requested, so nothing changes for
+    any other config. The bank is pinned to the family through ``applies_to`` and frozen by hash in
+    frozen_families.json; the rendered sentence and its SHA-256 are recorded in freeze.json."""
+    if "neutral_filler" not in config.task_framing:
+        return None
+    path = Path(scenario_dir) / CONTROLS_BANK_NAME
+    if not path.exists():
+        raise ValueError(f"task_framing neutral_filler requested but no bank at {path}")
+    raw = path.read_bytes()
+    bank = yaml.safe_load(raw.decode("utf-8")) or {}
+    applies = set(bank.get("applies_to") or [])
+    for scenario in scenarios:
+        if scenario.id not in applies:
+            raise ValueError(
+                f"control bank does not apply to {scenario.id!r} (applies_to={sorted(applies)})"
+            )
+    sentence = (bank.get("neutral_filler") or {}).get("filler1")
+    if not sentence:
+        raise ValueError(f"neutral_filler.filler1 missing from {path}")
+    return {
+        "path": str(path.relative_to(Path.cwd())) if path.is_absolute() else str(path),
+        "sha256": sha256_bytes(raw),
+        "version": bank.get("version"),
+        "rendered": {"neutral_filler": {"text": sentence, "sha256": sha256_text(sentence)}},
+    }
 
 
 def resolve_framing_bank(config: SandboxRunConfig, scenarios: list[SandboxScenario],
@@ -155,6 +186,8 @@ def framing_addendum_for(cell: SandboxCell, scenario: SandboxScenario,
     the cell is a non-canonical compliant-failure variant."""
     if cell.task_framing == "compliant_failure" and cell.framing_variant != "canonical":
         return (bank or {}).get("rendered", {}).get(cell.framing_variant, {}).get("text")
+    if cell.task_framing == "neutral_filler":
+        return ((bank or {}).get("controls") or {}).get("rendered", {}).get("neutral_filler", {}).get("text")
     return {
         "compliant_failure": scenario.task_compliant_failure_addendum,
         "authority_salience": scenario.task_authority_salience_addendum,
@@ -315,6 +348,10 @@ def run_sandbox(config: SandboxRunConfig, output_dir: str | Path | None = None, 
     scenarios = select_sandbox_scenarios(config, allow_frozen=allow_frozen)
     cells = cells_from_config(config)
     framing_bank = resolve_framing_bank(config, scenarios, config.scenario_dir or "scenarios_sandbox")
+    controls_bank = resolve_controls_bank(config, scenarios, config.scenario_dir or "scenarios_sandbox")
+    if controls_bank:
+        # recorded in freeze.json beside any paraphrase bank, under its own key
+        framing_bank = {**(framing_bank or {}), "controls": controls_bank}
     transport = config.tool_transport
 
     provider = get_provider(config.provider)

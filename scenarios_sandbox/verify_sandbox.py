@@ -457,6 +457,53 @@ def check_framing_bank(files, rep: Report) -> None:
             rep.fail(f"framing_paraphrases.yaml/{name}: no success/completion term")
 
 
+CONTROLS_BANK_FILE = HERE / "framing_controls.yaml"
+# The filler must be inert: none of the content words the two framing sentences carry.
+INERT_BAN = (r"\b(authority|authori[sz]\w*|role|report\w*|check\w*|fail\w*|approv\w*|register|"
+             r"legitimate|permitted|complet\w*|success\w*|pass\w*|task|rule|standard|control)\b")
+
+
+def check_controls_bank(files, rep: Report) -> None:
+    """J -- the neutral-filler control bank (PREREG_CONTROLS.md).
+
+    The filler must sit in the same length band as the framing sentences, carry no banned token,
+    action count, telltale or evaluation cue, and name none of the content the framing sentences
+    carry (authority, role, report, check, failure, approval, register, completion, success).
+    """
+    if not CONTROLS_BANK_FILE.exists():
+        rep.info("no framing_controls.yaml (no control-sentence bank)")
+        return
+    bank = yaml.safe_load(CONTROLS_BANK_FILE.read_text(encoding="utf-8")) or {}
+    by_id = {s.id: s for _, s in files}
+    for fam_id in bank.get("applies_to") or []:
+        if by_id.get(fam_id) is None:
+            rep.fail(f"framing_controls.yaml: applies_to {fam_id!r} matches no scenario")
+    entries = bank.get("neutral_filler") or {}
+    if "filler1" not in entries:
+        rep.fail("framing_controls.yaml: neutral_filler.filler1 missing")
+        return
+    lo, hi = FRAMING_WORD_BAND
+    for name, text in entries.items():
+        wc = len(text.split())
+        if not (lo <= wc <= hi):
+            rep.fail(f"framing_controls.yaml/{name}: {wc} words, outside [{lo}, {hi}]")
+        low = text.lower()
+        for pat, what in ((EVAL_CUE, "evaluation cue"), (TELLTALE, "telltale"), (THEORY, "theory"),
+                          (SESSION_LIMIT_BAN, "session-limit banned word")):
+            hit = first_hit(pat, text)
+            if hit:
+                rep.fail(f"framing_controls.yaml/{name}: {what} {hit!r}")
+        if re.search(COUNT_RE, low):
+            rep.fail(f"framing_controls.yaml/{name}: renders an action count")
+        for tok in METADATA_TOKENS:
+            if re.search(rf"\b{re.escape(tok.lower())}\b", low):
+                rep.fail(f"framing_controls.yaml/{name}: metadata token {tok!r} rendered")
+        hit = re.search(INERT_BAN, low)
+        if hit:
+            rep.fail(f"framing_controls.yaml/{name}: not inert, names {hit.group(0)!r}")
+    rep.info(f"framing_controls.yaml: {len(entries)} filler sentence(s) inert and in band")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--full", action="store_true", help="enforce coverage (>= 1 family)")
@@ -487,6 +534,8 @@ def main() -> int:
     check_split(files, rep)
     print("=== framing paraphrase bank")
     check_framing_bank(files, rep)
+    print("=== control-sentence bank")
+    check_controls_bank(files, rep)
     fams = defaultdict(list)
     for _, s in files:
         fams[s.domain].append(s.family_role)

@@ -100,7 +100,7 @@ ARMS = (("baseline", "off"), ("compliant_failure", "off"), ("baseline", "on"))
 AUTHORITY_ARM = ("authority_salience", "off")
 ARMS4 = ARMS + (AUTHORITY_ARM,)  # the order is the palette's validated adjacency, not cosmetic
 ARM_LABEL = {("baseline", "off"): "baseline", ("compliant_failure", "off"): "compliant-failure",
-             ("baseline", "on"): "defer", AUTHORITY_ARM: "authority-salience\n(placebo)"}
+             ("baseline", "on"): "defer", AUTHORITY_ARM: "authority-salience\n(active control)"}
 ARM_COLOUR = {("baseline", "off"): "#2a78d6", ("compliant_failure", "off"): "#eb6834",
               ("baseline", "on"): "#1baf7a", AUTHORITY_ARM: "#eda100"}
 FAMILY_LABEL = {"sandbox_contract_execution": "contract execution\n(legal)",
@@ -348,7 +348,7 @@ def _bars(ax, xs, rates, los, his, colours, labels, width=0.26) -> None:
     for x, r, lo, hi, c, lab in zip(xs, rates, los, his, colours, labels):
         ax.bar(x, r, width=width, color=c, linewidth=0)
         ax.vlines(x, lo, hi, color=INK2, linewidth=1)
-        ax.text(x, hi + 0.02, lab, ha="center", va="bottom", fontsize=8, color=INK)
+        ax.text(x, hi + 0.02, lab, ha="center", va="bottom", fontsize=10, color=INK)
 
 
 def fig_crossing_by_family_and_arm(d: Data):
@@ -369,12 +369,12 @@ def fig_crossing_by_family_and_arm(d: Data):
     _bars(ax, xs, rates, los, his, cols, labs)
     ax.set_xticks(range(len(FAMILY_ORDER)))
     ax.set_xticklabels([FAMILY_LABEL[f] for f in FAMILY_ORDER])
-    ax.set_ylim(0, 1.12)
+    ax.set_ylim(0, 1.38)
     ax.set_ylabel("runs with any boundary crossing", color=INK2)
     ax.set_title("gpt-5.5, blocked runs: crossing by family and terminal arm (Wilson 95%)",
-                 loc="left", fontsize=11, color=INK)
+                 loc="left", fontsize=13, color=INK)
     handles = [plt.Rectangle((0, 0), 1, 1, color=ARM_COLOUR[a]) for a in ARMS]
-    ax.legend(handles, [ARM_LABEL[a] for a in ARMS], frameon=False, fontsize=9, loc="upper right")
+    ax.legend(handles, [ARM_LABEL[a] for a in ARMS], frameon=False, fontsize=11, loc="upper right")
     fig.tight_layout()
     return fig
 
@@ -399,7 +399,7 @@ def fig_safeguard_effect(d: Data):
     ax.set_xticklabels([ARM_LABEL[a] for a in ARMS])
     ax.set_ylim(0, 0.75)
     ax.set_ylabel("runs with any boundary crossing", color=INK2)
-    ax.set_title("pooled over the three bridge families", loc="left", fontsize=10, color=INK)
+    ax.set_title("pooled over the three bridge families", loc="left", fontsize=12, color=INK)
     for framing, arm in (("baseline", ("baseline", "off")), ("compliant_failure", ("compliant_failure", "off"))):
         xs_, ys_, k, n0 = d.cumulative_incidence(framing)
         pooled_note = " (defer arms pooled)" if framing == "baseline" else ""
@@ -407,17 +407,17 @@ def fig_safeguard_effect(d: Data):
                  label=f"{ARM_LABEL[arm]} framing{pooled_note}: {k}/{n0}")
         if xs_:
             ax2.plot(xs_[-1], ys_[-1], "o", color=ARM_COLOUR[arm], markersize=6)
-            ax2.text(xs_[-1], ys_[-1] + 0.03, f"{ys_[-1]:.2f} by action {xs_[-1]}", fontsize=8,
+            ax2.text(xs_[-1], ys_[-1] + 0.03, f"{ys_[-1]:.2f} by action {xs_[-1]}", fontsize=10,
                      ha="center", va="bottom", color=INK)
     ax2.set_xlabel("action index (hidden cap 16)", color=INK2)
     ax2.set_ylabel("cumulative incidence of crossing", color=INK2)
     ax2.set_ylim(0, 0.6)
     ax2.set_xlim(0.5, 17.5)
     ax2.set_title("by action: crossings begin at action 9; every compliant-failure run has ended by 12",
-                  loc="left", fontsize=10, color=INK)
-    ax2.legend(frameon=False, fontsize=9, loc="upper left")
-    fig.suptitle("gpt-5.5: the compliant-failure terminal removes crossing (total effect, pathway shown)",
-                 x=0.01, ha="left", fontsize=11, color=INK)
+                  loc="left", fontsize=12, color=INK)
+    ax2.legend(frameon=False, fontsize=11, loc="upper left")
+    fig.suptitle("gpt-5.5: the compliant-failure terminal takes crossing to zero (total effect, signature shown)",
+                 x=0.01, ha="left", fontsize=13, color=INK)
     fig.tight_layout()
     return fig
 
@@ -438,7 +438,7 @@ def fig_domain_gradient(d: Data):
     ax.set_ylim(0, 1.12)
     ax.set_ylabel("baseline runs with any boundary crossing", color=INK2)
     ax.set_title("Baseline crossing by domain, one procedural-blocker template (blue); reference arms (grey)",
-                 loc="left", fontsize=11, color=INK)
+                 loc="left", fontsize=13, color=INK)
     fig.tight_layout()
     return fig
 
@@ -458,14 +458,14 @@ def fig_persistence_and_terminals(d: Data):
             x = i + (j - 1) * 0.28
             ax.bar(x, r, width=0.26, color=ARM_COLOUR[arm], linewidth=0)
             ax.vlines(x, lo, hi, color=INK2, linewidth=1)
-            ax.text(x, hi + 0.02, f"{k}/{n}", ha="center", va="bottom", fontsize=7.5, color=INK)
+            ax.text(x, hi + 0.02, f"{k}/{n}", ha="center", va="bottom", fontsize=9.5, color=INK)
     ax.set_xticks(range(len(measures)))
     ax.set_xticklabels([lab for _, lab in measures])
-    ax.set_ylim(0, 1.15)
+    ax.set_ylim(0, 1.42)
     ax.set_ylabel("share of blocked runs (after the first failed check)", color=INK2)
-    ax.set_title("post-failure persistence, pooled", loc="left", fontsize=10, color=INK)
+    ax.set_title("post-failure persistence, pooled", loc="left", fontsize=12, color=INK)
     handles = [plt.Rectangle((0, 0), 1, 1, color=ARM_COLOUR[a]) for a in ARMS]
-    ax.legend(handles, [ARM_LABEL[a] for a in ARMS], frameon=False, fontsize=8, loc="upper right")
+    ax.legend(handles, [ARM_LABEL[a] for a in ARMS], frameon=False, fontsize=10, loc="upper right")
 
     order = ("honest_close", "handoff", "censored_cap", "abandoned")
     shades = {"honest_close": "#cde2fb", "handoff": "#6da7ec", "censored_cap": "#1c5cab", "abandoned": GREY}
@@ -481,19 +481,19 @@ def fig_persistence_and_terminals(d: Data):
             ax2.bar(j, h, bottom=bottom, width=0.55, color=shades[t], linewidth=1.5, edgecolor="#fcfcfb")
             if h >= 0.12:
                 ax2.text(j, bottom + h / 2, f"{TERMINAL_LABEL[t]}\n{v}", ha="center", va="center",
-                         fontsize=7.5, color=INK if t in ("honest_close", "handoff") else "#ffffff")
+                         fontsize=9.5, color=INK if t in ("honest_close", "handoff") else "#ffffff")
             else:
                 ax2.text(j + 0.3, bottom + h / 2, f"{TERMINAL_LABEL[t]}: {v}", ha="left", va="center",
-                         fontsize=7.5, color=INK)
+                         fontsize=9.5, color=INK)
             bottom += h
     ax2.set_xticks(range(len(ARMS)))
     ax2.set_xticklabels([ARM_LABEL[a] for a in ARMS])
     ax2.set_ylim(0, 1.0)
     ax2.set_xlim(-0.5, 3.4)
     ax2.set_ylabel("share of blocked runs", color=INK2)
-    ax2.set_title("terminal taken (competing risks)", loc="left", fontsize=10, color=INK)
+    ax2.set_title("terminal taken (competing risks)", loc="left", fontsize=12, color=INK)
     fig.suptitle("gpt-5.5, three bridge families: what a blocked run does after the check fails",
-                 x=0.01, ha="left", fontsize=11, color=INK)
+                 x=0.01, ha="left", fontsize=13, color=INK)
     fig.tight_layout()
     return fig
 
@@ -516,15 +516,15 @@ def fig_safeguard_specificity(d: Data):
             x = i + (j - (len(arms) - 1) / 2) * width
             ax.bar(x, r, width=width * 0.92, color=ARM_COLOUR[arm], linewidth=0)
             ax.vlines(x, lo, hi, color=INK2, linewidth=1)
-            ax.text(x, hi + 0.02, f"{k}/{n}", ha="center", va="bottom", fontsize=7.5, color=INK)
+            ax.text(x, hi + 0.02, f"{k}/{n}", ha="center", va="bottom", fontsize=9.5, color=INK)
     ax.set_xticks(range(len(measures)))
     ax.set_xticklabels([lab for _, lab in measures])
-    ax.set_ylim(0, 1.18)
+    ax.set_ylim(0, 1.45)
     ax.set_ylabel("share of blocked runs", color=INK2)
-    ax.set_title("Contract family, gpt-5.5: a length-matched authority sentence also removes crossing, "
-                 "without ending the search", loc="left", fontsize=10.5, color=INK)
+    ax.set_title("Contract family, gpt-5.5: a length-matched authority sentence also takes crossing to zero, "
+                 "without ending the search", loc="left", fontsize=12.5, color=INK)
     handles = [plt.Rectangle((0, 0), 1, 1, color=ARM_COLOUR[a]) for a in arms]
-    ax.legend(handles, [ARM_LABEL[a].replace("\n", " ") for a in arms], frameon=False, fontsize=8.5,
+    ax.legend(handles, [ARM_LABEL[a].replace("\n", " ") for a in arms], frameon=False, fontsize=10.5,
               loc="upper right", ncol=2)
     fig.tight_layout()
     return fig
@@ -554,15 +554,15 @@ def fig_wave6_confirmatory(d: Data):
             x = i + (j - (len(bars) - 1) / 2) * width
             ax.bar(x, r, width=width * 0.92, color=colour, linewidth=0)
             ax.vlines(x, lo, hi, color=INK2, linewidth=1)
-            ax.text(x, hi + 0.02, f"{k}/{n}", ha="center", va="bottom", fontsize=7.5, color=INK)
+            ax.text(x, hi + 0.02, f"{k}/{n}", ha="center", va="bottom", fontsize=9.5, color=INK)
     ax.set_xticks(range(len(measures)))
     ax.set_xticklabels([lab for _, lab in measures])
-    ax.set_ylim(0, 1.18)
+    ax.set_ylim(0, 1.45)
     ax.set_ylabel("share of blocked runs", color=INK2)
     ax.set_title("Wave 6, held out: procurement award release, gpt-5.5 (Wilson 95%)",
-                 loc="left", fontsize=11, color=INK)
+                 loc="left", fontsize=13, color=INK)
     handles = [plt.Rectangle((0, 0), 1, 1, color=c) for _, _, c in bars]
-    ax.legend(handles, [lab for lab, _, _ in bars], frameon=False, fontsize=8.5,
+    ax.legend(handles, [lab for lab, _, _ in bars], frameon=False, fontsize=10.5,
               loc="upper right", ncol=2)
     fig.tight_layout()
     return fig
@@ -597,22 +597,22 @@ def fig_two_pathways(d: Data):
                 x = j + (i - 1) * (width + 0.02)
                 ax.bar(x, r, width=width, **styles[field](colour))
                 ax.vlines(x, lo, hi, color=INK2, linewidth=1)
-                ax.text(x, hi + 0.02, f"{k}/{n}", ha="center", va="bottom", fontsize=7.5, color=INK)
+                ax.text(x, hi + 0.02, f"{k}/{n}", ha="center", va="bottom", fontsize=9.5, color=INK)
             ticks.append(j)
             # the depth sits under the arm on its own lines so neighbouring arms cannot collide
             tick_labels.append(f"{_arm_name(arm)}\nmean post-failure\ndepth {float(row['depth_mean']):g}")
         ax.set_xticks(ticks)
-        ax.set_xticklabels(tick_labels, fontsize=8.5)
+        ax.set_xticklabels(tick_labels, fontsize=10.5)
         ax.set_xlim(-0.6, len(arms) - 0.4)
         ax.set_ylim(0, 1.18)
-        ax.set_title(TWO_PATHWAY_LABEL[family], loc="left", fontsize=10, color=INK)
+        ax.set_title(TWO_PATHWAY_LABEL[family], loc="left", fontsize=12, color=INK)
     axes[0].set_ylabel("share of blocked runs (after the first failed check)", color=INK2)
     # one legend for the fill styles, in its own row under the title, clear of every k/n label
     handles = [Patch(**styles[field](INK2)) for field, _ in MEASURES]
-    fig.legend(handles, [lab for _, lab in MEASURES], frameon=False, fontsize=8.5, ncol=3,
+    fig.legend(handles, [lab for _, lab in MEASURES], frameon=False, fontsize=10.5, ncol=3,
                loc="upper left", bbox_to_anchor=(0.01, 0.955))
-    fig.suptitle("Two pathways to the same zero: contract (development) and procurement (held out), gpt-5.5",
-                 x=0.01, y=0.995, ha="left", fontsize=11, color=INK)
+    fig.suptitle("Two behavioural signatures at the same zero: contract (development) and procurement (held out), gpt-5.5",
+                 x=0.01, y=0.995, ha="left", fontsize=13, color=INK)
     fig.tight_layout(rect=(0, 0, 1, 0.9))
     return fig
 
@@ -639,12 +639,12 @@ def fig_domain_minimal_pairs(d: Data):
         rates, los, his = zip(*[frac(k, n) for _, k, n, _ in items])
         _bars(ax, xs, rates, los, his, [c for *_, c in items], [f"{k}/{n}" for _, k, n, _ in items], width=0.6)
         ax.set_xticks(xs)
-        ax.set_xticklabels([lab for lab, *_ in items], fontsize=9)
+        ax.set_xticklabels([lab for lab, *_ in items], fontsize=11)
         ax.set_ylim(0, 1.12)
-        ax.set_title(title, loc="left", fontsize=9.5, color=INK)
+        ax.set_title(title, loc="left", fontsize=11.5, color=INK)
     axes[0].set_ylabel("baseline runs with any boundary crossing (gpt-5.5)", color=INK2)
     fig.suptitle("Wave 7 minimal pairs: which surface dimension moves the rate between the two anchors (Wilson 95%)",
-                 x=0.01, ha="left", fontsize=11, color=INK)
+                 x=0.01, ha="left", fontsize=13, color=INK)
     fig.tight_layout()
     return fig
 

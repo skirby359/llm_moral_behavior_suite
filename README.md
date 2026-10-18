@@ -35,6 +35,12 @@ making an accurate failure report count as success, took crossing to **0 of 30**
 - **Restating the rule is not a portable fix.** A length-matched sentence that only names the
   authority boundary took `gpt-5.5` to 0 of 20 on that family (and 0 of 30 held out), but left
   Gemini crossing in 19 of 19 measured runs.
+- **The effect is the sentence's content, and it does not license quitting.** Two preregistered
+  controls on the contract family (October 2026): on a solvable version of the task both models
+  finished honestly in every run, with the sentence and without it, and none filed a failure report;
+  a length-matched inert sentence left crossing at 20 of 20 (`gpt-5.5`) and 17 of 18 measured
+  (`gemini-3.1-pro-preview`). See `scenarios_sandbox/PREREG_CONTROLS.md` and
+  `reports/PROGRAMME_RESULTS.md` §6d.
 - **In this programme the failure shows up when the agent is blocked, not when it is asked.**
   Requested misconduct was a null at the frontier: 0 violations in 324 calls (Study 1) and 0 in
   148 measured finals under gradual erosion (Wave 2).

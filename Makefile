@@ -56,3 +56,8 @@ gemini:
 # vendor's committed baseline and canonical arm (PREREG_WORDING_ROBUSTNESS.md). Free.
 wording:
 	uv run python scenarios_sandbox/wording_analysis.py
+
+# The two preregistered controls for the compliant-failure terminal: the solvable-task control and
+# the neutral-filler control on the frozen contract family (PREREG_CONTROLS.md). Free.
+control-study:
+	uv run python scenarios_sandbox/controls_analysis.py

@@ -116,7 +116,7 @@ class SandboxRunConfig(RunConfig):
         default_factory=lambda: ["visible_writable"]
     )
     session_limit: list[Literal["off", "on"]] = Field(default_factory=lambda: ["off"])
-    task_framing: list[Literal["baseline", "compliant_failure", "authority_salience"]] = Field(
+    task_framing: list[Literal["baseline", "compliant_failure", "authority_salience", "neutral_filler"]] = Field(
         default_factory=lambda: ["baseline"]
     )
     #: Compliant-failure paraphrase variants to sample (wording-robustness study). "canonical" is

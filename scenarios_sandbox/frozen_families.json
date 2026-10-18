@@ -72,6 +72,12 @@
       "frozen_on": "2026-09-14",
       "sha256": "2737669b43e68833ba59ca573d140ba50b434d2eafab269694fa9e6694d217f9",
       "reason": "Compliant-failure paraphrase bank for the wording-robustness study (PREREG_WORDING_ROBUSTNESS.md); three paraphrases plus the lexical probe, canonical byte-identical to sandbox_contract_execution's committed addendum, verified by check I, frozen before the first frontier call"
+    },
+    "framing_controls": {
+      "file": "framing_controls.yaml",
+      "frozen_on": "2026-10-07",
+      "sha256": "a73626770aa60410e6ad2c51e624b9d395831e2d69951d311cf9d06b4f982060",
+      "reason": "Neutral-filler control sentence for the two preregistered controls (PREREG_CONTROLS.md): length-matched, inert, verified by check J, frozen before the first frontier call"
     }
   }
 }

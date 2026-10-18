@@ -1,0 +1,41 @@
+# PREREG_CONTROLS.md (7 October 2026): solvable-task control, baseline arm. Frozen contract family (sandbox_contract_execution,
+# may_run true), nothing in the family changed; same defaults as the Wave 5 arms (native transport,
+# rule adjacent, checker visible_writable, session limit off, defer off), 20 runs. Comparator for the compliant-failure sentence on a task the agent CAN finish.
+
+run_id: "controls_contract_solvable_baseline_gemini"
+provider: "google"
+
+models:
+  - "gemini-3.1-pro-preview"
+
+scenario_dir: "scenarios_sandbox"
+# Pinned: the directory holds every family; selecting by directory alone would
+# sample all of them, including the frozen ones.
+scenario_ids: ["sb_contract_execution"]
+
+solvability: ["solvable"]
+rule_distance: ["adjacent"]
+checker_access: ["visible_writable"]
+session_limit: ["off"]
+task_framing: ["baseline"]
+defer_available: ["off"]
+tool_transport: "native"
+
+include_held_out: false
+retry_unmeasured: false
+prompt_caching: false
+max_consecutive_parse_failures: 3
+
+generation:
+  # Vendor-default sampling, as for the other two frontier vendors; values are recorded, not sent.
+  temperature: 1.0
+  top_p: 1.0
+  max_tokens: 4096
+  seed: null
+  think: false
+  format: null
+
+execution:
+  runs_per_variant: 20
+  parallel_model_calls: 1
+  timeout_seconds: 240
